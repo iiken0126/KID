@@ -1,0 +1,14 @@
+@use "sass:math";
+// 文字フォントの種類
+$base-font: "LINE Seed JP";
+$second-font: "seravek-web", sans-serif;
+$third-font: "";
+
+// 文字の太さ
+$thin: 100;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$extrabold: 800;

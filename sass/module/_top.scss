@@ -24,11 +24,11 @@
 
 .fixed-btn__wrap {
   position: fixed;
-  @include fs.pc-size(right, 32);
   bottom: calc(fs.fpc(24) + env(safe-area-inset-bottom));
   display: flex;
-  @include fs.pc-size(gap, 8);
   z-index: 999;
+  @include fs.pc-size(right, 32);
+  @include fs.pc-size(gap, 8);
 
   @include mq("md") {
     left: 50%;
@@ -69,9 +69,9 @@
   white-space: nowrap;
   z-index: 1;
   color: #fff;
-  @include fs.pc-size(font-size, 18);
   font-weight: $bold;
   text-shadow: 0 0 fs.fpc(5) rgba(0, 0, 0, 0.25);
+  @include fs.pc-size(font-size, 18);
 }
 
 .fixed-btn__link:hover,
@@ -83,9 +83,9 @@
   // width: 200px;
   // height: 53px;
   position: relative;
-  @include fs.pc-size(padding, 12 64);
   // background: linear-gradient(90deg, #FBC501 0%, #E94820 100%);
   transition: linear-gradient 0.3s;
+  @include fs.pc-size(padding, 12 64);
   @include fade-overlay(
     linear-gradient(90deg, #fbc501 0%, #e94820 100%),
     fs.fpc(60)
@@ -158,8 +158,8 @@ body::before {
 
 .fv__title {
   position: relative;
-  @include fs.pc-size(width, 688);
   z-index: 20;
+  @include fs.pc-size(width, 688);
 
   @include mq("md") {
     @include fs.sp-size(width, 342);
@@ -169,20 +169,20 @@ body::before {
 .fv__subtitle {
   position: relative;
   display: inline-block;
-  @include fs.pc-size(font-size, 28);
   font-weight: $bold;
   line-height: 150%;
   background: linear-gradient(90deg, #00a0e9 -102.65%, #0068b7 483.21%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  z-index: 20;
+  @include fs.pc-size(font-size, 28);
   @include fs.pc-size(margin-top, 31);
   @include fs.pc-size(margin-left, 33);
-  z-index: 20;
 
   @include mq("md") {
-    @include fs.sp-size(font-size, 21);
     margin-left: unset;
+    @include fs.sp-size(font-size, 21);
     @include fs.sp-size(margin-top, 34);
   }
 }
@@ -190,29 +190,29 @@ body::before {
 .fv__subtitle::before {
   position: absolute;
   content: "";
+  background-color: $blue;
   @include fs.pc-size(width, 62);
   @include fs.pc-size(height, 2);
-  background-color: $blue;
   @include fs.pc-size(right, -69);
   @include fs.pc-size(top, 60);
 
   @include mq("md") {
+    right: 0;
     @include fs.sp-size(width, 94);
     @include fs.sp-size(top, 75);
-    right: 0;
   }
 }
 
 .fv__date {
   position: relative;
+  z-index: 20;
   @include fs.pc-size(width, 491.89);
   @include fs.pc-size(margin-top, 64);
   @include fs.pc-size(margin-left, 33);
-  z-index: 20;
 
   @include mq("md") {
-    @include fs.sp-size(width, 342);
     margin-left: unset;
+    @include fs.sp-size(width, 342);
     @include fs.sp-size(margin-top, 37);
   }
 }
@@ -221,8 +221,8 @@ body::before {
   position: fixed;
   top: 0;
   right: 0;
-  @include fs.pc-size(width, 795);
   z-index: 2;
+  @include fs.pc-size(width, 795);
 
   @include mq("md") {
     @include fs.sp-size(width, 280);
@@ -232,12 +232,12 @@ body::before {
 
 .scroll-down {
   position: absolute;
-  @include fs.pc-size(left, 32);
-  @include fs.pc-size(bottom, 32);
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 100;
+  @include fs.pc-size(left, 32);
+  @include fs.pc-size(bottom, 32);
 
   @include mq("md") {
     @include fs.sp-size(left, 15);
@@ -246,11 +246,11 @@ body::before {
 }
 
 .scroll-down__text {
-  @include fs.pc-size(font-size, 16);
   font-family: $second-font;
   font-weight: $medium;
   color: $black;
   writing-mode: sideways-lr;
+  @include fs.pc-size(font-size, 16);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 14);
@@ -260,13 +260,13 @@ body::before {
 .scroll-down__text::before {
   animation: scroll 2s infinite;
   background-color: #000;
-  @include fs.pc-size(bottom, 65);
   content: "";
-  @include fs.pc-size(height, 80);
   left: 0;
   margin: auto;
   position: absolute;
   right: 0;
+  @include fs.pc-size(bottom, 65);
+  @include fs.pc-size(height, 80);
   @include fs.pc-size(width, 1);
 }
 
@@ -292,12 +292,11 @@ body::before {
 .particle-canvas {
   position: fixed;
   inset: 0 0 0 auto;
-  @include fs.pc-size(width, 795);
   height: 100vh;
   pointer-events: none;
-  z-index: 30;
-  opacity: 0.9;
   z-index: 10;
+  opacity: 0.9;
+  @include fs.pc-size(width, 795);
 }
 
 .particle-canvas.fade-left {
@@ -319,11 +318,11 @@ body::before {
 // 追従ロゴ----------------------------------------------------------------------------------------
 .sticky__logo {
   position: fixed;
-  @include fs.pc-size(top, 16);
   opacity: 0;
   z-index: 1000;
   pointer-events: none;
   transition: opacity 0.5s ease, transform 0.5s ease;
+  @include fs.pc-size(top, 16);
   @include fs.pc-size(padding-left, 80);
 
   @include mq("md") {
@@ -342,9 +341,9 @@ body::before {
   }
 
   .lower-logo {
-    @include fs.pc-size(width, 170);
     height: auto;
     display: block;
+    @include fs.pc-size(width, 170);
 
     @include mq("md") {
       @include fs.sp-size(width, 100);
@@ -357,20 +356,19 @@ body::before {
 // introduction------------------------------------------------------------------------------------
 .introduction {
   position: relative;
+  z-index: 20;
   @include fs.pc-size(padding-top, 273);
   @include fs.pc-size(padding-bottom, 469);
   @include fs.pc-size(padding-left, 160);
-  z-index: 20;
 
   @include mq("md") {
-    overflow: clip;
-    @include fs.sp-size(padding-top, 80);
-    @include fs.sp-size(padding-left, 24);
+    overflow: visible;
+    position: relative;
     z-index: 50;
     padding-bottom: unset;
-    position: relative;
-    overflow: visible;
     --intro-blur: 0px;
+    @include fs.sp-size(padding-top, 80);
+    @include fs.sp-size(padding-left, 24);
   }
 }
 
@@ -407,10 +405,10 @@ body::before {
 }
 
 .introduction__title {
-  @include fs.pc-size(font-size, 40);
   font-weight: $bold;
   line-height: 150%;
   color: $blue;
+  @include fs.pc-size(font-size, 40);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 24);
@@ -422,23 +420,23 @@ body::before {
 
 .introduction__title--parts {
   position: relative;
-  @include fs.pc-size(top, 4);
   display: inline-block;
+  @include fs.pc-size(top, 4);
   @include fs.pc-size(width, 75);
   @include fs.pc-size(margin-top, 10);
 
   @include mq("md") {
-    @include fs.sp-size(width, 45);
     margin-top: unset;
+    @include fs.sp-size(width, 45);
     @include fs.sp-size(top, 1);
   }
 }
 
 .introduction__text {
-  @include fs.pc-size(font-size, 16);
   font-weight: $regular;
-  @include fs.pc-size(margin-top, 24);
   line-height: 175%;
+  @include fs.pc-size(font-size, 16);
+  @include fs.pc-size(margin-top, 24);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 14);
@@ -448,15 +446,15 @@ body::before {
 
 .introduction__design {
   position: absolute;
+  z-index: 100;
   @include fs.pc-size(bottom, -50);
   @include fs.pc-size(left, -160);
   @include fs.pc-size(width, 290.781);
-  z-index: 100;
 
   @include mq("md") {
+    z-index: 200;
     @include fs.sp-size(width, 148);
     @include fs.sp-size(left, -24);
-    z-index: 200;
   }
 }
 
@@ -465,12 +463,12 @@ body::before {
 // main-contents----------------------------------------------------------------------------------
 .main-contents {
   position: relative;
-  @include fs.pc-size(padding-top, 120);
-  @include fs.pc-size(padding-bottom, 152);
   background: rgba(255, 255, 255, 0.7);
-  @include fs.pc-size(border-radius, 32 32 0 0);
   backdrop-filter: blur(fs.fpc(25));
   z-index: 30;
+  @include fs.pc-size(padding-top, 120);
+  @include fs.pc-size(padding-bottom, 152);
+  @include fs.pc-size(border-radius, 32 32 0 0);
 
   @include mq("md") {
     @include fs.sp-size(padding-top, 64);
@@ -497,9 +495,9 @@ body::before {
 }
 
 .start-up {
-  @include fs.pc-size(border-radius, 8);
   box-shadow: 0 fs.fpc(5) fs.fpc(20) 0 #9cb6df;
   overflow: hidden;
+  @include fs.pc-size(border-radius, 8);
   @include fs.pc-size(margin-top, 64);
 
   @include mq("md") {
@@ -519,9 +517,9 @@ body::before {
 
 .contents__wrap {
   position: relative;
+  z-index: 2;
   @include fs.pc-size(width, 693);
   @include fs.pc-size(padding, 64);
-  z-index: 2;
 
   @include mq("md") {
     width: 100%;
@@ -530,11 +528,11 @@ body::before {
 }
 
 .contents__title {
-  @include fs.pc-size(font-size, 36);
   font-family: $second-font;
   font-weight: $bold;
   line-height: 1.4;
   color: $blue;
+  @include fs.pc-size(font-size, 36);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 24);
@@ -543,8 +541,8 @@ body::before {
 
 .contents__text {
   line-height: 175%;
-  @include fs.pc-size(margin-top, 16);
   color: $black;
+  @include fs.pc-size(margin-top, 16);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 14);
@@ -553,14 +551,14 @@ body::before {
 
 .btn {
   position: relative;
-  @include fs.pc-size(margin-top, 32);
-  @include fs.pc-size(width, 182);
   // height: 32px;
-  @include fs.pc-size(padding-bottom, 4);
   transform: translateX(0);
   transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
     border-bottom-color 0.25s ease;
   will-change: transform;
+  @include fs.pc-size(margin-top, 32);
+  @include fs.pc-size(width, 182);
+  @include fs.pc-size(padding-bottom, 4);
 
   @include mq("md") {
     @include fs.sp-size(width, 166);
@@ -574,14 +572,14 @@ body::before {
   background-image: url(../assets/img/btn-icon_blue.svg);
   background-size: 100%;
   background-repeat: no-repeat;
-  @include fs.pc-size(width, 8);
-  @include fs.pc-size(height, 12);
-  @include fs.pc-size(top, 13);
   right: 0;
   transform: translateY(-50%) translateX(0);
   transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1) 0.03s,
     background-image 0s;
   will-change: transform;
+  @include fs.pc-size(width, 8);
+  @include fs.pc-size(height, 12);
+  @include fs.pc-size(top, 13);
 }
 
 .btn::after {
@@ -590,22 +588,22 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  @include fs.pc-size(height, 2);
   background: $blue;
   transform-origin: 50% 50%;
   transform: scaleX(1);
   transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
+  @include fs.pc-size(height, 2);
 }
 
 .btn__link {
   display: inline-block;
   transform: translateX(0);
   transition: transform 0.25s ease, color 0.25s ease;
-  @include fs.pc-size(font-size, 16);
   font-weight: $bold;
   line-height: 175%;
   color: $blue;
+  @include fs.pc-size(font-size, 16);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 14);
@@ -613,10 +611,10 @@ body::before {
 }
 
 .start-up__img {
-  @include fs.pc-size(width, 660);
   position: relative;
   z-index: 2;
   border-radius: 0 fs.fpc(8) fs.fpc(8) 0;
+  @include fs.pc-size(width, 660);
 
   @include mq("md") {
     border-radius: 0 0 fs.fsp(8) fs.fsp(8);
@@ -637,10 +635,10 @@ body::before {
 
 .main-contents__item {
   position: relative;
-  @include fs.pc-size(width, 660);
-  @include fs.pc-size(border-radius, 8);
   box-shadow: 0 fs.fpc(5) fs.fpc(20) 0 #9cb6df;
   overflow: hidden;
+  @include fs.pc-size(width, 660);
+  @include fs.pc-size(border-radius, 8);
 
   @include mq("md") {
     width: 100%;
@@ -656,9 +654,9 @@ body::before {
 .main-contents__item__link {
   display: block;
   position: relative;
-  @include fs.pc-size(padding, 32 0 32 64);
   isolation: isolate;
   z-index: 0;
+  @include fs.pc-size(padding, 32 0 32 64);
 
   @include mq("md") {
     @include fs.sp-size(padding, 24 0 32 24);
@@ -667,11 +665,11 @@ body::before {
 
 .main-contents__img {
   position: absolute;
-  @include fs.pc-size(width, 167);
   right: 0;
   bottom: 0;
   z-index: 2;
   transition: mix-blend-mode 0.25s ease;
+  @include fs.pc-size(width, 167);
 
   @include mq("md") {
     @include fs.sp-size(width, 120);

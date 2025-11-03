@@ -502,10 +502,6 @@
 .award-item__img {
   margin: 0 auto;
   @include fs.pc-size(width, 160);
-
-  @include mq("md") {
-    @include fs.sp-size(width, 160);
-  }
 }
 
 .award-item__name {
@@ -639,11 +635,6 @@
   @include fs.pc-size(gap, 8);
   @include fs.pc-size(padding-top, 24);
   @include fs.pc-size(width, 566);
-
-  @include mq("md") {
-    @include fs.sp-size(padding-top, 16);
-    @include fs.sp-size(gap, 8);
-  }
 }
 .pitch-item {
   display: flex;
@@ -653,21 +644,12 @@
   font-weight: $regular;
   color: $black;
   text-align: center;
-  border-radius: 60px;
-  border: 1px solid #0087d1;
   background: rgba(255, 255, 255, 0.8);
   @include fs.pc-size(width, 180);
   @include fs.pc-size(height, 33);
   @include fs.pc-size(font-size, 14);
   @include fs.pc-size(border-radius, 60);
   @include fs.pc-size(border, 1 solid #0087d1);
-
-  @include mq("md") {
-    width: 100%;
-    @include fs.sp-size(max-width, 164);
-    @include fs.sp-size(height, 33);
-    @include fs.sp-size(font-size, 14);
-  }
 }
 
 .pitch-item__number {
@@ -687,11 +669,6 @@
   display: flex;
   justify-content: center;
   @include fs.pc-size(margin-top, 48);
-
-  @include mq("md") {
-    @include fs.sp-size(font-size, 14);
-    @include fs.sp-size(margin-top, 40);
-  }
 }
 
 .theme__link::before {
@@ -748,7 +725,6 @@
   font-weight: $bold;
   color: $white;
   background-color: $blue;
-  border-radius: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -756,14 +732,6 @@
   @include fs.pc-size(border-radius, 60);
   @include fs.pc-size(width, 116);
   @include fs.pc-size(height, 33);
-
-  @include mq("md") {
-    display: inline-block;
-    width: unset;
-    height: unset;
-    @include fs.sp-size(font-size, 14);
-    @include fs.sp-size(padding, 4 16);
-  }
 }
 
 .merrit-item:nth-child(2) .merrit-item__label {
@@ -779,13 +747,6 @@
   line-height: 175%;
   color: $white;
   @include fs.pc-size(margin-top, 16);
-
-  @include mq("md") {
-    padding-left: 1em;
-    text-indent: -1em;
-    @include fs.sp-size(font-size, 16);
-    @include fs.sp-size(margin-top, 16);
-  }
 }
 // /merritセクション
 
@@ -848,10 +809,6 @@
   background: transparent;
   @include fs.pc-size(padding-top, 120);
   @include fs.pc-size(padding-bottom, 120);
-
-  @include mq("md") {
-    @include fs.sp-size(padding, 80 24 80);
-  }
 }
 
 .entry::before {
@@ -897,12 +854,6 @@
   font-weight: $bold;
   color: $white;
   @include fs.pc-size(font-size, 18);
-
-  @include mq("md") {
-    padding-left: 1em;
-    text-indent: -1em;
-    @include fs.sp-size(font-size, 16);
-  }
 }
 
 .entry__item + .entry__item {

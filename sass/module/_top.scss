@@ -880,7 +880,6 @@ body::before {
     height: 100%;
     top: 0;
     @include fs.sp-size(width, 100);
-    @include fs.sp-size(height, 266);
   }
 }
 
@@ -1015,11 +1014,6 @@ body::before {
   color: $black;
   @include fs.pc-size(font-size, 16);
   @include fs.pc-size(margin-top, 16);
-
-  @include mq("md") {
-    @include fs.sp-size(font-size, 16);
-    @include fs.sp-size(margin-top, 16);
-  }
 }
 
 .side-events .btn.btn--black {
@@ -1060,7 +1054,6 @@ body::before {
     --edge-pad: 24px;
     @include fs.sp-size(padding-top, 112);
     @include fs.sp-size(padding-bottom, 112);
-    @include fs.sp-size(margin-top, -32);
   }
 }
 
@@ -1144,9 +1137,18 @@ body::before {
   row-gap: var(--row-gap);
   @include fs.pc-size(padding, 20 0);
 
-  @include mq("md") {
-    @include fs.sp-size(padding, 20 0);
-  }
+.guests-items {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--card-w);
+  column-gap: var(--gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row--bottom {
+  padding-left: calc((var(--card-w) + var(--gap)) / 2);
 }
 
 .guests-item {
@@ -1238,6 +1240,16 @@ body::before {
     @include fs.sp-size(top, -81);
   }
 }
+
+.partners__inner {
+  margin: 0 auto;
+  @include fs.pc-size(max-width, 1352);
+
+  @include mq("md") {
+    @include fs.sp-size(max-width, 342);
+  }
+}
+
 .section-title__wrap {
 }
 
@@ -1498,8 +1510,7 @@ body::before {
 
 .outline-contents__inner {
   margin: 0 auto;
-  max-width: 840px;
-  // @include fs.pc-size(max-width, 840);
+  @include fs.pc-size(max-width, 724);
 }
 
 .section-title__wrap {
@@ -1565,13 +1576,16 @@ body::before {
 
 .outline__item__text__wrap {
   font-weight: $bold;
+  display: flex;
+  align-items: center;
   line-height: 150%;
+  @include fs.pc-size(width, 358);
   @include fs.pc-size(margin-left, 24);
 
   @include mq("md") {
     width: 100%;
     margin-left: unset;
-    @include fs.sp-size(margin-top, 16);
+    @include fs.sp-size(margin-top, 20);
   }
 }
 
@@ -1647,12 +1661,11 @@ body::before {
     @include fs.sp-size(margin-top, 32);
   }
 }
-.map__wrap {
-  text-align: center;
-}
-.map iframe {
-  aspect-ratio: 1024 / 416;
-  width: 100%;
+
+.map img {
+  margin: 0 auto;
+  @include fs.pc-size(width, 1024);
+
   @include mq("md") {
     aspect-ratio: unset;
     height: 560px;

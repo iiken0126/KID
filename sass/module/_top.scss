@@ -835,15 +835,15 @@ body::before {
   background-image: url(../assets/img/main-contents__accepting_left.png);
   background-size: 100%;
   background-repeat: no-repeat;
-  @include fs.pc-size(width, 160);
-  @include fs.pc-size(height, 266);
   left: 0;
   z-index: 0;
+  @include fs.pc-size(width, 160);
+  @include fs.pc-size(height, 266);
 
   @include mq("md") {
-    @include fs.sp-size(width, 100);
     height: 100%;
     top: 0;
+    @include fs.sp-size(width, 100);
   }
 }
 
@@ -853,26 +853,26 @@ body::before {
   background-image: url(../../../assets/img/main-contents__accepting_right.png);
   background-size: 100%;
   background-repeat: no-repeat;
-  @include fs.pc-size(width, 160);
-  @include fs.pc-size(height, 266);
   right: 0;
   z-index: 0;
+  @include fs.pc-size(width, 160);
+  @include fs.pc-size(height, 266);
 
   @include mq("md") {
-    @include fs.sp-size(width, 100);
     height: 100%;
     top: 0;
+    @include fs.sp-size(width, 100);
   }
 }
 
 .main-contents__accepting__text {
-  @include fs.pc-size(font-size, 24);
   font-weight: $bold;
   color: $white;
   text-shadow: 0 0 fs.fpc(5) rgba(0, 0, 0, 0.25);
   text-align: center;
   transition: color 0.4s ease, text-shadow 0.4s ease;
   z-index: 1;
+  @include fs.pc-size(font-size, 24);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 18);
@@ -881,9 +881,9 @@ body::before {
 
 .main-contents__accepting__text .size {
   display: block;
-  @include fs.pc-size(font-size, 38);
   color: #f2df64;
   transition: color 0.4s ease;
+  @include fs.pc-size(font-size, 38);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 28);
@@ -909,12 +909,12 @@ body::before {
 // side-events------------------------------------------------------------------------------------
 .side-events {
   position: relative;
+  background-color: #fff;
+  z-index: 30;
   @include fs.pc-size(padding-top, 120);
   @include fs.pc-size(padding-bottom, 120);
-  background-color: #fff;
   @include fs.pc-size(border-radius, 32);
   @include fs.pc-size(margin-top, -32);
-  z-index: 30;
 
   @include mq("md") {
     @include fs.sp-size(padding-top, 80);
@@ -944,9 +944,9 @@ body::before {
 }
 
 .side-events__items {
-  @include fs.pc-size(max-width, 1022);
   margin: 0 auto;
   display: flex;
+  @include fs.pc-size(max-width, 1022);
   @include fs.pc-size(gap, 16);
   @include fs.pc-size(margin-top, 64);
 
@@ -970,11 +970,11 @@ body::before {
 }
 
 .side-events__title {
-  @include fs.pc-size(font-size, 16);
   font-weight: $bold;
   text-align: center;
-  @include fs.pc-size(margin-top, 16);
   color: $black;
+  @include fs.pc-size(font-size, 16);
+  @include fs.pc-size(margin-top, 16);
 }
 
 .side-events .btn.btn--black {
@@ -993,26 +993,24 @@ body::before {
 // guests-----------------------------------------------------------------------------------------
 .guests {
   position: relative;
-  @include fs.pc-size(padding-top, 152);
-  @include fs.pc-size(padding-bottom, 152);
-  @include fs.pc-size(margin-top, -32);
   overflow: visible;
   background: transparent;
-
   --card-w: 430px;
   --card-h: 152px;
   --gap: 16px;
   --row-gap: 16px;
   --edge-pad: 80px;
   --speed: 28s;
+  @include fs.pc-size(padding-top, 152);
+  @include fs.pc-size(padding-bottom, 152);
+  @include fs.pc-size(margin-top, -32);
 
   @include mq("md") {
-    @include fs.sp-size(padding-top, 112);
-    @include fs.sp-size(padding-bottom, 112);
-
     --card-w: 312px;
     --card-h: 112px;
     --edge-pad: 24px;
+    @include fs.sp-size(padding-top, 112);
+    @include fs.sp-size(padding-bottom, 112);
   }
 }
 
@@ -1029,11 +1027,11 @@ body::before {
 
 .guests__design {
   position: absolute;
-  @include fs.pc-size(width, 264);
   left: 0;
-  @include fs.pc-size(top, -162);
   z-index: 30;
   pointer-events: none;
+  @include fs.pc-size(width, 264);
+  @include fs.pc-size(top, -162);
 
   @include mq("md") {
     @include fs.sp-size(width, 131);
@@ -1113,29 +1111,16 @@ body::before {
 }
 
 .guests-item {
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto;
-  @include fs.pc-size(gap, 24);
-  @include fs.pc-size(padding, 16 24);
-  @include fs.pc-size(width, 430);
-  @include fs.pc-size(height, 152);
-  background-color: $white;
-  @include fs.pc-size(border-radius, 8);
-  box-shadow: 0 fs.fpc(5) fs.fpc(20) 0 #9cb6df;
-}
-
-.guests-item {
   width: var(--card-w);
   height: var(--card-h);
   display: flex;
   align-items: center;
-  @include fs.pc-size(gap, 24);
-  @include fs.pc-size(padding, 16 24);
   background-color: #fff;
-  @include fs.pc-size(border-radius, 8);
   box-shadow: 0 fs.fpc(5) fs.fpc(20) 0 #9cb6df;
   flex: 0 0 auto;
+  @include fs.pc-size(gap, 24);
+  @include fs.pc-size(padding, 16 24);
+  @include fs.pc-size(border-radius, 8);
 
   @include mq("md") {
     @include fs.sp-size(padding, 11 16);
@@ -1154,8 +1139,8 @@ body::before {
 }
 
 .guests-item__company {
-  @include fs.pc-size(font-size, 14);
   font-weight: $regular;
+  @include fs.pc-size(font-size, 14);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 12);
@@ -1163,8 +1148,8 @@ body::before {
 }
 
 .guests-item__name {
-  @include fs.pc-size(font-size, 18);
   font-weight: $bold;
+  @include fs.pc-size(font-size, 18);
   @include fs.pc-size(margin-top, 16);
 
   @include mq("md") {
@@ -1200,9 +1185,9 @@ body::before {
 
 .partners__design {
   position: absolute;
+  right: 0;
   @include fs.pc-size(width, 281);
   @include fs.pc-size(top, -160);
-  right: 0;
 
   @include mq("md") {
     @include fs.sp-size(width, 100);
@@ -1211,8 +1196,8 @@ body::before {
 }
 
 .partners__inner {
-  @include fs.pc-size(max-width, 1352);
   margin: 0 auto;
+  @include fs.pc-size(max-width, 1352);
 
   @include mq("md") {
     @include fs.sp-size(max-width, 342);
@@ -1267,9 +1252,9 @@ body::before {
 // }
 
 .partners-items {
+  margin: 0 auto;
   @include fs.pc-size(padding-top, 55);
   @include fs.pc-size(max-width, 1352);
-  margin: 0 auto;
 
   @include mq("md") {
     @include fs.sp-size(padding-top, 30);
@@ -1297,15 +1282,15 @@ body::before {
 
 .partners-item__title {
   width: 100%;
-  @include fs.pc-size(font-size, 28);
   font-weight: $bold;
   font-family: $second-font;
   color: $white;
   background-color: $blue;
   text-align: center;
+  line-height: 1.2;
+  @include fs.pc-size(font-size, 28);
   @include fs.pc-size(padding, 4 0);
   @include fs.pc-size(border-radius, 8);
-  line-height: 1.2;
 
   @include mq("md") {
     @include fs.sp-size(font-size, 20);
@@ -1316,9 +1301,9 @@ body::before {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   @include fs.pc-size(gap, 46);
   @include fs.pc-size(margin-top, 32);
-  flex-wrap: wrap;
 
   @include mq("md") {
     @include fs.sp-size(margin-top, 24);
@@ -1396,8 +1381,8 @@ body::before {
 }
 
 .partners-item__name {
-  @include fs.pc-size(font-size, 20);
   font-weight: $bold;
+  @include fs.pc-size(font-size, 20);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 16);
@@ -1408,8 +1393,8 @@ body::before {
 .partners-item:nth-child(3) .partners-item__name,
 .partners-item:nth-child(4) .partners-item__name,
 .partners-item:nth-child(5) .partners-item__name {
-  @include fs.pc-size(font-size, 16);
   text-align: center;
+  @include fs.pc-size(font-size, 16);
   @include fs.pc-size(margin-top, 16);
 }
 
@@ -1421,15 +1406,15 @@ body::before {
 }
 
 .partners-item:nth-child(6) .partners-item__name {
-  @include fs.pc-size(font-size, 15);
   text-align: center;
+  @include fs.pc-size(font-size, 15);
   @include fs.pc-size(margin-top, 16);
 }
 
 .partners-item__text {
+  line-height: 175%;
   @include fs.pc-size(width, 480);
   @include fs.pc-size(font-size, 14);
-  line-height: 175%;
   @include fs.pc-size(margin-top, 16);
 
   @include mq("md") {
@@ -1453,12 +1438,12 @@ body::before {
 // outline------------------------------------------------------------------------------------------
 .outline {
   position: relative;
+  overflow: visible;
+  background: transparent;
   @include fs.pc-size(padding-top, 152);
   @include fs.pc-size(padding-bottom, 152);
   @include fs.pc-size(border-radius, 32 32 0 0);
   @include fs.pc-size(margin-top, -32);
-  overflow: visible;
-  background: transparent;
 
   @include mq("md") {
     @include fs.sp-size(padding-top, 77);
@@ -1479,12 +1464,12 @@ body::before {
 
 .outline__design {
   position: absolute;
-  @include fs.pc-size(width, 292);
-  @include fs.pc-size(top, -175);
   left: 0;
   z-index: 20;
   pointer-events: none;
   // transform: translateZ(0);
+  @include fs.pc-size(width, 292);
+  @include fs.pc-size(top, -175);
 
   @include mq("md") {
     @include fs.sp-size(width, 131);
@@ -1498,8 +1483,8 @@ body::before {
 }
 
 .outline-contents__inner {
-  @include fs.pc-size(max-width, 724);
   margin: 0 auto;
+  @include fs.pc-size(max-width, 724);
 }
 
 .section-title__wrap {
@@ -1518,9 +1503,9 @@ body::before {
 
   @include mq("md") {
     display: block;
+    margin: 0 auto;
     @include fs.sp-size(padding-top, 28);
     @include fs.sp-size(max-width, 342);
-    margin: 0 auto;
   }
 }
 
@@ -1544,16 +1529,16 @@ body::before {
 }
 
 .outline__item__label {
-  @include fs.pc-size(font-size, 14);
   font-weight: $bold;
   color: $white;
-  @include fs.pc-size(width, 120);
-  @include fs.pc-size(height, 31);
-  @include fs.pc-size(border-radius, 30);
   background: linear-gradient(90deg, #00a1e7 0%, #009ea1 100%);
   display: flex;
   justify-content: center;
   align-items: center;
+  @include fs.pc-size(font-size, 14);
+  @include fs.pc-size(width, 120);
+  @include fs.pc-size(height, 31);
+  @include fs.pc-size(border-radius, 30);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 12);
@@ -1566,14 +1551,14 @@ body::before {
   font-weight: $bold;
   display: flex;
   align-items: center;
+  line-height: 150%;
   @include fs.pc-size(width, 358);
   @include fs.pc-size(margin-left, 24);
-  line-height: 150%;
 
   @include mq("md") {
     width: 100%;
-    @include fs.sp-size(margin-top, 20);
     margin-left: unset;
+    @include fs.sp-size(margin-top, 20);
   }
 }
 
@@ -1611,15 +1596,15 @@ body::before {
 }
 
 .outline__item__annotation {
-  @include fs.pc-size(font-size, 12);
   font-weight: $bold;
   color: #e60012;
-  @include fs.pc-size(border, 1 solid #e60012);
-  @include fs.pc-size(width, 147);
-  @include fs.pc-size(height, 27);
   display: flex;
   justify-content: center;
   align-items: center;
+  @include fs.pc-size(font-size, 12);
+  @include fs.pc-size(border, 1 solid #e60012);
+  @include fs.pc-size(width, 147);
+  @include fs.pc-size(height, 27);
   @include fs.pc-size(margin-left, 16);
 }
 
@@ -1627,8 +1612,8 @@ body::before {
   @include fs.pc-size(width, 190);
 
   @include mq("md") {
-    @include fs.sp-size(width, 258);
     margin: 0 auto;
+    @include fs.sp-size(width, 258);
     @include fs.sp-size(padding-top, 30);
   }
 }
@@ -1642,8 +1627,8 @@ body::before {
 }
 
 .map img {
-  @include fs.pc-size(width, 1024);
   margin: 0 auto;
+  @include fs.pc-size(width, 1024);
 
   @include mq("md") {
     width: 100%;
@@ -1655,12 +1640,12 @@ body::before {
 // achievement--------------------------------------------------------------------------------------
 .achievement {
   position: relative;
+  background-color: #0087d1;
+  z-index: 10;
   @include fs.pc-size(padding-top, 124);
   @include fs.pc-size(padding-bottom, 110);
-  background-color: #0087d1;
   @include fs.pc-size(border-radius, 32);
   @include fs.pc-size(margin-top, -32);
-  z-index: 10;
 
   @include mq("md") {
     @include fs.sp-size(padding-top, 82);
@@ -1672,10 +1657,10 @@ body::before {
 }
 
 .achievement__title {
-  @include fs.pc-size(font-size, 40);
   font-weight: $bold;
   color: $white;
   text-align: center;
+  @include fs.pc-size(font-size, 40);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 24);
@@ -1684,14 +1669,14 @@ body::before {
 
 .achievement__text {
   line-height: 175%;
-  @include fs.pc-size(width, 576);
   margin: 0 auto;
-  @include fs.pc-size(margin-top, 24);
   color: $white;
+  @include fs.pc-size(width, 576);
+  @include fs.pc-size(margin-top, 24);
 
   @include mq("md") {
-    @include fs.sp-size(font-size, 14);
     width: 100%;
+    @include fs.sp-size(font-size, 14);
     @include fs.sp-size(max-width, 342);
     @include fs.sp-size(margin-top, 16);
   }
@@ -1741,8 +1726,8 @@ body::before {
 }
 
 .achievement__item__img {
-  @include fs.pc-size(width, 137);
   margin: 0 auto;
+  @include fs.pc-size(width, 137);
 
   @include mq("md") {
     @include fs.sp-size(width, 96);
@@ -1766,12 +1751,12 @@ body::before {
 }
 
 .achievement__item__text {
-  @include fs.pc-size(font-size, 18);
   font-weight: $bold;
   line-height: 150%;
   color: $white;
-  @include fs.pc-size(margin-top, 32);
   text-align: center;
+  @include fs.pc-size(font-size, 18);
+  @include fs.pc-size(margin-top, 32);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 16);
@@ -1780,12 +1765,12 @@ body::before {
 }
 
 .achievement__item__number {
-  @include fs.pc-size(font-size, 80);
   font-family: $second-font;
   font-weight: $bold;
   color: $white;
-  @include fs.pc-size(margin-top, 8);
   text-align: center;
+  @include fs.pc-size(font-size, 80);
+  @include fs.pc-size(margin-top, 8);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 64);
@@ -1794,8 +1779,8 @@ body::before {
 }
 
 .achievement__item__number .size {
-  @include fs.pc-size(font-size, 32);
   font-family: $base-font;
+  @include fs.pc-size(font-size, 32);
   @include fs.pc-size(margin-left, 8);
 
   @include mq("md") {
@@ -1850,11 +1835,11 @@ body::before {
 
 .section-title__heading {
   position: relative;
-  @include fs.pc-size(font-size, 18);
   font-weight: $bold;
-  @include fs.pc-size(padding-left, 20);
   display: inline-block;
   margin: 0 auto;
+  @include fs.pc-size(font-size, 18);
+  @include fs.pc-size(padding-left, 20);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 14);
@@ -1865,13 +1850,13 @@ body::before {
 .section-title__heading::before {
   position: absolute;
   content: "";
-  @include fs.pc-size(width, 8);
-  @include fs.pc-size(height, 8);
   border-radius: 50%;
   background-color: $blue;
   top: 50%;
   transform: translateY(-50%);
   left: 0;
+  @include fs.pc-size(width, 8);
+  @include fs.pc-size(height, 8);
 
   @include mq("md") {
     @include fs.sp-size(width, 6);
@@ -1880,12 +1865,12 @@ body::before {
 }
 
 .section-title {
-  @include fs.pc-size(font-size, 80);
   font-family: $second-font;
   font-weight: $bold;
   line-height: 1.5;
   color: $blue;
   text-align: center;
+  @include fs.pc-size(font-size, 80);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 40);

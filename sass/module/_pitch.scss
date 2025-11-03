@@ -332,22 +332,22 @@
 }
 
 .award-item__img {
-  @include fs.pc-size(width, 160);
   margin: 0 auto;
+  @include fs.pc-size(width, 160);
 }
 
 .award-item__name {
-  @include fs.pc-size(font-size, 20);
   font-weight: $bold;
   color: $blue;
   text-align: center;
+  @include fs.pc-size(font-size, 20);
   @include fs.pc-size(margin-top, 8);
 }
 
 .award-item__text {
-  @include fs.pc-size(font-size, 14);
   line-height: 175%;
   color: $white;
+  @include fs.pc-size(font-size, 14);
   @include fs.pc-size(margin-top, 16);
 }
 // /AWARDセクション
@@ -362,9 +362,9 @@
 
 .judge-items {
   display: flex;
-  @include fs.pc-size(gap, 32);
   justify-content: center;
   flex-wrap: wrap;
+  @include fs.pc-size(gap, 32);
   @include fs.pc-size(margin-top, 32);
 }
 
@@ -388,9 +388,9 @@
 }
 
 .judge-item__name {
-  @include fs.pc-size(font-size, 18);
   font-weight: $bold;
   color: $white;
+  @include fs.pc-size(font-size, 18);
   @include fs.pc-size(margin-top, 16);
 }
 // /judgeセクション
@@ -406,33 +406,33 @@
 .theme__text {
   line-height: 175%;
   color: $white;
-  @include fs.pc-size(width, 576);
   margin: 0 auto;
+  @include fs.pc-size(width, 576);
   @include fs.pc-size(margin-top, 32);
 }
 
 .pitch-items {
   display: flex;
   flex-wrap: wrap;
+  margin: 0 auto;
   @include fs.pc-size(gap, 8);
   @include fs.pc-size(padding-top, 24);
   @include fs.pc-size(width, 566);
-  margin: 0 auto;
 }
 .pitch-item {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  @include fs.pc-size(width, 180);
-  @include fs.pc-size(height, 33);
-  @include fs.pc-size(font-size, 14);
   font-weight: $regular;
   color: $black;
   text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  @include fs.pc-size(width, 180);
+  @include fs.pc-size(height, 33);
+  @include fs.pc-size(font-size, 14);
   @include fs.pc-size(border-radius, 60);
   @include fs.pc-size(border, 1 solid #0087d1);
-  background: rgba(255, 255, 255, 0.8);
 }
 
 .pitch-item__number {
@@ -445,9 +445,9 @@
   position: relative;
   color: $blue;
   text-align: center;
-  @include fs.pc-size(margin-top, 48);
   display: flex;
   justify-content: center;
+  @include fs.pc-size(margin-top, 48);
 }
 
 .theme__link::before {
@@ -469,8 +469,8 @@
 }
 
 .merrit-items {
-  @include fs.pc-size(width, 467);
   margin: 0 auto;
+  @include fs.pc-size(width, 467);
   @include fs.pc-size(margin-top, 32);
 }
 
@@ -482,16 +482,16 @@
 }
 
 .merrit-item__label {
-  @include fs.pc-size(font-size, 14);
   font-weight: $bold;
   color: $white;
   background-color: $blue;
-  @include fs.pc-size(border-radius, 60);
-  @include fs.pc-size(width, 116);
-  @include fs.pc-size(height, 33);
   display: flex;
   justify-content: center;
   align-items: center;
+  @include fs.pc-size(font-size, 14);
+  @include fs.pc-size(border-radius, 60);
+  @include fs.pc-size(width, 116);
+  @include fs.pc-size(height, 33);
 }
 
 .merrit-item:nth-child(2) .merrit-item__label {
@@ -499,10 +499,10 @@
 }
 
 .merrit-item__text {
-  @include fs.pc-size(margin-top, 16);
   font-weight: $bold;
   line-height: 175%;
   color: $white;
+  @include fs.pc-size(margin-top, 16);
 }
 // /merritセクション
 
@@ -515,8 +515,8 @@
 }
 
 .schedule-items {
-  @include fs.pc-size(width, 441);
   margin: 0 auto;
+  @include fs.pc-size(width, 441);
   @include fs.pc-size(margin-top, 32);
 }
 
@@ -545,10 +545,10 @@
 // entryセクション------------------------------------------------------------------------------------
 .entry {
   position: relative;
-  @include fs.pc-size(padding-top, 120);
-  @include fs.pc-size(padding-bottom, 120);
   overflow: visible;
   background: transparent;
+  @include fs.pc-size(padding-top, 120);
+  @include fs.pc-size(padding-bottom, 120);
 }
 
 .entry::before {
@@ -569,8 +569,8 @@
 .entry__inner {
   position: relative;
   z-index: 30;
-  @include fs.pc-size(max-width, 780);
   margin: 0 auto;
+  @include fs.pc-size(max-width, 780);
 }
 
 .entry .pitch__title {
@@ -587,9 +587,9 @@
 }
 
 .entry__item {
-  @include fs.pc-size(font-size, 18);
   font-weight: $bold;
   color: $white;
+  @include fs.pc-size(font-size, 18);
 }
 
 .entry__item + .entry__item {
@@ -597,10 +597,10 @@
 }
 
 .entry__annotation {
-  @include fs.pc-size(font-size, 14);
   font-weight: $regular;
   line-height: 175%;
   color: $white;
+  @include fs.pc-size(font-size, 14);
   @include fs.pc-size(margin-top, 64);
 }
 

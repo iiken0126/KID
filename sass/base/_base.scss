@@ -1,7 +1,7 @@
 @use "../global" as *;
 
 html {
-  font-size: calc(16 / 1512 * 100vw);
+  font-size: 16px;
   font-weight: $regular;
   color: $black;
 }
@@ -25,3 +25,4 @@ a {
   //   opacity: 0.7;
   // }
 }
+

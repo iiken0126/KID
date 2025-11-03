@@ -1,0 +1,141 @@
+@use "../global" as *;
+@use "../global/fluid-size" as fs;
+
+// ふわっとディゾルブするオーバーレイ
+@mixin fade-overlay($overlay-bg, $radius: 0) {
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: $overlay-bg;
+    border-radius: $radius;
+    opacity: 1;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+  &:hover::before,
+  &:focus-visible::before {
+    opacity: 0;
+  }
+}
+
+/* ================================================================================================
+ * sessionページ
+ * ================================================================================================ */
+
+.session-page .lower-mv.fv {
+  position: relative;
+  @include fs.pc-size(padding-bottom, 55);
+}
+
+.session-page .guests__design {
+  top: unset;
+  @include fs.pc-size(bottom, 127);
+  @include fs.pc-size(left, -12);
+}
+
+.session__design {
+  position: absolute;
+  @include fs.pc-size(width, 281);
+  right: 0;
+  @include fs.pc-size(bottom, 422);
+}
+
+.stage-items {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  @include fs.pc-size(margin-top, 32);
+  @include fs.pc-size(gap, 32);
+  z-index: 100;
+}
+
+.stage-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include fs.pc-size(width, 496);
+  @include fs.pc-size(height, 153);
+  @include fs.pc-size(border-radius, 8);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: fs.fpc(5) fs.fpc(5) fs.fpc(20) 0 #9cb6df;
+  @include fs.pc-size(padding-top, 24);
+}
+
+.stage-item__heading {
+  display: flex;
+  align-items: center;
+  @include fs.pc-size(gap, 12);
+}
+
+.stage-item__icon {
+  @include fs.pc-size(width, 46);
+}
+
+.stage-item__name {
+  @include fs.pc-size(font-size, 18);
+  font-weight: $regular;
+  font-family: $second-font;
+}
+
+.stage-item__place {
+  @include fs.pc-size(font-size, 16);
+  font-weight: $regular;
+  @include fs.pc-size(margin-top, 16);
+}
+
+.session-page .map {
+  @include fs.pc-size(margin-top, 8);
+}
+
+.session-page .map_link {
+  position: relative;
+  @include fs.pc-size(font-size, 14);
+  font-weight: $regular;
+  font-family: $second-font;
+  color: $blue;
+}
+
+.session-page .map_link::before {
+  position: absolute;
+  content: "";
+  background-image: url(../assets/img/link-icon-blue.svg);
+  @include fs.pc-size(width, 15);
+  @include fs.pc-size(height, 15);
+  @include fs.pc-size(bottom, 2);
+  @include fs.pc-size(right, -23);
+}
+
+// session-timetable---------------------------------------------------------------------------------
+.session-timetable {
+  @include fs.pc-size(width, 1024);
+  margin: 0 auto;
+}
+
+.lower-title {
+  @include fs.pc-size(font-size, 48);
+  font-weight: $bold;
+  font-family: $second-font;
+  color: $blue;
+  text-align: center;
+}
+
+.session-page .date {
+  @include fs.pc-size(font-size, 28);
+  font-weight: $bold;
+  font-family: $second-font;
+  background-color: $black;
+  @include fs.pc-size(border-radius, 8);
+  text-align: center;
+  color: $white;
+}
+
+.session-page .date .size {
+  @include fs.pc-size(font-size, 20);
+}
+
+// /session-timetable--------------------------------------------------------------------------------

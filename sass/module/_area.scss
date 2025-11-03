@@ -1,0 +1,240 @@
+@use "../global" as *;
+@use "../global/fluid-size" as fs;
+
+// ふわっとディゾルブするオーバーレイ
+@mixin fade-overlay($overlay-bg, $radius: 0) {
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: $overlay-bg;
+    border-radius: $radius;
+    opacity: 1;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+  &:hover::before,
+  &:focus-visible::before {
+    opacity: 0;
+  }
+}
+
+/* ==============================================================================
+ * areaページ
+ * =========================================================================== */
+.header.area-page {
+  position: fixed;
+  @include fs.pc-size(top, 22);
+  @include fs.pc-size(left, 80);
+  @include fs.pc-size(width, 174);
+  margin: 0;
+  z-index: 10000;
+  pointer-events: auto;
+}
+
+.area-page .header__items {
+  top: 0;
+}
+
+.lower-mv.fv {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  @include fs.pc-size(padding-top, 160);
+  padding-left: unset;
+  @include fs.pc-size(padding-bottom, 375);
+}
+
+.mv-title {
+  @include fs.pc-size(font-size, 80);
+  font-weight: $bold;
+  font-family: $second-font;
+  color: $blue;
+}
+
+.mv-text {
+  @include fs.pc-size(font-size, 16);
+  font-weight: $regular;
+  line-height: 175%;
+  @include fs.pc-size(width, 576);
+  @include fs.pc-size(padding-top, 48);
+  text-align: left;
+  margin: 0 auto;
+}
+
+.mv-subtitle {
+  @include fs.pc-size(font-size, 48);
+  font-weight: $bold;
+  font-family: $second-font;
+  color: $blue;
+  @include fs.pc-size(margin-top, 80);
+}
+
+.mv-subtitle__text {
+  @include fs.pc-size(font-size, 24);
+  font-weight: $medium;
+  font-family: $second-font;
+  @include fs.pc-size(margin-top, 24);
+}
+
+.area-page .introduction__design {
+  @include fs.pc-size(bottom, 357);
+}
+
+.area-page .side-events__design {
+  top: unset;
+  @include fs.pc-size(bottom, 70);
+}
+
+// exhibitorsセクション------------------------------------------------------------------------------
+.exhibitors {
+  @include fs.pc-size(margin-top, -295);
+}
+
+.exhibitors__inner {
+  @include fs.pc-size(padding, 80 0);
+  @include fs.pc-size(border-radius, 32);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(fs.fpc(25));
+}
+
+.lower-title {
+}
+
+.partners-items {
+}
+
+.partners-item {
+}
+
+.partners-item__title {
+}
+
+.partners-item__wrap {
+}
+
+.partners-item__img {
+}
+
+.partners-item__contents {
+}
+
+.partners-item__name {
+}
+
+.partners-item__text {
+}
+
+.supporter .partners-item__individual:nth-child(2),
+.supporter .partners-item__individual:nth-child(3),
+.supporter .partners-item__individual:nth-child(4),
+.supporter .partners-item__individual:nth-child(5),
+.supporter .partners-item__individual:nth-child(6),
+.supporter .partners-item__individual:nth-child(7),
+.supporter .partners-item__individual:nth-child(9),
+.supporter .partners-item__individual:nth-child(10) {
+  @include fs.pc-size(padding-bottom, 24);
+}
+
+/* ========== モーダル ========== */
+.partner-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+
+  &[aria-hidden="false"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .partner-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(fs.fpc(2));
+  }
+
+  .partner-modal__dialog {
+    position: relative;
+    z-index: 1;
+    @include fs.pc-size(width, 902);
+    @include fs.pc-size(height, 326);
+    background: #fff;
+    @include fs.pc-size(border-radius, 32);
+    overflow: hidden;
+    display: flex;
+    @include fs.pc-size(padding, 0 32);
+    // display: grid;
+    // grid-template-columns: 1fr 1.2fr;
+    // gap: 0;
+  }
+
+  .partner-modal__close {
+    position: absolute;
+    background-image: url(../assets/img/modal-icon.png);
+    @include fs.pc-size(width, 24);
+    @include fs.pc-size(height, 24);
+    background-size: 100%;
+    @include fs.pc-size(top, 32);
+    @include fs.pc-size(right, 32);
+  }
+
+  .partner-modal__figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // display: grid;
+    // place-items: center;
+
+    // img {
+    //   max-width: min(420px, 80%);
+    //   max-height: 48vh;
+    //   width: auto;
+    //   height: auto;
+    //   object-fit: contain;
+    // }
+  }
+
+  .partner-modal__figure img {
+    @include fs.pc-size(width, 326);
+  }
+
+  .partner-modal__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+  }
+
+  .partner-modal__name {
+    @include fs.pc-size(font-size, 16);
+    font-weight: $bold;
+    @include fs.pc-size(margin-top, 16);
+    @include fs.pc-size(max-width, 260);
+    text-align: center;
+  }
+
+  .partner-modal__text {
+    @include fs.pc-size(font-size, 14);
+    line-height: 175%;
+    color: $black;
+  }
+}
+
+.partner-modal__text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include fs.pc-size(width, 480);
+  white-space: pre-line;
+}
+// /exhibitorsセクション-----------------------------------------------------------------------------

@@ -1,0 +1,210 @@
+@use "../global" as *;
+@use "../global/fluid-size" as fs;
+
+// footer-------------------------------------------------------------------------------------------
+.footer {
+  @include fs.pc-size(margin-top, 120);
+  @include fs.pc-size(margin-bottom, 64);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 64);
+    @include fs.sp-size(margin-bottom, 32);
+    @include fs.sp-size(padding, 0 24);
+  }
+}
+
+.footer__inner {
+  position: relative;
+  @include fs.pc-size(max-width, 1448);
+  margin: 0 auto;
+  background-color: #fff;
+  @include fs.pc-size(border-radius, 16);
+  @include fs.pc-size(padding, 48 0 64);
+  z-index: 10;
+
+  @include mq("md") {
+    max-width: 100%;
+    @include fs.sp-size(padding, 48 32 48);
+  }
+}
+
+.footer-nav__items {
+  display: flex;
+  justify-content: center;
+
+  @include mq("md") {
+    display: block;
+  }
+}
+
+.footer-nav__item {
+  @include fs.pc-size(padding, 0 24);
+
+  @include mq("md") {
+    padding: unset;
+    text-align: center;
+  }
+}
+
+.footer-nav__item:not(:last-child) {
+  @include mq("md") {
+    @include fs.sp-size(border-bottom, 1 solid #9cb6df);
+  }
+}
+
+.footer-nav__item:first-child {
+  @include mq("md") {
+    @include fs.sp-size(padding-bottom, 8);
+  }
+}
+
+.footer-nav__item:nth-child(2) {
+  @include mq("md") {
+    @include fs.sp-size(padding, 8 0);
+  }
+}
+
+.footer-nav__item:last-child {
+  @include mq("md") {
+    @include fs.sp-size(padding-top, 8);
+  }
+}
+
+.footer-nav__link {
+  position: relative;
+  @include fs.pc-size(font-size, 14);
+  font-weight: $regular;
+  line-height: 175%;
+  color: $black;
+  transition: opacity 0.3s;
+
+  @include mq("md") {
+    // padding: 16px 0;
+  }
+}
+
+.footer-nav__link:before {
+  position: absolute;
+  content: "";
+  @include fs.pc-size(width, 1);
+  @include fs.pc-size(height, 18);
+  background-color: $black;
+  top: 50%;
+  transform: translateY(-50%);
+  @include fs.pc-size(right, -24);
+
+  @include mq("md") {
+    width: unset;
+    height: unset;
+    // width: 278px;
+    // height: 1px;
+    // right: 0;
+    // left: 50%;
+    // transform: translateX(-50%);
+    // bottom: 0;
+    // background-color: #9CB6DF;
+  }
+}
+
+.footer-nav__item:last-child .footer-nav__link:before {
+  background-color: transparent;
+}
+
+.footer-nav__link:hover {
+  opacity: 0.6;
+}
+
+.management__items {
+  display: flex;
+  justify-content: center;
+  @include fs.pc-size(gap, 160);
+  @include fs.pc-size(margin-top, 112);
+
+  @include mq("md") {
+    display: block;
+    @include fs.sp-size(margin-top, 48);
+  }
+}
+
+.management__item {
+}
+
+.management__item + .management__item {
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 32);
+  }
+}
+
+.management__item__label {
+  @include fs.pc-size(font-size, 18);
+  font-weight: $bold;
+  line-height: 150%;
+  text-align: center;
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 16);
+  }
+}
+
+.management-name__wrap {
+  display: flex;
+  align-items: center;
+  @include fs.pc-size(gap, 32);
+  @include fs.pc-size(margin-top, 16);
+
+  @include mq("md") {
+    display: block;
+    @include fs.sp-size(margin-top, 24);
+  }
+}
+
+.management__item:nth-child(2) .management-name__wrap {
+  @include fs.pc-size(margin-top, 41);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 24);
+  }
+}
+
+.management-name__img {
+  @include fs.pc-size(width, 175);
+
+  @include mq("md") {
+    margin: 0 auto;
+  }
+}
+
+.management__item:nth-child(2) .management-name__img {
+  @include fs.pc-size(width, 161);
+}
+
+.organized {
+}
+
+.management-name {
+  @include fs.pc-size(font-size, 18);
+  font-weight: $regular;
+  line-height: 175%;
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 14);
+    text-align: center;
+    @include fs.sp-size(margin-top, 24);
+  }
+}
+
+.copyright {
+  @include fs.pc-size(font-size, 14);
+  font-family: $second-font;
+  font-weight: $regular;
+  @include fs.pc-size(margin-top, 80);
+  @include fs.pc-size(margin-left, 32);
+
+  @include mq("md") {
+    position: relative;
+    text-align: center;
+    @include fs.sp-size(margin-top, 32);
+    z-index: 30;
+  }
+}
+// /footer-------------------------------------------------------------------------------------------

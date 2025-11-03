@@ -1,4 +1,7 @@
 @use "sass:math";
+@use "sass:map";
+@use "sass:string";
+
 //ブレイクポイントの値
 $breakpoints: (
   sp: 375,
@@ -7,21 +10,15 @@ $breakpoints: (
   xl: 1512,
 );
 
-//メディアクエリー
-$mediaqueries: (
-  sp: "screen and (max-width: #{map-get($breakpoints,'sp')}px)",
-  md: "screen and (max-width: #{map-get($breakpoints,'md')}px)",
-  lg: "screen and (max-width: #{map-get($breakpoints,'lg')}px)",
-  xl: "screen and (max-width: #{map-get($breakpoints,'xl')}px)",
-);
-
-// ブレイクポイントの設定
+// ブレイクポイントの設定（修正版）
 @mixin mq($mediaquery: md) {
-  @media #{map-get($mediaqueries, $mediaquery)} {
-    @content;
+  $breakpoint: map.get($breakpoints, $mediaquery);
+
+  @if $breakpoint {
+    @media screen and (max-width: #{$breakpoint}px) {
+      @content;
+    }
+  } @else {
+    @error "Breakpoint #{$mediaquery} not found in $breakpoints map.";
   }
 }
-
-
-
-

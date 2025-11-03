@@ -1,0 +1,376 @@
+@use "../global" as *;
+@use "../global/fluid-size" as fs;
+
+// header-----------------------------------------------------------------------------------------
+
+.header {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  @include fs.pc-size(margin-left, 80);
+}
+
+.logo__wrap {
+}
+
+.logo__link {
+  display: flex;
+}
+
+.kanagawa-logo {
+  @include fs.pc-size(width, 174.69);
+}
+
+.eiicon-logo {
+  @include fs.pc-size(width, 88.92);
+  @include fs.pc-size(margin-left, 50);
+  @include fs.pc-size(margin-top, 10);
+}
+
+.header__items {
+  position: fixed;
+  @include fs.pc-size(right, 32);
+  display: flex;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: fs.fpc(5) fs.fpc(5) fs.fpc(20) 0 #9cb6df;
+  @include fs.pc-size(border-radius, 8);
+  overflow: hidden;
+  @include fs.pc-size(margin, 32 0);
+  z-index: 9999;
+}
+
+.header__item {
+  @include fs.pc-size(width, 180);
+  // height: calc(52 / 1512 * 100vw);
+}
+
+.header__item:last-child {
+  @include fs.pc-size(width, 160);
+  border-radius: 0 fs.fpc(8) fs.fpc(8) 0;
+}
+
+.header__link {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  @include fs.pc-size(padding, 16 0);
+  @include fs.pc-size(font-size, 16);
+  font-family: $second-font;
+  font-weight: $medium;
+  color: $black;
+  overflow: hidden;
+  border-radius: 0;
+  transition: color 0.3s ease;
+  z-index: 0;
+}
+
+.header__link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #00a1e7 0%, #009ea1 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.header__link:hover::before,
+.header__link:focus-visible::before {
+  opacity: 1;
+}
+
+.header__link:hover,
+.header__link:focus-visible {
+  color: #fff;
+}
+
+.header__item:last-child .header__link {
+  position: relative;
+  font-weight: $bold;
+  color: #fff;
+  background: #000;
+  z-index: 0;
+  border-radius: 0 fs.fpc(8) fs.fpc(8) 0;
+}
+
+.header__item:last-child .header__link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #fbc501 0%, #e94820 100%);
+  opacity: 1;
+  transition: opacity 0.35s ease;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.header__item:last-child .header__link:hover::before,
+.header__item:last-child .header__link:focus-visible::before {
+  opacity: 0;
+}
+
+// ====== fallback変数（既存に無ければ使われる）======
+$black: #000 !default;
+$white: #fff !default;
+$brown: #5e66ad !default;
+$kid-grad-start: #fbc501 !default;
+$kid-grad-end: #e94820 !default;
+
+// ====== ハンバーガーメニュー ======
+.hamburger--pill {
+  position: fixed;
+  @include fs.pc-size(top, 21);
+  @include fs.pc-size(right, 21);
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  @include fs.pc-size(gap, 8);
+  @include fs.pc-size(width, 83);
+  @include fs.pc-size(height, 32);
+  @include fs.pc-size(padding, 0 16);
+  @include fs.pc-size(border-radius, 8);
+  background: linear-gradient(90deg, #fbc501 0%, #e94820 100%);
+  box-shadow: fs.fpc(2) fs.fpc(2) fs.fpc(10) 0 #9cb6df;
+  cursor: pointer;
+  transition: box-shadow 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+
+.hamburger--pill .hamburger__icon {
+  position: relative;
+  @include fs.pc-size(width, 12);
+  @include fs.pc-size(height, 4);
+  display: inline-block;
+}
+
+.hamburger--pill .hamburger__bar {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  @include fs.pc-size(height, 1);
+  background: #fff;
+  @include fs.pc-size(border-radius, 2);
+  transform-origin: 50% 50%;
+  transition: transform 0.25s ease, opacity 0.25s ease, background 0.25s ease;
+  filter: drop-shadow(0 0 fs.fpc(3.031) rgba(0, 0, 0, 0.25));
+}
+
+.hamburger--pill .hamburger__bar:nth-child(1) {
+  @include fs.pc-size(top, 7);
+}
+.hamburger--pill .hamburger__bar:nth-child(2) {
+  @include fs.pc-size(top, 11);
+}
+
+.hamburger--pill .hamburger__label {
+  position: relative;
+  @include fs.pc-size(font-size, 12);
+  font-family: $second-font;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  user-select: none;
+  text-shadow: 0 0 fs.fpc(3.031) rgba(0, 0, 0, 0.25);
+  @include fs.pc-size(top, 9);
+  @include fs.pc-size(right, -7);
+}
+.hamburger--pill:hover {
+  box-shadow: 0 fs.fpc(12) fs.fpc(28) rgba(0, 0, 0, 0.22);
+  transform: translateY(fs.fpc(-1));
+}
+
+.hamburger--pill.is-active .hamburger__bar:nth-child(1) {
+  @include fs.pc-size(top, 9);
+  transform: rotate(30deg);
+}
+.hamburger--pill.is-active .hamburger__bar:nth-child(2) {
+  @include fs.pc-size(top, 9);
+  transform: rotate(-30deg);
+}
+
+@media (min-width: 768px) {
+  .hamburger--pill {
+    display: none;
+  }
+}
+
+// ====== バックドロップ ======
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(fs.fpc(15));
+  // background: rgba(0,0,0,.45);
+  // -webkit-backdrop-filter: blur(2px);
+  // backdrop-filter: blur(2px);
+  z-index: 4999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.drawer-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+// ====== ドロワー（フェード＋スライド） ======
+.drawer-menu[aria-hidden="true"] {
+  display: none;
+}
+
+.drawer-menu[aria-hidden="false"] {
+  display: block;
+}
+
+.drawer-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(fs.fpc(15));
+  // background: rgba(14,14,14,.92);
+  transform: translateY(fs.fpc(-4));
+  opacity: 0;
+  transition: transform 0.28s ease, opacity 0.28s ease;
+}
+.drawer-menu.is-open {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.drawer-menu__inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100dvh;
+}
+
+.drawer__logo {
+  @include fs.pc-size(margin-top, 16);
+  @include fs.pc-size(margin-left, 16);
+}
+
+.logo__link {
+}
+
+.drawer__logo .lower-logo {
+  @include fs.pc-size(width, 100);
+}
+
+.drawer-menu__items {
+  display: flex;
+  flex-direction: column;
+  @include fs.pc-size(margin-top, 48);
+  @include fs.pc-size(margin-left, 24);
+}
+
+.drawer-menu__item + .drawer-menu__item {
+  @include fs.pc-size(margin-top, 32);
+}
+
+.drawer-menu__link {
+  @include fs.pc-size(font-size, 24);
+  font-weight: 600;
+  font-family: $second-font;
+  color: $black;
+  display: inline-block;
+  text-align: center;
+  @include fs.pc-size(min-width, 200);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.drawer-menu__link--contact {
+  // color: $white;
+  // margin-top: 4px;
+  // width: 100%;
+  // padding: 12px 20px;
+  // border-radius: 9999px;
+  // background: linear-gradient(90deg, $kid-grad-start 0%, $kid-grad-end 100%);
+  // transition: transform .2s ease, filter .2s ease;
+}
+
+.drawer-btn__wrap {
+  @include fs.pc-size(padding, 0 24);
+  @include fs.pc-size(margin-top, 65);
+}
+
+.drawer-btn {
+  display: block;
+  width: 100%;
+  @include fs.pc-size(margin-bottom, 16);
+}
+
+.application {
+}
+
+.drawer-btn__link {
+  display: flex;
+  justify-content: center;
+  @include fs.pc-size(font-size, 18);
+  font-weight: $bold;
+  color: $white;
+  width: 100%;
+  @include fs.pc-size(padding, 12 0);
+  border-radius: 9999px;
+  @include fs.pc-size(border-radius, 60);
+  background: linear-gradient(90deg, #00a1e7 0%, #009ea1 100%);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  @include fs.pc-size(border-radius, 60);
+  box-shadow: fs.fpc(5) fs.fpc(5) fs.fpc(20) 0 #9cb6df;
+}
+
+.application .drawer-btn__link {
+  background: linear-gradient(90deg, #fbc501 0%, #e94820 100%);
+}
+
+.btn__label {
+}
+
+.md-none {
+}
+
+.drawer-menu__link:focus {
+  outline: none;
+}
+
+.drawer-menu__link--contact:hover {
+  transform: translateY(fs.fpc(-1));
+  filter: brightness(1.05);
+}
+
+html.is-drawer-open,
+body.is-drawer-open {
+  overflow: hidden;
+  height: 100dvh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hamburger--pill,
+  .drawer-menu,
+  .drawer-backdrop {
+    transition: none;
+  }
+}
+
+.drawer-menu .logo__wrap {
+  position: absolute;
+  @include fs.pc-size(bottom, 32);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo__link {
+}
+
+.drawer-menu .kanagawa-logo {
+  @include fs.pc-size(width, 116);
+}
+
+.drawer-menu .eiicon-logo {
+  @include fs.pc-size(width, 59);
+  @include fs.pc-size(margin-left, 33);
+  margin-top: unset;
+}
+// /header----------------------------------------------------------------------------------------

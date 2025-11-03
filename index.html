@@ -1,275 +1,380 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <head>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- meta情報 -->
+    <title>KID</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!-- ogp -->
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:card" content="summary" />
+    <!-- ファビコン -->
+    <link rel="icon" href="#" />
 
-<head>
-  <meta name="robots" content="noindex,nofollow">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="format-detection" content="telephone=no">
-  <!-- meta情報 -->
-  <title>KID</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <!-- ogp -->
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:site_name" content="">
-  <meta property="og:description" content="">
-  <meta name="twitter:card" content="summary">
-  <!-- ファビコン -->
-  <link rel="icon" href="#">
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/line-seed-jp@0.0.5/line-seed-jp.min.css"
+    />
 
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/line-seed-jp@0.0.5/line-seed-jp.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="https://use.typekit.net/jyd5clv.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
 
-  <!-- css -->
-  <link rel="stylesheet" href="https://use.typekit.net/jyd5clv.css">
-  <link rel="stylesheet" href="css/style.css">
+    <!-- JavaScript -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="./assets/js/script.js" defer></script>
+  </head>
 
-  <!-- JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous" defer></script>
-  <script src="js/script.js" defer></script>
-</head>
+  <body>
+    <header class="header">
+      <h1 class="logo__wrap md-none">
+        <a class="logo__link" href="index.html">
+          <img
+            class="kanagawa-logo"
+            src="./assets/img/kanagawa-logo.svg"
+            alt="神奈川県"
+          />
+          <img
+            class="eiicon-logo"
+            src="./assets/img/eiicon-logo.svg"
+            alt="eiicon"
+          />
+        </a>
+      </h1>
+      <nav>
+        <ul class="header__items md-none">
+          <li class="header__item">
+            <a class="header__link" href="session.html">
+              Session / Timetable
+            </a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="pitch.html"> KID Start Up Pich </a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="area.html"> Exhibitors & Event </a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href=""> 参加登録 </a>
+          </li>
+        </ul>
+      </nav>
 
-<body>
-  <header class="header">
-    <h1 class="logo__wrap md-none">
-      <a class="logo__link" href="index.html">
-        <img class="kanagawa-logo" src="./assets/img/kanagawa-logo.svg" alt="神奈川県">
-        <img class="eiicon-logo" src="./assets/img/eiicon-logo.svg" alt="eiicon">
-      </a>
-    </h1>
-    <nav>
-      <ul class="header__items md-none">
-        <li class="header__item">
-          <a class="header__link" href="session.html">
-            Session / Timetable
-          </a>
-        </li>
-        <li class="header__item">
-          <a class="header__link" href="pitch.html">
-            KID Start Up Pich
-          </a>
-        </li>
-        <li class="header__item">
-          <a class="header__link" href="area.html">
-            Exhibitors & Event
-          </a>
-        </li>
-        <li class="header__item">
-          <a class="header__link" href="">
-            参加登録
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="hamburger hamburger--pill js-hamburger md-show"
+      <div
+        class="hamburger hamburger--pill js-hamburger md-show"
         aria-controls="global-drawer"
         aria-expanded="false"
-        aria-label="メニューを開く">
-      <span class="hamburger__icon" aria-hidden="true">
-        <span class="hamburger__bar"></span>
-        <span class="hamburger__bar"></span>
-      </span>
-      <span class="hamburger__label">menu</span>
-    </div>
+        aria-label="メニューを開く"
+      >
+        <span class="hamburger__icon" aria-hidden="true">
+          <span class="hamburger__bar"></span>
+          <span class="hamburger__bar"></span>
+        </span>
+        <span class="hamburger__label">menu</span>
+      </div>
 
-    <div class="drawer-menu js-drawer"
-          id="global-drawer"
-          role="dialog"
-          aria-modal="true"
-          aria-hidden="true"
-          tabindex="-1">
-      <div class="drawer-menu__inner">
-        <div class="drawer__logo" id="stickyLogo">
-          <a class="logo__link" href="index.html">
-            <img class="lower-logo" src="./assets/img/lower-logo-black.png" alt="KID">
-          </a>
-        </div>
-        <ul class="drawer-menu__items">
-          <li class="drawer-menu__item"><a href="session.html" class="drawer-menu__link">Session / Timetable</a></li>
-          <li class="drawer-menu__item"><a href="pitch.html" class="drawer-menu__link">KID Start Up Pitch</a></li>
-          <li class="drawer-menu__item"><a href="area.html" class="drawer-menu__link">Exhibitors & Event</a></li>
-          <!-- <li class="drawer-menu__item"><a href="#" class="drawer-menu__link drawer-menu__link--contact">参加登録</a></li> -->
-        </ul>
-
-        <div class="drawer-btn__wrap">
-          <div class="drawer-btn application">
-            <a class="drawer-btn__link" href="">
-              <span class="btn__label">参加登録</span>
+      <div
+        class="drawer-menu js-drawer"
+        id="global-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+        <div class="drawer-menu__inner">
+          <div class="drawer__logo" id="stickyLogo">
+            <a class="logo__link" href="index.html">
+              <img
+                class="lower-logo"
+                src="./assets/img/lower-logo-black.png"
+                alt="KID"
+              />
             </a>
           </div>
-          <div class="drawer-btn">
-            <a class="drawer-btn__link" href="">
-              <span class="btn__label">協賛・出展・サイドイベントのご相談</span>
-            </a>
-          </div>
-        </div>
+          <ul class="drawer-menu__items">
+            <li class="drawer-menu__item">
+              <a href="session.html" class="drawer-menu__link"
+                >Session / Timetable</a
+              >
+            </li>
+            <li class="drawer-menu__item">
+              <a href="pitch.html" class="drawer-menu__link"
+                >KID Start Up Pitch</a
+              >
+            </li>
+            <li class="drawer-menu__item">
+              <a href="area.html" class="drawer-menu__link"
+                >Exhibitors & Event</a
+              >
+            </li>
+            <!-- <li class="drawer-menu__item"><a href="#" class="drawer-menu__link drawer-menu__link--contact">参加登録</a></li> -->
+          </ul>
 
-        <div class="logo__wrap">
-          <a class="logo__link" href="index.html">
-            <img class="kanagawa-logo" src="./assets/img/kanagawa-logo.svg" alt="神奈川県">
-            <img class="eiicon-logo" src="./assets/img/eiicon-logo.svg" alt="eiicon">
-          </a>
-        </div>
-      </div>
-    </div>
-
-  <!-- バックドロップ -->
-    <div class="drawer-backdrop md-show" hidden></div>
-  </header>
-
-  <main>
-    <div class="fv">
-      <img class="fv__title" src="./assets/img/fv-title.png" alt="Kanagawa Innovators Day2026">
-      <p class="fv__subtitle">
-        神奈川県内最大級の<br>
-        イノベーションサミットが<br class="md-show">ここから始まる
-      </p>
-      <img class="fv__date" src="./assets/img/fv-date.png" alt="">
-      <picture>
-        <source srcset="./assets/img/fv-object.png" media="(min-width: 769px)">
-        <img class="fv-object" src="./assets/img/fv-object_sp.png" alt="">
-      </picture>
-
-      <div class="scroll-down">
-        <span class="scroll-down__text">Scroll</span>
-      </div>
-      <canvas id="kid-particles" class="particle-canvas fade-left" aria-hidden="true"></canvas>
-    </div>
-
-    <div class="fixed-btn__wrap">
-      <div class="fixed-btn application">
-        <a class="fixed-btn__link" href="">
-          <span class="btn__label">参加登録</span>
-        </a>
-      </div>
-      <div class="fixed-btn md-none">
-        <a class="fixed-btn__link" href="">
-          <span class="btn__label">協賛・出展・サイドイベントのご相談</span>
-        </a>
-      </div>
-    </div>
-
-    <div class="sticky__logo" id="stickyLogo">
-      <a class="logo__link" href="index.html">
-        <img class="lower-logo" src="./assets/img/lower-logo-black.png" alt="KID">
-      </a>
-    </div>
-
-    <section class="introduction">
-      <div class="intro-blur-cover" aria-hidden="true"></div>
-      <h3 class="introduction__title">
-        可能性と情熱が<span class="space"><img class="introduction__title--parts" src="./assets/img/introduction-title.png" alt=""></span>する、<br>
-        新たな未来を紡ぎ出す1日
-      </h3>
-      <p class="introduction__text">
-        企業の生産拠点やR＆D拠点、<br class="md-show">研究機関や大学などが集積する神奈川県。<br>
-        一方で超高齢社会・人口減少社会における<br class="md-show">様々な社会課題が存在するこの地は<br>
-        まさに新規事業の実証と共創に最適な<br class="md-show">「未来市場の縮図」です。<br>
-        社会課題解決から新たな産業を創り出し、<br>
-        産業活性化が課題解決を加速させるー<br>
-        その可能性が最も広がるこの地で、<br>
-        スタートアップ・ベンチャー、大企業・地場企業、<br class="md-show">自治体、投資家・金融機関、<br class="md-none">
-        支援機関が出会い、<br class="md-show">未来を動かす挑戦が始まります。
-      </p>
-      <img class="introduction__design" src="./assets/img/introduction_design.png" alt="">
-    </section>
-
-    <section class="main-contents">
-      <img class="main-contents__design md-none" src="./assets/img/main-contents_design.png" alt="">
-      <div class="main-contents__inner">
-        <div class="section-title__wrap">
-          <p class="section-title__heading">
-            コンテンツ紹介
-          </p>
-          <h2 class="section-title">
-            MAIN CONTENTS
-          </h2>
-        </div>
-
-        <div class="start-up">
-          <a class="contents__link" href="">
-            <div class="contents__wrap">
-              <h3 class="contents__title">
-                KID Start Up Pitch
-              </h3>
-              <p class="contents__text">
-                挑戦する想いに、発信の場を。<br>
-                神奈川県が掲げる<br class="md-show">13の社会課題の解決をテーマに、<br>
-                「これからの社会を1歩前進させる」<br class="md-show">革新的なアイデアが火花を散らす<br>
-                スタートアップピッチ。<br>
-                神奈川県と県内企業が一体となって<br class="md-show">挑戦者を後押しする、<br>
-                KID最大の熱狂コンテンツ。
-              </p>
-              <div class="btn">
-                <p class="btn__link" href="">
-                  詳しくはこちら
-                </p>
-              </div>
+          <div class="drawer-btn__wrap">
+            <div class="drawer-btn application">
+              <a class="drawer-btn__link" href="">
+                <span class="btn__label">参加登録</span>
+              </a>
             </div>
-            <img class="start-up__img" src="./assets/img/start-up_img.jpg" alt="">
+            <div class="drawer-btn">
+              <a class="drawer-btn__link" href="">
+                <span class="btn__label"
+                  >協賛・出展・サイドイベントのご相談</span
+                >
+              </a>
+            </div>
+          </div>
+
+          <div class="logo__wrap">
+            <a class="logo__link" href="index.html">
+              <img
+                class="kanagawa-logo"
+                src="./assets/img/kanagawa-logo.svg"
+                alt="神奈川県"
+              />
+              <img
+                class="eiicon-logo"
+                src="./assets/img/eiicon-logo.svg"
+                alt="eiicon"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- バックドロップ -->
+      <div class="drawer-backdrop md-show" hidden></div>
+    </header>
+
+    <main>
+      <div class="fv">
+        <img
+          class="fv__title"
+          src="./assets/img/fv-title.png"
+          alt="Kanagawa Innovators Day2026"
+        />
+        <p class="fv__subtitle">
+          神奈川県内最大級の<br />
+          イノベーションサミットが<br class="md-show" />ここから始まる
+        </p>
+        <img class="fv__date" src="./assets/img/fv-date.png" alt="" />
+        <picture>
+          <source
+            srcset="./assets/img/fv-object.png"
+            media="(min-width: 769px)"
+          />
+          <img class="fv-object" src="./assets/img/fv-object_sp.png" alt="" />
+        </picture>
+
+        <div class="scroll-down">
+          <span class="scroll-down__text">Scroll</span>
+        </div>
+        <canvas
+          id="kid-particles"
+          class="particle-canvas fade-left"
+          aria-hidden="true"
+        ></canvas>
+      </div>
+
+      <div class="fixed-btn__wrap">
+        <div class="fixed-btn application">
+          <a class="fixed-btn__link" href="">
+            <span class="btn__label">参加登録</span>
           </a>
         </div>
-        <ul class="main-contents__items">
-          <li class="main-contents__item">
-            <a class="main-contents__item__link contents__link" href="">
-              <img class="main-contents__img" src="./assets/img/main-contents_img_01.png" alt="">
-              <h3 class="contents__title">
-                Keynote Session
-              </h3>
-              <p class="contents__text">
-                社会的価値が重要視される現代における<br class="md-show">企業の持続的成長と価値創出の戦略とは。<br class="md-show">業界を牽引するリーダーたちが描く未来と、<br class="md-show">その原動力に迫るセッション。
-              </p>
-              <div class="btn">
-                <p class="btn__link" href="">
-                  詳しくはこちら
+        <div class="fixed-btn md-none">
+          <a class="fixed-btn__link" href="">
+            <span class="btn__label">協賛・出展・サイドイベントのご相談</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="sticky__logo" id="stickyLogo">
+        <a class="logo__link" href="index.html">
+          <img
+            class="lower-logo"
+            src="./assets/img/lower-logo-black.png"
+            alt="KID"
+          />
+        </a>
+      </div>
+
+      <section class="introduction">
+        <div class="intro-blur-cover" aria-hidden="true"></div>
+        <h3 class="introduction__title">
+          可能性と情熱が<span class="space"
+            ><img
+              class="introduction__title--parts"
+              src="./assets/img/introduction-title.png"
+              alt="" /></span
+          >する、<br />
+          新たな未来を紡ぎ出す1日
+        </h3>
+        <p class="introduction__text">
+          企業の生産拠点やR＆D拠点、<br
+            class="md-show"
+          />研究機関や大学などが集積する神奈川県。<br />
+          一方で超高齢社会・人口減少社会における<br
+            class="md-show"
+          />様々な社会課題が存在するこの地は<br />
+          まさに新規事業の実証と共創に最適な<br
+            class="md-show"
+          />「未来市場の縮図」です。<br />
+          社会課題解決から新たな産業を創り出し、<br />
+          産業活性化が課題解決を加速させるー<br />
+          その可能性が最も広がるこの地で、<br />
+          スタートアップ・ベンチャー、大企業・地場企業、<br
+            class="md-show"
+          />自治体、投資家・金融機関、<br class="md-none" />
+          支援機関が出会い、<br class="md-show" />未来を動かす挑戦が始まります。
+        </p>
+        <img
+          class="introduction__design"
+          src="./assets/img/introduction_design.png"
+          alt=""
+        />
+      </section>
+
+      <section class="main-contents">
+        <img
+          class="main-contents__design md-none"
+          src="./assets/img/main-contents_design.png"
+          alt=""
+        />
+        <div class="main-contents__inner">
+          <div class="section-title__wrap">
+            <p class="section-title__heading">コンテンツ紹介</p>
+            <h2 class="section-title">MAIN CONTENTS</h2>
+          </div>
+
+          <div class="start-up">
+            <a class="contents__link" href="">
+              <div class="contents__wrap">
+                <h3 class="contents__title">KID Start Up Pitch</h3>
+                <p class="contents__text">
+                  挑戦する想いに、発信の場を。<br />
+                  神奈川県が掲げる<br
+                    class="md-show"
+                  />13の社会課題の解決をテーマに、<br />
+                  「これからの社会を1歩前進させる」<br
+                    class="md-show"
+                  />革新的なアイデアが火花を散らす<br />
+                  スタートアップピッチ。<br />
+                  神奈川県と県内企業が一体となって<br
+                    class="md-show"
+                  />挑戦者を後押しする、<br />
+                  KID最大の熱狂コンテンツ。
                 </p>
+                <div class="btn">
+                  <p class="btn__link" href="">詳しくはこちら</p>
+                </div>
               </div>
+              <img
+                class="start-up__img"
+                src="./assets/img/start-up_img.jpg"
+                alt=""
+              />
             </a>
-          </li>
-          <li class="main-contents__item">
-            <a class="main-contents__item__link contents__link" href="">
-            <picture>
-              <source srcset="./assets/img/main-contents_img_02.png" media="(min-width: 769px)">
-              <img class="main-contents__img" src="./assets/img/main-contents_img_02_sp.png" alt="">
-            </picture>
-              <h3 class="contents__title">
-                Demo Day
-              </h3>
-              <p class="contents__text">
-                挑戦の成果が次の革新へ。<br class="md-show">神奈川県内のベンチャー支援事業の<br class="md-show">成果が集結。<br class="md-show">未来を切り拓く実証と進化の軌跡を辿る<br class="md-show">特別コンテンツ。
-              </p>
-              <div class="btn">
-                <p class="btn__link" href="">
-                  詳しくはこちら
+          </div>
+          <ul class="main-contents__items">
+            <li class="main-contents__item">
+              <a class="main-contents__item__link contents__link" href="">
+                <img
+                  class="main-contents__img"
+                  src="./assets/img/main-contents_img_01.png"
+                  alt=""
+                />
+                <h3 class="contents__title">Keynote Session</h3>
+                <p class="contents__text">
+                  社会的価値が重要視される現代における<br
+                    class="md-show"
+                  />企業の持続的成長と価値創出の戦略とは。<br
+                    class="md-show"
+                  />業界を牽引するリーダーたちが描く未来と、<br
+                    class="md-show"
+                  />その原動力に迫るセッション。
                 </p>
-              </div>
-            </a>
-          </li>
-          <li class="main-contents__item">
-            <a class="main-contents__item__link contents__link" href="">
-              <picture>
-                <source srcset="./assets/img/main-contents_img_03.png" media="(min-width: 769px)">
-                <img class="main-contents__img" src="./assets/img/main-contents_img_03_sp.png" alt="">
-              </picture>
-              <h3 class="contents__title">
-                Exhibition
-              </h3>
-              <p class="contents__text">
-                未来を動かす交差点。<br class="md-show">大企業、ベンチャー、金融機関など<br class="md-show">多様なプレイヤーが混ざり合い、<br class="md-show">新規事業や社会課題解決に直結する<br class="md-show">出会いが生まれる場。
-              </p>
-              <div class="btn">
-                <p class="btn__link" href="">
-                  詳しくはこちら
+                <div class="btn">
+                  <p class="btn__link" href="">詳しくはこちら</p>
+                </div>
+              </a>
+            </li>
+            <li class="main-contents__item">
+              <a class="main-contents__item__link contents__link" href="">
+                <picture>
+                  <source
+                    srcset="./assets/img/main-contents_img_02.png"
+                    media="(min-width: 769px)"
+                  />
+                  <img
+                    class="main-contents__img"
+                    src="./assets/img/main-contents_img_02_sp.png"
+                    alt=""
+                  />
+                </picture>
+                <h3 class="contents__title">Demo Day</h3>
+                <p class="contents__text">
+                  挑戦の成果が次の革新へ。<br
+                    class="md-show"
+                  />神奈川県内のベンチャー支援事業の<br
+                    class="md-show"
+                  />成果が集結。<br
+                    class="md-show"
+                  />未来を切り拓く実証と進化の軌跡を辿る<br
+                    class="md-show"
+                  />特別コンテンツ。
                 </p>
-              </div>
-            </a>
-          </li>
-          <!-- <li class="main-contents__item">
+                <div class="btn">
+                  <p class="btn__link" href="">詳しくはこちら</p>
+                </div>
+              </a>
+            </li>
+            <li class="main-contents__item">
+              <a class="main-contents__item__link contents__link" href="">
+                <picture>
+                  <source
+                    srcset="./assets/img/main-contents_img_03.png"
+                    media="(min-width: 769px)"
+                  />
+                  <img
+                    class="main-contents__img"
+                    src="./assets/img/main-contents_img_03_sp.png"
+                    alt=""
+                  />
+                </picture>
+                <h3 class="contents__title">Exhibition</h3>
+                <p class="contents__text">
+                  未来を動かす交差点。<br
+                    class="md-show"
+                  />大企業、ベンチャー、金融機関など<br
+                    class="md-show"
+                  />多様なプレイヤーが混ざり合い、<br
+                    class="md-show"
+                  />新規事業や社会課題解決に直結する<br
+                    class="md-show"
+                  />出会いが生まれる場。
+                </p>
+                <div class="btn">
+                  <p class="btn__link" href="">詳しくはこちら</p>
+                </div>
+              </a>
+            </li>
+            <!-- <li class="main-contents__item">
             <a class="main-contents__item__link contents__link" href="">
               <img class="main-contents__img" src="./assets/img/main-contents_img_04.png" alt="">
               <h3 class="contents__title">
@@ -285,209 +390,305 @@
               </div>
             </a>
           </li> -->
-          <li class="main-contents__item">
-            <a class="main-contents__accepting__link">
-              <p class="main-contents__accepting__text">
-                協賛・出展・サイドイベントのご相談<span class="size">受付中</span>
-              </p>
-            </a>
-            <!-- <a class="main-contents__item__link contents__link" href="">
+            <li class="main-contents__item">
+              <a class="main-contents__accepting__link">
+                <p class="main-contents__accepting__text">
+                  協賛・出展・サイドイベントのご相談<span class="size"
+                    >受付中</span
+                  >
+                </p>
+              </a>
+              <!-- <a class="main-contents__item__link contents__link" href="">
               <p class="main-contents__accepting__text">
                 協賛・出展・サイドイベントのご相談<span class="size">受付中</span>
               </p>
             </a> -->
-          </li>
-        </ul>
-        <!-- <div class="main-contents__accepting">
+            </li>
+          </ul>
+          <!-- <div class="main-contents__accepting">
           <a class="main-contents__accepting__link ">
             <p class="main-contents__accepting__text">
               協賛・出展・サイドイベントのご相談<span class="size">受付中</span>
             </p>
           </a>
         </div> -->
-      </div>
-    </section>
+        </div>
+      </section>
 
-    <section class="side-events">
-      <picture>
-        <source srcset="./assets/img/side-events_design.png" media="(min-width: 769px)">
-        <img class="side-events__design" src="./assets/img/side-events_design_sp.png" alt="">
-      </picture>
-      <div class="section-title__wrap">
-        <p class="section-title__heading">
-          サイドイベント
-        </p>
-        <h2 class="section-title">
-          SIDE EVENTS
-        </h2>
-      </div>
+      <section class="side-events">
+        <picture>
+          <source
+            srcset="./assets/img/side-events_design.png"
+            media="(min-width: 769px)"
+          />
+          <img
+            class="side-events__design"
+            src="./assets/img/side-events_design_sp.png"
+            alt=""
+          />
+        </picture>
+        <div class="section-title__wrap">
+          <p class="section-title__heading">サイドイベント</p>
+          <h2 class="section-title">SIDE EVENTS</h2>
+        </div>
 
-      <!-- <p class="soon">
+        <!-- <p class="soon">
         Coming soon...
       </p> -->
 
-      <ul class="side-events__items">
-        <li class="side-events__item">
-          <a class="side-events__item__link" href="">
-            <img class="side-events__img" src="./assets/img/side-events__img_01.jpg" alt="">
-            <h3 class="side-events__title">
-              イベントタイトルイベントタイトル
-            </h3>
-          </a>
-        </li>
-        <li class="side-events__item">
-          <a class="side-events__item__link" href="">
-            <img class="side-events__img" src="./assets/img/side-events__img_01.jpg" alt="">
-            <h3 class="side-events__title">
-              イベントタイトルイベントタイトル
-            </h3>
-          </a>
-        </li>
-        <li class="side-events__item">
-          <a class="side-events__item__link" href="">
-            <img class="side-events__img" src="./assets/img/side-events__img_01.jpg" alt="">
-            <h3 class="side-events__title">
-              イベントタイトルイベントタイトル
-            </h3>
-          </a>
-        </li>
-      </ul>
-
-      <div class="btn btn--black">
-        <a class="btn__link" href="">
-          もっと見る
-        </a>
-      </div>
-    </section>
-
-    <section class="guests">
-      <img class="guests__design" src="./assets/img/guests_design.png" alt="">
-      <div class="guests__inner">
-        <div class="section-title__wrap">
-          <p class="section-title__heading">登壇者</p>
-          <h2 class="section-title">GUESTS</h2>
-        </div>
-
-        <div class="guests-ticker">
-          <div class="guests-track">
-            <div class="pair">
-              <!-- 上段 -->
-              <ul class="guests-items row--top">
-                <li class="guests-item">
-                  <img class="guests-item__img" src="./assets/img/guests-item_img_01.png" alt="">
-                  <div class="guests-item__text__wrap">
-                    <p class="guests-item__company">株式会社ABCD<br>代表取締役</p>
-                    <p class="guests-item__name">山田 太郎</p>
-                  </div>
-                </li>
-                <li class="guests-item">
-                  <img class="guests-item__img" src="./assets/img/guests-item_img_01.png" alt="">
-                  <div class="guests-item__text__wrap">
-                    <p class="guests-item__company">株式会社ABCD<br>代表取締役</p>
-                    <p class="guests-item__name">山田 太郎</p>
-                  </div>
-                </li>
-                <li class="guests-item">
-                  <img class="guests-item__img" src="./assets/img/guests-item_img_01.png" alt="">
-                  <div class="guests-item__text__wrap">
-                    <p class="guests-item__company">株式会社ABCD<br>代表取締役</p>
-                    <p class="guests-item__name">山田 太郎</p>
-                  </div>
-                </li>
-                <li class="guests-item">
-                  <img class="guests-item__img" src="./assets/img/guests-item_img_01.png" alt="">
-                  <div class="guests-item__text__wrap">
-                    <p class="guests-item__company">株式会社ABCD<br>代表取締役</p>
-                    <p class="guests-item__name">山田 太郎</p>
-                  </div>
-                </li>
-                <li class="guests-item">
-                  <img class="guests-item__img" src="./assets/img/guests-item_img_01.png" alt="">
-                  <div class="guests-item__text__wrap">
-                    <p class="guests-item__company">株式会社ABCD<br>代表取締役</p>
-                    <p class="guests-item__name">山田 太郎</p>
-                  </div>
-                </li>
-                <li class="guests-item">
-                  <img class="guests-item__img" src="./assets/img/guests-item_img_01.png" alt="">
-                  <div class="guests-item__text__wrap">
-                    <p class="guests-item__company">株式会社ABCD<br>代表取締役</p>
-                    <p class="guests-item__name">山田 太郎</p>
-                  </div>
-                </li>
-              </ul>
-
-              <!-- 下段 -->
-              <ul class="guests-items row--bottom">
-                <li class="guests-item">
-                  <img class="guests-item__img" src="./assets/img/guests-item_img_01.png" alt="">
-                  <div class="guests-item__text__wrap">
-                    <p class="guests-item__company">株式会社ABCD<br>代表取締役</p>
-                    <p class="guests-item__name">山田 太郎</p>
-                  </div>
-                </li>
-                <li class="guests-item">
-                  <img class="guests-item__img" src="./assets/img/guests-item_img_01.png" alt="">
-                  <div class="guests-item__text__wrap">
-                    <p class="guests-item__company">株式会社ABCD<br>代表取締役</p>
-                    <p class="guests-item__name">山田 太郎</p>
-                  </div>
-                </li>
-                <li class="guests-item">
-                  <img class="guests-item__img" src="./assets/img/guests-item_img_01.png" alt="">
-                  <div class="guests-item__text__wrap">
-                    <p class="guests-item__company">株式会社ABCD<br>代表取締役</p>
-                    <p class="guests-item__name">山田 太郎</p>
-                  </div>
-                </li>
-                <li class="guests-item">
-                  <img class="guests-item__img" src="./assets/img/guests-item_img_01.png" alt="">
-                  <div class="guests-item__text__wrap">
-                    <p class="guests-item__company">株式会社ABCD<br>代表取締役</p>
-                    <p class="guests-item__name">山田 太郎</p>
-                  </div>
-                </li>
-                <li class="guests-item">
-                  <img class="guests-item__img" src="./assets/img/guests-item_img_01.png" alt="">
-                  <div class="guests-item__text__wrap">
-                    <p class="guests-item__company">株式会社ABCD<br>代表取締役</p>
-                    <p class="guests-item__name">山田 太郎</p>
-                  </div>
-                </li>
-                <li class="guests-item">
-                  <img class="guests-item__img" src="./assets/img/guests-item_img_01.png" alt="">
-                  <div class="guests-item__text__wrap">
-                    <p class="guests-item__company">株式会社ABCD<br>代表取締役</p>
-                    <p class="guests-item__name">山田 太郎</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <ul class="side-events__items">
+          <li class="side-events__item">
+            <a class="side-events__item__link" href="">
+              <img
+                class="side-events__img"
+                src="./assets/img/side-events__img_01.jpg"
+                alt=""
+              />
+              <h3 class="side-events__title">
+                イベントタイトルイベントタイトル
+              </h3>
+            </a>
+          </li>
+          <li class="side-events__item">
+            <a class="side-events__item__link" href="">
+              <img
+                class="side-events__img"
+                src="./assets/img/side-events__img_01.jpg"
+                alt=""
+              />
+              <h3 class="side-events__title">
+                イベントタイトルイベントタイトル
+              </h3>
+            </a>
+          </li>
+          <li class="side-events__item">
+            <a class="side-events__item__link" href="">
+              <img
+                class="side-events__img"
+                src="./assets/img/side-events__img_01.jpg"
+                alt=""
+              />
+              <h3 class="side-events__title">
+                イベントタイトルイベントタイトル
+              </h3>
+            </a>
+          </li>
+        </ul>
 
         <div class="btn btn--black">
-          <a class="btn__link" href="">セッションを見る</a>
+          <a class="btn__link" href=""> もっと見る </a>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="partners">
-      <picture>
-        <source srcset="./assets/img/partners_design.png" media="(min-width: 769px)">
-        <img class="partners__design" src="./assets/img/partners_design_sp.png" alt="">
-      </picture>
-      <div class="partners__inner">
-        <div class="section-title__wrap">
-          <p class="section-title__heading">
-            パートナー企業
-          </p>
-          <h2 class="section-title">
-            PARTNERS
-          </h2>
+      <section class="guests">
+        <img
+          class="guests__design"
+          src="./assets/img/guests_design.png"
+          alt=""
+        />
+        <div class="guests__inner">
+          <div class="section-title__wrap">
+            <p class="section-title__heading">登壇者</p>
+            <h2 class="section-title">GUESTS</h2>
+          </div>
+
+          <div class="guests-ticker">
+            <div class="guests-track">
+              <div class="pair">
+                <!-- 上段 -->
+                <ul class="guests-items row--top">
+                  <li class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        一般社団法人鶴岡サイエンスパーク代表理事・慶應義塾大学名誉教授
+                      </p>
+                      <p class="guests-item__name">冨田 勝</p>
+                    </div>
+                  </li>
+                  <li class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社 東芝<br />
+                        代表取締役 社長執行役員CEO
+                      </p>
+                      <p class="guests-item__name">島田 太郎</p>
+                    </div>
+                  </li>
+                  <li class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社コーエーテクモホールディングス代表取締役会長 兼
+                        取締役会議長
+                      </p>
+                      <p class="guests-item__name">襟川 陽一</p>
+                    </div>
+                  </li>
+                  <li class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社ABCD<br />代表取締役
+                      </p>
+                      <p class="guests-item__name">山田 太郎</p>
+                    </div>
+                  </li>
+                  <li class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社ABCD<br />代表取締役
+                      </p>
+                      <p class="guests-item__name">山田 太郎</p>
+                    </div>
+                  </li>
+                  <li class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社ABCD<br />代表取締役
+                      </p>
+                      <p class="guests-item__name">山田 太郎</p>
+                    </div>
+                  </li>
+                </ul>
+
+                <!-- 下段 -->
+                <ul class="guests-items row--bottom">
+                  <li class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社ABCD<br />代表取締役
+                      </p>
+                      <p class="guests-item__name">山田 太郎</p>
+                    </div>
+                  </li>
+                  <li class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社ABCD<br />代表取締役
+                      </p>
+                      <p class="guests-item__name">山田 太郎</p>
+                    </div>
+                  </li>
+                  <li class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社ABCD<br />代表取締役
+                      </p>
+                      <p class="guests-item__name">山田 太郎</p>
+                    </div>
+                  </li>
+                  <li class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社ABCD<br />代表取締役
+                      </p>
+                      <p class="guests-item__name">山田 太郎</p>
+                    </div>
+                  </li>
+                  <li class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社ABCD<br />代表取締役
+                      </p>
+                      <p class="guests-item__name">山田 太郎</p>
+                    </div>
+                  </li>
+                  <li class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社ABCD<br />代表取締役
+                      </p>
+                      <p class="guests-item__name">山田 太郎</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn btn--black">
+            <a class="btn__link" href="">セッションを見る</a>
+          </div>
         </div>
+      </section>
 
-        <!-- <ul class="partners__items top-contents">
+      <section class="partners">
+        <picture>
+          <source
+            srcset="./assets/img/partners_design.png"
+            media="(min-width: 769px)"
+          />
+          <img
+            class="partners__design"
+            src="./assets/img/partners_design_sp.png"
+            alt=""
+          />
+        </picture>
+        <div class="partners__inner">
+          <div class="section-title__wrap">
+            <p class="section-title__heading">パートナー企業</p>
+            <h2 class="section-title">PARTNERS</h2>
+          </div>
+
+          <!-- <ul class="partners__items top-contents">
           <li class="partners__item">
             <a class="partners__link" href="">
               <img class="partners__img" src="./assets/img/partners_img_01.jpg" alt="">
@@ -540,251 +741,324 @@
           </li>
         </ul> -->
 
-        <ul class="partners-items">
-          <li class="partners-item amex">
-            <h3 class="partners-item__title">
-              Innovation Partner
-            </h3>
-            <div class="partners-item__wrap">
-              <img class="partners-item__img" src="./assets/img/partners-item_img_01.jpg" alt="アメリカン・エキスプレス">
-              <div class="partners-item__contents">
-                <p class="partners-item__name">
-                  アメリカン・エキスプレス・<br class="md-show">インターナショナル・<br class="md-none">インコーポレイテッド
-                </p>
-                <p class="partners-item__text">
-                  1850年に米国ニューヨーク州にて誕生した、グローバルでペイメントやライフスタイルサービスを展開するブランドです。日本では、1917年（大正6年）に横浜で事業所を開設し、現在は世界中に広がる加盟店ネットワークを通じ、200以上の国や地域で事業を展開しています。また、2025年9月に神奈川県と「ベンチャー企業支援に関する連携協定」を締結するなど、県内の創業期の企業支援にも力を入れています。
-                </p>
-              </div>
-            </div>
-          </li>
-          <li class="partners-item">
-            <h3 class="partners-item__title">
-              Gold
-            </h3>
-            <div class="partners-item__wrap">
-              <img class="partners-item__img" src="./assets/img/partners-item_img_02.jpg" alt="大同生命保険株式会社">
-                <p class="partners-item__name">
-                  大同生命保険株式会社
-                </p>
-            </div>
-          </li>
-          <li class="partners-item">
-            <h3 class="partners-item__title">
-              Silver
-            </h3>
-            <div class="partners-item__wrap">
-              <img class="partners-item__img" src="./assets/img/partners-item_img_03.jpg" alt="株式会社明治">
-                <p class="partners-item__name">
-                  株式会社明治
-                </p>
-            </div>
-          </li>
-          <li class="partners-item startup">
-            <h3 class="partners-item__title">
-              Start Up & SMB Gold
-            </h3>
-            <ul class="partners-item__wrap">
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_03-1.jpg" alt="アンドドット株式会社">
-                <p class="partners-item__name">
-                  アンドドット株式会社
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_03-2.jpg" alt="クラウドエース株式会社">
-                <p class="partners-item__name">
-                  クラウドエース株式会社
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_03-3.jpg" alt="株式会社GEMBA">
-                <p class="partners-item__name">
-                  株式会社GEMBA
-                </p>
-              </li>
-            </ul>
-          </li>
-          <li class="partners-item startup">
-            <h3 class="partners-item__title">
-              Start Up & SMB Bronze
-            </h3>
-            <ul class="partners-item__wrap">
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_04-1.jpg" alt="TRUNK株式会社">
-                <p class="partners-item__name">
-                  TRUNK株式会社
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_04-2.jpg" alt="ユカイ工学株式会社">
-                <p class="partners-item__name">
-                  ユカイ工学株式会社
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_04-3.jpg" alt="株式会社Bocek">
-                <p class="partners-item__name">
-                  株式会社Bocek
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_04-4.jpg" alt="株式会社OneSmallStep">
-                <p class="partners-item__name">
-                  株式会社OneSmallStep
-                </p>
-              </li>
-            </ul>
-          </li>
-          <li class="partners-item supporter">
-            <h3 class="partners-item__title">
-              Supporter
-            </h3>
-            <ul class="partners-item__wrap">
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_02.jpg" alt="独立行政法人中小企業基盤整備機構関東本部">
-                <p class="partners-item__name">
-                  独立行政法人<br class="md-show">中小企業基盤整備機構<br>関東本部
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_05-2.jpg" alt="横浜市経済局">
-                <p class="partners-item__name">
-                  横浜市経済局
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_05-3.jpg" alt="川崎市">
-                <p class="partners-item__name">
-                  川崎市
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_05-4.jpg" alt="相模原市">
-                <p class="partners-item__name">
-                  相模原市
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_05-5.jpg" alt="横須賀市">
-                <p class="partners-item__name">
-                  横須賀市
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_02.jpg" alt="厚木市">
-                <p class="partners-item__name">
-                  厚木市
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_05-7.jpg" alt="関東学院大学">
-                <p class="partners-item__name">
-                  関東学院大学
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_05-8.jpg" alt="株式会社コーエーテクモホールディングス">
-                <p class="partners-item__name">
-                  株式会社コーエーテクモ<br>ホールディングス
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_05-9.jpg" alt="一般社団法人鶴岡サイエンスパーク">
-                <p class="partners-item__name">
-                  一般社団法人<br class="md-show">鶴岡サイエンスパーク
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_05-10.jpg" alt="日本政策金融公庫 南関東創業支援センター">
-                <p class="partners-item__name">
-                  日本政策金融公庫<br>南関東創業支援センター
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_02.jpg" alt="株式会社横浜銀行">
-                <p class="partners-item__name">
-                  株式会社横浜銀行
-                </p>
-              </li>
-              <li class="partners-item__individual">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_05-12.jpg" alt="一般社団法人 日本オープンイノベーション研究会">
-                <p class="partners-item__name">
-                  一般社団法人<br>日本オープン<br class="md-show">イノベーション研究会
-                </p>
-              </li>
-            </ul>
-          </li>
-        </ul>
-
-        <div class="btn btn--black">
-          <a class="btn__link" href="">
-            もっと見る
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="outline">
-      <picture>
-        <source srcset="./assets/img/outline_design.png" media="(min-width: 769px)">
-        <img class="outline__design" src="./assets/img/outline_design_sp.png" alt="">
-      </picture>
-      <div class="outline__inner">
-        <div class="outline-contents__inner">
-          <div class="section-title__wrap">
-            <p class="section-title__heading">
-              イベント概要
-            </p>
-            <h2 class="section-title">
-              OUTLINE
-            </h2>
-          </div>
-
-          <div class="outline__items__wrap">
-            <ul class="outline__items">
-              <li class="outline__item">
-                <p class="outline__item__label">
-                  開催日時
-                </p>
-                <div class="outline__item__text__wrap">
-                  <p class="outline__item__text">
-                    2026年3月23日(月)〜25日(水)11:00〜19:30
+          <ul class="partners-items">
+            <li class="partners-item amex">
+              <h3 class="partners-item__title">Innovation Partner</h3>
+              <div class="partners-item__wrap">
+                <img
+                  class="partners-item__img"
+                  src="./assets/img/partners-item_img_01.jpg"
+                  alt="アメリカン・エキスプレス"
+                />
+                <div class="partners-item__contents">
+                  <p class="partners-item__name">
+                    アメリカン・エキスプレス・<br
+                      class="md-show"
+                    />インターナショナル・<br
+                      class="md-none"
+                    />インコーポレイテッド
                   </p>
-                  <!-- <p class="outline__item__annotation">オフライン限定イベント</p> -->
+                  <p class="partners-item__text">
+                    1850年に米国ニューヨーク州にて誕生した、グローバルでペイメントやライフスタイルサービスを展開するブランドです。日本では、1917年（大正6年）に横浜で事業所を開設し、現在は世界中に広がる加盟店ネットワークを通じ、200以上の国や地域で事業を展開しています。また、2025年9月に神奈川県と「ベンチャー企業支援に関する連携協定」を締結するなど、県内の創業期の企業支援にも力を入れています。
+                  </p>
                 </div>
-              </li>
-              <li class="outline__item">
-                <p class="outline__item__label">
-                  会　場
-                </p>
-                <div class="outline__item__text__wrapper">
-                  <div class="outline__item__text__wrap">
-                    <p class="outline__item__text">
-                      関東学院大学 横浜・関内キャンパス
-                    </p>
-                    <p class="outline__item__text weight">
-                      横浜市中区万代町1-1-1
-                    </p>
+              </div>
+            </li>
+            <li class="partners-item">
+              <h3 class="partners-item__title">Gold</h3>
+              <div class="partners-item__wrap">
+                <img
+                  class="partners-item__img"
+                  src="./assets/img/partners-item_img_02.jpg"
+                  alt="大同生命保険株式会社"
+                />
+                <p class="partners-item__name">大同生命保険株式会社</p>
+              </div>
+            </li>
+            <li class="partners-item">
+              <h3 class="partners-item__title">Silver</h3>
+              <div class="partners-item__wrap">
+                <img
+                  class="partners-item__img"
+                  src="./assets/img/partners-item_img_03.jpg"
+                  alt="株式会社明治"
+                />
+                <p class="partners-item__name">株式会社明治</p>
+              </div>
+            </li>
+            <li class="partners-item startup">
+              <h3 class="partners-item__title">Start Up & SMB Gold</h3>
+              <ul class="partners-item__wrap">
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_03-1.jpg"
+                    alt="アンドドット株式会社"
+                  />
+                  <p class="partners-item__name">アンドドット株式会社</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_03-2.jpg"
+                    alt="クラウドエース株式会社"
+                  />
+                  <p class="partners-item__name">クラウドエース株式会社</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_03-3.jpg"
+                    alt="株式会社GEMBA"
+                  />
+                  <p class="partners-item__name">株式会社GEMBA</p>
+                </li>
+              </ul>
+            </li>
+            <li class="partners-item startup">
+              <h3 class="partners-item__title">Start Up & SMB Bronze</h3>
+              <ul class="partners-item__wrap">
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_04-1.jpg"
+                    alt="TRUNK株式会社"
+                  />
+                  <p class="partners-item__name">TRUNK株式会社</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_04-2.jpg"
+                    alt="ユカイ工学株式会社"
+                  />
+                  <p class="partners-item__name">ユカイ工学株式会社</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_04-3.jpg"
+                    alt="株式会社Bocek"
+                  />
+                  <p class="partners-item__name">株式会社Bocek</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_04-4.jpg"
+                    alt="株式会社OneSmallStep"
+                  />
+                  <p class="partners-item__name">株式会社OneSmallStep</p>
+                </li>
+              </ul>
+            </li>
+            <li class="partners-item supporter">
+              <h3 class="partners-item__title">Supporter</h3>
+              <ul class="partners-item__wrap">
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-1.jpg"
+                    alt="独立行政法人中小企業基盤整備機構関東本部"
+                  />
+                  <p class="partners-item__name">
+                    独立行政法人<br
+                      class="md-show"
+                    />中小企業基盤整備機構<br />関東本部
+                  </p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-2.jpg"
+                    alt="横浜市経済局"
+                  />
+                  <p class="partners-item__name">横浜市経済局</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-3.jpg"
+                    alt="川崎市"
+                  />
+                  <p class="partners-item__name">川崎市</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-4.jpg"
+                    alt="相模原市"
+                  />
+                  <p class="partners-item__name">相模原市</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-5.jpg"
+                    alt="横須賀市"
+                  />
+                  <p class="partners-item__name">横須賀市</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img class="partners-item__img" src="." alt="横須賀市" />
+                  <p class="partners-item__name">小田原市</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-6.jpg"
+                    alt="厚木市"
+                  />
+                  <p class="partners-item__name">厚木市</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-7.jpg"
+                    alt="関東学院大学"
+                  />
+                  <p class="partners-item__name">関東学院大学</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-8.jpg"
+                    alt="株式会社コーエーテクモホールディングス"
+                  />
+                  <p class="partners-item__name">
+                    株式会社コーエーテクモ<br />ホールディングス
+                  </p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-9.jpg"
+                    alt="株式会社 東芝"
+                  />
+                  <p class="partners-item__name">株式会社 東芝</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-10.jpg"
+                    alt="一般社団法人鶴岡サイエンスパーク"
+                  />
+                  <p class="partners-item__name">
+                    一般社団法人<br class="md-show" />鶴岡サイエンスパーク
+                  </p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-11.jpg"
+                    alt="日本政策金融公庫 南関東創業支援センター"
+                  />
+                  <p class="partners-item__name">
+                    日本政策金融公庫<br />南関東創業支援センター
+                  </p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-12.jpg"
+                    alt="株式会社横浜銀行"
+                  />
+                  <p class="partners-item__name">株式会社横浜銀行</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-13.jpg"
+                    alt="一般社団法人 日本オープンイノベーション研究会"
+                  />
+                  <p class="partners-item__name">
+                    一般社団法人<br />日本オープン<br
+                      class="md-show"
+                    />イノベーション研究会
+                  </p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- <div class="btn btn--black">
+            <a class="btn__link" href=""> もっと見る </a>
+          </div> -->
+        </div>
+      </section>
+
+      <section class="outline">
+        <picture>
+          <source
+            srcset="./assets/img/outline_design.png"
+            media="(min-width: 769px)"
+          />
+          <img
+            class="outline__design"
+            src="./assets/img/outline_design_sp.png"
+            alt=""
+          />
+        </picture>
+        <div class="outline__inner">
+          <div class="outline-contents__inner">
+            <div class="section-title__wrap">
+              <p class="section-title__heading">イベント概要</p>
+              <h2 class="section-title">OUTLINE</h2>
+            </div>
+
+            <div class="outline__items__wrap">
+              <ul class="outline__items">
+                <li class="outline__item">
+                  <p class="outline__item__label">開催日時</p>
+                  <div class="outline__item__text__wrapper">
+                    <div class="outline__item__text__wrap">
+                      <p class="outline__item__text">
+                        関東学院大学 横浜・関内キャンパスKanagawa Innovators Day
+                        2026
+                      </p>
+                      <p class="outline__item__text weight">
+                        2026.3.24（火）11:00~19:00
+                      </p>
+                    </div>
+                    <div class="outline__item__text__wrap contents_02">
+                      <p class="outline__item__text">
+                        神奈川県支援事業 DEMODAY<br />
+                        （KSAP、BAK、YAK）
+                      </p>
+                      <p class="outline__item__text weight">
+                        2026.3.XX（XX）XX:00~XX:00<br />2026.3.XX（XX）XX:00~XX:00
+                      </p>
+                    </div>
                   </div>
-                  <div class="outline__item__text__wrap contents_02">
-                    <p class="outline__item__text">
-                      YOXO BOX
-                    </p>
-                    <p class="outline__item__text weight">
-                      神奈川県横浜市中区尾上町1-６ ICON関内
-                    </p>
+                </li>
+                <li class="outline__item">
+                  <p class="outline__item__label">会　場</p>
+                  <div class="outline__item__text__wrapper">
+                    <div class="outline__item__text__wrap">
+                      <p class="outline__item__text">
+                        関東学院大学 横浜・関内キャンパス
+                      </p>
+                      <p class="outline__item__text weight">
+                        神奈川県横浜市中区万代町1-1-1
+                      </p>
+                    </div>
+                    <div class="outline__item__text__wrap contents_02">
+                      <p class="outline__item__text">YOXO BOX</p>
+                      <p class="outline__item__text weight">
+                        神奈川県横浜市中区尾上町1-６ ICON関内
+                      </p>
+                    </div>
+                    <div class="outline__item__text__wrap contents_03">
+                      <p class="outline__item__text">
+                        京セラみなとみらいリサーチセンター
+                      </p>
+                      <p class="outline__item__text weight">
+                        神奈川県横浜市西区みなとみらい3-7-1
+                      </p>
+                    </div>
                   </div>
-                  <div class="outline__item__text__wrap contents_03">
-                    <p class="outline__item__text">
-                      京セラみなとみらいリサーチセンター
-                    </p>
-                    <p class="outline__item__text weight">
-                      神奈川県横浜市西区みなとみらい3-7-1
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <!-- <li class="outline__item">
+                </li>
+                <!-- <li class="outline__item">
                 <p class="outline__item__label">
                   アクセス
                 </p>
@@ -797,109 +1071,123 @@
                   </p>
                 </div>
               </li> -->
-            </ul>
-            <img class="outline-items__img" src="./assets/img/outline-items_img.jpg" alt="">
+              </ul>
+              <img
+                class="outline-items__img"
+                src="./assets/img/outline-items_img.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps/d/embed?mid=1X9FdU96NMVUOv0bCA1B1B4HHaYchpBA&ehbc=2E312F"
+              width="640"
+              height="480"
+            ></iframe>
+            <img src="./assets/img/map.jpg" alt="" />
           </div>
         </div>
+      </section>
 
-        <div class="map">
-          <img src="./assets/img/map.jpg" alt="">
+      <div class="achievement">
+        <div class="achievement__inner">
+          <h2 class="achievement__title">神奈川県のベンチャー支援</h2>
+          <p class="achievement__text">
+            ベンチャー支援のかながわモデル「HATSU－SHIN　KANAGAWA」により成長段階に応じた支援に取り組んでいます。「HATSU鎌倉」など県内３か所の起業家創出拠点では、起業準備者、起業家、地域企業が交流し相互に支援し合うことで、地域「発」の起業家を生み出す起業家コミュニティの形成を目指しています。また、横浜にあるベンチャー企業の成長促進拠点「SHINみなとみらい」では、ベンチャー企業の事業拡大に向けた個別伴走支援や、大企業とベンチャー企業の協業による新たな事業連携プロジェクトの創出に取り組んでいます。
+          </p>
+          <h2 class="achievement__title content_02">
+            神奈川県のベンチャー支援実績
+          </h2>
+          <ul class="achievement__items">
+            <li class="achievement__item">
+              <img
+                class="achievement__item__img"
+                src="./assets/img/achievement-item_icon_01.png"
+                alt=""
+              />
+              <p class="achievement__item__text">
+                ベンチャー企業に対する<br class="md-none" />事業化支援件数
+              </p>
+              <p class="achievement__item__number">
+                293<span class="size">件</span>
+              </p>
+            </li>
+            <li class="achievement__item">
+              <img
+                class="achievement__item__img"
+                src="./assets/img/achievement-item_icon_02.png"
+                alt=""
+              />
+              <p class="achievement__item__text">
+                オープンイノベーション支援<br />事業の協議会参画企業
+              </p>
+              <p class="achievement__item__number">
+                1,186<span class="size">件</span>
+              </p>
+            </li>
+            <li class="achievement__item">
+              <img
+                class="achievement__item__img"
+                src="./assets/img/achievement-item_icon_03.png"
+                alt=""
+              />
+              <p class="achievement__item__text">
+                オープンイノベーション支援<br />事業から誕生した事業化件数
+              </p>
+              <p class="achievement__item__number">
+                41<span class="size">件</span>
+              </p>
+            </li>
+          </ul>
         </div>
       </div>
-    </section>
+    </main>
 
-    <div class="achievement">
-      <div class="achievement__inner">
-        <h2 class="achievement__title">
-          神奈川県のベンチャー支援
-        </h2>
-        <p class="achievement__text">
-          ベンチャー支援のかながわモデル「HATSU－SHIN　KANAGAWA」により成長段階に応じた支援に取り組んでいます。「HATSU鎌倉」など県内３か所の起業家創出拠点では、起業準備者、起業家、地域企業が交流し相互に支援し合うことで、地域「発」の起業家を生み出す起業家コミュニティの形成を目指しています。また、横浜にあるベンチャー企業の成長促進拠点「SHINみなとみらい」では、ベンチャー企業の事業拡大に向けた個別伴走支援や、大企業とベンチャー企業の協業による新たな事業連携プロジェクトの創出に取り組んでいます。
-        </p>
-        <h2 class="achievement__title content_02">
-          神奈川県のベンチャー支援実績
-        </h2>
-        <ul class="achievement__items">
-          <li class="achievement__item">
-            <img class="achievement__item__img" src="./assets/img/achievement-item_icon_01.png" alt="">
-            <p class="achievement__item__text">
-              ベンチャー企業に対する<br class="md-none">事業化支援件数
-            </p>
-            <p class="achievement__item__number">
-              293<span class="size">件</span>
-            </p>
+    <footer class="footer">
+      <div class="footer__inner">
+        <ul class="footer-nav__items">
+          <li class="footer-nav__item">
+            <a class="footer-nav__link" href=""> プライバシーポリシー </a>
           </li>
-          <li class="achievement__item">
-            <img class="achievement__item__img" src="./assets/img/achievement-item_icon_02.png" alt="">
-            <p class="achievement__item__text">
-              オープンイノベーション支援<br>事業の協議会参画企業
-            </p>
-            <p class="achievement__item__number">
-              1,186<span class="size">件</span>
-            </p>
+          <li class="footer-nav__item">
+            <a class="footer-nav__link" href="">
+              協賛・出展・サイドイベント・取材に関するお問い合わせ
+            </a>
           </li>
-          <li class="achievement__item">
-            <img class="achievement__item__img" src="./assets/img/achievement-item_icon_03.png" alt="">
-            <p class="achievement__item__text">
-              オープンイノベーション支援<br>事業から誕生した事業化件数
-            </p>
-            <p class="achievement__item__number">
-              41<span class="size">件</span>
-            </p>
+          <li class="footer-nav__item">
+            <a class="footer-nav__link" href=""> サイトポリシー </a>
+          </li>
+        </ul>
+        <ul class="management__items">
+          <li class="management__item">
+            <p class="management__item__label">主催</p>
+            <div class="management-name__wrap">
+              <img
+                class="management-name__img organized"
+                src="./assets/img/kanagawa-logo.svg"
+                alt="神奈川県"
+              />
+              <p class="management-name">
+                神奈川県<br class="md-none" />産業振興課
+              </p>
+            </div>
+          </li>
+          <li class="management__item contents02">
+            <p class="management__item__label">運営</p>
+            <div class="management-name__wrap">
+              <img
+                class="management-name__img organized"
+                src="./assets/img/eiicon-logo.svg"
+                alt="株式会社eiicon"
+              />
+              <p class="management-name">株式会社eiicon</p>
+            </div>
           </li>
         </ul>
       </div>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer__inner">
-      <ul class="footer-nav__items">
-        <li class="footer-nav__item">
-          <a class="footer-nav__link" href="">
-            プライバシーポリシー
-          </a>
-        </li>
-        <li class="footer-nav__item">
-          <a class="footer-nav__link" href="">
-            協賛・出展・サイドイベント・取材に関するお問い合わせ
-          </a>
-        </li>
-        <li class="footer-nav__item">
-          <a class="footer-nav__link" href="">
-            サイトポリシー
-          </a>
-        </li>
-      </ul>
-      <ul class="management__items">
-        <li class="management__item">
-          <p class="management__item__label">
-            主催
-          </p>
-          <div class="management-name__wrap">
-            <img class="management-name__img organized" src="./assets/img/kanagawa-logo.svg" alt="神奈川県">
-            <p class="management-name">
-              神奈川県<br class="md-none">産業振興課
-            </p>
-          </div>
-        </li>
-        <li class="management__item contents02">
-          <p class="management__item__label">
-            運営
-          </p>
-          <div class="management-name__wrap">
-            <img class="management-name__img organized" src="./assets/img/eiicon-logo.svg" alt="株式会社eiicon">
-            <p class="management-name">
-              株式会社eiicon
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <p class="copyright">
-      © Kanagawa Innovators Day 2026
-    </p>
-  </footer>
-</body>
-
+      <p class="copyright">© Kanagawa Innovators Day 2026</p>
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,26 @@
+@use "../global/" as *;
+@use "../global/fluid-size" as fs;
+
+// 共通パーツ-----------------------------------------------------------------------------------------
+
+.soon {
+  @include fs.pc-size(font-size, 32);
+  font-family: $second-font;
+  font-weight: $bold;
+  color: $blue;
+  text-align: center;
+}
+
+.md-none {
+  @include mq("md") {
+    display: none;
+  }
+}
+
+.md-show {
+  display: none;
+
+  @include mq("md") {
+    display: block;
+  }
+}

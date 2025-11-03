@@ -24,6 +24,7 @@
 
   @include mq("md") {
     max-width: 100%;
+    border-radius: 32px;
     @include fs.sp-size(padding, 48 32 48);
   }
 }
@@ -171,11 +172,16 @@
 
   @include mq("md") {
     margin: 0 auto;
+    @include fs.sp-size(width, 175);
   }
 }
 
 .management__item:nth-child(2) .management-name__img {
   @include fs.pc-size(width, 161);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 161);
+  }
 }
 
 .organized {

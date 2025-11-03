@@ -26,22 +26,191 @@
  * sessionページ
  * ================================================================================================ */
 
+// 固定バー--------------------------
+.fixed-bar__wrap {
+  position: fixed;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 1000;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease,
+    visibility 0.6s linear;
+  will-change: transform, opacity;
+  @include fs.pc-size(max-width, 1024);
+  @include fs.pc-size(bottom, 24);
+
+  @include mq("md") {
+    @include fs.sp-size(bottom, 24);
+    @include fs.pc-size(max-width, unset);
+  }
+}
+
+.fixed-bar__wrap.is-out {
+  transform: translateX(-50%) translateY(80px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.fixed-stage__wrap {
+  display: flex;
+  align-items: center;
+  border-radius: 8px 8px 0 0;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 5px 5px 20px 0 #9cb6df;
+  backdrop-filter: blur(25px);
+  @include fs.pc-size(padding, 8 24);
+}
+
+.fixed-stage-label {
+  font-weight: $bold;
+  font-family: $second-font;
+  @include fs.pc-size(font-size, 24);
+}
+
+.fixed-stage__items {
+  display: flex;
+  @include fs.pc-size(margin-left, 24);
+}
+
+.fixed-stage__item {
+}
+
+.fixed-stage__item + .fixed-stage__item {
+  @include fs.pc-size(margin-right, 8);
+}
+
+.fixed-stage__item__inner {
+  display: flex;
+  align-items: center;
+  color: $black;
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 0;
+  transition: color 0.25s ease;
+  will-change: opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  @include fs.pc-size(padding, 8 16);
+}
+
+.fixed-stage__item__inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #00a0e9;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.fixed-stage__item:nth-child(2) .fixed-stage__item__inner::before {
+  background: #18a7a0;
+}
+
+.fixed-stage__item:nth-child(3) .fixed-stage__item__inner::before {
+  background: #8051bd;
+}
+
+.fixed-stage__item:nth-child(4) .fixed-stage__item__inner::before {
+  background: #e23538;
+}
+
+.fixed-stage__item__inner:hover {
+  color: #fff;
+}
+.fixed-stage__item__inner:hover::before {
+  opacity: 1;
+}
+
+.stage-item__icon {
+}
+
+.fixed-stage__item__inner .stage-item__name {
+  @include fs.pc-size(margin-left, 12);
+}
+
+.fixed-link__items {
+  display: flex;
+  justify-content: center;
+  background-color: #0087d1;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 5px 5px 20px 0 #9cb6df;
+}
+
+.fixed-link__item {
+  @include fs.pc-size(padding, 16 0);
+}
+
+.fixed-link__item + .fixed-link__item {
+  @include fs.pc-size(margin-left, 64);
+}
+
+.fixed-link {
+  position: relative;
+  font-weight: $bold;
+  font-family: $second-font;
+  color: $white;
+  transition: color 0.3s ease;
+  @include fs.pc-size(font-size, 24);
+  @include fs.pc-size(padding, 16 25 16 0);
+}
+
+.fixed-link::before {
+  position: absolute;
+  content: "";
+  background-image: url(../img/fixed-link_icon.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 9px;
+  height: 9px;
+  transition: background-image 0.3s ease;
+  @include fs.pc-size(top, 28);
+  @include fs.pc-size(right, 0);
+}
+
+.fixed-link:hover {
+  color: #22aceb;
+}
+
+.fixed-link:hover::before {
+  background-image: url(../img/fixed-link_icon--hover.svg);
+}
+
+// /固定バー--------------------------
+
 .session-page .lower-mv.fv {
   position: relative;
   @include fs.pc-size(padding-bottom, 55);
+
+  @include mq("md") {
+    @include fs.sp-size(padding-bottom, 80);
+  }
 }
 
 .session-page .guests__design {
+  position: fixed;
   top: unset;
-  @include fs.pc-size(bottom, 127);
+  z-index: -1;
+  @include fs.pc-size(bottom, unset);
   @include fs.pc-size(left, -12);
+  @include fs.pc-size(top, 576);
 }
 
 .session__design {
-  position: absolute;
+  position: fixed;
   right: 0;
+  z-index: -1;
   @include fs.pc-size(width, 281);
-  @include fs.pc-size(bottom, 422);
+  @include fs.pc-size(bottom, unset);
+  @include fs.pc-size(top, 127);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 97);
+    @include fs.sp-size(top, 0);
+  }
 }
 
 .stage-items {
@@ -52,6 +221,11 @@
   z-index: 100;
   @include fs.pc-size(margin-top, 32);
   @include fs.pc-size(gap, 32);
+
+  @include mq("md") {
+    @include fs.sp-size(gap, 8);
+    @include fs.sp-size(padding, 0 24);
+  }
 }
 
 .stage-item {
@@ -64,16 +238,30 @@
   @include fs.pc-size(height, 153);
   @include fs.pc-size(border-radius, 8);
   @include fs.pc-size(padding-top, 24);
+
+  @include mq("md") {
+    width: 100%;
+    @include fs.sp-size(padding, 16 0);
+    @include fs.sp-size(margin-top, 24);
+  }
 }
 
 .stage-item__heading {
   display: flex;
   align-items: center;
   @include fs.pc-size(gap, 12);
+
+  @include mq("md") {
+    @include fs.sp-size(gap, 8);
+  }
 }
 
 .stage-item__icon {
   @include fs.pc-size(width, 46);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 40);
+  }
 }
 
 .stage-item__name {
@@ -86,10 +274,19 @@
   font-weight: $regular;
   @include fs.pc-size(font-size, 16);
   @include fs.pc-size(margin-top, 16);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 14);
+    @include fs.sp-size(margin-top, 8);
+  }
 }
 
 .session-page .map {
   @include fs.pc-size(margin-top, 8);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 8);
+  }
 }
 
 .session-page .map_link {
@@ -98,22 +295,39 @@
   font-family: $second-font;
   color: $blue;
   @include fs.pc-size(font-size, 14);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 14);
+  }
 }
 
 .session-page .map_link::before {
   position: absolute;
   content: "";
-  background-image: url(../assets/img/link-icon-blue.svg);
+  background-image: url(../img/link-icon-blue.svg);
   @include fs.pc-size(width, 15);
   @include fs.pc-size(height, 15);
   @include fs.pc-size(bottom, 2);
   @include fs.pc-size(right, -23);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 15);
+    @include fs.sp-size(height, 15);
+    @include fs.sp-size(bottom, 2);
+    @include fs.sp-size(right, -23);
+  }
 }
 
 // session-timetable---------------------------------------------------------------------------------
 .session-timetable {
-  @include fs.pc-size(width, 1024);
   margin: 0 auto;
+  @include fs.pc-size(max-width, 1024);
+  @include fs.pc-size(padding-top, 67);
+  @include fs.pc-size(padding-bottom, 120);
+
+  @include mq("md") {
+    @include fs.sp-size(padding, 0 24);
+  }
 }
 
 .lower-title {
@@ -122,20 +336,268 @@
   color: $blue;
   text-align: center;
   @include fs.pc-size(font-size, 48);
+  @include fs.pc-size(margin-bottom, 32);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-bottom, 24);
+  }
 }
 
 .session-page .date {
   font-weight: $bold;
   font-family: $second-font;
   background-color: $black;
+  border-radius: 8px;
   text-align: center;
   color: $white;
   @include fs.pc-size(font-size, 28);
   @include fs.pc-size(border-radius, 8);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 20);
+  }
 }
 
 .session-page .date .size {
   @include fs.pc-size(font-size, 20);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 14);
+  }
+}
+
+.session-timetable__items {
+  @include fs.pc-size(margin-top, 68);
+}
+
+.session-timetable__item {
+  position: relative;
+}
+
+.session-timetable__item + .session-timetable__item {
+  @include fs.pc-size(margin-top, 68);
+}
+
+.session-timetable__item__inner {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 5px 5px 20px 0 #9cb6df;
+  backdrop-filter: blur(25px);
+  @include fs.pc-size(padding, 0 32 24 32);
+  @include fs.pc-size(margin-top, 36);
+}
+
+.time-label__wrap {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  font-weight: $regular;
+  font-family: $second-font;
+  color: $white;
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(180deg, #00a0e9 85%, #0068b7 100%);
+  @include fs.pc-size(top, -36);
+  @include fs.pc-size(font-size, 16);
+  @include fs.pc-size(padding, 8 32);
+}
+
+.session-timetable__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #0087d1;
+  @include fs.pc-size(padding, 16 0);
+
+  @include mq("md") {
+    flex-direction: column-reverse;
+  }
+}
+
+.session-timetable__title {
+  font-weight: $bold;
+  @include fs.pc-size(font-size, 18);
+}
+
+.stage-item__heading {
+}
+
+.stage-item__icon {
+}
+
+.stage-item__name {
+}
+
+.session-timetable__person__items {
+  display: flex;
+  justify-content: center;
+  @include fs.pc-size(margin-top, 24);
+}
+
+.session-timetable__person__item {
+  display: flex;
+  align-items: center;
+
+  @include mq("md") {
+    display: block;
+  }
+}
+
+.session-timetable__person__items.multiple .session-timetable__person__item {
+  @include fs.pc-size(margin-right, 47);
+}
+
+.session-timetable__person__img {
+  @include fs.pc-size(width, 88);
+}
+
+.session-timetable__person__item__contents {
+  @include fs.pc-size(margin-left, 16);
+}
+
+.session-timetable__person__company {
+  @include fs.pc-size(font-size, 12);
+}
+
+.session-timetable__person__name {
+  font-weight: $bold;
+  line-height: calc(28 / 16);
+  @include fs.pc-size(font-size, 16);
+  @include fs.pc-size(margin-top, 4);
+}
+
+.session-timetable__person__name--en {
+  font-weight: $regular;
+  line-height: 1;
+  font-family: $second-font;
+  color: #0087d1;
+  @include fs.pc-size(font-size, 12);
+}
+
+.session-timetable__comment {
+  font-weight: $bold;
+  color: #0087d1;
+  text-align: center;
+  @include fs.pc-size(font-size, 18);
+  @include fs.pc-size(margin-top, 64);
 }
 
 // /session-timetable--------------------------------------------------------------------------------
+
+// pitch-timetable-----------------------------------------------------------------------------------
+.pitch-timetable {
+  margin: 0 auto;
+  @include fs.pc-size(max-width, 1024);
+  @include fs.pc-size(padding-bottom, 160);
+}
+
+.lower-title {
+}
+
+.date {
+}
+
+.size {
+}
+
+.session-page__comment {
+  font-weight: $bold;
+  font-family: $second-font;
+  color: #0087d1;
+  text-align: center;
+  @include fs.pc-size(font-size, 24);
+  @include fs.pc-size(margin-top, 80);
+}
+
+// /pitch-timetable----------------------------------------------------------------------------------
+
+// demoday-timetable----------------------------------------------------------------------------------
+.demoday-timetable {
+  margin: 0 auto;
+  @include fs.pc-size(max-width, 1024);
+}
+
+.lower-title {
+}
+
+.demoday-timetable__items {
+}
+
+.demoday-timetable__item {
+  display: flex;
+
+  @include mq("md") {
+    display: block;
+  }
+}
+
+.demoday-timetable__item + .demoday-timetable__item {
+  @include fs.pc-size(margin-top, 32);
+}
+
+.demoday-timetable__img {
+  @include fs.pc-size(width, 342);
+}
+
+.demoday-timetable__contents {
+  @include fs.pc-size(margin-left, 32);
+}
+
+.demoday-timetable__heading {
+}
+
+.demoday-timetable__title {
+  font-weight: $bold;
+  @include fs.pc-size(font-size, 24);
+}
+
+.demoday-timetable__title--kana {
+  font-weight: $bold;
+  @include fs.pc-size(font-size, 18);
+  @include fs.pc-size(margin-top, 4);
+}
+
+.demoday-timetable__text {
+  font-weight: $regular;
+  line-height: 175%;
+  @include fs.pc-size(font-size, 14);
+  @include fs.pc-size(margin-top, 24);
+}
+
+.demoday-timetable .btn.btn--black {
+  margin-left: auto;
+  margin-right: unset;
+  @include fs.pc-size(margin-top, 24);
+}
+
+.demoday-timetable .btn__link {
+  position: relative;
+}
+
+.demoday-timetable .btn__link::before {
+  position: absolute;
+  content: "";
+  background-image: url(../img/link-icon-blue.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  transition: filter 0.3s ease;
+  @include fs.pc-size(width, 15);
+  @include fs.pc-size(height, 15);
+  @include fs.pc-size(top, 5);
+  @include fs.pc-size(right, -19);
+}
+
+.demoday-timetable .btn__link:hover::before,
+.demoday-timetable .btn__link:focus-visible::before {
+  filter: brightness(0) saturate(100%) invert(0);
+}
+
+.date.margin {
+  @include fs.pc-size(margin-top, 80);
+}
+
+.footer.session-page {
+  @include fs.pc-size(margin-top, 204);
+}
+
+// /demoday-timetable---------------------------------------------------------------------------------

@@ -3,9 +3,13 @@
 
 // ふわっとディゾルブするオーバーレイ
 @mixin fade-overlay($overlay-bg, $radius: 0) {
-  position: relative;
-  background: transparent;
-  overflow: hidden;
+  // プロパティを & {} でラップ
+  & {
+    position: relative;
+    background: transparent;
+    overflow: hidden;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -16,6 +20,7 @@
     transition: opacity 0.35s ease;
     pointer-events: none;
   }
+
   &:hover::before,
   &:focus-visible::before {
     opacity: 0;
@@ -34,6 +39,7 @@
     left: 50%;
     transform: translateX(-50%);
     right: unset;
+    bottom: calc(fs.fpc(15) + env(safe-area-inset-bottom));
   }
 }
 
@@ -62,6 +68,10 @@
   &:hover::before {
     opacity: 0;
   }
+  @include mq("md") {
+    @include fs.sp-size(border-radius, 60);
+    @include fs.sp-size(padding, 12 20);
+  }
 }
 
 .fixed-btn__link .btn__label {
@@ -72,6 +82,10 @@
   font-weight: $bold;
   text-shadow: 0 0 fs.fpc(5) rgba(0, 0, 0, 0.25);
   @include fs.pc-size(font-size, 18);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 18);
+  }
 }
 
 .fixed-btn__link:hover,
@@ -80,11 +94,9 @@
 }
 
 .fixed-btn.application .fixed-btn__link {
-  // width: 200px;
-  // height: 53px;
   position: relative;
-  // background: linear-gradient(90deg, #FBC501 0%, #E94820 100%);
   transition: linear-gradient 0.3s;
+
   @include fs.pc-size(padding, 12 64);
   @include fade-overlay(
     linear-gradient(90deg, #fbc501 0%, #e94820 100%),
@@ -96,26 +108,6 @@
     @include fs.sp-size(padding, 12 68);
   }
 }
-
-// .fixed-btn.application .fixed-btn__link::after {
-//   position: absolute;
-//   white-space: nowrap;
-//   content: "12/22（月）までの予約で早期特典あり！";
-//   // width: calc(195 / 1512 * 100vw);
-//   // height: calc(26 / 1512 * 100vw);
-//   padding: 4px 8px;
-//   background-color: $white;
-//   border-radius: 30px;
-//   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
-//   font-size: 10px;
-//   font-weight: $bold;
-//   line-height: 175%;
-//   color: #E60012;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   top: -19px;
-// }
 
 // fv---------------------------------------------------------------------------------------------
 .fv {
@@ -129,6 +121,7 @@
   @include fs.pc-size(padding-bottom, 148);
 
   @include mq("md") {
+    height: 100dvh;
     @include fs.sp-size(padding-top, 122);
     @include fs.sp-size(padding-left, 24);
     @include fs.sp-size(padding-bottom, 455);
@@ -150,7 +143,7 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: url(../assets/img/bg_fv.jpg) center top / cover no-repeat;
+  background: url(/assets/img/bg_fv.jpg) center top / cover no-repeat;
   pointer-events: none;
   will-change: transform;
   transform: translateZ(0);
@@ -198,8 +191,10 @@ body::before {
 
   @include mq("md") {
     right: 0;
+    height: 2px;
+    border-radius: 2px;
     @include fs.sp-size(width, 94);
-    @include fs.sp-size(top, 75);
+    @include fs.sp-size(top, 77);
   }
 }
 
@@ -241,7 +236,7 @@ body::before {
 
   @include mq("md") {
     @include fs.sp-size(left, 15);
-    @include fs.sp-size(bottom, 166);
+    @include fs.sp-size(bottom, 16);
   }
 }
 
@@ -250,6 +245,7 @@ body::before {
   font-weight: $medium;
   color: $black;
   writing-mode: sideways-lr;
+  font-weight: 600;
   @include fs.pc-size(font-size, 16);
 
   @include mq("md") {
@@ -265,9 +261,14 @@ body::before {
   margin: auto;
   position: absolute;
   right: 0;
+  width: 1px;
   @include fs.pc-size(bottom, 65);
   @include fs.pc-size(height, 80);
-  @include fs.pc-size(width, 1);
+
+  @include mq("md") {
+    @include fs.sp-size(bottom, 50);
+    @include fs.sp-size(height, 70);
+  }
 }
 
 @keyframes scroll {
@@ -297,6 +298,10 @@ body::before {
   z-index: 10;
   opacity: 0.9;
   @include fs.pc-size(width, 795);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 795);
+  }
 }
 
 .particle-canvas.fade-left {
@@ -326,6 +331,7 @@ body::before {
   @include fs.pc-size(padding-left, 80);
 
   @include mq("md") {
+    @include fs.sp-size(top, 10);
     @include fs.sp-size(padding-left, 16);
   }
 
@@ -402,6 +408,11 @@ body::before {
   @include fs.pc-size(top, -100);
   @include fs.pc-size(right, 46.22);
   @include fs.pc-size(width, 211.78);
+  @include mq("md") {
+    @include fs.sp-size(top, -100);
+    @include fs.sp-size(right, 46.22);
+    @include fs.sp-size(width, 211.78);
+  }
 }
 
 .introduction__title {
@@ -448,11 +459,12 @@ body::before {
   position: absolute;
   z-index: 100;
   @include fs.pc-size(bottom, -50);
-  @include fs.pc-size(left, -160);
+  @include fs.pc-size(left, -180);
   @include fs.pc-size(width, 290.781);
 
   @include mq("md") {
     z-index: 200;
+    @include fs.sp-size(bottom, -70);
     @include fs.sp-size(width, 148);
     @include fs.sp-size(left, -24);
   }
@@ -471,17 +483,9 @@ body::before {
   @include fs.pc-size(border-radius, 32 32 0 0);
 
   @include mq("md") {
-    @include fs.sp-size(padding-top, 64);
+    @include fs.sp-size(padding-top, 80);
     @include fs.sp-size(padding-bottom, 113);
-  }
-}
-
-.main-contents__inner {
-  @include fs.pc-size(max-width, 1353);
-  margin: 0 auto;
-
-  @include mq("md") {
-    @include fs.sp-size(max-width, 342);
+    @include fs.sp-size(border-radius, 32 32 0 0);
   }
 }
 
@@ -501,12 +505,15 @@ body::before {
   @include fs.pc-size(margin-top, 64);
 
   @include mq("md") {
+    overflow: hidden;
+    @include fs.sp-size(border-radius, 8);
     @include fs.sp-size(margin-top, 25);
   }
 }
 
 .start-up .contents__link {
   display: flex;
+  justify-content: space-between;
   position: relative;
   isolation: isolate;
 
@@ -518,7 +525,7 @@ body::before {
 .contents__wrap {
   position: relative;
   z-index: 2;
-  @include fs.pc-size(width, 693);
+  flex: 1;
   @include fs.pc-size(padding, 64);
 
   @include mq("md") {
@@ -541,11 +548,13 @@ body::before {
 
 .contents__text {
   line-height: 175%;
+  font-weight: 400;
   color: $black;
   @include fs.pc-size(margin-top, 16);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 14);
+    @include fs.sp-size(margin-top, 16);
   }
 }
 
@@ -562,14 +571,15 @@ body::before {
 
   @include mq("md") {
     @include fs.sp-size(width, 166);
-    @include fs.sp-size(margin-top, 21);
+    @include fs.sp-size(margin-top, 16);
+    @include fs.sp-size(padding-bottom, 4);
   }
 }
 
 .btn::before {
   position: absolute;
   content: "";
-  background-image: url(../assets/img/btn-icon_blue.svg);
+  background-image: url(/assets/img/btn-icon_blue.svg);
   background-size: 100%;
   background-repeat: no-repeat;
   right: 0;
@@ -580,6 +590,11 @@ body::before {
   @include fs.pc-size(width, 8);
   @include fs.pc-size(height, 12);
   @include fs.pc-size(top, 13);
+  @include mq("md") {
+    @include fs.sp-size(width, 8);
+    @include fs.sp-size(height, 12);
+    @include fs.sp-size(top, 13);
+  }
 }
 
 .btn::after {
@@ -594,6 +609,9 @@ body::before {
   transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
   @include fs.pc-size(height, 2);
+  @include mq("md") {
+    @include fs.sp-size(height, 2);
+  }
 }
 
 .btn__link {
@@ -609,25 +627,33 @@ body::before {
     @include fs.sp-size(font-size, 14);
   }
 }
-
 .start-up__img {
   position: relative;
   z-index: 2;
+  display: flex;
+  align-items: center;
+  background-color: #090045;
+  width: calc(50% - 16px);
   border-radius: 0 fs.fpc(8) fs.fpc(8) 0;
-  @include fs.pc-size(width, 660);
+  // @include fs.pc-size(width, 660);
 
   @include mq("md") {
+    width: 100%;
     border-radius: 0 0 fs.fsp(8) fs.fsp(8);
   }
 }
+.start-up__img img {
+  object-fit: contain;
+}
 
 .main-contents__items {
-  display: flex;
-  flex-wrap: wrap;
-  @include fs.pc-size(gap, 32 33);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @include fs.pc-size(gap, 32);
   @include fs.pc-size(margin-top, 32);
 
   @include mq("md") {
+    grid-template-columns: 1fr;
     @include fs.sp-size(margin-top, 14);
     @include fs.sp-size(gap, 15 0);
   }
@@ -637,11 +663,12 @@ body::before {
   position: relative;
   box-shadow: 0 fs.fpc(5) fs.fpc(20) 0 #9cb6df;
   overflow: hidden;
-  @include fs.pc-size(width, 660);
+  width: 100%;
   @include fs.pc-size(border-radius, 8);
 
   @include mq("md") {
     width: 100%;
+    @include fs.sp-size(border-radius, 8);
   }
 }
 
@@ -656,6 +683,9 @@ body::before {
   position: relative;
   isolation: isolate;
   z-index: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   @include fs.pc-size(padding, 32 0 32 64);
 
   @include mq("md") {
@@ -677,22 +707,22 @@ body::before {
 }
 
 .main-contents__item:nth-child(2) .main-contents__img {
-  @include fs.pc-size(width, 112);
   top: 0;
   right: 0;
+  @include fs.pc-size(width, 112);
 
   @include mq("md") {
-    @include fs.sp-size(width, 70);
     top: unset;
+    @include fs.sp-size(width, 70);
     @include fs.sp-size(bottom, 9);
     @include fs.sp-size(right, 11);
   }
 }
 
 .main-contents__item:nth-child(3) .main-contents__img {
-  @include fs.pc-size(width, 113);
   right: 0;
   bottom: 0;
+  @include fs.pc-size(width, 113);
 
   @include mq("md") {
     @include fs.sp-size(width, 98);
@@ -707,8 +737,8 @@ body::before {
 // }
 
 .main-contents__items .contents__text {
-  @include fs.pc-size(width, 416);
-
+  width: 70%;
+  margin-bottom: auto;
   @include mq("md") {
     width: 100%;
   }
@@ -724,6 +754,12 @@ body::before {
 
 .main-contents__items .btn {
   @include fs.pc-size(margin-top, 16);
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 16);
+  }
+}
+.contents__link {
+  background-color: #fff;
 }
 
 // hover時
@@ -788,7 +824,7 @@ body::before {
 
 .contents__link:hover .btn::before,
 .contents__link:focus-visible .btn::before {
-  background-image: url(../assets/img/btn-icon_white.svg);
+  background-image: url(/assets/img/btn-icon_white.svg);
   transform: translateY(-50%) translateX(fs.fpc(-13));
 }
 
@@ -811,7 +847,6 @@ body::before {
 
 .main-contents__accepting__link {
   position: relative;
-  @include fs.pc-size(width, 660);
   height: 100%;
   // height: calc(256 / 1512 * 100vw);
   display: flex;
@@ -820,6 +855,7 @@ body::before {
   // border-radius: calc(8 / 1512 * 100vw);
   background: linear-gradient(90deg, #00a0e9 -102.65%, #0068b7 483.21%);
   // box-shadow: 0 5px 20px 0  #9CB6DF;
+  cursor: pointer;
   overflow: hidden;
   z-index: 0;
 
@@ -832,47 +868,48 @@ body::before {
 .main-contents__accepting__link::before {
   position: absolute;
   content: "";
-  background-image: url(../assets/img/main-contents__accepting_left.png);
+  background-image: url(/assets/img/main-contents__accepting_left.png);
   background-size: 100%;
   background-repeat: no-repeat;
-  @include fs.pc-size(width, 160);
-  @include fs.pc-size(height, 266);
   left: 0;
   z-index: 0;
+  @include fs.pc-size(width, 160);
+  @include fs.pc-size(height, 266);
 
   @include mq("md") {
-    @include fs.sp-size(width, 100);
     height: 100%;
     top: 0;
+    @include fs.sp-size(width, 100);
+    @include fs.sp-size(height, 266);
   }
 }
 
 .main-contents__accepting__link::after {
   position: absolute;
   content: "";
-  background-image: url(../../../assets/img/main-contents__accepting_right.png);
+  background-image: url(/assets/img/main-contents__accepting_right.png);
   background-size: 100%;
   background-repeat: no-repeat;
-  @include fs.pc-size(width, 160);
-  @include fs.pc-size(height, 266);
   right: 0;
   z-index: 0;
+  @include fs.pc-size(width, 160);
+  @include fs.pc-size(height, 266);
 
   @include mq("md") {
-    @include fs.sp-size(width, 100);
     height: 100%;
     top: 0;
+    @include fs.sp-size(width, 100);
   }
 }
 
 .main-contents__accepting__text {
-  @include fs.pc-size(font-size, 24);
   font-weight: $bold;
   color: $white;
   text-shadow: 0 0 fs.fpc(5) rgba(0, 0, 0, 0.25);
   text-align: center;
   transition: color 0.4s ease, text-shadow 0.4s ease;
   z-index: 1;
+  @include fs.pc-size(font-size, 24);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 18);
@@ -881,9 +918,9 @@ body::before {
 
 .main-contents__accepting__text .size {
   display: block;
-  @include fs.pc-size(font-size, 38);
   color: #f2df64;
   transition: color 0.4s ease;
+  @include fs.pc-size(font-size, 38);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 28);
@@ -909,16 +946,19 @@ body::before {
 // side-events------------------------------------------------------------------------------------
 .side-events {
   position: relative;
+  background-color: #fff;
+  z-index: 30;
   @include fs.pc-size(padding-top, 120);
   @include fs.pc-size(padding-bottom, 120);
-  background-color: #fff;
   @include fs.pc-size(border-radius, 32);
   @include fs.pc-size(margin-top, -32);
-  z-index: 30;
 
   @include mq("md") {
     @include fs.sp-size(padding-top, 80);
     @include fs.sp-size(padding-bottom, 80);
+    @include fs.sp-size(border-radius, 32);
+    @include fs.sp-size(margin-top, -32);
+    @include fs.sp-size(padding-top, 80);
   }
 }
 
@@ -944,9 +984,9 @@ body::before {
 }
 
 .side-events__items {
-  @include fs.pc-size(max-width, 1022);
   margin: 0 auto;
   display: flex;
+  @include fs.pc-size(max-width, 1022);
   @include fs.pc-size(gap, 16);
   @include fs.pc-size(margin-top, 64);
 
@@ -970,11 +1010,16 @@ body::before {
 }
 
 .side-events__title {
-  @include fs.pc-size(font-size, 16);
   font-weight: $bold;
   text-align: center;
-  @include fs.pc-size(margin-top, 16);
   color: $black;
+  @include fs.pc-size(font-size, 16);
+  @include fs.pc-size(margin-top, 16);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 16);
+    @include fs.sp-size(margin-top, 16);
+  }
 }
 
 .side-events .btn.btn--black {
@@ -987,32 +1032,35 @@ body::before {
 
 .side-events .soon {
   @include fs.pc-size(margin-top, 64);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 64);
+  }
 }
 // /side-events-----------------------------------------------------------------------------------
 
 // guests-----------------------------------------------------------------------------------------
 .guests {
   position: relative;
-  @include fs.pc-size(padding-top, 152);
-  @include fs.pc-size(padding-bottom, 152);
-  @include fs.pc-size(margin-top, -32);
   overflow: visible;
   background: transparent;
-
   --card-w: 430px;
   --card-h: 152px;
   --gap: 16px;
   --row-gap: 16px;
   --edge-pad: 80px;
   --speed: 28s;
+  @include fs.pc-size(padding-top, 152);
+  @include fs.pc-size(padding-bottom, 152);
+  @include fs.pc-size(margin-top, -32);
 
   @include mq("md") {
-    @include fs.sp-size(padding-top, 112);
-    @include fs.sp-size(padding-bottom, 112);
-
     --card-w: 312px;
     --card-h: 112px;
     --edge-pad: 24px;
+    @include fs.sp-size(padding-top, 112);
+    @include fs.sp-size(padding-bottom, 112);
+    @include fs.sp-size(margin-top, -32);
   }
 }
 
@@ -1029,15 +1077,15 @@ body::before {
 
 .guests__design {
   position: absolute;
-  @include fs.pc-size(width, 264);
   left: 0;
-  @include fs.pc-size(top, -162);
   z-index: 30;
   pointer-events: none;
+  @include fs.pc-size(width, 264);
+  @include fs.pc-size(top, -162);
 
   @include mq("md") {
     @include fs.sp-size(width, 131);
-    @include fs.sp-size(top, -64);
+    @include fs.sp-size(top, -65);
   }
 }
 
@@ -1055,6 +1103,7 @@ body::before {
 .section-title {
 }
 
+// Swiperコンテナのスタイル
 .guests-ticker {
   overflow: hidden;
   padding: 0 var(--edge-pad);
@@ -1066,63 +1115,38 @@ body::before {
   }
 }
 
-.guests-track {
+// 上段と下段のSwiper
+.guests-swiper-top,
+.guests-swiper-bottom {
+  position: relative;
+  overflow: hidden;
+}
+
+.guests-swiper-bottom {
+  // 下段を右にずらす: カード幅の50% + 8px
+  padding-left: calc(var(--card-w) / 2 + 8px);
+}
+
+// Swiperのラッパー - linearトランジションを追加
+.swiper-wrapper {
   display: flex;
-  width: max-content;
-  animation: guests-marquee var(--speed) linear infinite;
-}
-@keyframes guests-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  transition-timing-function: linear !important;
 }
 
-/* ホバーで一時停止 */
-.guests-ticker:hover .guests-track {
-  animation-play-state: paused;
+.swiper-slide {
+  width: auto !important;
+  height: auto;
 }
 
-/* 動画酔い配慮 */
-@media (prefers-reduced-motion: reduce) {
-  .guests-track {
-    animation: none;
-  }
-}
-
+// 元のスタイルをそのまま維持
 .pair {
   display: grid;
   row-gap: var(--row-gap);
   @include fs.pc-size(padding, 20 0);
-}
 
-.guests-items {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: var(--card-w);
-  column-gap: var(--gap);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.row--bottom {
-  padding-left: calc((var(--card-w) + var(--gap)) / 2);
-}
-
-.guests-item {
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto;
-  @include fs.pc-size(gap, 24);
-  @include fs.pc-size(padding, 16 24);
-  @include fs.pc-size(width, 430);
-  @include fs.pc-size(height, 152);
-  background-color: $white;
-  @include fs.pc-size(border-radius, 8);
-  box-shadow: 0 fs.fpc(5) fs.fpc(20) 0 #9cb6df;
+  @include mq("md") {
+    @include fs.sp-size(padding, 20 0);
+  }
 }
 
 .guests-item {
@@ -1130,15 +1154,17 @@ body::before {
   height: var(--card-h);
   display: flex;
   align-items: center;
-  @include fs.pc-size(gap, 24);
-  @include fs.pc-size(padding, 16 24);
   background-color: #fff;
-  @include fs.pc-size(border-radius, 8);
   box-shadow: 0 fs.fpc(5) fs.fpc(20) 0 #9cb6df;
   flex: 0 0 auto;
+  @include fs.pc-size(gap, 24);
+  @include fs.pc-size(padding, 16 24);
+  @include fs.pc-size(border-radius, 8);
 
   @include mq("md") {
     @include fs.sp-size(padding, 11 16);
+    @include fs.sp-size(gap, 16);
+    @include fs.sp-size(border-radius, 8);
   }
 }
 
@@ -1154,8 +1180,8 @@ body::before {
 }
 
 .guests-item__company {
-  @include fs.pc-size(font-size, 14);
   font-weight: $regular;
+  @include fs.pc-size(font-size, 14);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 12);
@@ -1163,62 +1189,55 @@ body::before {
 }
 
 .guests-item__name {
-  @include fs.pc-size(font-size, 18);
   font-weight: $bold;
+  @include fs.pc-size(font-size, 18);
   @include fs.pc-size(margin-top, 16);
-
   @include mq("md") {
-    @include fs.sp-size(font-size, 16);
-    @include fs.sp-size(margin-top, 8);
+    @include fs.sp-size(font-size, 18);
+    @include fs.sp-size(margin-top, 16);
   }
 }
 
-.guests .btn.btn--black {
-  @include fs.pc-size(margin-top, 100);
+// ホバーで一時停止（元のCSS仕様を維持）
+.guests-ticker:hover .swiper-wrapper {
+  animation-play-state: paused;
+}
 
-  @include mq("md") {
-    @include fs.sp-size(margin-top, 29);
+// 動画酔い配慮（元のCSS仕様を維持）
+@media (prefers-reduced-motion: reduce) {
+  .swiper-wrapper {
+    animation: none;
   }
 }
-// /guests----------------------------------------------------------------------------------------
-
 // partners----------------------------------------------------------------------------------------
 .partners {
   position: relative;
+  background-color: #fff;
+  z-index: 10;
   @include fs.pc-size(padding-top, 120);
   @include fs.pc-size(padding-bottom, 152);
-  background-color: #fff;
   @include fs.pc-size(border-radius, 32 32 0 0);
   @include fs.pc-size(margin-top, -32);
-  z-index: 10;
 
   @include mq("md") {
     @include fs.sp-size(padding-top, 80);
-    @include fs.sp-size(padding-bottom, 112);
+    @include fs.sp-size(padding-bottom, 80);
+    @include fs.sp-size(border-radius, 32 32 0 0);
+    @include fs.sp-size(margin-top, -32);
   }
 }
 
 .partners__design {
   position: absolute;
+  right: 0;
   @include fs.pc-size(width, 281);
   @include fs.pc-size(top, -160);
-  right: 0;
 
   @include mq("md") {
     @include fs.sp-size(width, 100);
     @include fs.sp-size(top, -81);
   }
 }
-
-.partners__inner {
-  @include fs.pc-size(max-width, 1352);
-  margin: 0 auto;
-
-  @include mq("md") {
-    @include fs.sp-size(max-width, 342);
-  }
-}
-
 .section-title__wrap {
 }
 
@@ -1228,48 +1247,10 @@ body::before {
 .section-title {
 }
 
-// .partners__items {
-//   display: flex;
-//   justify-content: center;
-//   margin-top: calc(64 / 1512 * 100vw);
-// }
-
-// .partners__items.top-contents {
-//   gap: 0 calc(32 / 1512 * 100vw);
-// }
-
-// .partners__items.under-contents {
-//   gap: 0 calc(16 / 1512 * 100vw);
-// }
-
-// .top-contents .partners__item {
-//   width: calc(420 / 1512 * 100vw);
-// }
-
-// .under-contents .partners__item {
-//   width: calc(326 / 1512 * 100vw);
-// }
-
-// .partners__link {
-
-// }
-
-// .partners__img {
-
-// }
-
-// .partners__title {
-//   font-size: calc(18 / 1512 * 100vw);
-//   font-weight: $bold;
-//   color: $black;
-//   text-align: center;
-//   margin-top: calc(16 / 1512 * 100vw);
-// }
-
 .partners-items {
+  margin: 0 auto;
   @include fs.pc-size(padding-top, 55);
   @include fs.pc-size(max-width, 1352);
-  margin: 0 auto;
 
   @include mq("md") {
     @include fs.sp-size(padding-top, 30);
@@ -1297,18 +1278,20 @@ body::before {
 
 .partners-item__title {
   width: 100%;
-  @include fs.pc-size(font-size, 28);
   font-weight: $bold;
   font-family: $second-font;
   color: $white;
   background-color: $blue;
   text-align: center;
+  line-height: 1.2;
+  @include fs.pc-size(font-size, 28);
   @include fs.pc-size(padding, 4 0);
   @include fs.pc-size(border-radius, 8);
-  line-height: 1.2;
 
   @include mq("md") {
     @include fs.sp-size(font-size, 20);
+    @include fs.sp-size(padding, 4 0);
+    @include fs.sp-size(border-radius, 8);
   }
 }
 
@@ -1316,11 +1299,12 @@ body::before {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   @include fs.pc-size(gap, 46);
   @include fs.pc-size(margin-top, 32);
-  flex-wrap: wrap;
 
   @include mq("md") {
+    align-items: flex-start;
     @include fs.sp-size(margin-top, 24);
     @include fs.sp-size(gap, 24);
   }
@@ -1339,7 +1323,6 @@ body::before {
   align-items: center;
 }
 
-.partners-item:nth-child(2) .partners-item__wrap,
 .partners-item:nth-child(3) .partners-item__wrap {
   flex-direction: column;
   align-items: center;
@@ -1358,10 +1341,12 @@ body::before {
   @include fs.pc-size(row-gap, 16);
 
   @include mq("md") {
+    @include fs.sp-size(column-gap, 11);
     @include fs.sp-size(row-gap, 24);
   }
 }
-
+.partners-item__individual {
+}
 .partners-item__img {
   @include fs.pc-size(width, 240);
 
@@ -1383,6 +1368,9 @@ body::before {
 .partners-item:nth-child(5) .partners-item__img,
 .partners-item:nth-child(6) .partners-item__img {
   @include fs.pc-size(width, 255);
+  @include mq("md") {
+    @include fs.sp-size(width, 255);
+  }
 }
 
 .partners-item.startup .partners-item__img,
@@ -1396,8 +1384,8 @@ body::before {
 }
 
 .partners-item__name {
-  @include fs.pc-size(font-size, 20);
   font-weight: $bold;
+  @include fs.pc-size(font-size, 20);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 16);
@@ -1408,9 +1396,13 @@ body::before {
 .partners-item:nth-child(3) .partners-item__name,
 .partners-item:nth-child(4) .partners-item__name,
 .partners-item:nth-child(5) .partners-item__name {
-  @include fs.pc-size(font-size, 16);
   text-align: center;
+  @include fs.pc-size(font-size, 16);
   @include fs.pc-size(margin-top, 16);
+  @include mq("md") {
+    @include fs.sp-size(font-size, 16);
+    @include fs.sp-size(margin-top, 16);
+  }
 }
 
 .partners-item:nth-child(4) .partners-item__name,
@@ -1421,19 +1413,24 @@ body::before {
 }
 
 .partners-item:nth-child(6) .partners-item__name {
-  @include fs.pc-size(font-size, 15);
   text-align: center;
+  @include fs.pc-size(font-size, 15);
   @include fs.pc-size(margin-top, 16);
+  @include mq("md") {
+    @include fs.sp-size(font-size, 15);
+    @include fs.sp-size(margin-top, 16);
+  }
 }
 
 .partners-item__text {
+  line-height: 175%;
   @include fs.pc-size(width, 480);
   @include fs.pc-size(font-size, 14);
-  line-height: 175%;
   @include fs.pc-size(margin-top, 16);
 
   @include mq("md") {
     width: 100%;
+    @include fs.sp-size(font-size, 14);
     @include fs.sp-size(margin-top, 8);
   }
 }
@@ -1453,16 +1450,18 @@ body::before {
 // outline------------------------------------------------------------------------------------------
 .outline {
   position: relative;
+  overflow: visible;
+  background: transparent;
   @include fs.pc-size(padding-top, 152);
   @include fs.pc-size(padding-bottom, 152);
   @include fs.pc-size(border-radius, 32 32 0 0);
   @include fs.pc-size(margin-top, -32);
-  overflow: visible;
-  background: transparent;
 
   @include mq("md") {
     @include fs.sp-size(padding-top, 77);
     @include fs.sp-size(padding-bottom, 112);
+    @include fs.sp-size(border-radius, 32 32 0 0);
+    @include fs.sp-size(margin-top, -32);
   }
 }
 
@@ -1479,12 +1478,12 @@ body::before {
 
 .outline__design {
   position: absolute;
-  @include fs.pc-size(width, 292);
-  @include fs.pc-size(top, -175);
   left: 0;
   z-index: 20;
   pointer-events: none;
   // transform: translateZ(0);
+  @include fs.pc-size(width, 292);
+  @include fs.pc-size(top, -175);
 
   @include mq("md") {
     @include fs.sp-size(width, 131);
@@ -1498,8 +1497,9 @@ body::before {
 }
 
 .outline-contents__inner {
-  @include fs.pc-size(max-width, 724);
   margin: 0 auto;
+  max-width: 840px;
+  // @include fs.pc-size(max-width, 840);
 }
 
 .section-title__wrap {
@@ -1513,14 +1513,15 @@ body::before {
 
 .outline__items__wrap {
   display: flex;
-  @include fs.pc-size(gap, 32);
-  @include fs.pc-size(margin-top, 52);
+  justify-content: space-between;
+  @include fs.pc-size(gap, 80);
+  @include fs.pc-size(margin-top, 64);
 
   @include mq("md") {
     display: block;
+    margin: 0 auto;
     @include fs.sp-size(padding-top, 28);
     @include fs.sp-size(max-width, 342);
-    margin: 0 auto;
   }
 }
 
@@ -1535,45 +1536,42 @@ body::before {
   }
 }
 
-.outline__item:first-child {
-  align-items: center;
-}
-
 .outline__item + .outline__item {
   @include fs.pc-size(margin-top, 24);
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 24);
+  }
 }
 
 .outline__item__label {
-  @include fs.pc-size(font-size, 14);
   font-weight: $bold;
   color: $white;
-  @include fs.pc-size(width, 120);
-  @include fs.pc-size(height, 31);
-  @include fs.pc-size(border-radius, 30);
   background: linear-gradient(90deg, #00a1e7 0%, #009ea1 100%);
   display: flex;
   justify-content: center;
   align-items: center;
+  @include fs.pc-size(font-size, 14);
+  @include fs.pc-size(width, 120);
+  @include fs.pc-size(height, 31);
+  @include fs.pc-size(border-radius, 30);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 12);
     @include fs.sp-size(width, 88);
     @include fs.sp-size(height, 23);
+    @include fs.sp-size(border-radius, 30);
   }
 }
 
 .outline__item__text__wrap {
   font-weight: $bold;
-  display: flex;
-  align-items: center;
-  @include fs.pc-size(width, 358);
-  @include fs.pc-size(margin-left, 24);
   line-height: 150%;
+  @include fs.pc-size(margin-left, 24);
 
   @include mq("md") {
     width: 100%;
-    @include fs.sp-size(margin-top, 20);
     margin-left: unset;
+    @include fs.sp-size(margin-top, 16);
   }
 }
 
@@ -1582,7 +1580,7 @@ body::before {
   @include fs.pc-size(margin-top, 24);
 
   @include mq("md") {
-    @include fs.sp-size(margin-top, 25);
+    @include fs.sp-size(margin-top, 16);
   }
 }
 
@@ -1592,9 +1590,9 @@ body::before {
 }
 
 .outline__item__text {
+  line-height: 1.625;
   @include mq("md") {
     @include fs.sp-size(font-size, 14);
-    line-height: 1;
   }
 }
 
@@ -1603,32 +1601,41 @@ body::before {
 }
 
 .outline__item__text + .outline__item__text {
-  @include fs.pc-size(margin-top, 4);
-
-  @include mq("md") {
-    @include fs.sp-size(margin-top, 8);
-  }
 }
 
 .outline__item__annotation {
-  @include fs.pc-size(font-size, 12);
   font-weight: $bold;
   color: #e60012;
-  @include fs.pc-size(border, 1 solid #e60012);
-  @include fs.pc-size(width, 147);
-  @include fs.pc-size(height, 27);
   display: flex;
   justify-content: center;
   align-items: center;
+  @include fs.pc-size(font-size, 12);
+  @include fs.pc-size(border, 1 solid #e60012);
+  @include fs.pc-size(width, 147);
+  @include fs.pc-size(height, 27);
   @include fs.pc-size(margin-left, 16);
+  @include mq("md") {
+    @include fs.sp-size(font-size, 12);
+    @include fs.sp-size(border, 1 solid #e60012);
+    @include fs.sp-size(width, 147);
+    @include fs.sp-size(height, 27);
+    @include fs.sp-size(margin-left, 16);
+  }
 }
-
+.outline-items__figure {
+  display: block;
+  width: 306px;
+  @include mq("md") {
+    @include fs.sp-size(width, 306px);
+  }
+}
 .outline-items__img {
-  @include fs.pc-size(width, 190);
+  width: 100%;
+  object-fit: contain;
 
   @include mq("md") {
-    @include fs.sp-size(width, 258);
     margin: 0 auto;
+    @include fs.sp-size(width, 258);
     @include fs.sp-size(padding-top, 30);
   }
 }
@@ -1640,14 +1647,15 @@ body::before {
     @include fs.sp-size(margin-top, 32);
   }
 }
-
-.map img {
-  @include fs.pc-size(width, 1024);
-  margin: 0 auto;
-
+.map__wrap {
+  text-align: center;
+}
+.map iframe {
+  aspect-ratio: 1024 / 416;
+  width: 100%;
   @include mq("md") {
-    width: 100%;
-    @include fs.sp-size(max-width, 342);
+    aspect-ratio: unset;
+    height: 560px;
   }
 }
 // /outline-----------------------------------------------------------------------------------------
@@ -1655,16 +1663,18 @@ body::before {
 // achievement--------------------------------------------------------------------------------------
 .achievement {
   position: relative;
+  background-color: #0087d1;
+  z-index: 10;
   @include fs.pc-size(padding-top, 124);
   @include fs.pc-size(padding-bottom, 110);
-  background-color: #0087d1;
   @include fs.pc-size(border-radius, 32);
   @include fs.pc-size(margin-top, -32);
-  z-index: 10;
 
   @include mq("md") {
     @include fs.sp-size(padding-top, 82);
     @include fs.sp-size(padding-bottom, 66);
+    @include fs.sp-size(border-radius, 32);
+    @include fs.sp-size(margin-top, -32);
   }
 }
 
@@ -1672,10 +1682,10 @@ body::before {
 }
 
 .achievement__title {
-  @include fs.pc-size(font-size, 40);
   font-weight: $bold;
   color: $white;
   text-align: center;
+  @include fs.pc-size(font-size, 40);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 24);
@@ -1684,14 +1694,14 @@ body::before {
 
 .achievement__text {
   line-height: 175%;
-  @include fs.pc-size(width, 576);
   margin: 0 auto;
-  @include fs.pc-size(margin-top, 24);
   color: $white;
+  @include fs.pc-size(width, 576);
+  @include fs.pc-size(margin-top, 24);
 
   @include mq("md") {
-    @include fs.sp-size(font-size, 14);
     width: 100%;
+    @include fs.sp-size(font-size, 14);
     @include fs.sp-size(max-width, 342);
     @include fs.sp-size(margin-top, 16);
   }
@@ -1741,8 +1751,8 @@ body::before {
 }
 
 .achievement__item__img {
-  @include fs.pc-size(width, 137);
   margin: 0 auto;
+  @include fs.pc-size(width, 137);
 
   @include mq("md") {
     @include fs.sp-size(width, 96);
@@ -1766,12 +1776,12 @@ body::before {
 }
 
 .achievement__item__text {
-  @include fs.pc-size(font-size, 18);
   font-weight: $bold;
   line-height: 150%;
   color: $white;
-  @include fs.pc-size(margin-top, 32);
   text-align: center;
+  @include fs.pc-size(font-size, 18);
+  @include fs.pc-size(margin-top, 32);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 16);
@@ -1780,12 +1790,12 @@ body::before {
 }
 
 .achievement__item__number {
-  @include fs.pc-size(font-size, 80);
   font-family: $second-font;
   font-weight: $bold;
   color: $white;
-  @include fs.pc-size(margin-top, 8);
   text-align: center;
+  @include fs.pc-size(font-size, 80);
+  @include fs.pc-size(margin-top, 8);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 64);
@@ -1794,12 +1804,13 @@ body::before {
 }
 
 .achievement__item__number .size {
-  @include fs.pc-size(font-size, 32);
   font-family: $base-font;
+  @include fs.pc-size(font-size, 32);
   @include fs.pc-size(margin-left, 8);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 24);
+    @include fs.sp-size(margin-left, 8);
   }
 }
 // /achievement-------------------------------------------------------------------------------------
@@ -1821,7 +1832,7 @@ body::before {
 
 .btn.btn--black:hover::before,
 .btn.btn--black:focus-within::before {
-  background-image: url(../assets/img/btn-icon_black.svg);
+  background-image: url(/assets/img/btn-icon_black.svg);
   transform: translateY(-50%) translateX(fs.fpc(-28));
 }
 
@@ -1836,7 +1847,7 @@ body::before {
 }
 .contents__link:hover .btn.btn--black:hover::before,
 .contents__link:focus-visible .btn.btn--black:focus-within::before {
-  background-image: url(../assets/img/btn-icon_black.svg);
+  background-image: url(/assets/img/btn-icon_black.svg);
 }
 
 // /main-contents以外のボタン-----------------------------------------------------------------------
@@ -1850,11 +1861,11 @@ body::before {
 
 .section-title__heading {
   position: relative;
-  @include fs.pc-size(font-size, 18);
   font-weight: $bold;
-  @include fs.pc-size(padding-left, 20);
   display: inline-block;
   margin: 0 auto;
+  @include fs.pc-size(font-size, 18);
+  @include fs.pc-size(padding-left, 20);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 14);
@@ -1865,13 +1876,13 @@ body::before {
 .section-title__heading::before {
   position: absolute;
   content: "";
-  @include fs.pc-size(width, 8);
-  @include fs.pc-size(height, 8);
   border-radius: 50%;
   background-color: $blue;
   top: 50%;
   transform: translateY(-50%);
   left: 0;
+  @include fs.pc-size(width, 8);
+  @include fs.pc-size(height, 8);
 
   @include mq("md") {
     @include fs.sp-size(width, 6);
@@ -1880,12 +1891,12 @@ body::before {
 }
 
 .section-title {
-  @include fs.pc-size(font-size, 80);
   font-family: $second-font;
   font-weight: $bold;
   line-height: 1.5;
   color: $blue;
   text-align: center;
+  @include fs.pc-size(font-size, 80);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 40);

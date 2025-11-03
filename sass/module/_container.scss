@@ -1,0 +1,13 @@
+@use "../global" as *;
+@use "../global/fluid-size" as fs;
+
+.container {
+  width: 100%;
+  max-width: 1382px;
+  margin-inline: auto;
+  @include fs.pc-size(padding, 0 15);
+
+  @include mq("md") {
+    @include fs.sp-size(padding, 0 24);
+  }
+}

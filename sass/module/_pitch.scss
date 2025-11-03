@@ -3,9 +3,13 @@
 
 // ふわっとディゾルブするオーバーレイ
 @mixin fade-overlay($overlay-bg, $radius: 0) {
-  position: relative;
-  background: transparent;
-  overflow: hidden;
+  // プロパティを & {} でラップ
+  & {
+    position: relative;
+    background: transparent;
+    overflow: hidden;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -16,6 +20,7 @@
     transition: opacity 0.35s ease;
     pointer-events: none;
   }
+
   &:hover::before,
   &:focus-visible::before {
     opacity: 0;
@@ -33,6 +38,12 @@
   @include fs.pc-size(top, 22);
   @include fs.pc-size(left, 80);
   @include fs.pc-size(width, 174);
+
+  @include mq("md") {
+    @include fs.sp-size(top, 16);
+    @include fs.sp-size(left, 16);
+    @include fs.sp-size(width, 100);
+  }
 }
 
 .pitch-page .header__items {
@@ -44,14 +55,21 @@
 }
 // mv-----------------------------------------------------------------------------------------------
 .mv {
+  position: relative;
+  background-color: #090045;
+  overflow: clip;
+  overflow: hidden;
   position: fixed;
   inset: 0;
-  background-color: #090045;
-  overflow: hidden;
   height: 100dvh;
   @include fs.pc-size(padding-top, 241);
   @include fs.pc-size(padding-left, 80);
   @include fs.pc-size(padding-bottom, 241);
+
+  @include mq("md") {
+    @include fs.sp-size(padding-top, 87);
+    @include fs.sp-size(padding-left, 24);
+  }
 }
 
 .mv-contents__wrap {
@@ -83,14 +101,27 @@
   display: flex;
   align-items: center;
   @include fs.pc-size(gap, 16);
+
+  @include mq("md") {
+    display: block;
+    @include fs.sp-size(margin-top, 16);
+  }
 }
 
 .mv-date__wrap.contents_02 {
   @include fs.pc-size(margin-top, 16);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 16);
+  }
 }
 
 .mv-date__wrap.contents_03 {
   @include fs.pc-size(margin-top, 80);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 354);
+  }
 }
 
 .mv-date__label {
@@ -105,6 +136,12 @@
   @include fs.pc-size(border-radius, 8);
   @include fs.pc-size(width, 80);
   @include fs.pc-size(height, 44);
+
+  @include mq("md") {
+    border-radius: 4px;
+    @include fs.sp-size(width, 52);
+    @include fs.sp-size(height, 25);
+  }
 }
 
 .mv-date__wrap.contents_02 .mv-date__label,
@@ -112,6 +149,12 @@
   background-color: #009e96;
   @include fs.pc-size(font-size, 14);
   @include fs.pc-size(height, 36);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 12);
+    @include fs.sp-size(width, 42);
+    @include fs.sp-size(height, 21);
+  }
 }
 
 .mv-date__wrap.contents_03 .mv-date__label {
@@ -119,6 +162,11 @@
   color: $black;
   @include fs.pc-size(width, 144);
   @include fs.pc-size(height, 36);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 102);
+    @include fs.sp-size(height, 21);
+  }
 }
 
 .mv-date {
@@ -129,11 +177,21 @@
   justify-content: center;
   align-items: center;
   @include fs.pc-size(font-size, 35);
+
+  @include mq("md") {
+    justify-content: unset;
+    @include fs.sp-size(font-size, 24);
+    @include fs.sp-size(margin-top, 8);
+  }
 }
 
 .mv-date__wrap.contents_02 .mv-date,
 .mv-date__wrap.contents_03 .mv-date {
   @include fs.pc-size(font-size, 28);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 20);
+  }
 }
 
 .mv-date .weekday {
@@ -149,14 +207,29 @@
   @include fs.pc-size(border-radius, 40);
   @include fs.pc-size(margin-left, 8);
   @include fs.pc-size(margin-right, 16);
+
+  @include mq("md") {
+    border-radius: 25px;
+    @include fs.sp-size(font-size, 14);
+    @include fs.sp-size(width, 46);
+    @include fs.sp-size(height, 20);
+    @include fs.sp-size(margin, 0 10 0 5);
+  }
 }
 
 .mv-date__wrap.contents_02 .mv-date .weekday,
 .mv-date__wrap.contents_03 .mv-date .weekday {
-  @include fs.pc-size(font-size, 16);
-  @include fs.pc-size(width, 56);
   height: calc(28 / 1512 * 100vw);
   margin-right: calc(8 / 1512 * 100vw);
+  @include fs.pc-size(font-size, 16);
+  @include fs.pc-size(width, 56);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 12);
+    @include fs.sp-size(width, 43);
+    @include fs.sp-size(height, 20);
+    @include fs.sp-size(margin, 0 10 0 4);
+  }
 }
 
 .pitch-btn {
@@ -165,9 +238,9 @@
 .pitch-btn__link {
   // font-size: 18px;
   // font-weight: $bold;
-  // color: $black;
   // background: linear-gradient(90deg, #FF5068 0%, #FBC501 100%);
   box-shadow: fs.fpc(5) fs.fpc(5) fs.fpc(20) 0 #9cb6df;
+  box-shadow: 5px 5px 20px 0 #9cb6df;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,6 +250,14 @@
   @include fs.pc-size(border-radius, 60);
   @include fs.pc-size(margin-top, 32);
   @include fade-overlay(linear-gradient(90deg, #ff5068 0%, #fbc501 100%), 60px);
+
+  @include mq("md") {
+    border-radius: 37px;
+    box-shadow: 3.071px 3.071px 12.286px 0 #9cb6df;
+    @include fs.sp-size(width, 180);
+    @include fs.sp-size(height, 40);
+    @include fs.sp-size(margin-top, 16);
+  }
 }
 
 .pitch-btn__link .btn__label {
@@ -199,7 +280,9 @@
   @include fs.pc-size(right, -190);
 
   @include mq("md") {
-    @include fs.sp-size(top, 0);
+    width: 125%;
+    @include fs.sp-size(top, 310);
+    @include fs.sp-size(right, -45);
   }
 }
 
@@ -209,31 +292,66 @@
 .mv-person_04 {
   position: absolute;
   box-shadow: 0 0 fs.fpc(51) 0 #9cb6df;
+  // border-radius: 180px;
+  border-radius: 50%;
+  box-shadow: 0 0 51px 0 #9cb6df;
   @include fs.pc-size(border-radius, 180);
+
+  @include mq("md") {
+    box-shadow: 0 0 17.624px 0 #9cb6df;
+  }
 }
 
 .mv-person_01 {
   @include fs.pc-size(width, 158);
   @include fs.pc-size(top, 133);
   @include fs.pc-size(right, 179);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 91);
+    @include fs.sp-size(top, 350);
+    @include fs.sp-size(right, 57);
+  }
 }
 
 .mv-person_02 {
   @include fs.pc-size(width, 142);
   @include fs.pc-size(top, 263);
   @include fs.pc-size(right, 674);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 81);
+    @include fs.sp-size(top, 399);
+    @include fs.sp-size(right, unset);
+    @include fs.sp-size(left, 37);
+  }
 }
 
 .mv-person_03 {
   @include fs.pc-size(width, 157);
   @include fs.pc-size(right, 85);
   @include fs.pc-size(bottom, 182);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 85);
+    @include fs.sp-size(right, 33);
+    @include fs.sp-size(bottom, unset);
+    @include fs.sp-size(top, 525);
+  }
 }
 
 .mv-person_04 {
   @include fs.pc-size(width, 180);
   @include fs.pc-size(right, 615);
   @include fs.pc-size(bottom, 61);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 90);
+    @include fs.sp-size(right, unset);
+    @include fs.sp-size(left, 36);
+    @include fs.sp-size(bottom, unset);
+    @include fs.sp-size(top, 547);
+  }
 }
 
 .mv-spacer {
@@ -251,6 +369,11 @@
   @include fs.pc-size(width, 828);
   @include fs.pc-size(padding-top, 393);
   @include fs.pc-size(padding-bottom, 240);
+
+  @include mq("md") {
+    @include fs.sp-size(padding-top, 240);
+    @include fs.sp-size(padding-bottom, 240);
+  }
 }
 
 .overlap__wrap::before {
@@ -267,11 +390,24 @@
   pointer-events: none;
   will-change: filter, transform;
   transform: translateZ(0);
+
+  @include mq("md") {
+    background: linear-gradient(
+      180deg,
+      rgba(15, 27, 50, 0) 0%,
+      rgba(15, 27, 50, 0.8) 0.49%
+    );
+    filter: blur(50px);
+  }
 }
 
 .overlap__wrap__inner {
   position: relative;
   z-index: 1;
+
+  @include mq("md") {
+    @include fs.sp-size(padding, 0 24);
+  }
 }
 
 .pitch-page .scroll-down {
@@ -279,6 +415,11 @@
   left: unset;
   @include fs.pc-size(top, -470);
   @include fs.pc-size(right, 32);
+
+  @include mq("md") {
+    @include fs.sp-size(top, -300);
+    @include fs.sp-size(right, 17);
+  }
 }
 
 .pitch-page .scroll-down__text {
@@ -291,8 +432,8 @@
 }
 
 .pitch-heading {
-  @include fs.pc-size(width, 576);
   margin: 0 auto;
+  @include fs.pc-size(width, 576);
 }
 
 .pitch-heading__items {
@@ -301,15 +442,27 @@
 .pitch-heading__item {
   line-height: 175%;
   color: $white;
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 14);
+  }
 }
 
 .pitch-heading__item + .pitch-heading__item {
   @include fs.pc-size(margin-top, 20);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 20);
+  }
 }
 
 // AWARDセクション
 .award {
   @include fs.pc-size(padding-top, 457);
+
+  @include mq("md") {
+    @include fs.sp-size(padding-top, 240);
+  }
 }
 
 .pitch__title {
@@ -318,6 +471,10 @@
   color: $blue;
   text-align: center;
   @include fs.pc-size(font-size, 48);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 28);
+  }
 }
 
 .award-items {
@@ -325,36 +482,65 @@
   justify-content: center;
   @include fs.pc-size(gap, 32);
   @include fs.pc-size(margin-top, 32);
+
+  @include mq("md") {
+    display: block;
+    @include fs.sp-size(margin-top, 32);
+  }
 }
 
 .award-item {
   @include fs.pc-size(width, 302);
 }
 
+.award-item + .award-item {
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 32);
+  }
+}
+
 .award-item__img {
-  @include fs.pc-size(width, 160);
   margin: 0 auto;
+  @include fs.pc-size(width, 160);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 160);
+  }
 }
 
 .award-item__name {
-  @include fs.pc-size(font-size, 20);
   font-weight: $bold;
   color: $blue;
   text-align: center;
+  @include fs.pc-size(font-size, 20);
   @include fs.pc-size(margin-top, 8);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 18);
+    @include fs.sp-size(margin-top, 8);
+  }
 }
 
 .award-item__text {
-  @include fs.pc-size(font-size, 14);
   line-height: 175%;
   color: $white;
+  @include fs.pc-size(font-size, 14);
   @include fs.pc-size(margin-top, 16);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 14);
+    @include fs.sp-size(margin-top, 16);
+  }
 }
 // /AWARDセクション
 
 // judgeセクション
 .judge {
   @include fs.pc-size(padding-top, 240);
+
+  @include mq("md") {
+    @include fs.sp-size(padding-top, 240);
+  }
 }
 
 .pitch__title {
@@ -362,12 +548,16 @@
 
 .judge-items {
   display: flex;
-  @include fs.pc-size(gap, 32);
   justify-content: center;
   flex-wrap: wrap;
+  @include fs.pc-size(gap, 32);
   @include fs.pc-size(margin-top, 32);
-}
 
+  @include mq("md") {
+    justify-content: start;
+    @include fs.sp-size(margin-top, 32);
+  }
+}
 .judge-item {
   display: flex;
   align-items: center;
@@ -375,29 +565,55 @@
   @include fs.pc-size(width, 334);
 }
 
+.judge-item + .judge-item {
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 16);
+  }
+}
+
 .judge-item__img {
   @include fs.pc-size(width, 120);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 88);
+  }
 }
 
 .judge-item__contents {
+  @include mq("md") {
+    @include fs.sp-size(margin-left, 24);
+  }
 }
 
 .judge-item__company {
-  font-weight: $bold;
+  font-weight: $regular;
   color: $white;
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 14);
+  }
 }
 
 .judge-item__name {
-  @include fs.pc-size(font-size, 18);
   font-weight: $bold;
   color: $white;
+  @include fs.pc-size(font-size, 18);
   @include fs.pc-size(margin-top, 16);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 18);
+    @include fs.sp-size(margin-top, 8);
+  }
 }
 // /judgeセクション
 
 // themeセクション
 .theme {
   @include fs.pc-size(padding-top, 240);
+
+  @include mq("md") {
+    @include fs.sp-size(padding-top, 240);
+  }
 }
 
 .pitch__title {
@@ -406,72 +622,115 @@
 .theme__text {
   line-height: 175%;
   color: $white;
-  @include fs.pc-size(width, 576);
   margin: 0 auto;
+  @include fs.pc-size(width, 576);
   @include fs.pc-size(margin-top, 32);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 14);
+    @include fs.sp-size(margin-top, 32);
+  }
 }
 
 .pitch-items {
   display: flex;
   flex-wrap: wrap;
+  margin: 0 auto;
   @include fs.pc-size(gap, 8);
   @include fs.pc-size(padding-top, 24);
   @include fs.pc-size(width, 566);
-  margin: 0 auto;
+
+  @include mq("md") {
+    @include fs.sp-size(padding-top, 16);
+    @include fs.sp-size(gap, 8);
+  }
 }
 .pitch-item {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  @include fs.pc-size(width, 180);
-  @include fs.pc-size(height, 33);
-  @include fs.pc-size(font-size, 14);
   font-weight: $regular;
   color: $black;
   text-align: center;
+  border-radius: 60px;
+  border: 1px solid #0087d1;
+  background: rgba(255, 255, 255, 0.8);
+  @include fs.pc-size(width, 180);
+  @include fs.pc-size(height, 33);
+  @include fs.pc-size(font-size, 14);
   @include fs.pc-size(border-radius, 60);
   @include fs.pc-size(border, 1 solid #0087d1);
-  background: rgba(255, 255, 255, 0.8);
+
+  @include mq("md") {
+    width: 100%;
+    @include fs.sp-size(max-width, 164);
+    @include fs.sp-size(height, 33);
+    @include fs.sp-size(font-size, 14);
+  }
 }
 
 .pitch-item__number {
   position: absolute;
   color: $blue;
   @include fs.pc-size(left, 16);
+
+  @include mq("md") {
+    @include fs.sp-size(left, 12);
+  }
 }
 
 .theme__link {
   position: relative;
   color: $blue;
   text-align: center;
-  @include fs.pc-size(margin-top, 48);
   display: flex;
   justify-content: center;
+  @include fs.pc-size(margin-top, 48);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 14);
+    @include fs.sp-size(margin-top, 40);
+  }
 }
 
 .theme__link::before {
   position: absolute;
   content: "";
-  background-image: url(../assets/img/link-icon-blue.svg);
+  background-image: url(../img/link-icon-blue.svg);
   background-size: 100%;
   background-repeat: no-repeat;
   @include fs.pc-size(width, 16);
   @include fs.pc-size(height, 16);
   @include fs.pc-size(top, 3);
   @include fs.pc-size(right, 245);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 11);
+    @include fs.sp-size(height, 11);
+    @include fs.sp-size(top, 4);
+    @include fs.sp-size(right, 30);
+  }
 }
 // /themeセクション
 
 // merritセクション
 .merrit {
   @include fs.pc-size(padding-top, 240);
+
+  @include mq("md") {
+    @include fs.sp-size(padding-top, 240);
+  }
 }
 
 .merrit-items {
-  @include fs.pc-size(width, 467);
   margin: 0 auto;
+  @include fs.pc-size(width, 467);
   @include fs.pc-size(margin-top, 32);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 32);
+  }
 }
 
 .merrit-item {
@@ -479,53 +738,93 @@
 
 .merrit-item + .merrit-item {
   @include fs.pc-size(margin-top, 24);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 24);
+  }
 }
 
 .merrit-item__label {
-  @include fs.pc-size(font-size, 14);
   font-weight: $bold;
   color: $white;
   background-color: $blue;
-  @include fs.pc-size(border-radius, 60);
-  @include fs.pc-size(width, 116);
-  @include fs.pc-size(height, 33);
+  border-radius: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
+  @include fs.pc-size(font-size, 14);
+  @include fs.pc-size(border-radius, 60);
+  @include fs.pc-size(width, 116);
+  @include fs.pc-size(height, 33);
+
+  @include mq("md") {
+    display: inline-block;
+    width: unset;
+    height: unset;
+    @include fs.sp-size(font-size, 14);
+    @include fs.sp-size(padding, 4 16);
+  }
 }
 
 .merrit-item:nth-child(2) .merrit-item__label {
   @include fs.pc-size(width, 88);
+
+  @include mq("md") {
+    width: unset;
+  }
 }
 
 .merrit-item__text {
-  @include fs.pc-size(margin-top, 16);
   font-weight: $bold;
   line-height: 175%;
   color: $white;
+  @include fs.pc-size(margin-top, 16);
+
+  @include mq("md") {
+    padding-left: 1em;
+    text-indent: -1em;
+    @include fs.sp-size(font-size, 16);
+    @include fs.sp-size(margin-top, 16);
+  }
 }
 // /merritセクション
 
 // scheduleセクション
 .schedule {
   @include fs.pc-size(margin-top, 240);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 240);
+  }
 }
 
 .pitch__title {
 }
 
 .schedule-items {
-  @include fs.pc-size(width, 441);
   margin: 0 auto;
+  @include fs.pc-size(width, 441);
   @include fs.pc-size(margin-top, 32);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 32);
+  }
 }
 
 .schedule-item {
   display: flex;
+
+  @include mq("md") {
+    display: block;
+  }
 }
 
 .schedule-item + .schedule-item {
   @include fs.pc-size(margin-top, 16);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 16);
+  }
 }
 
 .schedule-item__date {
@@ -545,10 +844,14 @@
 // entryセクション------------------------------------------------------------------------------------
 .entry {
   position: relative;
-  @include fs.pc-size(padding-top, 120);
-  @include fs.pc-size(padding-bottom, 120);
   overflow: visible;
   background: transparent;
+  @include fs.pc-size(padding-top, 120);
+  @include fs.pc-size(padding-bottom, 120);
+
+  @include mq("md") {
+    @include fs.sp-size(padding, 80 24 80);
+  }
 }
 
 .entry::before {
@@ -569,8 +872,8 @@
 .entry__inner {
   position: relative;
   z-index: 30;
-  @include fs.pc-size(max-width, 780);
   margin: 0 auto;
+  @include fs.pc-size(max-width, 780);
 }
 
 .entry .pitch__title {
@@ -584,24 +887,45 @@
 
 .entry-items {
   @include fs.pc-size(margin-top, 80);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 32);
+  }
 }
 
 .entry__item {
-  @include fs.pc-size(font-size, 18);
   font-weight: $bold;
   color: $white;
+  @include fs.pc-size(font-size, 18);
+
+  @include mq("md") {
+    padding-left: 1em;
+    text-indent: -1em;
+    @include fs.sp-size(font-size, 16);
+  }
 }
 
 .entry__item + .entry__item {
   @include fs.pc-size(margin-top, 24);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 16);
+  }
 }
 
 .entry__annotation {
-  @include fs.pc-size(font-size, 14);
   font-weight: $regular;
   line-height: 175%;
   color: $white;
+  @include fs.pc-size(font-size, 14);
   @include fs.pc-size(margin-top, 64);
+
+  @include mq("md") {
+    padding-left: 1em;
+    text-indent: -1.5em;
+    @include fs.sp-size(font-size, 12);
+    @include fs.sp-size(margin-top, 16);
+  }
 }
 
 .mv-date__wrap {
@@ -610,12 +934,31 @@
 .entry .contents_03 {
   display: flex;
   justify-content: center;
+
+  @include mq("md") {
+    display: block;
+    margin: 0 auto;
+    @include fs.sp-size(margin-top, 32);
+  }
 }
 
 .mv-date__label {
 }
 
 .mv-date {
+}
+
+.mv-date__wrap__wrapper {
+  @include mq("md") {
+    display: flex;
+    margin: 0 auto;
+  }
+}
+
+.mv-date__wrap.contents_03 .mv-date .weekday.margin {
+  @include mq("md") {
+    @include fs.sp-size(margin, 0 0 0 4);
+  }
 }
 
 .weekday {
@@ -627,5 +970,12 @@
 }
 
 .pitch-btn__link {
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 32);
+  }
 }
 // /entryセクション-----------------------------------------------------------------------------------
+
+.copyright.pitch-page {
+  color: #ffffff;
+}

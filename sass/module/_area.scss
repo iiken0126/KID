@@ -25,6 +25,15 @@
 /* ==============================================================================
  * areaページ
  * =========================================================================== */
+
+.logo__wrap {
+  @include mq("md") {
+    @include fs.sp-size(width, 100);
+    @include fs.sp-size(margin-top, 16);
+    @include fs.sp-size(margin-left, 16);
+  }
+}
+
 .header.area-page {
   position: fixed;
   margin: 0;
@@ -49,6 +58,10 @@
   padding-left: unset;
   @include fs.pc-size(padding-top, 160);
   @include fs.pc-size(padding-bottom, 375);
+
+  @include mq("md") {
+    @include fs.sp-size(padding, 106 24 397 24);
+  }
 }
 
 .mv-title {
@@ -56,6 +69,10 @@
   font-family: $second-font;
   color: $blue;
   @include fs.pc-size(font-size, 80);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 40);
+  }
 }
 
 .mv-text {
@@ -66,6 +83,11 @@
   @include fs.pc-size(font-size, 16);
   @include fs.pc-size(width, 576);
   @include fs.pc-size(padding-top, 48);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 14);
+    @include fs.sp-size(padding-top, 16);
+  }
 }
 
 .mv-subtitle {
@@ -74,6 +96,11 @@
   color: $blue;
   @include fs.pc-size(font-size, 48);
   @include fs.pc-size(margin-top, 80);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 28);
+    @include fs.sp-size(margin-top, 48);
+  }
 }
 
 .mv-subtitle__text {
@@ -81,54 +108,168 @@
   font-family: $second-font;
   @include fs.pc-size(font-size, 24);
   @include fs.pc-size(margin-top, 24);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 18);
+    @include fs.sp-size(margin-top, 24);
+  }
 }
 
 .area-page .introduction__design {
-  @include fs.pc-size(bottom, 357);
+  position: fixed;
+  z-index: 0;
+  @include fs.pc-size(top, 195);
+  @include fs.pc-size(bottom, unset);
+  @include fs.pc-size(left, unset);
+
+  @include mq("md") {
+    @include fs.sp-size(top, 338);
+  }
 }
 
 .area-page .side-events__design {
-  top: unset;
+  position: fixed;
+  @include fs.pc-size(top, 479);
   @include fs.pc-size(bottom, 70);
+  @include fs.pc-size(right, -13);
+
+  @include mq("md") {
+    @include fs.sp-size(top, 401);
+  }
+}
+
+.area-page .scroll-down {
+  @include mq("md") {
+    @include fs.sp-size(top, 820);
+  }
+}
+
+.area-page .scroll-down__text::before {
+  @include mq("md") {
+    @include fs.sp-size(bottom, 10);
+  }
 }
 
 // exhibitorsセクション------------------------------------------------------------------------------
 .exhibitors {
   @include fs.pc-size(margin-top, -295);
+
+  @include mq("md") {
+    @include fs.sp-size(margin-top, -328);
+  }
 }
 
 .exhibitors__inner {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(fs.fpc(25));
+  backdrop-filter: blur(25px);
+  border-radius: 32px 32px 0 0;
   @include fs.pc-size(padding, 80 0);
   @include fs.pc-size(border-radius, 32);
+
+  @include mq("md") {
+    @include fs.sp-size(padding, 80 24);
+  }
 }
 
 .lower-title {
+  @include mq("md") {
+    @include fs.sp-size(font-size, 28);
+  }
 }
 
 .partners-items {
+  @include mq("md") {
+    @include fs.sp-size(padding-top, 24);
+  }
 }
 
 .partners-item {
 }
 
 .partners-item__title {
+  @include mq("md") {
+    border-radius: 8px;
+    @include fs.sp-size(padding, 4 0);
+  }
 }
 
-.partners-item__wrap {
+.partners-item:nth-child(4) .partners-item__wrap,
+.partners-item:nth-child(5) .partners-item__wrap,
+.partners-item:nth-child(6) .partners-item__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  align-items: stretch;
+  max-width: calc(5 * 255px + 4 * 16px);
+  margin-inline: auto;
+
+  @include mq("md") {
+    display: grid;
+    margin: 0 auto;
+    justify-content: center;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    @include fs.sp-size(margin-top, 24);
+  }
 }
 
-.partners-item__img {
+.partners-item__individual {
+  flex: 0 0 255px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.partners-item__individual:nth-last-child(1):nth-child(odd) {
+  @include mq("md") {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+}
+
+.area-page .partners-item__img {
+  margin: 0 auto;
+}
+
+.area-page .partners-item.amex .partners-item__img {
+  margin: unset;
 }
 
 .partners-item__contents {
 }
 
 .partners-item__name {
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 16);
+  }
+}
+
+.partners-item:nth-child(1) .partners-item__name {
+  @include mq("md") {
+    @include fs.sp-size(margin-top, unset);
+  }
+}
+
+.partners-item:nth-child(4) .partners-item__name,
+.partners-item:nth-child(5) .partners-item__name,
+.partners-item:nth-child(6) .partners-item__name {
+  @include mq("md") {
+    @include fs.sp-size(font-size, 14);
+  }
 }
 
 .partners-item__text {
+  @include mq("md") {
+    @include fs.sp-size(font-size, 14);
+  }
+}
+
+.partners-item__individual {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .supporter .partners-item__individual:nth-child(2),
@@ -139,7 +280,7 @@
 .supporter .partners-item__individual:nth-child(7),
 .supporter .partners-item__individual:nth-child(9),
 .supporter .partners-item__individual:nth-child(10) {
-  @include fs.pc-size(padding-bottom, 24);
+  // @include fs.pc-size(padding-bottom, 24);
 }
 
 /* ========== モーダル ========== */
@@ -168,23 +309,38 @@
     background: #fff;
     overflow: hidden;
     display: flex;
+    // display: grid;
+    // grid-template-columns: 1fr 1.2fr;
+    // gap: 0;
+    border-radius: 32px;
     @include fs.pc-size(width, 902);
     @include fs.pc-size(height, 326);
     @include fs.pc-size(border-radius, 32);
     @include fs.pc-size(padding, 0 32);
-    // display: grid;
-    // grid-template-columns: 1fr 1.2fr;
-    // gap: 0;
+
+    @include mq("md") {
+      display: block;
+      @include fs.sp-size(padding, 72 24 56 24);
+    }
   }
 
   .partner-modal__close {
     position: absolute;
-    background-image: url(../assets/img/modal-icon.png);
+    background-image: url(../img/modal-icon.png);
     background-size: 100%;
+    width: 24px;
+    height: 24px;
+    top: 32px;
+    right: 32px;
     @include fs.pc-size(width, 24);
     @include fs.pc-size(height, 24);
     @include fs.pc-size(top, 32);
     @include fs.pc-size(right, 32);
+
+    @include mq("md") {
+      top: 24px;
+      right: 24px;
+    }
   }
 
   .partner-modal__figure {
@@ -206,6 +362,10 @@
 
   .partner-modal__figure img {
     @include fs.pc-size(width, 326);
+
+    @include mq("md") {
+      @include fs.sp-size(width, 294);
+    }
   }
 
   .partner-modal__body {
@@ -221,20 +381,28 @@
     @include fs.pc-size(font-size, 16);
     @include fs.pc-size(margin-top, 16);
     @include fs.pc-size(max-width, 260);
+
+    @include mq("md") {
+      @include fs.sp-size(font-size, 16);
+      @include fs.sp-size(margin-top, 16);
+    }
   }
 
   .partner-modal__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: pre-line;
     line-height: 175%;
     color: $black;
+    @include fs.pc-size(width, 480);
     @include fs.pc-size(font-size, 14);
+
+    @include mq("md") {
+      @include fs.sp-size(font-size, 14);
+      @include fs.sp-size(margin-top, 32);
+    }
   }
 }
 
-.partner-modal__text {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  white-space: pre-line;
-  @include fs.pc-size(width, 480);
-}
 // /exhibitorsセクション-----------------------------------------------------------------------------

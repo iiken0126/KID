@@ -37,7 +37,21 @@
       crossorigin="anonymous"
       defer
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"
+      integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css"
+      integrity="sha512-pmAAV1X4Nh5jA9m+jcvwJXFQvCBi3T17aZ1KWkqXr7g/O2YMvO8rfaa5ETWDuBvRq6fbDjlw4jHL44jNTScaKg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script src="./assets/js/script.js" defer></script>
+    <script src="./assets/js/temp-topslider.js" defer></script>
   </head>
 
   <body>
@@ -256,7 +270,7 @@
           src="./assets/img/main-contents_design.png"
           alt=""
         />
-        <div class="main-contents__inner">
+        <div class="container">
           <div class="section-title__wrap">
             <p class="section-title__heading">コンテンツ紹介</p>
             <h2 class="section-title">MAIN CONTENTS</h2>
@@ -284,11 +298,9 @@
                   <p class="btn__link" href="">詳しくはこちら</p>
                 </div>
               </div>
-              <img
-                class="start-up__img"
-                src="./assets/img/start-up_img.jpg"
-                alt=""
-              />
+              <div class="start-up__img">
+                <img src="./assets/img/start-up_img.jpg" alt="" />
+              </div>
             </a>
           </div>
           <ul class="main-contents__items">
@@ -427,56 +439,59 @@
             alt=""
           />
         </picture>
-        <div class="section-title__wrap">
-          <p class="section-title__heading">サイドイベント</p>
-          <h2 class="section-title">SIDE EVENTS</h2>
+        <div class="container">
+          <div class="section-title__wrap">
+            <p class="section-title__heading">サイドイベント</p>
+            <h2 class="section-title">SIDE EVENTS</h2>
+          </div>
         </div>
 
         <!-- <p class="soon">
         Coming soon...
       </p> -->
 
-        <ul class="side-events__items">
-          <li class="side-events__item">
-            <a class="side-events__item__link" href="">
-              <img
-                class="side-events__img"
-                src="./assets/img/side-events__img_01.jpg"
-                alt=""
-              />
-              <h3 class="side-events__title">
-                イベントタイトルイベントタイトル
-              </h3>
-            </a>
-          </li>
-          <li class="side-events__item">
-            <a class="side-events__item__link" href="">
-              <img
-                class="side-events__img"
-                src="./assets/img/side-events__img_01.jpg"
-                alt=""
-              />
-              <h3 class="side-events__title">
-                イベントタイトルイベントタイトル
-              </h3>
-            </a>
-          </li>
-          <li class="side-events__item">
-            <a class="side-events__item__link" href="">
-              <img
-                class="side-events__img"
-                src="./assets/img/side-events__img_01.jpg"
-                alt=""
-              />
-              <h3 class="side-events__title">
-                イベントタイトルイベントタイトル
-              </h3>
-            </a>
-          </li>
-        </ul>
-
-        <div class="btn btn--black">
-          <a class="btn__link" href=""> もっと見る </a>
+        <div class="container">
+          <ul class="side-events__items">
+            <li class="side-events__item">
+              <a class="side-events__item__link" href="">
+                <img
+                  class="side-events__img"
+                  src="./assets/img/side-events__img_01.jpg"
+                  alt=""
+                />
+                <h3 class="side-events__title">
+                  イベントタイトルイベントタイトル
+                </h3>
+              </a>
+            </li>
+            <li class="side-events__item">
+              <a class="side-events__item__link" href="">
+                <img
+                  class="side-events__img"
+                  src="./assets/img/side-events__img_01.jpg"
+                  alt=""
+                />
+                <h3 class="side-events__title">
+                  イベントタイトルイベントタイトル
+                </h3>
+              </a>
+            </li>
+            <li class="side-events__item">
+              <a class="side-events__item__link" href="">
+                <img
+                  class="side-events__img"
+                  src="./assets/img/side-events__img_01.jpg"
+                  alt=""
+                />
+                <h3 class="side-events__title">
+                  イベントタイトルイベントタイトル
+                </h3>
+              </a>
+            </li>
+          </ul>
+          <div class="btn btn--black">
+            <a class="btn__link" href=""> もっと見る </a>
+          </div>
         </div>
       </section>
 
@@ -491,175 +506,160 @@
             <p class="section-title__heading">登壇者</p>
             <h2 class="section-title">GUESTS</h2>
           </div>
-
           <div class="guests-ticker">
-            <div class="guests-track">
-              <div class="pair">
-                <!-- 上段 -->
-                <ul class="guests-items row--top">
-                  <li class="guests-item">
-                    <img
-                      class="guests-item__img"
-                      src="./assets/img/guests-item_img_01.png"
-                      alt=""
-                    />
-                    <div class="guests-item__text__wrap">
-                      <p class="guests-item__company">
-                        一般社団法人鶴岡サイエンスパーク代表理事・慶應義塾大学名誉教授
-                      </p>
-                      <p class="guests-item__name">冨田 勝</p>
+            <div class="pair">
+              <!-- 上段 -->
+              <div class="swiper guests-swiper-top">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="guests-item">
+                      <img
+                        class="guests-item__img"
+                        src="./assets/img/guests/tomida.png"
+                        alt=""
+                      />
+                      <div class="guests-item__text__wrap">
+                        <p class="guests-item__company">
+                          一般社団法人鶴岡サイエンスパーク代表理事・慶應義塾大学名誉教授
+                        </p>
+                        <p class="guests-item__name">冨田 勝</p>
+                      </div>
                     </div>
-                  </li>
-                  <li class="guests-item">
-                    <img
-                      class="guests-item__img"
-                      src="./assets/img/guests-item_img_01.png"
-                      alt=""
-                    />
-                    <div class="guests-item__text__wrap">
-                      <p class="guests-item__company">
-                        株式会社 東芝<br />
-                        代表取締役 社長執行役員CEO
-                      </p>
-                      <p class="guests-item__name">島田 太郎</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="guests-item">
+                      <img
+                        class="guests-item__img"
+                        src="./assets/img/guests/shimada.png"
+                        alt=""
+                      />
+                      <div class="guests-item__text__wrap">
+                        <p class="guests-item__company">
+                          株式会社 東芝<br />
+                          代表取締役 社長執行役員CEO
+                        </p>
+                        <p class="guests-item__name">島田 太郎</p>
+                      </div>
                     </div>
-                  </li>
-                  <li class="guests-item">
-                    <img
-                      class="guests-item__img"
-                      src="./assets/img/guests-item_img_01.png"
-                      alt=""
-                    />
-                    <div class="guests-item__text__wrap">
-                      <p class="guests-item__company">
-                        株式会社コーエーテクモホールディングス代表取締役会長 兼
-                        取締役会議長
-                      </p>
-                      <p class="guests-item__name">襟川 陽一</p>
+                  </div>
+                  <!-- 追加のスライド（ループ用） -->
+                  <div class="swiper-slide">
+                    <div class="guests-item">
+                      <img
+                        class="guests-item__img"
+                        src="./assets/img/guests/placeholder1.png"
+                        alt=""
+                      />
+                      <div class="guests-item__text__wrap">
+                        <p class="guests-item__company">会社名・役職</p>
+                        <p class="guests-item__name">名前</p>
+                      </div>
                     </div>
-                  </li>
-                  <li class="guests-item">
-                    <img
-                      class="guests-item__img"
-                      src="./assets/img/guests-item_img_01.png"
-                      alt=""
-                    />
-                    <div class="guests-item__text__wrap">
-                      <p class="guests-item__company">
-                        株式会社ABCD<br />代表取締役
-                      </p>
-                      <p class="guests-item__name">山田 太郎</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="guests-item">
+                      <img
+                        class="guests-item__img"
+                        src="./assets/img/guests/placeholder2.png"
+                        alt=""
+                      />
+                      <div class="guests-item__text__wrap">
+                        <p class="guests-item__company">会社名・役職</p>
+                        <p class="guests-item__name">名前</p>
+                      </div>
                     </div>
-                  </li>
-                  <li class="guests-item">
-                    <img
-                      class="guests-item__img"
-                      src="./assets/img/guests-item_img_01.png"
-                      alt=""
-                    />
-                    <div class="guests-item__text__wrap">
-                      <p class="guests-item__company">
-                        株式会社ABCD<br />代表取締役
-                      </p>
-                      <p class="guests-item__name">山田 太郎</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="guests-item">
+                      <img
+                        class="guests-item__img"
+                        src="./assets/img/guests/placeholder3.png"
+                        alt=""
+                      />
+                      <div class="guests-item__text__wrap">
+                        <p class="guests-item__company">会社名・役職</p>
+                        <p class="guests-item__name">名前</p>
+                      </div>
                     </div>
-                  </li>
-                  <li class="guests-item">
-                    <img
-                      class="guests-item__img"
-                      src="./assets/img/guests-item_img_01.png"
-                      alt=""
-                    />
-                    <div class="guests-item__text__wrap">
-                      <p class="guests-item__company">
-                        株式会社ABCD<br />代表取締役
-                      </p>
-                      <p class="guests-item__name">山田 太郎</p>
-                    </div>
-                  </li>
-                </ul>
+                  </div>
+                </div>
+              </div>
 
-                <!-- 下段 -->
-                <ul class="guests-items row--bottom">
-                  <li class="guests-item">
-                    <img
-                      class="guests-item__img"
-                      src="./assets/img/guests-item_img_01.png"
-                      alt=""
-                    />
-                    <div class="guests-item__text__wrap">
-                      <p class="guests-item__company">
-                        株式会社ABCD<br />代表取締役
-                      </p>
-                      <p class="guests-item__name">山田 太郎</p>
+              <!-- 下段 -->
+              <div class="swiper guests-swiper-bottom">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="guests-item">
+                      <img
+                        class="guests-item__img"
+                        src="./assets/img/guests/shimada.png"
+                        alt=""
+                      />
+                      <div class="guests-item__text__wrap">
+                        <p class="guests-item__company">
+                          株式会社コーエーテクモホールディングス代表取締役会長
+                          兼 取締役会議長
+                        </p>
+                        <p class="guests-item__name">襟川 陽一</p>
+                      </div>
                     </div>
-                  </li>
-                  <li class="guests-item">
-                    <img
-                      class="guests-item__img"
-                      src="./assets/img/guests-item_img_01.png"
-                      alt=""
-                    />
-                    <div class="guests-item__text__wrap">
-                      <p class="guests-item__company">
-                        株式会社ABCD<br />代表取締役
-                      </p>
-                      <p class="guests-item__name">山田 太郎</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="guests-item">
+                      <img
+                        class="guests-item__img"
+                        src="./assets/img/guests-item_img_01.png"
+                        alt=""
+                      />
+                      <div class="guests-item__text__wrap">
+                        <p class="guests-item__company">
+                          株式会社ABCD<br />代表取締役
+                        </p>
+                        <p class="guests-item__name">山田 太郎</p>
+                      </div>
                     </div>
-                  </li>
-                  <li class="guests-item">
-                    <img
-                      class="guests-item__img"
-                      src="./assets/img/guests-item_img_01.png"
-                      alt=""
-                    />
-                    <div class="guests-item__text__wrap">
-                      <p class="guests-item__company">
-                        株式会社ABCD<br />代表取締役
-                      </p>
-                      <p class="guests-item__name">山田 太郎</p>
+                  </div>
+                  <!-- 追加のスライド（ループ用） -->
+                  <div class="swiper-slide">
+                    <div class="guests-item">
+                      <img
+                        class="guests-item__img"
+                        src="./assets/img/guests/placeholder4.png"
+                        alt=""
+                      />
+                      <div class="guests-item__text__wrap">
+                        <p class="guests-item__company">会社名・役職</p>
+                        <p class="guests-item__name">名前</p>
+                      </div>
                     </div>
-                  </li>
-                  <li class="guests-item">
-                    <img
-                      class="guests-item__img"
-                      src="./assets/img/guests-item_img_01.png"
-                      alt=""
-                    />
-                    <div class="guests-item__text__wrap">
-                      <p class="guests-item__company">
-                        株式会社ABCD<br />代表取締役
-                      </p>
-                      <p class="guests-item__name">山田 太郎</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="guests-item">
+                      <img
+                        class="guests-item__img"
+                        src="./assets/img/guests/placeholder5.png"
+                        alt=""
+                      />
+                      <div class="guests-item__text__wrap">
+                        <p class="guests-item__company">会社名・役職</p>
+                        <p class="guests-item__name">名前</p>
+                      </div>
                     </div>
-                  </li>
-                  <li class="guests-item">
-                    <img
-                      class="guests-item__img"
-                      src="./assets/img/guests-item_img_01.png"
-                      alt=""
-                    />
-                    <div class="guests-item__text__wrap">
-                      <p class="guests-item__company">
-                        株式会社ABCD<br />代表取締役
-                      </p>
-                      <p class="guests-item__name">山田 太郎</p>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="guests-item">
+                      <img
+                        class="guests-item__img"
+                        src="./assets/img/guests/placeholder6.png"
+                        alt=""
+                      />
+                      <div class="guests-item__text__wrap">
+                        <p class="guests-item__company">会社名・役職</p>
+                        <p class="guests-item__name">名前</p>
+                      </div>
                     </div>
-                  </li>
-                  <li class="guests-item">
-                    <img
-                      class="guests-item__img"
-                      src="./assets/img/guests-item_img_01.png"
-                      alt=""
-                    />
-                    <div class="guests-item__text__wrap">
-                      <p class="guests-item__company">
-                        株式会社ABCD<br />代表取締役
-                      </p>
-                      <p class="guests-item__name">山田 太郎</p>
-                    </div>
-                  </li>
-                </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -682,64 +682,11 @@
             alt=""
           />
         </picture>
-        <div class="partners__inner">
+        <div class="container">
           <div class="section-title__wrap">
             <p class="section-title__heading">パートナー企業</p>
             <h2 class="section-title">PARTNERS</h2>
           </div>
-
-          <!-- <ul class="partners__items top-contents">
-          <li class="partners__item">
-            <a class="partners__link" href="">
-              <img class="partners__img" src="./assets/img/partners_img_01.jpg" alt="">
-              <h3 class="partners__title">
-                xxxx株式会社
-              </h3>
-            </a>
-          </li>
-          <li class="partners__item">
-            <a class="partners__link" href="">
-              <img class="partners__img" src="./assets/img/partners_img_01.jpg" alt="">
-              <h3 class="partners__title">
-                xxxx株式会社
-              </h3>
-            </a>
-          </li>
-        </ul>
-        <ul class="partners__items under-contents">
-          <li class="partners__item">
-            <a class="partners__link" href="">
-              <img class="partners__img" src="./assets/img/partners_img_01.jpg" alt="">
-              <h3 class="partners__title">
-                xxxx株式会社
-              </h3>
-            </a>
-          </li>
-          <li class="partners__item">
-            <a class="partners__link" href="">
-              <img class="partners__img" src="./assets/img/partners_img_01.jpg" alt="">
-              <h3 class="partners__title">
-                xxxx株式会社
-              </h3>
-            </a>
-          </li>
-          <li class="partners__item">
-            <a class="partners__link" href="">
-              <img class="partners__img" src="./assets/img/partners_img_01.jpg" alt="">
-              <h3 class="partners__title">
-                xxxx株式会社
-              </h3>
-            </a>
-          </li>
-          <li class="partners__item">
-            <a class="partners__link" href="">
-              <img class="partners__img" src="./assets/img/partners_img_01.jpg" alt="">
-              <h3 class="partners__title">
-                xxxx株式会社
-              </h3>
-            </a>
-          </li>
-        </ul> -->
 
           <ul class="partners-items">
             <li class="partners-item amex">
@@ -766,14 +713,24 @@
             </li>
             <li class="partners-item">
               <h3 class="partners-item__title">Gold</h3>
-              <div class="partners-item__wrap">
-                <img
-                  class="partners-item__img"
-                  src="./assets/img/partners-item_img_02.jpg"
-                  alt="大同生命保険株式会社"
-                />
-                <p class="partners-item__name">大同生命保険株式会社</p>
-              </div>
+              <ul class="partners-item__wrap">
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_02.jpg"
+                    alt="大同生命保険株式会社"
+                  />
+                  <p class="partners-item__name">大同生命保険株式会社</p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_02-2.jpg"
+                    alt="ユカイ工学株式会社"
+                  />
+                  <p class="partners-item__name">レバテック株式会社</p>
+                </li>
+              </ul>
             </li>
             <li class="partners-item">
               <h3 class="partners-item__title">Silver</h3>
@@ -900,7 +857,11 @@
                   <p class="partners-item__name">横須賀市</p>
                 </li>
                 <li class="partners-item__individual">
-                  <img class="partners-item__img" src="." alt="横須賀市" />
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_05-5-1.jpg"
+                    alt="横須賀市"
+                  />
                   <p class="partners-item__name">小田原市</p>
                 </li>
                 <li class="partners-item__individual">
@@ -981,9 +942,9 @@
             </li>
           </ul>
 
-          <!-- <div class="btn btn--black">
+          <div class="btn btn--black">
             <a class="btn__link" href=""> もっと見る </a>
-          </div> -->
+          </div>
         </div>
       </section>
 
@@ -999,94 +960,85 @@
             alt=""
           />
         </picture>
-        <div class="outline__inner">
-          <div class="outline-contents__inner">
-            <div class="section-title__wrap">
-              <p class="section-title__heading">イベント概要</p>
-              <h2 class="section-title">OUTLINE</h2>
-            </div>
+        <div class="container">
+          <div class="outline__inner">
+            <div class="outline-contents__inner">
+              <div class="section-title__wrap">
+                <p class="section-title__heading">イベント概要</p>
+                <h2 class="section-title">OUTLINE</h2>
+              </div>
 
-            <div class="outline__items__wrap">
-              <ul class="outline__items">
-                <li class="outline__item">
-                  <p class="outline__item__label">開催日時</p>
-                  <div class="outline__item__text__wrapper">
-                    <div class="outline__item__text__wrap">
-                      <p class="outline__item__text">
-                        関東学院大学 横浜・関内キャンパスKanagawa Innovators Day
-                        2026
-                      </p>
-                      <p class="outline__item__text weight">
-                        2026.3.24（火）11:00~19:00
-                      </p>
+              <div class="outline__items__wrap">
+                <ul class="outline__items">
+                  <li class="outline__item">
+                    <p class="outline__item__label">開催日時</p>
+                    <div class="outline__item__text__wrapper">
+                      <div class="outline__item__text__wrap">
+                        <p class="outline__item__text">
+                          Kanagawa Innovators Day 2026
+                        </p>
+                        <p class="outline__item__text weight">
+                          2026.3.24（火）11:00~19:00
+                        </p>
+                      </div>
+                      <div class="outline__item__text__wrap contents_02">
+                        <p class="outline__item__text">
+                          神奈川県支援事業 DEMODAY<br />
+                          （KSAP、BAK、YAK）
+                        </p>
+                        <p class="outline__item__text weight">
+                          2026.3.XX（XX）XX:00~XX:00<br />2026.3.XX（XX）XX:00~XX:00
+                        </p>
+                      </div>
                     </div>
-                    <div class="outline__item__text__wrap contents_02">
-                      <p class="outline__item__text">
-                        神奈川県支援事業 DEMODAY<br />
-                        （KSAP、BAK、YAK）
-                      </p>
-                      <p class="outline__item__text weight">
-                        2026.3.XX（XX）XX:00~XX:00<br />2026.3.XX（XX）XX:00~XX:00
-                      </p>
+                  </li>
+                  <li class="outline__item">
+                    <p class="outline__item__label">会　場</p>
+                    <div class="outline__item__text__wrapper">
+                      <div class="outline__item__text__wrap">
+                        <p class="outline__item__text">
+                          関東学院大学 横浜・関内キャンパス
+                        </p>
+                        <p class="outline__item__text weight">
+                          神奈川県横浜市中区万代町1-1-1
+                        </p>
+                      </div>
+                      <div class="outline__item__text__wrap contents_02">
+                        <p class="outline__item__text">YOXO BOX</p>
+                        <p class="outline__item__text weight">
+                          神奈川県横浜市中区尾上町1-６ ICON関内
+                        </p>
+                      </div>
+                      <div class="outline__item__text__wrap contents_03">
+                        <p class="outline__item__text">
+                          京セラみなとみらいリサーチセンター
+                        </p>
+                        <p class="outline__item__text weight">
+                          神奈川県横浜市西区みなとみらい3-7-1
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </li>
-                <li class="outline__item">
-                  <p class="outline__item__label">会　場</p>
-                  <div class="outline__item__text__wrapper">
-                    <div class="outline__item__text__wrap">
-                      <p class="outline__item__text">
-                        関東学院大学 横浜・関内キャンパス
-                      </p>
-                      <p class="outline__item__text weight">
-                        神奈川県横浜市中区万代町1-1-1
-                      </p>
-                    </div>
-                    <div class="outline__item__text__wrap contents_02">
-                      <p class="outline__item__text">YOXO BOX</p>
-                      <p class="outline__item__text weight">
-                        神奈川県横浜市中区尾上町1-６ ICON関内
-                      </p>
-                    </div>
-                    <div class="outline__item__text__wrap contents_03">
-                      <p class="outline__item__text">
-                        京セラみなとみらいリサーチセンター
-                      </p>
-                      <p class="outline__item__text weight">
-                        神奈川県横浜市西区みなとみらい3-7-1
-                      </p>
-                    </div>
-                  </div>
-                </li>
-                <!-- <li class="outline__item">
-                <p class="outline__item__label">
-                  アクセス
-                </p>
-                <div class="outline__item__text__wrap">
-                  <p class="outline__item__text">
-                    JR・横浜市営地下鉄&emsp;&nbsp;「関内駅」徒歩2分
-                  </p>
-                  <p class="outline__item__text">
-                    東急線 みなとみらい線&nbsp;「日本大通り駅大通り駅」徒歩8分
-                  </p>
+                  </li>
+                </ul>
+                <div class="outline-items__figure">
+                  <img
+                    class="outline-items__img"
+                    src="./assets/img/outline-items_img.jpg"
+                    alt=""
+                  />
                 </div>
-              </li> -->
-              </ul>
-              <img
-                class="outline-items__img"
-                src="./assets/img/outline-items_img.jpg"
-                alt=""
-              />
+              </div>
             </div>
-          </div>
 
-          <div class="map">
-            <iframe
-              src="https://www.google.com/maps/d/embed?mid=1X9FdU96NMVUOv0bCA1B1B4HHaYchpBA&ehbc=2E312F"
-              width="640"
-              height="480"
-            ></iframe>
-            <img src="./assets/img/map.jpg" alt="" />
+            <div class="map">
+              <div class="map__wrap">
+                <iframe
+                  src="https://www.google.com/maps/d/embed?mid=1X9FdU96NMVUOv0bCA1B1B4HHaYchpBA&ehbc=2E312F"
+                  width="640"
+                  height="480"
+                ></iframe>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -40,8 +40,8 @@
 }
 
 .header__item {
-  @include fs.pc-size(width, 180);
   // height: calc(52 / 1512 * 100vw);
+  @include fs.pc-size(width, 180);
 }
 
 .header__item:last-child {
@@ -129,6 +129,14 @@ $kid-grad-end: #e94820 !default;
   box-shadow: fs.fpc(2) fs.fpc(2) fs.fpc(10) 0 #9cb6df;
   cursor: pointer;
   transition: box-shadow 0.25s ease, transform 0.25s ease, background 0.25s ease;
+  width: 83px;
+  height: 32px;
+  border-radius: 8px;
+  top: 21px;
+  right: 16px;
+  padding: 0 16px;
+  gap: unset;
+  box-shadow: 2px 2px 10px 0 #9cb6df;
   @include fs.pc-size(top, 21);
   @include fs.pc-size(right, 21);
   @include fs.pc-size(gap, 8);
@@ -141,6 +149,8 @@ $kid-grad-end: #e94820 !default;
 .hamburger--pill .hamburger__icon {
   position: relative;
   display: inline-block;
+  width: 12px;
+  height: 4px;
   @include fs.pc-size(width, 12);
   @include fs.pc-size(height, 4);
 }
@@ -153,14 +163,18 @@ $kid-grad-end: #e94820 !default;
   transform-origin: 50% 50%;
   transition: transform 0.25s ease, opacity 0.25s ease, background 0.25s ease;
   filter: drop-shadow(0 0 fs.fpc(3.031) rgba(0, 0, 0, 0.25));
+  height: 1px;
+  border-radius: 2px;
   @include fs.pc-size(height, 1);
   @include fs.pc-size(border-radius, 2);
 }
 
 .hamburger--pill .hamburger__bar:nth-child(1) {
+  top: 0;
   @include fs.pc-size(top, 7);
 }
 .hamburger--pill .hamburger__bar:nth-child(2) {
+  top: 4px;
   @include fs.pc-size(top, 11);
 }
 
@@ -172,22 +186,29 @@ $kid-grad-end: #e94820 !default;
   color: #fff;
   user-select: none;
   text-shadow: 0 0 fs.fpc(3.031) rgba(0, 0, 0, 0.25);
+  font-size: 12px;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+  top: 2px;
+  right: -3px;
   @include fs.pc-size(font-size, 12);
   @include fs.pc-size(top, 9);
   @include fs.pc-size(right, -7);
 }
+
 .hamburger--pill:hover {
   box-shadow: 0 fs.fpc(12) fs.fpc(28) rgba(0, 0, 0, 0.22);
   transform: translateY(fs.fpc(-1));
 }
 
 .hamburger--pill.is-active .hamburger__bar:nth-child(1) {
-  @include fs.pc-size(top, 9);
   transform: rotate(30deg);
+  top: 3px;
+  @include fs.pc-size(top, 9);
 }
 .hamburger--pill.is-active .hamburger__bar:nth-child(2) {
-  @include fs.pc-size(top, 9);
   transform: rotate(-30deg);
+  top: 3px;
+  @include fs.pc-size(top, 9);
 }
 
 @media (min-width: 768px) {
@@ -235,6 +256,7 @@ $kid-grad-end: #e94820 !default;
   opacity: 0;
   transition: transform 0.28s ease, opacity 0.28s ease;
 }
+
 .drawer-menu.is-open {
   transform: translateY(0);
   opacity: 1;
@@ -248,6 +270,8 @@ $kid-grad-end: #e94820 !default;
 }
 
 .drawer__logo {
+  margin-top: 16px;
+  margin-left: 16px;
   @include fs.pc-size(margin-top, 16);
   @include fs.pc-size(margin-left, 16);
 }
@@ -256,17 +280,21 @@ $kid-grad-end: #e94820 !default;
 }
 
 .drawer__logo .lower-logo {
+  width: 100px;
   @include fs.pc-size(width, 100);
 }
 
 .drawer-menu__items {
   display: flex;
   flex-direction: column;
+  margin-top: 48px;
+  margin-left: 24px;
   @include fs.pc-size(margin-top, 48);
   @include fs.pc-size(margin-left, 24);
 }
 
 .drawer-menu__item + .drawer-menu__item {
+  margin-top: 32px;
   @include fs.pc-size(margin-top, 32);
 }
 
@@ -277,8 +305,8 @@ $kid-grad-end: #e94820 !default;
   display: inline-block;
   text-align: center;
   -webkit-tap-highlight-color: transparent;
+  font-size: 24px;
   @include fs.pc-size(font-size, 24);
-  @include fs.pc-size(min-width, 200);
 }
 
 .drawer-menu__link--contact {
@@ -292,6 +320,8 @@ $kid-grad-end: #e94820 !default;
 }
 
 .drawer-btn__wrap {
+  padding: 0 24px;
+  margin-top: 65px;
   @include fs.pc-size(padding, 0 24);
   @include fs.pc-size(margin-top, 65);
 }
@@ -299,6 +329,7 @@ $kid-grad-end: #e94820 !default;
 .drawer-btn {
   display: block;
   width: 100%;
+  margin-bottom: 16px;
   @include fs.pc-size(margin-bottom, 16);
 }
 
@@ -315,6 +346,10 @@ $kid-grad-end: #e94820 !default;
   background: linear-gradient(90deg, #00a1e7 0%, #009ea1 100%);
   transition: transform 0.2s ease, filter 0.2s ease;
   box-shadow: fs.fpc(5) fs.fpc(5) fs.fpc(20) 0 #9cb6df;
+  font-size: 18px;
+  padding: 12px 0;
+  border-radius: 60px;
+  box-shadow: 5px 5px 20px 0 #9cb6df;
   @include fs.pc-size(font-size, 18);
   @include fs.pc-size(padding, 12 0);
   @include fs.pc-size(border-radius, 60);
@@ -353,10 +388,11 @@ body.is-drawer-open {
   }
 }
 
-.drawer-menu .logo__wrap {
+.drawer-menu .drawer-logo__wrap {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  bottom: 32px;
   @include fs.pc-size(bottom, 32);
 }
 
@@ -364,11 +400,14 @@ body.is-drawer-open {
 }
 
 .drawer-menu .kanagawa-logo {
+  width: 116px;
   @include fs.pc-size(width, 116);
 }
 
 .drawer-menu .eiicon-logo {
   margin-top: unset;
+  width: 59px;
+  margin-left: 33px;
   @include fs.pc-size(width, 59);
   @include fs.pc-size(margin-left, 33);
 }

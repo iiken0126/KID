@@ -4,11 +4,11 @@
 // 共通パーツ-----------------------------------------------------------------------------------------
 
 .soon {
-  @include fs.pc-size(font-size, 32);
   font-family: $second-font;
   font-weight: $bold;
   color: $blue;
   text-align: center;
+  @include fs.pc-size(font-size, 32);
 }
 
 .md-none {

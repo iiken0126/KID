@@ -27,12 +27,12 @@
  * =========================================================================== */
 .header.pitch-page {
   position: fixed;
-  @include fs.pc-size(top, 22);
-  @include fs.pc-size(left, 80);
-  @include fs.pc-size(width, 174);
   margin: 0;
   z-index: 10000;
   pointer-events: auto;
+  @include fs.pc-size(top, 22);
+  @include fs.pc-size(left, 80);
+  @include fs.pc-size(width, 174);
 }
 
 .pitch-page .header__items {
@@ -44,16 +44,14 @@
 }
 // mv-----------------------------------------------------------------------------------------------
 .mv {
-  position: relative;
+  position: fixed;
+  inset: 0;
   background-color: #090045;
+  overflow: hidden;
+  height: 100dvh;
   @include fs.pc-size(padding-top, 241);
   @include fs.pc-size(padding-left, 80);
   @include fs.pc-size(padding-bottom, 241);
-  overflow: clip;
-  overflow: hidden;
-  position: fixed;
-  inset: 0;
-  height: 100dvh;
 }
 
 .mv-contents__wrap {
@@ -70,10 +68,10 @@
 }
 
 .mv__subtitle {
-  @include fs.pc-size(font-size, 64);
   font-weight: $bold;
   font-family: $second-font;
   color: $blue;
+  @include fs.pc-size(font-size, 64);
   @include fs.pc-size(margin-top, 16);
 
   @include mq("md") {
@@ -96,41 +94,41 @@
 }
 
 .mv-date__label {
-  @include fs.pc-size(font-size, 16);
   font-weight: $bold;
   line-height: 175%;
   color: $white;
   background-color: $blue;
-  @include fs.pc-size(border-radius, 8);
-  @include fs.pc-size(width, 80);
-  @include fs.pc-size(height, 44);
   display: flex;
   justify-content: center;
   align-items: center;
+  @include fs.pc-size(font-size, 16);
+  @include fs.pc-size(border-radius, 8);
+  @include fs.pc-size(width, 80);
+  @include fs.pc-size(height, 44);
 }
 
 .mv-date__wrap.contents_02 .mv-date__label,
 .mv-date__wrap.contents_03 .mv-date__label {
-  @include fs.pc-size(font-size, 14);
   background-color: #009e96;
+  @include fs.pc-size(font-size, 14);
   @include fs.pc-size(height, 36);
 }
 
 .mv-date__wrap.contents_03 .mv-date__label {
-  @include fs.pc-size(width, 144);
-  @include fs.pc-size(height, 36);
   background-color: #fbc501;
   color: $black;
+  @include fs.pc-size(width, 144);
+  @include fs.pc-size(height, 36);
 }
 
 .mv-date {
-  @include fs.pc-size(font-size, 35);
   font-weight: $bold;
   font-family: $second-font;
   color: $white;
   display: flex;
   justify-content: center;
   align-items: center;
+  @include fs.pc-size(font-size, 35);
 }
 
 .mv-date__wrap.contents_02 .mv-date,
@@ -140,15 +138,15 @@
 
 .mv-date .weekday {
   display: inline-block;
-  @include fs.pc-size(font-size, 20);
   font-weight: $bold;
   font-family: $second-font;
   color: $black;
   background-color: #fff;
+  text-align: center;
+  @include fs.pc-size(font-size, 20);
   @include fs.pc-size(width, 68);
   @include fs.pc-size(height, 32);
   @include fs.pc-size(border-radius, 40);
-  text-align: center;
   @include fs.pc-size(margin-left, 8);
   @include fs.pc-size(margin-right, 16);
 }
@@ -165,28 +163,28 @@
 }
 
 .pitch-btn__link {
-  @include fs.pc-size(width, 280);
-  @include fs.pc-size(height, 64);
   // font-size: 18px;
   // font-weight: $bold;
   // color: $black;
-  @include fs.pc-size(border-radius, 60);
   // background: linear-gradient(90deg, #FF5068 0%, #FBC501 100%);
   box-shadow: fs.fpc(5) fs.fpc(5) fs.fpc(20) 0 #9cb6df;
   display: flex;
   justify-content: center;
   align-items: center;
-  @include fs.pc-size(margin-top, 32);
   transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  @include fs.pc-size(width, 280);
+  @include fs.pc-size(height, 64);
+  @include fs.pc-size(border-radius, 60);
+  @include fs.pc-size(margin-top, 32);
   @include fade-overlay(linear-gradient(90deg, #ff5068 0%, #fbc501 100%), 60px);
 }
 
 .pitch-btn__link .btn__label {
-  @include fs.pc-size(font-size, 18);
   font-weight: $bold;
   color: $black;
   position: relative;
   z-index: 1;
+  @include fs.pc-size(font-size, 18);
 }
 
 .pitch-btn__link:hover {
@@ -246,13 +244,13 @@
 // overlap------------------------------------------------------------------------------------------
 .overlap__wrap {
   position: relative;
-  @include fs.pc-size(width, 828);
   margin-left: auto;
-  @include fs.pc-size(padding-top, 393);
-  @include fs.pc-size(padding-bottom, 240);
   overflow: visible;
   isolation: isolate;
   margin-top: 100dvh;
+  @include fs.pc-size(width, 828);
+  @include fs.pc-size(padding-top, 393);
+  @include fs.pc-size(padding-bottom, 240);
 }
 
 .overlap__wrap::before {
@@ -278,9 +276,9 @@
 
 .pitch-page .scroll-down {
   position: absolute;
+  left: unset;
   @include fs.pc-size(top, -470);
   @include fs.pc-size(right, 32);
-  left: unset;
 }
 
 .pitch-page .scroll-down__text {
@@ -315,11 +313,11 @@
 }
 
 .pitch__title {
-  @include fs.pc-size(font-size, 48);
   font-weight: $bold;
   font-family: $second-font;
   color: $blue;
   text-align: center;
+  @include fs.pc-size(font-size, 48);
 }
 
 .award-items {

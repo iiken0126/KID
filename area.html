@@ -1,381 +1,589 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <head>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- meta情報 -->
+    <title>KID</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!-- ogp -->
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:card" content="summary" />
+    <!-- ファビコン -->
+    <link rel="icon" href="#" />
 
-<head>
-  <meta name="robots" content="noindex,nofollow">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="format-detection" content="telephone=no">
-  <!-- meta情報 -->
-  <title>KID</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <!-- ogp -->
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:site_name" content="">
-  <meta property="og:description" content="">
-  <meta name="twitter:card" content="summary">
-  <!-- ファビコン -->
-  <link rel="icon" href="#">
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/line-seed-jp@0.0.5/line-seed-jp.min.css"
+    />
 
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/line-seed-jp@0.0.5/line-seed-jp.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="https://use.typekit.net/jyd5clv.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
 
-  <!-- css -->
-  <link rel="stylesheet" href="https://use.typekit.net/jyd5clv.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- JavaScript -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="./assets/js/script.js" defer></script>
 
-  <!-- JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous" defer></script>
-  <script src="./assets/js/script.js" defer></script>
+    <!-- Web Component 読み込み -->
+    <script
+      type="module"
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+    ></script>
+  </head>
 
-  <!-- Web Component 読み込み -->
-  <script type="module" src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"></script>
-</head>
+  <body>
+    <header class="header area-page">
+      <h1 class="logo__wrap">
+        <a class="logo__link" href="index.html">
+          <img
+            class="lower-logo"
+            src="./assets/img/lower-logo-black.svg"
+            alt="KID"
+          />
+        </a>
+      </h1>
+      <nav>
+        <ul class="header__items md-none">
+          <li class="header__item">
+            <a class="header__link" href="session.html">
+              Session / Timetable
+            </a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="pitch.html"> KID Start Up Pich </a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="area.html"> Exhibitors & Event </a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href=""> 参加登録 </a>
+          </li>
+        </ul>
+      </nav>
 
-<body>
-  <header class="header area-page">
-    <h1 class="logo__wrap">
-      <a class="logo__link" href="index.html">
-        <img class="lower-logo" src="./assets/img/lower-logo-black.png" alt="KID">
-      </a>
-    </h1>
-    <nav>
-      <ul class="header__items">
-        <li class="header__item">
-          <a class="header__link" href="session.html">
-            Session / Timetable
-          </a>
-        </li>
-        <li class="header__item">
-          <a class="header__link" href="pitch.html">
-            KID Start Up Pich
-          </a>
-        </li>
-        <li class="header__item">
-          <a class="header__link" href="area.html">
-            Exhibitors & Event
-          </a>
-        </li>
-        <li class="header__item">
-          <a class="header__link" href="">
-            参加登録
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <div class="area-page">
-      <div class="lower-mv fv">
-        <h2 class="mv-title">
-          Exhibitors & Event
-        </h2>
-        <p class="mv-text">
-          多様な産業と知が交差し、新たな事業の可能性が芽吹くエリア。<br>
-          大企業、ベンチャー、金融機関、自治体が交わり、社会課題をビジネスで解く視点を共有する。<br>
-          次の社会的価値を構想し、未来の一手を描くための出会いが生まれる場です。
-        </p>
-        <p class="mv-subtitle">
-          Side events
-        </p>
-        <p class="mv-subtitle__text">
-          Coming soon...
-        </p>
-        <img class="introduction__design" src="./assets/img/introduction_design.png" alt="">
-        <img class="side-events__design" src="./assets/img/side-events_design.png" alt="">
-
-        <div class="scroll-down">
-          <span class="scroll-down__text">Scroll</span>
-        </div>
+      <div
+        class="hamburger hamburger--pill js-hamburger"
+        aria-controls="global-drawer"
+        aria-expanded="false"
+        aria-label="メニューを開く"
+      >
+        <span class="hamburger__icon" aria-hidden="true">
+          <span class="hamburger__bar"></span>
+          <span class="hamburger__bar"></span>
+        </span>
+        <span class="hamburger__label">menu</span>
       </div>
 
-      <section class="exhibitors">
-        <div class="exhibitors__inner">
-          <h3 class="lower-title">
-            Exhibitors
-          </h3>
-          <ul class="partners-items">
-            <li class="partners-item">
-              <h3 class="partners-item__title">
-                Innovation Partner
-              </h3>
-              <div class="partners-item__wrap">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_01.jpg" alt="アメリカン・エキスプレス">
-                <div class="partners-item__contents">
-                  <p class="partners-item__name">
-                    アメリカン・エキスプレス
-                  </p>
-                  <p class="partners-item__text">
-                    1850年に米国ニューヨーク州にて誕生した、グローバルでペイメントやライフスタイルサービスを展開するブランドです。日本では、1917年（大正6年）に横浜で事業所を開設し、現在は世界中に広がる加盟店ネットワークを通じ、200以上の国や地域で事業を展開しています。また、2025年9月に神奈川県と「ベンチャー企業支援に関する連携協定」を締結するなど、県内の創業期の企業支援にも力を入れています。
-                  </p>
-                </div>
-              </div>
+      <div
+        class="drawer-menu js-drawer"
+        id="global-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+        <div class="drawer-menu__inner">
+          <div class="drawer__logo" id="stickyLogo">
+            <a class="logo__link" href="index.html">
+              <img
+                class="lower-logo"
+                src="./assets/img/lower-logo-black.svg"
+                alt="KID"
+              />
+            </a>
+          </div>
+          <ul class="drawer-menu__items">
+            <li class="drawer-menu__item">
+              <a href="session.html" class="drawer-menu__link"
+                >Session / Timetable</a
+              >
             </li>
-            <li class="partners-item">
-              <h3 class="partners-item__title">
-                Gold
-              </h3>
-              <div class="partners-item__wrap gold"
-                  data-modal-text="「どうだい？」は、大同生命のミッションにある「中小企業とともに未来をつくる」という想いから、2022年３月に誕生しました。経営者に寄り添い、学び・行動するきっかけをつくるオンラインサービスです。現在7万人を超える経営者に登録いただいており、全国の経営者や専門家に無料で気軽に相談できるコミュニティ、課題解決のヒントとなる記事・ウェビナー、支援サービス等をご案内しています。（運営元：大同生命保険株式会社）">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_02.jpg" alt="大同生命保険株式会社">
-                  <p class="partners-item__name">
-                    大同生命保険株式会社
-                  </p>
-              </div>
+            <li class="drawer-menu__item">
+              <a href="pitch.html" class="drawer-menu__link"
+                >KID Start Up Pitch</a
+              >
             </li>
-            <li class="partners-item">
-              <h3 class="partners-item__title">
-                Silver
-              </h3>
-              <div class="partners-item__wrap silver"
-                    data-modal-text="私たちは乳製品、菓子、栄養食品、医薬品など幅広い分野の製品を展開してきたノウハウを活かして、赤ちゃんからお年寄りまであらゆる人々の健やかな生活を支える健康価値を創出しています。 創業100年以上の明治グループが培った知恵やバリューチェーンと、外部のみなさまの新たなテクノロジーやさまざまなアイデアをかけ合わせ、一歩先行く健康価値を創造する新規事業の開発に取り組んでいます。">
-                <img class="partners-item__img" src="./assets/img/partners-item_img_03.jpg" alt="株式会社明治">
-                  <p class="partners-item__name">
-                    株式会社明治
-                  </p>
-              </div>
+            <li class="drawer-menu__item">
+              <a href="area.html" class="drawer-menu__link"
+                >Exhibitors & Event</a
+              >
             </li>
-            <li class="partners-item">
-              <h3 class="partners-item__title">
-                Start Up & SMB Gold
-              </h3>
-              <ul class="partners-item__wrap">
-                <li class="partners-item__individual"
-                    data-modal-text="「人がすべき仕事を再定義し 人がすべき仕事に注力できる基盤をつくる」をテーマに生成AIを軸とした事業を展開しております。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_03-1.jpg" alt="アンドドット株式会社">
-                  <p class="partners-item__name">
-                    アンドドット株式会社
-                  </p>
-                </li>
-                <li class="partners-item__individual"
-                    data-modal-text="Google Cloudに特化したシステムインテグレーターです。導入コンサルから開発、運用保守まで一貫してサポート。AI、データ分析、Google Maps Platformを組み合わせた独自のソリューション提案を得意とし、お客様のビジネス課題を解決します。国内でも数少ないGoogle CloudとGoogle Maps Platformの販売ライセンスを保有しており、高い技術力と実績で企業成長に貢献します。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_03-2.jpg" alt="クラウドエース株式会社">
-                  <p class="partners-item__name">
-                    クラウドエース株式会社
-                  </p>
-                </li>
-                <li class="partners-item__individual"
-                    data-modal-text="GEMBAは「現場の未来を、共に創る。」を理念に、製造現場のDXを支援するスタートアップです。製造現場で行われている改善・管理業務を効率化するDXサービス「GEMBA」を開発しています。自社の工場レイアウト図や設備・製品図面上に情報をマッピングして改善・管理状況を見える化でき、どこで何が起こっているか直感的に分かりやすい現場DXツールです。「巡回業務」や「設備保全」、「生産性向上」など幅広い現場業務に活用頂いています。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_03-3.jpg" alt="株式会社GEMBA">
-                  <p class="partners-item__name">
-                    株式会社GEMBA
-                  </p>
-                </li>
-              </ul>
-            </li>
-            <li class="partners-item">
-              <h3 class="partners-item__title">
-                Start Up & SMB Bronze
-              </h3>
-              <ul class="partners-item__wrap">
-                <li class="partners-item__individual"
-                    data-modal-text="TRUNK株式会社は「生まれた環境に関係なく、やる気次第で誰でも活躍できる世界をつくる」をビジョンに、企業向けe-LearningサービスのWorkschoolを展開しています。
-                    1,500以上のコンテンツを利用可能なだけでなく、「自社オリジナルコンテンツ制作を丸投げしたい」というニーズにも応え、企画から制作を一気通貫でサポートします。教育関連で新規事業を検討できそうであれば、ぜひお話しできたらと思います。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_04-1.jpg" alt="TRUNK株式会社">
-                  <p class="partners-item__name">
-                    TRUNK株式会社
-                  </p>
-                </li>
-                <li class="partners-item__individual"
-                    data-modal-text="ユカイ工学では、自社製品開発で培ったコミュニケーションデザイン、ロボティクス、 IoT、AI活用を強みとし、企業の製品・サービスの開発を支援しています。 特にロボット開発と生成AIを用いた対話インターフェースの構築に強みを持ち、またその技術やアイデア発想力を活かして新規プロダクトのコンセプト検討から製品デザイン、開発、量産支援に至るまで、企業の発想を速やかに形にします。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_04-2.jpg" alt="ユカイ工学株式会社">
-                  <p class="partners-item__name">
-                    ユカイ工学株式会社
-                  </p>
-                </li>
-                <li class="partners-item__individual"
-                    data-modal-text="Bocekは、企業の持続的な成長のため、生成AI技術の導入を支援する専門家集団です。戦略構築からシステム開発までをワンストップで提供し、各企業のニーズに合わせたオーダーメイドのAI組み込みをサポートします。国際競争が激化する中で生成AI導入が必須となる一方、企業の知識や技術不足が課題となっているため、Bocekはそのギャップを埋める最適なパートナーとなることを目指しています。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_04-3.jpg" alt="株式会社Bocek">
-                  <p class="partners-item__name">
-                    株式会社Bocek
-                  </p>
-                </li>
-                <li class="partners-item__individual"
-                    data-modal-text="株式会社OneSmallStepは、「一歩を踏み出すすべての人を応援する」を理念に、システム開発・DX支援・VR／ゲーム開発を行う福岡発のクリエイティブエージェンシーです。業務効率化や情報共有の仕組みづくりから、仮想空間・ゲーミフィケーションを活用した新しい体験の創出まで、テクノロジーとデザインの力で企業や地域の課題解決を支援し、前例のない未来を共に形にします。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_04-4.jpg" alt="株式会社OneSmallStep">
-                  <p class="partners-item__name">
-                    株式会社OneSmallStep
-                  </p>
-                </li>
-              </ul>
-            </li>
-            <li class="partners-item">
-              <h3 class="partners-item__title">
-                Supporter
-              </h3>
-              <ul class="partners-item__wrap">
-                <li class="partners-item__individual"
-                    data-modal-text="中小機構は、スタートアップや中小企業の皆様が持つ強みやアイデアを活かし、挑戦を実現できるよう伴走します。現場の声に耳を傾け、地域や支援機関、大学、金融機関と連携しながら、起業前から利用できる専門家によるメンタリングやアクセラレーションプログラムなど、多彩な支援を展開します。企業や支援者とのつながりを広げ、新しい価値を共に作り出し、豊かでうるおいのある日本の未来づくりに貢献します。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_05-1.jpg" alt="独立行政法人中小企業基盤整備機構関東本部">
-                  <p class="partners-item__name">
-                    独立行政法人中小企業基盤整備機構<br>関東本部
-                  </p>
-                </li>
-                <li class="partners-item__individual"
-                    data-modal-text="横浜市は「横浜市中期計画2022～2025」でスタートアップ支援を重点施策とし、2024年11月に「TECH HUB YOKOHAMA」を開設。多様な支援や産学官連携を通じて、テック系スタートアップの集積地としての地位確立を目指しています。また、支援者・投資家・行政が連携し、革新的なビジネスの育成とコミュニティ醸成にも注力。横浜市は挑戦と成長の舞台として、次世代の起業家を力強く後押ししています。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_05-2.jpg" alt="横浜市経済局">
-                  <p class="partners-item__name">
-                    横浜市経済局
-                  </p>
-                </li>
-                <li class="partners-item__individual"
-                    data-modal-text="川崎市では、ライフサイエンス分野の研究開発拠点「キングスカイフロント」、首都圏最大級のインキュベーション施設「かわさき新産業創造センター」の設置に加え、量子・AI等のコンピューティング分野における新たな拠点の整備を進めています。また、NEDO・川崎市産業振興財団と共同運営する起業家支援拠点「K-NIC」において、起業前後の研究開発型スタートアップを支援しています。川崎市は、スタートアップが集い、共創と実証が加速する都市として、今後もイノベーションを牽引していきます。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_05-3.jpg" alt="川崎市">
-                  <p class="partners-item__name">
-                    川崎市
-                  </p>
-                </li>
-                <li class="partners-item__individual"
-                    data-modal-text="相模原市では、リニア中央新幹線神奈川県駅（仮称の）開設が予定される橋本駅周 辺地区のまちづくりの機会を捉え、イノベーション政策を推進し、官民連携でスタートアップ・イノベーションエコシ ステムの形成を目指しています。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_05-4.jpg" alt="相模原市">
-                  <p class="partners-item__name">
-                    相模原市
-                  </p>
-                </li>
-                <li class="partners-item__individual"
-                    data-modal-text="横須賀市は、創業から成長、そして社会実装まで、一貫して支援する体制を整えています。市内支援機関と連携した創業支援ネットワークの構築に加え、これから創業を目指す方や、新たな事業展開・成長分野への転換によるさらなる事業拡大・成長を目指す方を対象としたセミナーや個別相談を実施し、新規事業の実現を支援しています。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_05-5.jpg" alt="横須賀市">
-                  <p class="partners-item__name">
-                    横須賀市
-                  </p>
-                </li>
-                <li class="partners-item__individual"
-                    data-modal-text="厚木市では、国の認定を受けた「創業支援等事業計画」に沿って、金融機関や厚木商工会議所などの各機関と連携しながら創業者の段階に応じたサポートを行っています。 市内で創業を考えている方や、創業後間もない方を対象とした「あつぎ起業スクール」では、創業に必要なノウハウを学ぶことができ、受講後も個別相談を実施することで創業を後押ししています。その他にも、創業や経営に関する疑問を中小企業診断士に相談できる窓口の設置など、支援の充実を図っています。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_05-6.jpg" alt="厚木市">
-                  <p class="partners-item__name">
-                    厚木市
-                  </p>
-                </li>
-                <li class="partners-item__individual"
-                    data-modal-text="関東学院大学は、1884年に創設された横浜バプテスト神学校を源流にもつ11学部14学科9コース、5研究科を擁する総合大学です。キリスト教の精神に基づき豊かな人間性を培い、学生一人ひとりに向き合う教育を行っています。企業や自治体、地域と深く関わり合いながら目の前にある課題と向き合い、解決を目指す「社会連携教育」を推進しています。">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_05-7.jpg" alt="関東学院大学">
-                  <p class="partners-item__name">
-                    関東学院大学
-                  </p>
-                </li>
-                <li class="partners-item__individual"
-                    data-modal-text="">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_05-8.jpg" alt="株式会社コーエーテクモホールディングス">
-                  <p class="partners-item__name">
-                    株式会社コーエーテクモ<br>ホールディングス
-                  </p>
-                </li>
-                <li class="partners-item__individual"
-                    data-modal-text="">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_05-9.jpg" alt="株式会社 東芝">
-                  <p class="partners-item__name">
-                    株式会社 東芝
-                  </p>
-                </li>
-                <li class="partners-item__individual">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_05-10.jpg" alt="一般社団法人鶴岡サイエンスパーク">
-                  <p class="partners-item__name">
-                    一般社団法人鶴岡サイエンスパーク
-                  </p>
-                </li>
-                <li class="partners-item__individual">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_05-11.jpg" alt="日本政策金融公庫 南関東創業支援センター">
-                  <p class="partners-item__name">
-                    日本政策金融公庫<br>南関東創業支援センター
-                  </p>
-                </li>
-                <li class="partners-item__individual">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_05-12.jpg" alt="株式会社横浜銀行">
-                  <p class="partners-item__name">
-                    株式会社横浜銀行
-                  </p>
-                </li>
-                <li class="partners-item__individual">
-                  <img class="partners-item__img" src="./assets/img/partners-item_img_05-13.jpg" alt="一般社団法人 日本オープンイノベーション研究会">
-                  <p class="partners-item__name">
-                    一般社団法人<br>日本オープンイノベーション研究会
-                  </p>
-                </li>
-              </ul>
-            </li>
+            <!-- <li class="drawer-menu__item"><a href="#" class="drawer-menu__link drawer-menu__link--contact">参加登録</a></li> -->
           </ul>
-        </div>
-      </section>
-      <!-- Partners Modal -->
-      <div id="partner-modal" class="partner-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="partner-modal-title">
-        <div class="partner-modal__overlay" data-modal-close></div>
-        <div class="partner-modal__dialog" role="document">
-          <button class="partner-modal__close" type="button" aria-label="Close" data-modal-close></button>
 
-          <div class="partner-modal__figure">
-            <img id="partner-modal-img" src="" alt="" loading="lazy">
-            <h4 id="partner-modal-title" class="partner-modal__name"></h4>
+          <div class="drawer-btn__wrap">
+            <div class="drawer-btn application">
+              <a class="drawer-btn__link" href="">
+                <span class="btn__label">参加登録</span>
+              </a>
+            </div>
+            <div class="drawer-btn">
+              <a class="drawer-btn__link" href="">
+                <span class="btn__label"
+                  >協賛・出展・サイドイベントのご相談</span
+                >
+              </a>
+            </div>
           </div>
 
-          <div class="partner-modal__body">
-            <!-- <p id="partner-modal-tier" class="partner-modal__tier"></p> -->
-            <p id="partner-modal-text" class="partner-modal__text"></p>
+          <div class="drawer-logo__wrap">
+            <a class="drawer-logo__links" href="index.html">
+              <img
+                class="kanagawa-logo"
+                src="./assets/img/kanagawa-logo.svg"
+                alt="神奈川県"
+              />
+              <img
+                class="eiicon-logo"
+                src="./assets/img/eiicon-logo.svg"
+                alt="eiicon"
+              />
+            </a>
           </div>
         </div>
       </div>
 
+      <!-- バックドロップ -->
+      <div class="drawer-backdrop md-show" hidden></div>
+    </header>
 
-    </div>
-  </main>
+    <main>
+      <div class="area-page">
+        <div class="lower-mv fv">
+          <h2 class="mv-title">Exhibitors & Event</h2>
+          <p class="mv-text">
+            多様な産業と知が交差し、新たな事業の可能性が芽吹くエリア。<br />
+            大企業、ベンチャー、金融機関、自治体が交わり、社会課題をビジネスで解く視点を共有する。<br />
+            次の社会的価値を構想し、未来の一手を描くための出会いが生まれる場です。
+          </p>
+          <p class="mv-subtitle">Side events</p>
+          <p class="mv-subtitle__text">Coming soon...</p>
+          <img
+            class="introduction__design"
+            src="./assets/img/introduction_design.png"
+            alt=""
+          />
+          <img
+            class="side-events__design"
+            src="./assets/img/side-events_design.png"
+            alt=""
+          />
 
-  <footer class="footer">
-    <div class="footer__inner">
-      <ul class="footer-nav__items">
-        <li class="footer-nav__item">
-          <a class="footer-nav__link" href="">
-            プライバシーポリシー
-          </a>
-        </li>
-        <li class="footer-nav__item">
-          <a class="footer-nav__link" href="">
-            協賛・出展・取材等に関するお問い合わせ
-          </a>
-        </li>
-        <li class="footer-nav__item">
+          <div class="scroll-down">
+            <span class="scroll-down__text">Scroll</span>
+          </div>
+        </div>
+
+        <section class="exhibitors">
+          <div class="exhibitors__inner">
+            <h3 class="lower-title">Exhibitors</h3>
+            <ul class="partners-items">
+              <li class="partners-item amex">
+                <h3 class="partners-item__title">Innovation Partner</h3>
+                <div class="partners-item__wrap">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_01.jpg"
+                    alt="アメリカン・エキスプレス"
+                  />
+                  <div class="partners-item__contents">
+                    <p class="partners-item__name">アメリカン・エキスプレス</p>
+                    <p class="partners-item__text">
+                      1850年に米国ニューヨーク州にて誕生した、グローバルでペイメントやライフスタイルサービスを展開するブランドです。日本では、1917年（大正6年）に横浜で事業所を開設し、現在は世界中に広がる加盟店ネットワークを通じ、200以上の国や地域で事業を展開しています。また、2025年9月に神奈川県と「ベンチャー企業支援に関する連携協定」を締結するなど、県内の創業期の企業支援にも力を入れています。
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="partners-item">
+                <h3 class="partners-item__title">Gold</h3>
+                <ul class="partners-item__wrap">
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="中小企業とともに社会的課題の解決に取り組んでいくためのWebサービス「どうだい？」は2022年3月に誕生しました。現在10万人を超える経営者に登録いただいており、日本中の経営者がWeb上でつながり、境遇の近い経営者仲間に経営の困りごとや悩みを相談・共有することができます。また、経営に役立つ様々な事例・ウェビナーの活用や各種支援サービスの利用を通じて、経営課題解決のヒントや新しいことへチャレンジするきっかけを得ることができるWebサービスです。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_02.jpg"
+                      alt="大同生命保険株式会社"
+                    />
+                    <p class="partners-item__name">大同生命保険株式会社</p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="レバテックは「日本を、IT先進国に。」をビジョンに、IT人材不足が進む日本でDX課題の解決を通じ経済活性化を目指しています。採用支援に加え、経営課題のコンサルやプログラミングスクール運営など、多角的に取り組んでいます。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_02-2.jpg"
+                      alt="レバテック株式会社"
+                    />
+                    <p class="partners-item__name">レバテック株式会社</p>
+                  </li>
+                </ul>
+              </li>
+              <li class="partners-item">
+                <h3 class="partners-item__title">Silver</h3>
+                <ul class="partners-item__wrap">
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="私たちは乳製品、菓子、栄養食品、医薬品など幅広い分野の製品を展開してきたノウハウを活かして、赤ちゃんからお年寄りまであらゆる人々の健やかな生活を支える健康価値を創出しています。 創業100年以上の明治グループが培った知恵やバリューチェーンと、外部のみなさまの新たなテクノロジーやさまざまなアイデアをかけ合わせ、一歩先行く健康価値を創造する新規事業の開発に取り組んでいます。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_03.jpg"
+                      alt="株式会社明治"
+                    />
+                    <p class="partners-item__name">株式会社明治</p>
+                  </li>
+                </ul>
+              </li>
+              <li class="partners-item">
+                <h3 class="partners-item__title">Start Up & SMB Gold</h3>
+                <ul class="partners-item__wrap">
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="アンドドットは、「未来のあたりまえを、今つくる。」を経営理念に、生成AIを軸に事業を展開しており、自治体・金融機関に実績のあるマルチモーダルLLM「QT-GenAI」や自走型AI「Ork」を開発・提供しています。<br>大手企業・自治体のDXを、AI活用戦略から開発、実務特化のAI教育まで一気通貫でサポートし、業務の本質的な自動化、AI活用の現場定着を実現します。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_03-1.jpg"
+                      alt="アンドドット株式会社"
+                    />
+                    <p class="partners-item__name">アンドドット株式会社</p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="Google Cloudに特化したシステムインテグレーターです。導入コンサルから開発、運用保守まで一貫してサポート。AI、データ分析、Google Maps Platformを組み合わせた独自のソリューション提案を得意とし、お客様のビジネス課題を解決します。国内でも数少ないGoogle CloudとGoogle Maps Platformの販売ライセンスを保有しており、高い技術力と実績で企業成長に貢献します。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_03-2.jpg"
+                      alt="クラウドエース株式会社"
+                    />
+                    <p class="partners-item__name">クラウドエース株式会社</p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="GEMBAは「現場の未来を、共に創る。」を理念に、製造現場のDXを支援するスタートアップです。製造現場で行われている改善・管理業務を効率化するDXサービス「GEMBA」を開発しています。自社の工場レイアウト図や設備・製品図面上に情報をマッピングして改善・管理状況を見える化でき、どこで何が起こっているか直感的に分かりやすい現場DXツールです。「巡回業務」や「設備保全」、「生産性向上」など幅広い現場業務に活用頂いています。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_03-3.jpg"
+                      alt="株式会社GEMBA"
+                    />
+                    <p class="partners-item__name">株式会社GEMBA</p>
+                  </li>
+                </ul>
+              </li>
+              <li class="partners-item">
+                <h3 class="partners-item__title">Start Up & SMB Bronze</h3>
+                <ul class="partners-item__wrap">
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="TRUNK株式会社は「生まれた環境に関係なく、やる気次第で誰でも活躍できる世界をつくる」をビジョンに、企業向けe-LearningサービスのWorkschoolを展開しています。<br>1,500以上のコンテンツを利用可能なだけでなく、「自社オリジナルコンテンツ制作を丸投げしたい」というニーズにも応え、企画から制作を一気通貫でサポートします。教育関連で新規事業を検討できそうであれば、ぜひお話しできたらと思います。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_04-1.jpg"
+                      alt="TRUNK株式会社"
+                    />
+                    <p class="partners-item__name">TRUNK株式会社</p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="ユカイ工学では、自社製品開発で培ったコミュニケーションデザイン、ロボティクス、 IoT、AI活用を強みとし、企業の製品・サービスの開発を支援しています。<br>特にロボット開発と生成AIを用いた対話インターフェースの構築に強みを持ち、またその技術やアイデア発想力を活かして新規プロダクトのコンセプト検討から製品デザイン、開発、量産支援に至るまで、企業の発想を速やかに形にします。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_04-2.jpg"
+                      alt="ユカイ工学株式会社"
+                    />
+                    <p class="partners-item__name">ユカイ工学株式会社</p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="Bocekは、企業の持続的な成長のため、生成AI技術の導入を支援する専門家集団です。戦略構築からシステム開発までをワンストップで提供し、各企業のニーズに合わせたオーダーメイドのAI組み込みをサポートします。国際競争が激化する中で生成AI導入が必須となる一方、企業の知識や技術不足が課題となっているため、Bocekはそのギャップを埋める最適なパートナーとなることを目指しています。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_04-3.jpg"
+                      alt="株式会社Bocek"
+                    />
+                    <p class="partners-item__name">株式会社Bocek</p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="株式会社OneSmallStepは、「一歩を踏み出すすべての人を応援する」を理念に、システム開発・DX支援・VR／ゲーム開発を行う福岡発のクリエイティブエージェンシーです。業務効率化や情報共有の仕組みづくりから、仮想空間・ゲーミフィケーションを活用した新しい体験の創出まで、テクノロジーとデザインの力で企業や地域の課題解決を支援し、前例のない未来を共に形にします。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_04-4.jpg"
+                      alt="株式会社OneSmallStep"
+                    />
+                    <p class="partners-item__name">株式会社OneSmallStep</p>
+                  </li>
+                </ul>
+              </li>
+              <li class="partners-item">
+                <h3 class="partners-item__title">Supporter</h3>
+                <ul class="partners-item__wrap">
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="中小機構は、スタートアップや中小企業の皆様が持つ強みやアイデアを活かし、挑戦を実現できるよう伴走します。現場の声に耳を傾け、地域や支援機関、大学、金融機関と連携しながら、起業前から利用できる専門家によるメンタリングやアクセラレーションプログラムなど、多彩な支援を展開します。企業や支援者とのつながりを広げ、新しい価値を共に作り出し、豊かでうるおいのある日本の未来づくりに貢献します。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-1.jpg"
+                      alt="独立行政法人中小企業基盤整備機構関東本部"
+                    />
+                    <p class="partners-item__name">
+                      独立行政法人中小企業基盤整備機構<br />関東本部
+                    </p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="横浜市は「横浜市中期計画2022～2025」でスタートアップ支援を重点施策とし、2024年11月に「TECH HUB YOKOHAMA」を開設。多様な支援や産学官連携を通じて、テック系スタートアップの集積地としての地位確立を目指しています。また、支援者・投資家・行政が連携し、革新的なビジネスの育成とコミュニティ醸成にも注力。横浜市は挑戦と成長の舞台として、次世代の起業家を力強く後押ししています。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-2.jpg"
+                      alt="横浜市経済局"
+                    />
+                    <p class="partners-item__name">横浜市経済局</p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="川崎市では、ライフサイエンス分野の研究開発拠点「キングスカイフロント」、首都圏最大級のインキュベーション施設「かわさき新産業創造センター」の設置に加え、量子・AI等のコンピューティング分野における新たな拠点の整備を進めています。また、NEDO・川崎市産業振興財団と共同運営する起業家支援拠点「K-NIC」において、起業前後の研究開発型スタートアップを支援しています。川崎市は、スタートアップが集い、共創と実証が加速する都市として、今後もイノベーションを牽引していきます。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-3.jpg"
+                      alt="川崎市"
+                    />
+                    <p class="partners-item__name">川崎市</p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="相模原市では、リニア中央新幹線神奈川県駅（仮称）の開設が予定される橋本駅周 辺地区のまちづくりの機会を捉え、イノベーション政策を推進し、官民連携でスタートアップ・イノベーションエコシステムの形成を目指しています。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-4.jpg"
+                      alt="相模原市"
+                    />
+                    <p class="partners-item__name">相模原市</p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="横須賀市は、創業から成長、そして社会実装まで、一貫して支援する体制を整えています。市内支援機関と連携した創業支援ネットワークの構築に加え、これから創業を目指す方や、新たな事業展開・成長分野への転換によるさらなる事業拡大・成長を目指す方を対象としたセミナーや個別相談を実施し、新規事業の実現を支援しています。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-5.jpg"
+                      alt="横須賀市"
+                    />
+                    <p class="partners-item__name">横須賀市</p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="誰もが笑顔で暮らせる、愛すべきふるさと小田原」では、豊かな資源の基に産業が育ち、地域の経済の好循環が生まれるまちを目指しています。小田原箱根商工会議所や、市内金融機関等と連携し、ニーズに沿った創業支援を進め、ワーク・プレイス・マーケットARUYO　ODAWARAでは、オープンイノベーションや新たなビジネスモデルの創出を目指す、事業者、起業家をサポート。創業するならぜひ小田原で！　新たな挑戦を応援します！"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-5-1.jpg"
+                      alt="小田原市"
+                    />
+                    <p class="partners-item__name">小田原市</p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="厚木市では、国の認定を受けた「創業支援等事業計画」に沿って、金融機関や厚木商工会議所などの各機関と連携しながら創業者の段階に応じたサポートを行っています。 市内で創業を考えている方や、創業後間もない方を対象とした「あつぎ起業スクール」では、創業に必要なノウハウを学ぶことができ、受講後も個別相談を実施することで創業を後押ししています。その他にも、創業や経営に関する疑問を中小企業診断士に相談できる窓口の設置など、支援の充実を図っています。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-6.jpg"
+                      alt="厚木市"
+                    />
+                    <p class="partners-item__name">厚木市</p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="関東学院大学は、1884年に創設された横浜バプテスト神学校を源流にもつ11学部14学科9コース、5研究科を擁する総合大学です。キリスト教の精神に基づき豊かな人間性を培い、学生一人ひとりに向き合う教育を行っています。企業や自治体、地域と深く関わり合いながら目の前にある課題と向き合い、解決を目指す「社会連携教育」を推進しています。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-7.jpg"
+                      alt="関東学院大学"
+                    />
+                    <p class="partners-item__name">関東学院大学</p>
+                  </li>
+                  <li class="partners-item__individual" data-modal-text="">
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-8.jpg"
+                      alt="株式会社コーエーテクモホールディングス"
+                    />
+                    <p class="partners-item__name">
+                      株式会社コーエーテクモ<br />ホールディングス
+                    </p>
+                  </li>
+                  <li class="partners-item__individual" data-modal-text="">
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-9.jpg"
+                      alt="株式会社 東芝"
+                    />
+                    <p class="partners-item__name">株式会社 東芝</p>
+                  </li>
+                  <li class="partners-item__individual" data-modal-text="">
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-10.jpg"
+                      alt="一般社団法人鶴岡サイエンスパーク"
+                    />
+                    <p class="partners-item__name">
+                      一般社団法人鶴岡サイエンスパーク
+                    </p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="日本政策金融公庫 南関東創業支援センターは、創業をお考えの方や創業して間もないスタートアップの皆さまを対象に、各種セミナーや融資相談を通じて創業に関する情報提供を行っています。また、公的機関や民間金融機関などの皆さまとも連携し、「資本性ローン」などのご融資を通じて、起業家の夢の実現をサポートしています。"
+                    data-modal-title="日本政策金融公庫<br />南関東創業支援センター"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-11.jpg"
+                      alt="日本政策金融公庫 南関東創業支援センター"
+                    />
+                    <p class="partners-item__name">
+                      日本政策金融公庫<br />南関東創業支援センター
+                    </p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="神奈川県を地盤とした地域金融機関です。<br>弊行では、営業地盤である神奈川県や東京都で事業を立ち上げようとする方へ、資金面でのサポートをおこなっています。<br>地公体の創業制度融資のほか、グループ会社である横浜キャピタルによるエクイティファイナンスも活用することが可能で、さまざまな資金ニーズに対応しています。<br>また、県内の支援機関とも連携しており、ワンストップで創業者のみなさまのソリューションを提供しています。"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-12.jpg"
+                      alt="株式会社横浜銀行"
+                    />
+                    <p class="partners-item__name">株式会社横浜銀行</p>
+                  </li>
+                  <li
+                    class="partners-item__individual"
+                    data-modal-text="一般社団法人日本オープンイノベーション研究会（JOIRA）は、オープンイノベーションの普及と実践支援を目的に、企業・自治体・大学・スタートアップなど多様な主体の共創を促進する団体です。実践事例の研究やガイドブックの発行、教育研修、セミナーの開催を通じて、共創による新たな事業創出を後押ししています。"
+                    data-modal-title="一般社団法人<br />日本オープンイノベーション研究会"
+                  >
+                    <img
+                      class="partners-item__img"
+                      src="./assets/img/partners-item_img_05-13.jpg"
+                      alt="一般社団法人 日本オープンイノベーション研究会"
+                    />
+                    <p class="partners-item__name">
+                      一般社団法人<br />日本オープンイノベーション研究会
+                    </p>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!-- Partners Modal -->
+        <div
+          id="partner-modal"
+          class="partner-modal"
+          aria-hidden="true"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="partner-modal-title"
+        >
+          <div class="partner-modal__overlay" data-modal-close></div>
+          <div class="partner-modal__dialog" role="document">
+            <button
+              class="partner-modal__close"
+              type="button"
+              aria-label="Close"
+              data-modal-close
+            ></button>
+
+            <div class="partner-modal__figure">
+              <img id="partner-modal-img" src="" alt="" loading="lazy" />
+              <h4 id="partner-modal-title" class="partner-modal__name"></h4>
+            </div>
+
+            <div class="partner-modal__body">
+              <!-- <p id="partner-modal-tier" class="partner-modal__tier"></p> -->
+              <p id="partner-modal-text" class="partner-modal__text"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <ul class="footer-nav__items">
+          <li class="footer-nav__item">
+            <a class="footer-nav__link" href=""> プライバシーポリシー </a>
+          </li>
+          <li class="footer-nav__item">
+            <a class="footer-nav__link" href="">
+              協賛・出展・取材等に関する<br class="md-show" />お問い合わせ
+            </a>
+          </li>
+          <!-- <li class="footer-nav__item">
           <a class="footer-nav__link" href="">
             その他お問い合わせ
           </a>
-        </li>
-        <li class="footer-nav__item">
-          <a class="footer-nav__link" href="">
-            サイトポリシー
-          </a>
-        </li>
-      </ul>
-      <ul class="management__items">
-        <li class="management__item">
-          <p class="management__item__label">
-            主催
-          </p>
-          <div class="management-name__wrap">
-            <img class="management-name__img organized" src="./assets/img/kanagawa-logo.svg" alt="神奈川県">
-            <p class="management-name">
-              神奈川県<br>産業振興課
-            </p>
-          </div>
-        </li>
-        <li class="management__item">
-          <p class="management__item__label">
-            運営
-          </p>
-          <div class="management-name__wrap">
-            <img class="management-name__img organized" src="./assets/img/eiicon-logo.svg" alt="株式会社eiicon">
-            <p class="management-name">
-              株式会社eiicon
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <p class="copyright">
-      © Kanagawa Innovators Day 2026
-    </p>
-  </footer>
-</body>
-
+        </li> -->
+          <li class="footer-nav__item">
+            <a class="footer-nav__link" href=""> サイトポリシー </a>
+          </li>
+        </ul>
+        <ul class="management__items">
+          <li class="management__item">
+            <p class="management__item__label">主催</p>
+            <div class="management-name__wrap">
+              <img
+                class="management-name__img organized"
+                src="./assets/img/kanagawa-logo.svg"
+                alt="神奈川県"
+              />
+              <p class="management-name">
+                神奈川県<br class="md-none" />産業振興課
+              </p>
+            </div>
+          </li>
+          <li class="management__item">
+            <p class="management__item__label">運営</p>
+            <div class="management-name__wrap">
+              <img
+                class="management-name__img organized"
+                src="./assets/img/eiicon-logo.svg"
+                alt="株式会社eiicon"
+              />
+              <p class="management-name">株式会社eiicon</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <p class="copyright">© Kanagawa Innovators Day 2026</p>
+    </footer>
+  </body>
 </html>

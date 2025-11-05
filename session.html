@@ -1,578 +1,1085 @@
 <!DOCTYPE html>
 <html lang="ja">
+  <head>
+    <meta name="robots" content="noindex,nofollow" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- meta情報 -->
+    <title>KID</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!-- ogp -->
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:card" content="summary" />
+    <!-- ファビコン -->
+    <link rel="icon" href="#" />
 
-<head>
-  <meta name="robots" content="noindex,nofollow">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="format-detection" content="telephone=no">
-  <!-- meta情報 -->
-  <title>KID</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <!-- ogp -->
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:site_name" content="">
-  <meta property="og:description" content="">
-  <meta name="twitter:card" content="summary">
-  <!-- ファビコン -->
-  <link rel="icon" href="#">
+    <!-- Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/line-seed-jp@0.0.5/line-seed-jp.min.css"
+    />
 
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/line-seed-jp@0.0.5/line-seed-jp.min.css">
+    <!-- css -->
+    <link rel="stylesheet" href="https://use.typekit.net/jyd5clv.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
 
-  <!-- css -->
-  <link rel="stylesheet" href="https://use.typekit.net/jyd5clv.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- JavaScript -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="./assets/js/script.js" defer></script>
 
-  <!-- JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous" defer></script>
-  <script src="./assets/js/script.js" defer></script>
+    <!-- Web Component 読み込み -->
+    <script
+      type="module"
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+    ></script>
+  </head>
 
-  <!-- Web Component 読み込み -->
-  <script type="module" src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"></script>
-</head>
-
-<body>
-  <header class="header area-page">
-    <h1 class="logo__wrap">
-      <a class="logo__link" href="index.html">
-        <img class="lower-logo" src="./assets/img/lower-logo-black.png" alt="KID">
-      </a>
-    </h1>
-    <nav>
-      <ul class="header__items">
-        <li class="header__item">
-          <a class="header__link" href="session.html">
-            Session / Timetable
-          </a>
-        </li>
-        <li class="header__item">
-          <a class="header__link" href="pitch.html">
-            KID Start Up Pich
-          </a>
-        </li>
-        <li class="header__item">
-          <a class="header__link" href="area.html">
-            Exhibitors & Event
-          </a>
-        </li>
-        <li class="header__item">
-          <a class="header__link" href="">
-            参加登録
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <div class="session-page">
-      <div class="lower-mv fv">
-        <h2 class="mv-title">
-          Session / Timetable
-        </h2>
-        <p class="mv-text">
-          社会的価値が企業の存在意義を左右する今、<br>
-          企業はいかに進化し、社会を動かすのか。<br>
-          業界を牽引するイノベーターたちが、自らの実践を通じて語る“変革のリアル”。<br>
-          時代の転換点に立ついま、共に考え、未来を創るためのヒントがここに。
-        </p>
-        <p class="mv-subtitle">
-          Stage information
-        </p>
-        <img class="guests__design" src="./assets/img/guests_design.png" alt="">
-        <img class="session__design" src="./assets/img/session_design.png" alt="">
-
-        <div class="scroll-down">
-          <span class="scroll-down__text">Scroll</span>
-        </div>
-
-        <ul class="stage-items">
-          <li class="stage-item">
-            <div class="stage-item__heading">
-              <img class="stage-item__icon" src="./assets/img/innovators-icon.png" alt="">
-              <p class="stage-item__name">
-                Innovators  Stage
-              </p>
-            </div>
-            <p class="stage-item__place">
-              関東学院大学 横浜・関内キャンパス 2F
-            </p>
-            <div class="map">
-              <a class="map_link" href="">
-                Google MAPS
-              </a>
-            </div>
+  <body>
+    <header class="header area-page">
+      <h1 class="logo__wrap">
+        <a class="logo__link" href="index.html">
+          <img
+            class="lower-logo"
+            src="./assets/img/lower-logo-black.svg"
+            alt="KID"
+          />
+        </a>
+      </h1>
+      <nav>
+        <ul class="header__items md-none">
+          <li class="header__item">
+            <a class="header__link" href="session.html">
+              Session / Timetable
+            </a>
           </li>
-          <li class="stage-item">
-            <div class="stage-item__heading">
-              <img class="stage-item__icon" src="./assets/img/crossover-icon.png" alt="">
-              <p class="stage-item__name">
-                Crossover Stage
-              </p>
-            </div>
-            <p class="stage-item__place">
-              YOXO BOX
-            </p>
-            <div class="map">
-              <a class="map_link" href="">
-                Google MAPS
-              </a>
-            </div>
+          <li class="header__item">
+            <a class="header__link" href="pitch.html"> KID Start Up Pich </a>
           </li>
-          <li class="stage-item">
-            <div class="stage-item__heading">
-              <img class="stage-item__icon" src="./assets/img/meetup-icon.png" alt="">
-              <p class="stage-item__name">
-                Meet Up Stage
-              </p>
-            </div>
-            <p class="stage-item__place">
-              関東学院大学 横浜・関内キャンパス 6F
-            </p>
-            <div class="map">
-              <a class="map_link" href="">
-                Google MAPS
-              </a>
-            </div>
+          <li class="header__item">
+            <a class="header__link" href="area.html"> Exhibitors & Event </a>
           </li>
-          <li class="stage-item">
-            <div class="stage-item__heading">
-              <img class="stage-item__icon" src="./assets/img/demoday-icon.png" alt="">
-              <p class="stage-item__name">
-                Demo Day Stage
-              </p>
-            </div>
-            <p class="stage-item__place">
-              京セラみなとみらいリサーチセンター
-            </p>
-            <div class="map">
-              <a class="map_link" href="">
-                Google MAPS
-              </a>
-            </div>
+          <li class="header__item">
+            <a class="header__link" href=""> 参加登録 </a>
           </li>
         </ul>
+      </nav>
+
+      <div
+        class="hamburger hamburger--pill js-hamburger"
+        aria-controls="global-drawer"
+        aria-expanded="false"
+        aria-label="メニューを開く"
+      >
+        <span class="hamburger__icon" aria-hidden="true">
+          <span class="hamburger__bar"></span>
+          <span class="hamburger__bar"></span>
+        </span>
+        <span class="hamburger__label">menu</span>
       </div>
 
-      <section class="session-timetable">
-        <h3 class="lower-title">
-          Session timetable
-        </h3>
-        <p class="date">
-          3.24 <span class="size">TUE</span>
-        </p>
-      </section>
-
-
-      <!-- <div class="mv">
-        <div class="mv-contents__wrap">
-          <img class="mv__title" src="./assets/img/pitch-mv.png" alt="KID">
-          <p class="mv__subtitle">
-            Start Up Pitch
-          </p>
-          <div class="mv-date__wrap">
-            <p class="mv-date__label">
-              本選
-            </p>
-            <p class="mv-date">
-              2026.3.24<span class="weekday">TUE</span>16:30-18:00
-            </p>
+      <div
+        class="drawer-menu js-drawer"
+        id="global-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+        <div class="drawer-menu__inner">
+          <div class="drawer__logo" id="stickyLogo">
+            <a class="logo__link" href="index.html">
+              <img
+                class="lower-logo"
+                src="./assets/img/lower-logo-black.svg"
+                alt="KID"
+              />
+            </a>
           </div>
-          <div class="mv-date__wrap contents_02">
-            <p class="mv-date__label">
-              予選
-            </p>
-            <p class="mv-date">
-              2026.1.28<span class="weekday">WED</span>17:00-19:00
-            </p>
-          </div>
-          <div class="mv-date__wrap contents_03">
-            <p class="mv-date__label">
-              エントリー受付
-            </p>
-            <p class="mv-date">
-              2025.10.29<span class="weekday">WED</span>- 2026.1.9<span class="weekday">FRI</span>
-            </p>
+          <ul class="drawer-menu__items">
+            <li class="drawer-menu__item">
+              <a href="session.html" class="drawer-menu__link"
+                >Session / Timetable</a
+              >
+            </li>
+            <li class="drawer-menu__item">
+              <a href="pitch.html" class="drawer-menu__link"
+                >KID Start Up Pitch</a
+              >
+            </li>
+            <li class="drawer-menu__item">
+              <a href="area.html" class="drawer-menu__link"
+                >Exhibitors & Event</a
+              >
+            </li>
+            <!-- <li class="drawer-menu__item"><a href="#" class="drawer-menu__link drawer-menu__link--contact">参加登録</a></li> -->
+          </ul>
+
+          <div class="drawer-btn__wrap">
+            <div class="drawer-btn application">
+              <a class="drawer-btn__link" href="">
+                <span class="btn__label">参加登録</span>
+              </a>
+            </div>
+            <div class="drawer-btn">
+              <a class="drawer-btn__link" href="">
+                <span class="btn__label"
+                  >協賛・出展・サイドイベントのご相談</span
+                >
+              </a>
+            </div>
           </div>
 
-          <div class="pitch-btn">
-            <a class="pitch-btn__link" href="">
-              ピッチへ応募する
+          <div class="drawer-logo__wrap">
+            <a class="drawer-logo__links" href="index.html">
+              <img
+                class="kanagawa-logo"
+                src="./assets/img/kanagawa-logo.svg"
+                alt="神奈川県"
+              />
+              <img
+                class="eiicon-logo"
+                src="./assets/img/eiicon-logo.svg"
+                alt="eiicon"
+              />
             </a>
           </div>
         </div>
+      </div>
 
-        <div class="mv-spacer" aria-hidden="true"></div>
+      <!-- バックドロップ -->
+      <div class="drawer-backdrop md-show" hidden></div>
+    </header>
 
-        <div class="lottie-wrap sway">
-          <dotlottie-player
-            src="./assets/lottie/Flow_1.lottie"
-            autoplay
-            loop
-            renderer="svg">
-          </dotlottie-player>
+    <main>
+      <div class="session-page">
+        <!-- 固定ボタン -->
+        <div class="fixed-bar__wrap">
+          <div class="fixed-stage__wrap">
+            <div class="fixed-stage__wrap-inner">
+              <p class="fixed-stage-label md-none">STAGE</p>
+              <ul class="fixed-stage__items" id="stageFilters">
+                <li class="fixed-stage__item">
+                  <a
+                    class="fixed-stage__item__inner"
+                    href="?stage=innovators#session"
+                    data-stage="innovators"
+                    aria-pressed="false"
+                  >
+                    <img
+                      class="stage-item__icon md-none"
+                      src="./assets/img/innovators-icon.png"
+                      alt=""
+                    />
+                    <p class="stage-item__name">Innovators Stage</p>
+                  </a>
+                </li>
+                <li class="fixed-stage__item">
+                  <a
+                    class="fixed-stage__item__inner"
+                    href="?stage=crossover#session"
+                    data-stage="crossover"
+                    aria-pressed="false"
+                  >
+                    <img
+                      class="stage-item__icon md-none"
+                      src="./assets/img/crossover-icon.png"
+                      alt=""
+                    />
+                    <p class="stage-item__name">Crossover Stage</p>
+                  </a>
+                </li>
+                <li class="fixed-stage__item">
+                  <a
+                    class="fixed-stage__item__inner"
+                    href="?stage=meetup#session"
+                    data-stage="meetup"
+                    aria-pressed="false"
+                  >
+                    <img
+                      class="stage-item__icon md-none"
+                      src="./assets/img/meetup-icon.png"
+                      alt=""
+                    />
+                    <p class="stage-item__name">Meet Up Stage</p>
+                  </a>
+                </li>
+                <li class="fixed-stage__item">
+                  <a
+                    class="fixed-stage__item__inner"
+                    href="?stage=demoday#session"
+                    data-stage="demoday"
+                    aria-pressed="false"
+                  >
+                    <img
+                      class="stage-item__icon md-none"
+                      src="./assets/img/demoday-icon.png"
+                      alt=""
+                    />
+                    <p class="stage-item__name">Demo Day Stage</p>
+                  </a>
+                </li>
+              </ul>
+
+              <!-- <ul class="fixed-stage__items">
+                <li class="fixed-stage__item">
+                  <a class="fixed-stage__item__inner" href="">
+                    <img class="stage-item__icon md-none" src="./assets/img/innovators-icon.png" alt="">
+                    <p class="stage-item__name">
+                      Innovators  Stage
+                    </p>
+                  </a>
+                </li>
+                <li class="fixed-stage__item">
+                  <a class="fixed-stage__item__inner" href="">
+                    <img class="stage-item__icon md-none" src="./assets/img/crossover-icon.png" alt="">
+                    <p class="stage-item__name">
+                      Crossover Stage
+                    </p>
+                  </a>
+                </li>
+                <li class="fixed-stage__item">
+                  <a class="fixed-stage__item__inner" href="">
+                    <img class="stage-item__icon md-none" src="./assets/img/meetup-icon.png" alt="">
+                    <p class="stage-item__name">
+                      Meet Up Stage
+                    </p>
+                  </a>
+                </li>
+                <li class="fixed-stage__item">
+                  <a class="fixed-stage__item__inner" href="">
+                    <img class="stage-item__icon md-none" src="./assets/img/demoday-icon.png" alt="">
+                    <p class="stage-item__name">
+                      Demo Day Stage
+                    </p>
+                  </a>
+                </li>
+              </ul> -->
+            </div>
+          </div>
+          <ul class="fixed-link__items">
+            <li class="fixed-link__item">
+              <a class="fixed-link" href="#session"> Session </a>
+            </li>
+            <li class="fixed-link__item">
+              <a class="fixed-link" href="#pitch"> Pitch </a>
+            </li>
+            <li class="fixed-link__item">
+              <a class="fixed-link" href="#demoday"> Demoday </a>
+            </li>
+          </ul>
         </div>
-        <img class="mv-person_01" src="./assets/img/mv-person_01.png" alt="">
-        <img class="mv-person_02" src="./assets/img/mv-person_02.png" alt="">
-        <img class="mv-person_03" src="./assets/img/mv-person_03.png" alt="">
-        <img class="mv-person_04" src="./assets/img/mv-person_04.png" alt="">
-      </div> -->
+        <!-- /固定ボタン -->
 
-      <!-- <div class="overlap__wrap">
-        <div class="overlap__wrap__inner">
+        <div class="lower-mv fv">
+          <h2 class="mv-title">Session / Timetable</h2>
+          <p class="mv-text">
+            社会的価値が企業の存在意義を左右する今、<br />
+            企業はいかに進化し、社会を動かすのか。<br />
+            業界を牽引するイノベーターたちが、自らの実践を通じて語る“変革のリアル”。<br />
+            時代の転換点に立ついま、共に考え、未来を創るためのヒントがここに。
+          </p>
+          <p class="mv-subtitle">Stage information</p>
+          <picture>
+            <source
+              srcset="./assets/img/guests_design.png"
+              media="(min-width: 769px)"
+            />
+            <img
+              class="guests__design"
+              src="./assets/img/guests_design_sp.png"
+              alt=""
+            />
+          </picture>
+          <picture>
+            <source
+              srcset="./assets/img/session_design.png"
+              media="(min-width: 769px)"
+            />
+            <img
+              class="session__design"
+              src="./assets/img/session_design_sp.png"
+              alt=""
+            />
+          </picture>
+
           <div class="scroll-down">
             <span class="scroll-down__text">Scroll</span>
           </div>
 
-          <div class="pitch-heading">
-            <ul class="pitch-heading__items">
-              <li class="pitch-heading__item">
-                挑戦する想いに、発信の場を。
-              </li>
-              <li class="pitch-heading__item">
-                神奈川県では、地域の課題解決と新たなビジネス創出を目指す<br>
-                スタートアップ・ベンチャーを支援してきました。<br>
-                その思いを引き継ぎ、新たな挑戦の場を設けます。
-              </li>
-              <li class="pitch-heading__item">
-                ピッチコンテスト「KID Startup Pitch 2026」では、県が取り組む社会課題の解決をテーマに、これからの世界を神奈川から変えていく革新的なビジネスプランを募集します。
-              </li>
-            </ul>
-          </div>
-
-          <section class="award">
-            <h2 class="pitch__title">
-              AWARD
-            </h2>
-            <ul class="award-items">
-              <li class="award-item">
-                <img class="award-item__img" src="./assets/img/award-item_img_01.png" alt="">
-                <p class="award-item__name">
-                  KID賞
+          <div class="container">
+            <ul class="stage-items">
+              <li class="stage-item">
+                <div class="stage-item__heading">
+                  <img
+                    class="stage-item__icon"
+                    src="./assets/img/innovators-icon.png"
+                    alt=""
+                  />
+                  <p class="stage-item__name">Innovators  Stage</p>
+                </div>
+                <p class="stage-item__place">
+                  関東学院大学 横浜・関内キャンパス 2F
                 </p>
-                <p class="award-item__text">
-                  賞の内容を説明する文章が入ります。賞の内容を説明する文章が入ります。
-                </p>
-              </li>
-              <li class="award-item">
-                <img class="award-item__img" src="./assets/img/award-item_img_01.png" alt="">
-                <p class="award-item__name">
-                  △△△△△賞
-                </p>
-                <p class="award-item__text">
-                  賞の内容を説明する文章が入ります。賞の内容を説明する文章が入ります。
-                </p>
-              </li>
-            </ul>
-          </section>
-
-          <section class="judge">
-            <h2 class="pitch__title">
-              JUDGE
-            </h2>
-            <ul class="judge-items">
-              <li class="judge-item">
-                <img class="judge-item__img" src="./assets/img/judge-item__img_01.png" alt="">
-                <div class="judge-item__contents">
-                  <p class="judge-item__company">
-                    株式会社ABCD<br>代表取締役
-                  </p>
-                  <p class="judge-item__name">
-                    山田 太郎
-                  </p>
+                <div class="map">
+                  <a class="map_link" href=""> Google MAPS </a>
                 </div>
               </li>
-              <li class="judge-item">
-                <img class="judge-item__img" src="./assets/img/judge-item__img_01.png" alt="">
-                <div class="judge-item__contents">
-                  <p class="judge-item__company">
-                    株式会社ABCD<br>代表取締役
-                  </p>
-                  <p class="judge-item__name">
-                    山田 太郎
-                  </p>
+              <li class="stage-item">
+                <div class="stage-item__heading">
+                  <img
+                    class="stage-item__icon"
+                    src="./assets/img/crossover-icon.png"
+                    alt=""
+                  />
+                  <p class="stage-item__name">Crossover Stage</p>
+                </div>
+                <p class="stage-item__place">YOXO BOX</p>
+                <div class="map">
+                  <a class="map_link" href=""> Google MAPS </a>
                 </div>
               </li>
-              <li class="judge-item">
-                <img class="judge-item__img" src="./assets/img/judge-item__img_01.png" alt="">
-                <div class="judge-item__contents">
-                  <p class="judge-item__company">
-                    株式会社ABCD<br>代表取締役
-                  </p>
-                  <p class="judge-item__name">
-                    山田 太郎
-                  </p>
+              <li class="stage-item">
+                <div class="stage-item__heading">
+                  <img
+                    class="stage-item__icon"
+                    src="./assets/img/meetup-icon.png"
+                    alt=""
+                  />
+                  <p class="stage-item__name">Meet Up Stage</p>
+                </div>
+                <p class="stage-item__place">
+                  関東学院大学 横浜・関内キャンパス 6F
+                </p>
+                <div class="map">
+                  <a class="map_link" href=""> Google MAPS </a>
                 </div>
               </li>
-              <li class="judge-item">
-                <img class="judge-item__img" src="./assets/img/judge-item__img_01.png" alt="">
-                <div class="judge-item__contents">
-                  <p class="judge-item__company">
-                    株式会社ABCD<br>代表取締役
-                  </p>
-                  <p class="judge-item__name">
-                    山田 太郎
-                  </p>
+              <li class="stage-item">
+                <div class="stage-item__heading">
+                  <img
+                    class="stage-item__icon"
+                    src="./assets/img/demoday-icon.png"
+                    alt=""
+                  />
+                  <p class="stage-item__name">Demo Day Stage</p>
+                </div>
+                <p class="stage-item__place">
+                  京セラみなとみらいリサーチセンター
+                </p>
+                <div class="map">
+                  <a class="map_link" href=""> Google MAPS </a>
                 </div>
               </li>
             </ul>
-          </section>
-
-          <section class="theme">
-            <h2 class="pitch__title">
-              THEME
-            </h2>
-            <p class="theme__text">
-              神奈川県が取り組む、（「新かながわグランドデザイン」掲載の）社会課題解決をテーマにしたビジネスプランを募集いたします。
-            </p>
-            <ul class="pitch-items">
-              <li class="pitch-item">
-                <span class="pitch-item__number">1.</span>子ども・若者
-              </li>
-              <li class="pitch-item">
-                <span class="pitch-item__number">2.</span>教育
-              </li>
-              <li class="pitch-item">
-                <span class="pitch-item__number">3.</span>未病・健康長寿
-              </li>
-              <li class="pitch-item">
-                <span class="pitch-item__number">4.</span>文化・スポーツ
-              </li>
-              <li class="pitch-item">
-                <span class="pitch-item__number">5.</span>観光・地域活性化
-              </li>
-              <li class="pitch-item">
-                <span class="pitch-item__number">6.</span>経済・労働
-              </li>
-              <li class="pitch-item">
-                <span class="pitch-item__number">7.</span>農林水産
-              </li>
-              <li class="pitch-item">
-                <span class="pitch-item__number">8.</span>脱炭素・環境
-              </li>
-              <li class="pitch-item">
-                <span class="pitch-item__number">9.</span>生活困窮
-              </li>
-              <li class="pitch-item">
-                <span class="pitch-item__number">10.</span>共生社会
-              </li>
-              <li class="pitch-item">
-                <span class="pitch-item__number">11.</span>くらしの安心
-              </li>
-              <li class="pitch-item">
-                <span class="pitch-item__number">12.</span>危機管理
-              </li>
-              <li class="pitch-item">
-                <span class="pitch-item__number">13.</span>都市基盤
-              </li>
-            </ul>
-            <a class="theme__link" href="">
-              神奈川県のグランドデザインを確認する
-            </a>
-          </section>
-
-          <section class="merrit">
-            <h2 class="pitch__title">
-              MERRIT
-            </h2>
-            <ul class="merrit-items">
-              <li class="merrit-item">
-                <p class="merrit-item__label">
-                  本選出場特典
-                </p>
-                <p class="merrit-item__text">
-                  ・3月24日開催のイベントでのブース出展<br>
-                  ・3月24日開催のイベントでのVIPネットワーキングへの参加権<br>
-                  ・広報資料等への掲載
-                </p>
-              </li>
-              <li class="merrit-item">
-                <p class="merrit-item__label">
-                  受賞特典
-                </p>
-                <p class="merrit-item__text">
-                  ・イベント事後レポートでの情報拡散<br>
-                  ・（仮）知事賞<br>
-                  ・（仮）オーディエンス賞
-                </p>
-              </li>
-            </ul>
-          </section>
-
-          <section class="schedule">
-            <h2 class="pitch__title">
-              SCHEDULE
-            </h2>
-            <ul class="schedule-items">
-              <li class="schedule-item">
-                <p class="schedule-item__date">
-                  2025年9月18日
-                </p>
-                <p class="schedule-item__text">
-                  募集開始
-                </p>
-              </li>
-              <li class="schedule-item">
-                <p class="schedule-item__date">
-                  2025年12月8日
-                </p>
-                <p class="schedule-item__text">
-                  募集締切
-                </p>
-              </li>
-              <li class="schedule-item">
-                <p class="schedule-item__date">
-                  2026年1月上旬
-                </p>
-                <p class="schedule-item__text">
-                  選考結果結果通知
-                </p>
-              </li>
-              <li class="schedule-item">
-                <p class="schedule-item__date">
-                  2026年1月中旬
-                </p>
-                <p class="schedule-item__text">
-                  ピッチメンタリング実施（予算確保次第）
-                </p>
-              </li>
-              <li class="schedule-item">
-                <p class="schedule-item__date">
-                  2026年1月22日
-                </p>
-                <p class="schedule-item__text">
-                  予選ピッチ（オンライン）
-                </p>
-              </li>
-              <li class="schedule-item">
-                <p class="schedule-item__date">
-                  2026年2月中旬
-                </p>
-                <p class="schedule-item__text">
-                  ピッチブラッシュアップ期間
-                </p>
-              </li>
-              <li class="schedule-item">
-                <p class="schedule-item__date">
-                  2026年2月25日
-                </p>
-                <p class="schedule-item__text">
-                  公式サイトに本選出場企業掲載
-                </p>
-              </li>
-              <li class="schedule-item">
-                <p class="schedule-item__date">
-                  2025年9月18日
-                </p>
-                <p class="schedule-item__text">
-                  本選ピッチピッチコンテスト・表彰式
-                </p>
-              </li>
-            </ul>
-          </section>
-
-        </div>
-      </div> -->
-
-      <section class="entry">
-        <div class="entry__inner">
-          <h2 class="pitch__title">
-            ENTRY
-          </h2>
-          <div class="entry-items__wrap">
-            <ul class="entry-items">
-              <li class="entry__item">
-                1.&nbsp;上記の募集領域・テーマへのビジネス構想やアイデアを持っている企業・チーム
-              </li>
-              <li class="entry__item">
-                2.&nbsp;本選（2026年3月24日）への現地参加が可能な企業・チーム
-              </li>
-              <li class="entry__item">
-                3.&nbsp;法人格：株式会社、合同会社等（個人事業主も応募可能）
-              </li>
-            </ul>
-          </div>
-          <p class="entry__annotation">
-            ※ 本「応募規約」に反する応募であることが判明した場合は、採択を取り消す場合がありますのでご留意ください。<br>
-            ※ 上記に関わらず、運営事務局が不適切と認めた応募者については、応募資格取り消しとさせていただく場合がございます。
-          </p>
-          <div class="mv-date__wrap contents_03">
-            <p class="mv-date__label">
-              エントリー受付
-            </p>
-            <p class="mv-date">
-              2025.10.XX<span class="weekday">XXX</span>- 12.XX<span class="weekday">XXX</span>
-            </p>
-          </div>
-
-          <div class="pitch-btn">
-            <a class="pitch-btn__link" href="">
-              ピッチへ応募する
-            </a>
           </div>
         </div>
-      </section>
-    </div>
-  </main>
 
-  <footer class="footer">
-    <div class="footer__inner">
-      <ul class="footer-nav__items">
-        <li class="footer-nav__item">
-          <a class="footer-nav__link" href="">
-            プライバシーポリシー
-          </a>
-        </li>
-        <li class="footer-nav__item">
-          <a class="footer-nav__link" href="">
-            協賛・出展・取材等に関するお問い合わせ
-          </a>
-        </li>
-        <li class="footer-nav__item">
+        <section id="session" class="session-timetable">
+          <div class="container">
+            <h3 class="lower-title">Session timetable</h3>
+            <p class="date">3.24 <span class="size">TUE</span></p>
+            <ul class="session-timetable__items">
+              <li class="session-timetable__item">
+                <p class="time-label__wrap">10:00-10:30</p>
+                <div class="session-timetable__item__inner">
+                  <div class="session-timetable__heading">
+                    <h4 class="session-timetable__title">
+                      シブサワ・コウ 0から1を創造する力
+                    </h4>
+                    <div class="stage-item__heading">
+                      <img
+                        class="stage-item__icon"
+                        src="./assets/img/innovators-icon.png"
+                        alt=""
+                      />
+                      <p class="stage-item__name">Innovators  Stage</p>
+                    </div>
+                  </div>
+                  <ul class="session-timetable__person__items">
+                    <li class="session-timetable__person__item">
+                      <img
+                        class="session-timetable__person__img"
+                        src="./assets/img/guest_erikawa.png"
+                        alt=""
+                      />
+                      <div class="session-timetable__person__item__contents">
+                        <p class="session-timetable__person__company">
+                          株式会社コーエーテクモホールディングス<br />代表取締役会長　兼　取締役会<br
+                            class="md-show"
+                          />議長
+                        </p>
+                        <p class="session-timetable__person__name">襟川 陽一</p>
+                        <p class="session-timetable__person__name--en">
+                          Youichi Erikawa
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="session-timetable__item">
+                <p class="time-label__wrap">10:00-10:30</p>
+                <div class="session-timetable__item__inner">
+                  <div class="session-timetable__heading">
+                    <h4 class="session-timetable__title">
+                      AIと量子が拓くサステナブルな未来
+                    </h4>
+                    <div class="stage-item__heading">
+                      <img
+                        class="stage-item__icon"
+                        src="./assets/img/innovators-icon.png"
+                        alt=""
+                      />
+                      <p class="stage-item__name">Innovators  Stage</p>
+                    </div>
+                  </div>
+                  <ul class="session-timetable__person__items">
+                    <li class="session-timetable__person__item">
+                      <img
+                        class="session-timetable__person__img"
+                        src="./assets/img/guests/shimada.png"
+                        alt=""
+                      />
+                      <div class="session-timetable__person__item__contents">
+                        <p class="session-timetable__person__company">
+                          株式会社 東芝<br />代表取締役 社長執行役員CEO
+                        </p>
+                        <p class="session-timetable__person__name">島田 太郎</p>
+                        <p class="session-timetable__person__name--en">
+                          Taro Shimada
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="session-timetable__item">
+                <p class="time-label__wrap">10:00-10:30</p>
+                <div class="session-timetable__item__inner">
+                  <div class="session-timetable__heading">
+                    <h4 class="session-timetable__title">
+                      慶應鶴岡発スタートアップを生み出す<br
+                        class="md-show"
+                      />マインドセット
+                    </h4>
+                    <div class="stage-item__heading">
+                      <img
+                        class="stage-item__icon"
+                        src="./assets/img/innovators-icon.png"
+                        alt=""
+                      />
+                      <p class="stage-item__name">Innovators  Stage</p>
+                    </div>
+                  </div>
+                  <ul class="session-timetable__person__items">
+                    <li class="session-timetable__person__item">
+                      <img
+                        class="session-timetable__person__img"
+                        src="./assets/img/guests/tomida.png"
+                        alt=""
+                      />
+                      <div class="session-timetable__person__item__contents">
+                        <p class="session-timetable__person__company">
+                          一般社団法人鶴岡サイエンスパーク代表理事・<br />
+                          慶應義塾大学名誉教授
+                        </p>
+                        <p class="session-timetable__person__name">冨田 勝</p>
+                        <p class="session-timetable__person__name--en">
+                          Masaru Tomita
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="session-timetable__item">
+                <p class="time-label__wrap">10:00-10:30</p>
+                <div class="session-timetable__item__inner">
+                  <div class="session-timetable__heading">
+                    <h4 class="session-timetable__title">
+                      シブサワ・コウ 0から1を創造する力
+                    </h4>
+                    <div class="stage-item__heading">
+                      <img
+                        class="stage-item__icon"
+                        src="./assets/img/innovators-icon.png"
+                        alt=""
+                      />
+                      <p class="stage-item__name">Innovators  Stage</p>
+                    </div>
+                  </div>
+                  <ul class="session-timetable__person__items multiple">
+                    <li class="session-timetable__person__item">
+                      <img
+                        class="session-timetable__person__img"
+                        src="./assets/img/guest_erikawa.png"
+                        alt=""
+                      />
+                      <div class="session-timetable__person__item__contents">
+                        <p class="session-timetable__person__company">
+                          xxxx株式会社<br />経営企画室 室長
+                        </p>
+                        <p class="session-timetable__person__name">襟川 陽一</p>
+                        <p class="session-timetable__person__name--en">
+                          Youichi Erikawa
+                        </p>
+                      </div>
+                    </li>
+                    <li class="session-timetable__person__item">
+                      <img
+                        class="session-timetable__person__img"
+                        src="./assets/img/guest_erikawa.png"
+                        alt=""
+                      />
+                      <div class="session-timetable__person__item__contents">
+                        <p class="session-timetable__person__company">
+                          xxxx株式会社<br />経営企画室 室長
+                        </p>
+                        <p class="session-timetable__person__name">襟川 陽一</p>
+                        <p class="session-timetable__person__name--en">
+                          Youichi Erikawa
+                        </p>
+                      </div>
+                    </li>
+                    <li class="session-timetable__person__item">
+                      <img
+                        class="session-timetable__person__img"
+                        src="./assets/img/guest_erikawa.png"
+                        alt=""
+                      />
+                      <div class="session-timetable__person__item__contents">
+                        <p class="session-timetable__person__company">
+                          xxxx株式会社<br />経営企画室 室長
+                        </p>
+                        <p class="session-timetable__person__name">襟川 陽一</p>
+                        <p class="session-timetable__person__name--en">
+                          Youichi Erikawa
+                        </p>
+                      </div>
+                    </li>
+                    <li class="session-timetable__person__item">
+                      <img
+                        class="session-timetable__person__img"
+                        src="./assets/img/guest_erikawa.png"
+                        alt=""
+                      />
+                      <div class="session-timetable__person__item__contents">
+                        <p class="session-timetable__person__company">
+                          xxxx株式会社<br />経営企画室 室長
+                        </p>
+                        <p class="session-timetable__person__name">襟川 陽一</p>
+                        <p class="session-timetable__person__name--en">
+                          Youichi Erikawa
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+
+            <p class="session-timetable__comment">他コンテンツは順次更新予定</p>
+          </div>
+        </section>
+
+        <section id="pitch" class="pitch-timetable">
+          <div class="container">
+            <h3 class="lower-title">Pitch timetable</h3>
+            <p class="date">3.24 <span class="size">TUE</span></p>
+
+            <p class="session-page__comment">Coming soon...</p>
+
+            <!-- <ul class="session-timetable__items contents_02">
+
+
+            <li class="session-timetable__item">
+              <p class="time-label__wrap">10:00-10:30</p>
+              <div class="session-timetable__item__inner">
+                <div class="session-timetable__heading">
+                  <h4 class="session-timetable__title">XXX Pitch</h4>
+                  <div class="stage-item__heading">
+                    <img
+                      class="stage-item__icon"
+                      src="./assets/img/innovators-icon.png"
+                      alt=""
+                    />
+                    <p class="stage-item__name">Innovators  Stage</p>
+                  </div>
+                </div>
+                <ul class="session-timetable__company__items">
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="session-timetable__item">
+              <p class="time-label__wrap">10:00-10:30</p>
+              <div class="session-timetable__item__inner">
+                <div class="session-timetable__heading">
+                  <h4 class="session-timetable__title">XXX Pitch</h4>
+                  <div class="stage-item__heading">
+                    <img
+                      class="stage-item__icon"
+                      src="./assets/img/innovators-icon.png"
+                      alt=""
+                    />
+                    <p class="stage-item__name">Innovators  Stage</p>
+                  </div>
+                </div>
+                <ul class="session-timetable__company__items">
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="session-timetable__item">
+              <p class="time-label__wrap">10:00-10:30</p>
+              <div class="session-timetable__item__inner">
+                <div class="session-timetable__heading">
+                  <h4 class="session-timetable__title">XXX Pitch</h4>
+                  <div class="stage-item__heading">
+                    <img
+                      class="stage-item__icon"
+                      src="./assets/img/innovators-icon.png"
+                      alt=""
+                    />
+                    <p class="stage-item__name">Innovators  Stage</p>
+                  </div>
+                </div>
+                <ul class="session-timetable__company__items">
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                  <li class="session-timetable__company__item">
+                    <img
+                      class="session-timetable__company__img"
+                      src="./assets/img/session-timetable__company__img_01.jpg"
+                      alt=""
+                    />
+                    <p class="session-timetable__company__name">xxxx株式会社</p>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul> -->
+          </div>
+        </section>
+
+        <section id="demoday" class="demoday-timetable">
+          <div class="container">
+            <h3 class="lower-title">Demoday timetable</h3>
+
+            <ul class="demoday-timetable__items">
+              <li class="demoday-timetable__item">
+                <picture>
+                  <source
+                    srcset="./assets/img/demoday/ksap_sp.jpg"
+                    media="(max-width: 768px)"
+                  />
+                  <img
+                    class="demoday-timetable__img"
+                    src="./assets/img/demoday/ksap.jpg"
+                    alt=""
+                  />
+                </picture>
+                <div class="demoday-timetable__contents">
+                  <div class="demoday-timetable__heading">
+                    <p class="demoday-timetable__title">KSAP</p>
+                    <p class="demoday-timetable__title--kana">
+                      かながわ・スタートアップ・アクセラレーション・プログラム
+                    </p>
+                  </div>
+                  <p class="demoday-timetable__text">
+                    社会課題をビジネスで解決するスタートアップを公募・採択し、専門家メンタリングやネットワーク構築を通じて、社会価値の実現と事業成長を支援するアクセラレーションプログラムです。令和6年度からは、創業初期の「シード編」と成長段階の「アーリー編」の2つに分けて、課題解決型ベンチャーに最適な支援を提供しています。
+                  </p>
+
+                  <div class="btn btn--black">
+                    <a class="btn__link" href="" target="_blank">
+                      詳しくはこちら
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="demoday-timetable__item">
+                <picture>
+                  <source
+                    srcset="./assets/img/demoday/bak_sp.jpg"
+                    media="(max-width: 768px)"
+                  />
+                  <img
+                    class="demoday-timetable__img"
+                    src="./assets/img/demoday/bak.jpg"
+                    alt=""
+                  />
+                </picture>
+                <div class="demoday-timetable__contents">
+                  <div class="demoday-timetable__heading">
+                    <p class="demoday-timetable__title">BAK</p>
+                    <p class="demoday-timetable__title--kana">
+                      ビジネスアクセラレーターかながわ
+                    </p>
+                  </div>
+                  <p class="demoday-timetable__text">
+                    ベンチャー企業と大企業等の連携によるオープンイノベーションを生み出すための各種取り組みを行うほか、多様なメンバーが集うコミュニティ「BAK協議会」を運営しています。本イベントでは、6期目となるBAKの「INCUBATION
+                    PROGRAM」の成果発表を行います。
+                  </p>
+
+                  <div class="btn btn--black">
+                    <a class="btn__link" href="" target="_blank">
+                      詳しくはこちら
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="demoday-timetable__item">
+                <picture>
+                  <source
+                    srcset="./assets/img/demoday/yak_sp.jpg"
+                    media="(max-width: 768px)"
+                  />
+                  <img
+                    class="demoday-timetable__img"
+                    src="./assets/img/demoday/yak.jpg"
+                    alt=""
+                  />
+                </picture>
+                <div class="demoday-timetable__contents">
+                  <div class="demoday-timetable__heading">
+                    <p class="demoday-timetable__title">YAK</p>
+                    <p class="demoday-timetable__title--kana">
+                      エール“ガバメント×ベンチャー”アライアンスかながわ
+                    </p>
+                  </div>
+                  <p class="demoday-timetable__text">
+                    神奈川県や県内市町村との連携による行政課題の解決とオープンイノベーションを生み出すため、令和7年度に新たにスタートしました。今回、神奈川県として初年度となるベンチャー企業×自治体の共創プロジェクトの軌跡と成果をお披露目します！
+                  </p>
+
+                  <div class="btn btn--black">
+                    <a class="btn__link" href="" target="_blank">
+                      詳しくはこちら
+                    </a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <p class="date margin">3.23 <span class="size">MON</span></p>
+
+            <!-- <ul class="session-timetable__items contents_03">
+              <li class="session-timetable__item">
+                <p class="time-label__wrap">10:00-10:30</p>
+                <div class="session-timetable__item__inner">
+                  <div class="session-timetable__heading">
+                    <div class="session-timetable__title__wrap">
+                      <img
+                        class="session-timetable__title__img"
+                        src="./assets/img/session-timetable__title__img_01.jpg"
+                        alt=""
+                      />
+                      <div class="session-timetable__title__contents">
+                        <h4 class="session-timetable__title">KSAP</h4>
+                        <p class="session-timetable__title__detail">
+                          かながわ・スタートアップ・アクセラレーション・プログラム
+                        </p>
+                      </div>
+                    </div>
+  
+                    <div class="stage-item__heading">
+                      <img
+                        class="stage-item__icon"
+                        src="./assets/img/innovators-icon.png"
+                        alt=""
+                      />
+                      <p class="stage-item__name">Innovators  Stage</p>
+                    </div>
+                  </div>
+                  <ul class="session-timetable__company__items">
+                    <li class="session-timetable__company__item">
+                      <img
+                        class="session-timetable__company__img"
+                        src="./assets/img/session-timetable__company__img_01.jpg"
+                        alt=""
+                      />
+                      <p class="session-timetable__company__name">xxxx株式会社</p>
+                    </li>
+                    <li class="session-timetable__company__item">
+                      <img
+                        class="session-timetable__company__img"
+                        src="./assets/img/session-timetable__company__img_01.jpg"
+                        alt=""
+                      />
+                      <p class="session-timetable__company__name">xxxx株式会社</p>
+                    </li>
+                    <li class="session-timetable__company__item">
+                      <img
+                        class="session-timetable__company__img"
+                        src="./assets/img/session-timetable__company__img_01.jpg"
+                        alt=""
+                      />
+                      <p class="session-timetable__company__name">xxxx株式会社</p>
+                    </li>
+                    <li class="session-timetable__company__item">
+                      <img
+                        class="session-timetable__company__img"
+                        src="./assets/img/session-timetable__company__img_01.jpg"
+                        alt=""
+                      />
+                      <p class="session-timetable__company__name">xxxx株式会社</p>
+                    </li>
+                    <li class="session-timetable__company__item">
+                      <img
+                        class="session-timetable__company__img"
+                        src="./assets/img/session-timetable__company__img_01.jpg"
+                        alt=""
+                      />
+                      <p class="session-timetable__company__name">xxxx株式会社</p>
+                    </li>
+                    <li class="session-timetable__company__item">
+                      <img
+                        class="session-timetable__company__img"
+                        src="./assets/img/session-timetable__company__img_01.jpg"
+                        alt=""
+                      />
+                      <p class="session-timetable__company__name">xxxx株式会社</p>
+                    </li>
+                    <li class="session-timetable__company__item">
+                      <img
+                        class="session-timetable__company__img"
+                        src="./assets/img/session-timetable__company__img_01.jpg"
+                        alt=""
+                      />
+                      <p class="session-timetable__company__name">xxxx株式会社</p>
+                    </li>
+                    <li class="session-timetable__company__item">
+                      <img
+                        class="session-timetable__company__img"
+                        src="./assets/img/session-timetable__company__img_01.jpg"
+                        alt=""
+                      />
+                      <p class="session-timetable__company__name">xxxx株式会社</p>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul> -->
+
+            <p class="session-page__comment">Coming soon...</p>
+
+            <p class="date margin">3.24 <span class="size">TUE</span></p>
+
+            <p class="session-page__comment">Coming soon...</p>
+
+            <p class="date margin">3.25 <span class="size">WED</span></p>
+
+            <p class="session-page__comment">Coming soon...</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer session-page">
+      <div class="footer__inner">
+        <ul class="footer-nav__items">
+          <li class="footer-nav__item">
+            <a class="footer-nav__link" href=""> プライバシーポリシー </a>
+          </li>
+          <li class="footer-nav__item">
+            <a class="footer-nav__link" href="">
+              協賛・出展・取材等に関するお問い合わせ
+            </a>
+          </li>
+          <!-- <li class="footer-nav__item">
           <a class="footer-nav__link" href="">
             その他お問い合わせ
           </a>
-        </li>
-        <li class="footer-nav__item">
-          <a class="footer-nav__link" href="">
-            サイトポリシー
-          </a>
-        </li>
-      </ul>
-      <ul class="management__items">
-        <li class="management__item">
-          <p class="management__item__label">
-            主催
-          </p>
-          <div class="management-name__wrap">
-            <img class="management-name__img organized" src="./assets/img/kanagawa-logo.svg" alt="神奈川県">
-            <p class="management-name">
-              神奈川県<br>産業振興課
-            </p>
-          </div>
-        </li>
-        <li class="management__item">
-          <p class="management__item__label">
-            運営
-          </p>
-          <div class="management-name__wrap">
-            <img class="management-name__img organized" src="./assets/img/eiicon-logo.svg" alt="株式会社eiicon">
-            <p class="management-name">
-              株式会社eiicon
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <p class="copyright">
-      © Kanagawa Innovators Day 2026
-    </p>
-  </footer>
-</body>
-
+        </li> -->
+          <li class="footer-nav__item">
+            <a class="footer-nav__link" href=""> サイトポリシー </a>
+          </li>
+        </ul>
+        <ul class="management__items">
+          <li class="management__item">
+            <p class="management__item__label">主催</p>
+            <div class="management-name__wrap">
+              <img
+                class="management-name__img organized"
+                src="./assets/img/kanagawa-logo.svg"
+                alt="神奈川県"
+              />
+              <p class="management-name">神奈川県<br />産業振興課</p>
+            </div>
+          </li>
+          <li class="management__item">
+            <p class="management__item__label">運営</p>
+            <div class="management-name__wrap">
+              <img
+                class="management-name__img organized"
+                src="./assets/img/eiicon-logo.svg"
+                alt="株式会社eiicon"
+              />
+              <p class="management-name">株式会社eiicon</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <p class="copyright">© Kanagawa Innovators Day 2026</p>
+    </footer>
+  </body>
 </html>

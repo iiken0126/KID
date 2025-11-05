@@ -2,6 +2,26 @@
 @use "../global/fluid-size" as fs;
 
 // ふわっとディゾルブするオーバーレイ
+// @mixin fade-overlay($overlay-bg, $radius: 0) {
+//   position: relative;
+//   background: transparent;
+//   overflow: hidden;
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     background: $overlay-bg;
+//     border-radius: $radius;
+//     opacity: 1;
+//     transition: opacity 0.35s ease;
+//     pointer-events: none;
+//   }
+//   &:hover::before,
+//   &:focus-visible::before {
+//     opacity: 0;
+//   }
+// }
+
 @mixin fade-overlay($overlay-bg, $radius: 0) {
   // プロパティを & {} でラップ
   & {
@@ -40,8 +60,8 @@
   @include fs.pc-size(width, 174);
 
   @include mq("md") {
+    left: 0;
     @include fs.sp-size(top, 16);
-    @include fs.sp-size(left, 16);
     @include fs.sp-size(width, 100);
   }
 }
@@ -89,6 +109,7 @@
   font-weight: $bold;
   font-family: $second-font;
   color: $blue;
+  line-height: 1.234;
   @include fs.pc-size(font-size, 64);
   @include fs.pc-size(margin-top, 16);
 
@@ -96,7 +117,13 @@
     @include fs.sp-size(font-size, 40);
   }
 }
+.mv-days {
+  @include fs.pc-size(margin-top, 32);
 
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 16);
+  }
+}
 .mv-date__wrap {
   display: flex;
   align-items: center;
@@ -223,8 +250,10 @@
   margin-right: calc(8 / 1512 * 100vw);
   @include fs.pc-size(font-size, 16);
   @include fs.pc-size(width, 56);
+  @include fs.pc-size(padding-top, 2);
 
   @include mq("md") {
+    @include fs.sp-size(padding-top, 2);
     @include fs.sp-size(font-size, 12);
     @include fs.sp-size(width, 43);
     @include fs.sp-size(height, 20);
@@ -413,7 +442,7 @@
 .pitch-page .scroll-down {
   position: absolute;
   left: unset;
-  @include fs.pc-size(top, -470);
+  top: calc(-100dvh - 60px);
   @include fs.pc-size(right, 32);
 
   @include mq("md") {
@@ -502,6 +531,10 @@
 .award-item__img {
   margin: 0 auto;
   @include fs.pc-size(width, 160);
+
+  @include mq("md") {
+    @include fs.sp-size(width, 160);
+  }
 }
 
 .award-item__name {
@@ -554,6 +587,7 @@
     @include fs.sp-size(margin-top, 32);
   }
 }
+
 .judge-item {
   display: flex;
   align-items: center;
@@ -635,21 +669,36 @@
   @include fs.pc-size(gap, 8);
   @include fs.pc-size(padding-top, 24);
   @include fs.pc-size(width, 566);
+
+  @include mq("md") {
+    @include fs.sp-size(padding-top, 16);
+    @include fs.sp-size(gap, 8);
+  }
 }
 .pitch-item {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+
   font-weight: $regular;
   color: $black;
   text-align: center;
+  border-radius: 60px;
+  border: 1px solid #0087d1;
   background: rgba(255, 255, 255, 0.8);
   @include fs.pc-size(width, 180);
   @include fs.pc-size(height, 33);
   @include fs.pc-size(font-size, 14);
   @include fs.pc-size(border-radius, 60);
   @include fs.pc-size(border, 1 solid #0087d1);
+
+  @include mq("md") {
+    width: 100%;
+    @include fs.sp-size(max-width, 164);
+    @include fs.sp-size(height, 33);
+    @include fs.sp-size(font-size, 14);
+  }
 }
 
 .pitch-item__number {
@@ -669,6 +718,11 @@
   display: flex;
   justify-content: center;
   @include fs.pc-size(margin-top, 48);
+
+  @include mq("md") {
+    @include fs.sp-size(font-size, 14);
+    @include fs.sp-size(margin-top, 40);
+  }
 }
 
 .theme__link::before {
@@ -725,6 +779,7 @@
   font-weight: $bold;
   color: $white;
   background-color: $blue;
+  border-radius: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -732,6 +787,14 @@
   @include fs.pc-size(border-radius, 60);
   @include fs.pc-size(width, 116);
   @include fs.pc-size(height, 33);
+
+  @include mq("md") {
+    display: inline-block;
+    width: unset;
+    height: unset;
+    @include fs.sp-size(font-size, 14);
+    @include fs.sp-size(padding, 4 16);
+  }
 }
 
 .merrit-item:nth-child(2) .merrit-item__label {
@@ -747,6 +810,13 @@
   line-height: 175%;
   color: $white;
   @include fs.pc-size(margin-top, 16);
+
+  @include mq("md") {
+    padding-left: 1em;
+    text-indent: -1em;
+    @include fs.sp-size(font-size, 16);
+    @include fs.sp-size(margin-top, 16);
+  }
 }
 // /merritセクション
 
@@ -809,6 +879,10 @@
   background: transparent;
   @include fs.pc-size(padding-top, 120);
   @include fs.pc-size(padding-bottom, 120);
+
+  @include mq("md") {
+    @include fs.sp-size(padding, 80 24 80);
+  }
 }
 
 .entry::before {
@@ -839,7 +913,6 @@
 
 .entry-items__wrap {
   display: flex;
-  justify-content: center;
 }
 
 .entry-items {
@@ -854,6 +927,12 @@
   font-weight: $bold;
   color: $white;
   @include fs.pc-size(font-size, 18);
+
+  @include mq("md") {
+    padding-left: 1.4em;
+    text-indent: -1.2em;
+    @include fs.sp-size(font-size, 16);
+  }
 }
 
 .entry__item + .entry__item {
@@ -872,8 +951,8 @@
   @include fs.pc-size(margin-top, 64);
 
   @include mq("md") {
-    padding-left: 1em;
-    text-indent: -1.5em;
+    padding-left: 1.4em;
+    text-indent: -1.2em;
     @include fs.sp-size(font-size, 12);
     @include fs.sp-size(margin-top, 16);
   }
@@ -885,6 +964,7 @@
 .entry .contents_03 {
   display: flex;
   justify-content: center;
+  @include fs.pc-size(margin-top, 64);
 
   @include mq("md") {
     display: block;

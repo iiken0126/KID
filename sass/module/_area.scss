@@ -2,10 +2,34 @@
 @use "../global/fluid-size" as fs;
 
 // ふわっとディゾルブするオーバーレイ
+// @mixin fade-overlay($overlay-bg, $radius: 0) {
+//   position: relative;
+//   background: transparent;
+//   overflow: hidden;
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     inset: 0;
+//     background: $overlay-bg;
+//     border-radius: $radius;
+//     opacity: 1;
+//     transition: opacity 0.35s ease;
+//     pointer-events: none;
+//   }
+//   &:hover::before,
+//   &:focus-visible::before {
+//     opacity: 0;
+//   }
+// }
+
 @mixin fade-overlay($overlay-bg, $radius: 0) {
-  position: relative;
-  background: transparent;
-  overflow: hidden;
+  // プロパティを & {} でラップ
+  & {
+    position: relative;
+    background: transparent;
+    overflow: hidden;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -16,6 +40,7 @@
     transition: opacity 0.35s ease;
     pointer-events: none;
   }
+
   &:hover::before,
   &:focus-visible::before {
     opacity: 0;
@@ -29,8 +54,6 @@
 .logo__wrap {
   @include mq("md") {
     @include fs.sp-size(width, 100);
-    @include fs.sp-size(margin-top, 16);
-    @include fs.sp-size(margin-left, 16);
   }
 }
 
@@ -65,6 +88,7 @@
 }
 
 .mv-title {
+  line-height: 1.225;
   font-weight: $bold;
   font-family: $second-font;
   color: $blue;
@@ -104,8 +128,8 @@
 }
 
 .mv-subtitle__text {
-  font-weight: $medium;
   font-family: $second-font;
+  font-weight: 600;
   @include fs.pc-size(font-size, 24);
   @include fs.pc-size(margin-top, 24);
 
@@ -117,7 +141,7 @@
 
 .area-page .introduction__design {
   position: fixed;
-  z-index: 0;
+  z-index: -1;
   @include fs.pc-size(top, 195);
   @include fs.pc-size(bottom, unset);
   @include fs.pc-size(left, unset);
@@ -138,18 +162,6 @@
   }
 }
 
-.area-page .scroll-down {
-  @include mq("md") {
-    @include fs.sp-size(top, 820);
-  }
-}
-
-.area-page .scroll-down__text::before {
-  @include mq("md") {
-    @include fs.sp-size(bottom, 10);
-  }
-}
-
 // exhibitorsセクション------------------------------------------------------------------------------
 .exhibitors {
   @include fs.pc-size(margin-top, -295);
@@ -162,6 +174,7 @@
 .exhibitors__inner {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(fs.fpc(25));
+
   backdrop-filter: blur(25px);
   border-radius: 32px 32px 0 0;
   @include fs.pc-size(padding, 80 0);
@@ -180,7 +193,7 @@
 
 .partners-items {
   @include mq("md") {
-    @include fs.sp-size(padding-top, 24);
+    @include fs.sp-size(padding-top, 0);
   }
 }
 
@@ -193,7 +206,9 @@
     @include fs.sp-size(padding, 4 0);
   }
 }
-
+.partners-item__individual[data-modal-text] {
+  cursor: pointer;
+}
 .partners-item:nth-child(4) .partners-item__wrap,
 .partners-item:nth-child(5) .partners-item__wrap,
 .partners-item:nth-child(6) .partners-item__wrap {
@@ -231,9 +246,13 @@
 .area-page .partners-item__img {
   margin: 0 auto;
 }
-
 .area-page .partners-item.amex .partners-item__img {
   margin: unset;
+}
+.area-page .partners-item:nth-child(4) .partners-item__img {
+  @include mq("md") {
+    @include fs.sp-size(width, 163);
+  }
 }
 
 .partners-item__contents {
@@ -309,14 +328,15 @@
     background: #fff;
     overflow: hidden;
     display: flex;
+    justify-content: space-between;
     // display: grid;
     // grid-template-columns: 1fr 1.2fr;
     // gap: 0;
     border-radius: 32px;
+    @include fs.pc-size(padding, 0 32);
+    @include fs.pc-size(border-radius, 32);
     @include fs.pc-size(width, 902);
     @include fs.pc-size(height, 326);
-    @include fs.pc-size(border-radius, 32);
-    @include fs.pc-size(padding, 0 32);
 
     @include mq("md") {
       display: block;
@@ -328,14 +348,15 @@
     position: absolute;
     background-image: url(../img/modal-icon.png);
     background-size: 100%;
+    // @include fs.pc-size(width, 24);
+    // @include fs.pc-size(height, 24);
+    // @include fs.pc-size(top, 32);
+    // @include fs.pc-size(right, 32);
+
     width: 24px;
     height: 24px;
     top: 32px;
     right: 32px;
-    @include fs.pc-size(width, 24);
-    @include fs.pc-size(height, 24);
-    @include fs.pc-size(top, 32);
-    @include fs.pc-size(right, 32);
 
     @include mq("md") {
       top: 24px;

@@ -219,23 +219,50 @@
 })();
 
 // 追従ロゴ
-document.addEventListener("DOMContentLoaded", () => {
+// コンソールでデバッグ
+document.addEventListener("DOMContentLoaded", function () {
   const stickyLogo = document.getElementById("stickyLogo");
-  const fv = document.querySelector(".fv");
 
-  if (!stickyLogo || !fv) return;
+  // 要素が取得できているか確認
+  console.log("stickyLogo element:", stickyLogo);
 
-  const fvHeight = fv.offsetHeight;
+  // 初期状態を設定
+  stickyLogo.classList.add("hidden");
+  console.log("Initial classes:", stickyLogo.className);
 
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
+  function handleScroll() {
+    const currentScroll =
+      window.pageYOffset || document.documentElement.scrollTop;
+    const viewportHeight = window.innerHeight;
 
-    if (scrollY > fvHeight) {
-      stickyLogo.classList.add("show");
+    // デバッグ用
+    console.log(
+      "Scroll position:",
+      currentScroll,
+      "Viewport height:",
+      viewportHeight
+    );
+
+    if (currentScroll > viewportHeight) {
+      if (!stickyLogo.classList.contains("show")) {
+        stickyLogo.classList.remove("hidden");
+        stickyLogo.classList.add("show");
+        console.log("Adding show class");
+      }
     } else {
-      stickyLogo.classList.remove("show");
+      if (!stickyLogo.classList.contains("hidden")) {
+        stickyLogo.classList.remove("show");
+        stickyLogo.classList.add("hidden");
+        console.log("Adding hidden class");
+      }
     }
-  });
+  }
+
+  // シンプルなスクロールイベント
+  window.addEventListener("scroll", handleScroll);
+
+  // 初期チェック
+  handleScroll();
 });
 
 // ハンバーガーメニュー
@@ -420,7 +447,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const openModal = ({ imgSrc, imgAlt, name, text }) => {
     imgEl.src = imgSrc || "";
     imgEl.alt = imgAlt || name || "";
-    nameEl.textContent = name || "";
+
+    // nameにHTMLタグが含まれているかチェック
+    if (name && /<[^>]+>/.test(name)) {
+      nameEl.innerHTML = name; // HTMLとして挿入
+    } else {
+      nameEl.textContent = name || ""; // テキストとして挿入
+    }
 
     textEl.innerHTML = "";
     if (text && /<[^>]+>/.test(text)) {
@@ -446,31 +479,30 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     if (!card || !list.contains(card)) return;
 
+    // data-modal-text属性がない場合は処理を終了
+    const dataText = card.getAttribute("data-modal-text");
+    if (!dataText) return;
+
     const img =
       card.querySelector("img") ||
       card.parentElement?.querySelector(":scope > img") ||
       card.closest(".partners-item__wrap")?.querySelector("img");
 
+    // data-modal-title属性があればそれを優先、なければ通常の名前を取得
+    const modalTitle = card.getAttribute("data-modal-title");
     const name =
+      modalTitle ||
       card.querySelector(".partners-item__name")?.textContent?.trim() ||
       card.parentElement
         ?.querySelector(".partners-item__name")
         ?.textContent?.trim() ||
       "";
 
-    const dataText = card.getAttribute("data-modal-text");
-    const plainText =
-      card.querySelector(".partners-item__text")?.textContent?.trim() ||
-      card.parentElement
-        ?.querySelector(".partners-item__text")
-        ?.textContent?.trim() ||
-      "";
-
     openModal({
       imgSrc: img?.getAttribute("src") || "",
       imgAlt: img?.getAttribute("alt") || name || "",
-      name,
-      text: dataText ?? plainText,
+      name, // モーダルタイトル用
+      text: dataText,
     });
   });
 
@@ -497,17 +529,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const footer = document.querySelector("footer");
   if (!bar || !footer) return;
 
-  // バーの高さぶん早めにトリガーさせる（重なり防止）
   const barHeight = () => bar.getBoundingClientRect().height || 80;
   const updateObserver = () => {
-    // 既存のObserverがあればdisconnect
     if (window.__fixedBarIO__) window.__fixedBarIO__.disconnect();
 
     const rootMargin = `0px 0px ${-(barHeight() + 8)}px 0px`;
     const io = new IntersectionObserver(
       (entries) => {
         const ent = entries[0];
-        // フッターが見え始めたら隠す／離れたら出す
         if (ent.isIntersecting) {
           bar.classList.add("is-out");
         } else {
@@ -521,16 +550,99 @@ document.addEventListener("DOMContentLoaded", () => {
     window.__fixedBarIO__ = io;
   };
 
-  // 初期化
   updateObserver();
 
-  // 画面回転やリサイズで高さが変わる場合に追従
   window.addEventListener(
     "resize",
     () => {
-      // リサイズ後の高さで rootMargin を再計算
       updateObserver();
     },
     { passive: true }
   );
+});
+
+// Ajex
+document.addEventListener("DOMContentLoaded", () => {
+  const filters = document.getElementById("stageFilters");
+  const list = document.getElementById("sessionList");
+  if (!filters || !list) return;
+
+  const ENDPOINT = "/partials/session-list"; // ←環境に合わせて変更
+  const cache = new Map(); // stage→HTMLキャッシュ
+
+  // 初期：URLの?stage= を見てプリセット
+  const url = new URL(window.location.href);
+  const initialStage = url.searchParams.get("stage");
+  if (initialStage) markActive(initialStage);
+
+  // 初回ロードで?stage=があればAJAX差し替え
+  if (initialStage) fetchAndRender(initialStage, { push: false });
+
+  filters.addEventListener("click", (e) => {
+    const a = e.target.closest("[data-stage]");
+    if (!a) return;
+    e.preventDefault();
+
+    const stage = a.dataset.stage;
+    markActive(stage);
+    fetchAndRender(stage, { push: true });
+  });
+
+  function markActive(stage) {
+    filters.querySelectorAll("[data-stage]").forEach((a) => {
+      const active = a.dataset.stage === stage;
+      a.classList.toggle("is-active", active);
+      a.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+  }
+
+  async function fetchAndRender(stage, { push }) {
+    try {
+      // ローディングUI
+      list.setAttribute("aria-busy", "true");
+      list.style.opacity = "0.5";
+
+      // キャッシュ有なら即適用（同時に裏で更新してもOK）
+      if (cache.has(stage)) {
+        list.innerHTML = cache.get(stage);
+      }
+
+      const params = new URLSearchParams({ stage });
+      const res = await fetch(`${ENDPOINT}?${params}`, {
+        headers: { "X-Requested-With": "XMLHttpRequest" },
+      });
+      if (!res.ok) throw new Error("Network error");
+      const html = await res.text();
+
+      cache.set(stage, html);
+      list.innerHTML = html;
+      // スクロール先（任意）
+      document
+        .getElementById("session")
+        .scrollIntoView({ behavior: "smooth", block: "start" });
+
+      if (push) {
+        const newUrl = new URL(window.location.href);
+        newUrl.searchParams.set("stage", stage);
+        history.pushState({ stage }, "", newUrl);
+      }
+    } catch (err) {
+      console.error(err);
+      list.innerHTML = `<li class="session-timetable__item"><p class="session-timetable__comment">読み込みに失敗しました。時間をおいて再度お試しください。</p></li>`;
+    } finally {
+      list.removeAttribute("aria-busy");
+      list.style.opacity = "";
+    }
+  }
+
+  // 戻る/進む対応
+  window.addEventListener("popstate", (ev) => {
+    const stage =
+      (ev.state && ev.state.stage) ||
+      new URL(window.location.href).searchParams.get("stage");
+    if (stage) {
+      markActive(stage);
+      fetchAndRender(stage, { push: false });
+    }
+  });
 });

@@ -18,7 +18,7 @@
   margin: 0 auto;
   background-color: #fff;
   z-index: 10;
-  @include fs.pc-size(max-width, 1448);
+  max-width: 95.767%;
   @include fs.pc-size(border-radius, 16);
   @include fs.pc-size(padding, 48 0 64);
 
@@ -80,13 +80,14 @@
   @include fs.pc-size(font-size, 14);
 
   @include mq("md") {
-    // padding: 16px 0;
+    @include fs.sp-size(font-size, 14);
   }
 }
 
 .footer-nav__link:before {
   position: absolute;
   content: "";
+
   background-color: $black;
   top: 50%;
   transform: translateY(-50%);
@@ -202,14 +203,16 @@
 .copyright {
   font-family: $second-font;
   font-weight: $regular;
+  max-width: 95.767%;
+  margin-inline: auto;
   @include fs.pc-size(font-size, 14);
   @include fs.pc-size(margin-top, 80);
-  @include fs.pc-size(margin-left, 32);
 
   @include mq("md") {
     position: relative;
     text-align: center;
     z-index: 30;
+    @include fs.sp-size(font-size, 14);
     @include fs.sp-size(margin-top, 32);
   }
 }

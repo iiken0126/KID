@@ -90,7 +90,7 @@
       </nav>
 
       <div
-        class="hamburger hamburger--pill js-hamburger md-show"
+        class="hamburger hamburger--pill js-hamburger"
         aria-controls="global-drawer"
         aria-expanded="false"
         aria-label="メニューを開く"
@@ -111,11 +111,11 @@
         tabindex="-1"
       >
         <div class="drawer-menu__inner">
-          <div class="drawer__logo" id="stickyLogo">
+          <div class="drawer__logo">
             <a class="logo__link" href="index.html">
               <img
                 class="lower-logo"
-                src="./assets/img/lower-logo-black.png"
+                src="./assets/img/lower-logo-black.svg"
                 alt="KID"
               />
             </a>
@@ -154,8 +154,8 @@
             </div>
           </div>
 
-          <div class="logo__wrap">
-            <a class="logo__link" href="index.html">
+          <div class="drawer-logo__wrap">
+            <a class="drawer-logo__links" href="index.html">
               <img
                 class="kanagawa-logo"
                 src="./assets/img/kanagawa-logo.svg"
@@ -220,11 +220,7 @@
 
       <div class="sticky__logo" id="stickyLogo">
         <a class="logo__link" href="index.html">
-          <img
-            class="lower-logo"
-            src="./assets/img/lower-logo-black.png"
-            alt="KID"
-          />
+          <img class="" src="./assets/img/lower-logo-black.svg" alt="KID" />
         </a>
       </div>
 
@@ -506,157 +502,171 @@
             <p class="section-title__heading">登壇者</p>
             <h2 class="section-title">GUESTS</h2>
           </div>
+
           <div class="guests-ticker">
-            <div class="pair">
-              <!-- 上段 -->
-              <div class="swiper guests-swiper-top">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="guests-item">
-                      <img
-                        class="guests-item__img"
-                        src="./assets/img/guests/tomida.png"
-                        alt=""
-                      />
-                      <div class="guests-item__text__wrap">
-                        <p class="guests-item__company">
-                          一般社団法人鶴岡サイエンスパーク代表理事・慶應義塾大学名誉教授
-                        </p>
-                        <p class="guests-item__name">冨田 勝</p>
-                      </div>
+            <!-- 上段のSwiper -->
+            <div class="swiper guests-swiper-top">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests/tomida.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        一般社団法人鶴岡サイエンスパーク代表理事・慶應義塾大学名誉教授
+                      </p>
+                      <p class="guests-item__name">冨田 勝</p>
                     </div>
                   </div>
-                  <div class="swiper-slide">
-                    <div class="guests-item">
-                      <img
-                        class="guests-item__img"
-                        src="./assets/img/guests/shimada.png"
-                        alt=""
-                      />
-                      <div class="guests-item__text__wrap">
-                        <p class="guests-item__company">
-                          株式会社 東芝<br />
-                          代表取締役 社長執行役員CEO
-                        </p>
-                        <p class="guests-item__name">島田 太郎</p>
-                      </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests/shimada.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社 東芝<br />
+                        代表取締役 社長執行役員CEO
+                      </p>
+                      <p class="guests-item__name">島田 太郎</p>
                     </div>
                   </div>
-                  <!-- 追加のスライド（ループ用） -->
-                  <div class="swiper-slide">
-                    <div class="guests-item">
-                      <img
-                        class="guests-item__img"
-                        src="./assets/img/guests/placeholder1.png"
-                        alt=""
-                      />
-                      <div class="guests-item__text__wrap">
-                        <p class="guests-item__company">会社名・役職</p>
-                        <p class="guests-item__name">名前</p>
-                      </div>
+                </div>
+                <!-- ループ用に同じカードを複数配置 -->
+                <div class="swiper-slide">
+                  <div class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests/tomida.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        一般社団法人鶴岡サイエンスパーク代表理事・慶應義塾大学名誉教授
+                      </p>
+                      <p class="guests-item__name">冨田 勝</p>
                     </div>
                   </div>
-                  <div class="swiper-slide">
-                    <div class="guests-item">
-                      <img
-                        class="guests-item__img"
-                        src="./assets/img/guests/placeholder2.png"
-                        alt=""
-                      />
-                      <div class="guests-item__text__wrap">
-                        <p class="guests-item__company">会社名・役職</p>
-                        <p class="guests-item__name">名前</p>
-                      </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests/shimada.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社 東芝<br />
+                        代表取締役 社長執行役員CEO
+                      </p>
+                      <p class="guests-item__name">島田 太郎</p>
                     </div>
                   </div>
-                  <div class="swiper-slide">
-                    <div class="guests-item">
-                      <img
-                        class="guests-item__img"
-                        src="./assets/img/guests/placeholder3.png"
-                        alt=""
-                      />
-                      <div class="guests-item__text__wrap">
-                        <p class="guests-item__company">会社名・役職</p>
-                        <p class="guests-item__name">名前</p>
-                      </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests/tomida.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        一般社団法人鶴岡サイエンスパーク代表理事・慶應義塾大学名誉教授
+                      </p>
+                      <p class="guests-item__name">冨田 勝</p>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              <!-- 下段 -->
-              <div class="swiper guests-swiper-bottom">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <div class="guests-item">
-                      <img
-                        class="guests-item__img"
-                        src="./assets/img/guests/shimada.png"
-                        alt=""
-                      />
-                      <div class="guests-item__text__wrap">
-                        <p class="guests-item__company">
-                          株式会社コーエーテクモホールディングス代表取締役会長
-                          兼 取締役会議長
-                        </p>
-                        <p class="guests-item__name">襟川 陽一</p>
-                      </div>
+            <!-- 下段のSwiper -->
+            <div class="swiper guests-swiper-bottom">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests/erikawa.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社コーエーテクモホールディングス代表取締役会長 兼
+                        取締役会議長
+                      </p>
+                      <p class="guests-item__name">襟川 陽一</p>
                     </div>
                   </div>
-                  <div class="swiper-slide">
-                    <div class="guests-item">
-                      <img
-                        class="guests-item__img"
-                        src="./assets/img/guests-item_img_01.png"
-                        alt=""
-                      />
-                      <div class="guests-item__text__wrap">
-                        <p class="guests-item__company">
-                          株式会社ABCD<br />代表取締役
-                        </p>
-                        <p class="guests-item__name">山田 太郎</p>
-                      </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社ABCD<br />代表取締役
+                      </p>
+                      <p class="guests-item__name">山田 太郎</p>
                     </div>
                   </div>
-                  <!-- 追加のスライド（ループ用） -->
-                  <div class="swiper-slide">
-                    <div class="guests-item">
-                      <img
-                        class="guests-item__img"
-                        src="./assets/img/guests/placeholder4.png"
-                        alt=""
-                      />
-                      <div class="guests-item__text__wrap">
-                        <p class="guests-item__company">会社名・役職</p>
-                        <p class="guests-item__name">名前</p>
-                      </div>
+                </div>
+                <!-- ループ用に同じカードを複数配置 -->
+                <div class="swiper-slide">
+                  <div class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests/erikawa.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社コーエーテクモホールディングス代表取締役会長 兼
+                        取締役会議長
+                      </p>
+                      <p class="guests-item__name">襟川 陽一</p>
                     </div>
                   </div>
-                  <div class="swiper-slide">
-                    <div class="guests-item">
-                      <img
-                        class="guests-item__img"
-                        src="./assets/img/guests/placeholder5.png"
-                        alt=""
-                      />
-                      <div class="guests-item__text__wrap">
-                        <p class="guests-item__company">会社名・役職</p>
-                        <p class="guests-item__name">名前</p>
-                      </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests-item_img_01.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社ABCD<br />代表取締役
+                      </p>
+                      <p class="guests-item__name">山田 太郎</p>
                     </div>
                   </div>
-                  <div class="swiper-slide">
-                    <div class="guests-item">
-                      <img
-                        class="guests-item__img"
-                        src="./assets/img/guests/placeholder6.png"
-                        alt=""
-                      />
-                      <div class="guests-item__text__wrap">
-                        <p class="guests-item__company">会社名・役職</p>
-                        <p class="guests-item__name">名前</p>
-                      </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="guests-item">
+                    <img
+                      class="guests-item__img"
+                      src="./assets/img/guests/erikawa.png"
+                      alt=""
+                    />
+                    <div class="guests-item__text__wrap">
+                      <p class="guests-item__company">
+                        株式会社コーエーテクモホールディングス代表取締役会長 兼
+                        取締役会議長
+                      </p>
+                      <p class="guests-item__name">襟川 陽一</p>
                     </div>
                   </div>
                 </div>
@@ -664,8 +674,10 @@
             </div>
           </div>
 
-          <div class="btn btn--black">
-            <a class="btn__link" href="">セッションを見る</a>
+          <div class="guests-button">
+            <div class="btn btn--black">
+              <a class="btn__link" href="">セッションを見る</a>
+            </div>
           </div>
         </div>
       </section>
@@ -726,7 +738,7 @@
                   <img
                     class="partners-item__img"
                     src="./assets/img/partners-item_img_02-2.jpg"
-                    alt="ユカイ工学株式会社"
+                    alt="レバテック株式会社"
                   />
                   <p class="partners-item__name">レバテック株式会社</p>
                 </li>
@@ -734,14 +746,16 @@
             </li>
             <li class="partners-item">
               <h3 class="partners-item__title">Silver</h3>
-              <div class="partners-item__wrap">
-                <img
-                  class="partners-item__img"
-                  src="./assets/img/partners-item_img_03.jpg"
-                  alt="株式会社明治"
-                />
-                <p class="partners-item__name">株式会社明治</p>
-              </div>
+              <ul class="partners-item__wrap">
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
+                    src="./assets/img/partners-item_img_03.jpg"
+                    alt="株式会社明治"
+                  />
+                  <p class="partners-item__name">株式会社明治</p>
+                </li>
+              </ul>
             </li>
             <li class="partners-item startup">
               <h3 class="partners-item__title">Start Up & SMB Gold</h3>
@@ -860,7 +874,7 @@
                   <img
                     class="partners-item__img"
                     src="./assets/img/partners-item_img_05-5-1.jpg"
-                    alt="横須賀市"
+                    alt="小田原市"
                   />
                   <p class="partners-item__name">小田原市</p>
                 </li>

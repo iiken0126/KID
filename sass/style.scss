@@ -1,6 +1,5 @@
 @use "./base/base";
 @use "./base/reset";
-@use "./module/common";
 @use "./module/header";
 @use "./module/footer";
 @use "./module/top";
@@ -10,3 +9,4 @@
 @use "./module/container";
 @use "./global" as *;
 @use "global/fluid-size" as fs;
+@use "./module/common";

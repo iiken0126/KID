@@ -231,12 +231,12 @@ body::before {
   flex-direction: column;
   align-items: center;
   z-index: 100;
+  top: calc(100dvh - 70px);
   @include fs.pc-size(left, 32);
-  @include fs.pc-size(bottom, 32);
 
   @include mq("md") {
     @include fs.sp-size(left, 15);
-    @include fs.sp-size(bottom, 16);
+    top: calc(100dvh - 60px);
   }
 }
 
@@ -327,12 +327,14 @@ body::before {
   z-index: 1000;
   pointer-events: none;
   transition: opacity 0.5s ease, transform 0.5s ease;
-  @include fs.pc-size(top, 16);
-  @include fs.pc-size(padding-left, 80);
+  @include fs.pc-size(top, 22);
+  @include fs.pc-size(width, 174);
+  @include fs.pc-size(margin-left, 80);
 
   @include mq("md") {
-    @include fs.sp-size(top, 10);
-    @include fs.sp-size(padding-left, 16);
+    @include fs.sp-size(top, 16);
+    @include fs.sp-size(width, 100);
+    @include fs.sp-size(margin-left, 16);
   }
 
   &.show {
@@ -344,19 +346,13 @@ body::before {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .lower-logo {
-    height: auto;
-    display: block;
-    @include fs.pc-size(width, 170);
-
-    @include mq("md") {
-      @include fs.sp-size(width, 100);
-    }
+    width: 100%;
   }
 }
-
+.sticky__logo.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 // /追従ロゴ---------------------------------------------------------------------------------------
 
 // introduction------------------------------------------------------------------------------------
@@ -398,9 +394,6 @@ body::before {
 .introduction > *:not(.intro-blur-cover) {
   position: relative;
   z-index: 20;
-}
-
-.sticky__logo {
 }
 
 .main-contents__design {
@@ -489,15 +482,6 @@ body::before {
   }
 }
 
-.section-title__wrap {
-}
-
-.section-title__heading {
-}
-
-.section-title {
-}
-
 .start-up {
   box-shadow: 0 fs.fpc(5) fs.fpc(20) 0 #9cb6df;
   overflow: hidden;
@@ -507,7 +491,7 @@ body::before {
   @include mq("md") {
     overflow: hidden;
     @include fs.sp-size(border-radius, 8);
-    @include fs.sp-size(margin-top, 25);
+    @include fs.sp-size(margin-top, 32);
   }
 }
 
@@ -843,6 +827,11 @@ body::before {
   display: flex;
   justify-content: center;
   @include fs.pc-size(margin-top, 64);
+
+  @include mq("md") {
+    width: 100%;
+    @include fs.sp-size(margin-top, 64);
+  }
 }
 
 .main-contents__accepting__link {
@@ -973,15 +962,6 @@ body::before {
   }
 }
 
-.section-title__wrap {
-}
-
-.section-title__heading {
-}
-
-.section-title {
-}
-
 .side-events__items {
   margin: 0 auto;
   display: flex;
@@ -1014,6 +994,10 @@ body::before {
   color: $black;
   @include fs.pc-size(font-size, 16);
   @include fs.pc-size(margin-top, 16);
+  @include mq("md") {
+    @include fs.sp-size(font-size, 16);
+    @include fs.sp-size(margin-top, 16);
+  }
 }
 
 .side-events .btn.btn--black {
@@ -1036,24 +1020,16 @@ body::before {
 // guests-----------------------------------------------------------------------------------------
 .guests {
   position: relative;
-  overflow: visible;
+  overflow-x: clip;
   background: transparent;
-  --card-w: 430px;
-  --card-h: 152px;
-  --gap: 16px;
-  --row-gap: 16px;
-  --edge-pad: 80px;
-  --speed: 28s;
   @include fs.pc-size(padding-top, 152);
   @include fs.pc-size(padding-bottom, 152);
   @include fs.pc-size(margin-top, -32);
 
   @include mq("md") {
-    --card-w: 312px;
-    --card-h: 112px;
-    --edge-pad: 24px;
     @include fs.sp-size(padding-top, 112);
     @include fs.sp-size(padding-bottom, 112);
+    @include fs.sp-size(margin-top, -32);
   }
 }
 
@@ -1087,83 +1063,52 @@ body::before {
   z-index: 30;
 }
 
-.section-title__wrap {
-}
-
-.section-title__heading {
-}
-
-.section-title {
-}
-
 // Swiperコンテナのスタイル
 .guests-ticker {
-  overflow: hidden;
-  padding: 0 var(--edge-pad);
   position: relative;
   @include fs.pc-size(margin-top, 35);
 
   @include mq("md") {
-    @include fs.sp-size(margin-top, 7);
+    @include fs.sp-size(margin-top, 32);
   }
 }
-
-// 上段と下段のSwiper
 .guests-swiper-top,
 .guests-swiper-bottom {
   position: relative;
-  overflow: hidden;
+  overflow: visible !important;
 }
-
 .guests-swiper-bottom {
-  // 下段を右にずらす: カード幅の50% + 8px
-  padding-left: calc(var(--card-w) / 2 + 8px);
-}
+  @include fs.pc-size(margin-top, 16);
 
-// Swiperのラッパー - linearトランジションを追加
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 16);
+  }
+}
 .swiper-wrapper {
   display: flex;
   transition-timing-function: linear !important;
+  overflow: visible;
 }
-
 .swiper-slide {
   width: auto !important;
   height: auto;
+  box-shadow: 0 5px 20px 0 var(--, #9cb6df);
 }
-
-// 元のスタイルをそのまま維持
-.pair {
-  display: grid;
-  row-gap: var(--row-gap);
-  @include fs.pc-size(padding, 20 0);
-
-.guests-items {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: var(--card-w);
-  column-gap: var(--gap);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.row--bottom {
-  padding-left: calc((var(--card-w) + var(--gap)) / 2);
-}
-
 .guests-item {
-  width: var(--card-w);
-  height: var(--card-h);
   display: flex;
   align-items: center;
   background-color: #fff;
   box-shadow: 0 fs.fpc(5) fs.fpc(20) 0 #9cb6df;
   flex: 0 0 auto;
+  @include fs.pc-size(width, 430);
+  @include fs.pc-size(height, 152);
   @include fs.pc-size(gap, 24);
   @include fs.pc-size(padding, 16 24);
   @include fs.pc-size(border-radius, 8);
 
   @include mq("md") {
+    @include fs.sp-size(width, 312);
+    @include fs.sp-size(height, 112);
     @include fs.sp-size(padding, 11 16);
     @include fs.sp-size(gap, 16);
     @include fs.sp-size(border-radius, 8);
@@ -1191,7 +1136,7 @@ body::before {
 }
 
 .guests-item__name {
-  font-weight: $bold;
+  font-weight: 400;
   @include fs.pc-size(font-size, 18);
   @include fs.pc-size(margin-top, 16);
   @include mq("md") {
@@ -1199,16 +1144,10 @@ body::before {
     @include fs.sp-size(margin-top, 16);
   }
 }
-
-// ホバーで一時停止（元のCSS仕様を維持）
-.guests-ticker:hover .swiper-wrapper {
-  animation-play-state: paused;
-}
-
-// 動画酔い配慮（元のCSS仕様を維持）
-@media (prefers-reduced-motion: reduce) {
-  .swiper-wrapper {
-    animation: none;
+.guests-button {
+  @include fs.pc-size(margin-top, 120);
+  @include mq("md") {
+    @include fs.sp-size(margin-top, 48);
   }
 }
 // partners----------------------------------------------------------------------------------------
@@ -1248,15 +1187,6 @@ body::before {
   @include mq("md") {
     @include fs.sp-size(max-width, 342);
   }
-}
-
-.section-title__wrap {
-}
-
-.section-title__heading {
-}
-
-.section-title {
 }
 
 .partners-items {
@@ -1333,17 +1263,6 @@ body::before {
 .partners-item__wrap.gold,
 .partners-item__wrap.silver {
   align-items: center;
-}
-
-.partners-item:nth-child(3) .partners-item__wrap {
-  flex-direction: column;
-  align-items: center;
-  gap: unset;
-  @include fs.pc-size(margin-top, 32);
-
-  @include mq("md") {
-    @include fs.sp-size(margin-top, 24);
-  }
 }
 
 .partners-item:nth-child(4) .partners-item__wrap,
@@ -1473,7 +1392,7 @@ body::before {
     @include fs.sp-size(padding-top, 77);
     @include fs.sp-size(padding-bottom, 112);
     @include fs.sp-size(border-radius, 32 32 0 0);
-    @include fs.sp-size(margin-top, -32);
+    @include fs.sp-size(margin-top, 0);
   }
 }
 
@@ -1511,15 +1430,6 @@ body::before {
 .outline-contents__inner {
   margin: 0 auto;
   @include fs.pc-size(max-width, 724);
-}
-
-.section-title__wrap {
-}
-
-.section-title__heading {
-}
-
-.section-title {
 }
 
 .outline__items__wrap {
@@ -1576,8 +1486,6 @@ body::before {
 
 .outline__item__text__wrap {
   font-weight: $bold;
-  display: flex;
-  align-items: center;
   line-height: 150%;
   @include fs.pc-size(width, 358);
   @include fs.pc-size(margin-left, 24);
@@ -1661,12 +1569,15 @@ body::before {
     @include fs.sp-size(margin-top, 32);
   }
 }
-
-.map img {
-  margin: 0 auto;
-  @include fs.pc-size(width, 1024);
+.map__wrap {
+  text-align: center;
+}
+.map iframe {
+  aspect-ratio: 1024 / 416;
+  width: 100%;
 
   @include mq("md") {
+    width: 100%;
     aspect-ratio: unset;
     height: 560px;
   }
@@ -1906,7 +1817,7 @@ body::before {
 .section-title {
   font-family: $second-font;
   font-weight: $bold;
-  line-height: 1.5;
+  line-height: 1.225;
   color: $blue;
   text-align: center;
   @include fs.pc-size(font-size, 80);

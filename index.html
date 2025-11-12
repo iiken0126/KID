@@ -50,8 +50,21 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+      integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"
+      integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="./assets/js/script.js" defer></script>
     <script src="./assets/js/temp-topslider.js" defer></script>
+    <script src="./assets/js/body-blur.js" defer></script>
   </head>
 
   <body>
@@ -84,7 +97,13 @@
             <a class="header__link" href="area.html"> Exhibitors & Event </a>
           </li>
           <li class="header__item">
-            <a class="header__link" href=""> 参加登録 </a>
+            <a
+              class="header__link"
+              target="_blank"
+              href="https://kid2026.peatix.com"
+            >
+              参加登録
+            </a>
           </li>
         </ul>
       </nav>
@@ -141,12 +160,20 @@
 
           <div class="drawer-btn__wrap">
             <div class="drawer-btn application">
-              <a class="drawer-btn__link" href="">
+              <a
+                class="drawer-btn__link"
+                target="_blank"
+                href="https://kid2026.peatix.com"
+              >
                 <span class="btn__label">参加登録</span>
               </a>
             </div>
             <div class="drawer-btn">
-              <a class="drawer-btn__link" href="">
+              <a
+                class="drawer-btn__link"
+                target="_blank"
+                href="https://dshinsei.e-kanagawa.lg.jp/140007-u/offer/userLoginDispNon?tempSeq=110993&accessFrom="
+              >
                 <span class="btn__label"
                   >協賛・出展・サイドイベントのご相談</span
                 >
@@ -207,12 +234,20 @@
 
       <div class="fixed-btn__wrap">
         <div class="fixed-btn application">
-          <a class="fixed-btn__link" href="">
+          <a
+            class="fixed-btn__link"
+            target="_blank"
+            href="https://kid2026.peatix.com"
+          >
             <span class="btn__label">参加登録</span>
           </a>
         </div>
         <div class="fixed-btn md-none">
-          <a class="fixed-btn__link" href="">
+          <a
+            class="fixed-btn__link"
+            target="_blank"
+            href="https://dshinsei.e-kanagawa.lg.jp/140007-u/offer/userLoginDispNon?tempSeq=110993&accessFrom="
+          >
             <span class="btn__label">協賛・出展・サイドイベントのご相談</span>
           </a>
         </div>
@@ -273,7 +308,7 @@
           </div>
 
           <div class="start-up">
-            <a class="contents__link" href="">
+            <a class="contents__link" href="./pitch.html">
               <div class="contents__wrap">
                 <h3 class="contents__title">KID Start Up Pitch</h3>
                 <p class="contents__text">
@@ -291,7 +326,7 @@
                   KID最大の熱狂コンテンツ。
                 </p>
                 <div class="btn">
-                  <p class="btn__link" href="">詳しくはこちら</p>
+                  <p class="btn__link">詳しくはこちら</p>
                 </div>
               </div>
               <div class="start-up__img">
@@ -301,7 +336,10 @@
           </div>
           <ul class="main-contents__items">
             <li class="main-contents__item">
-              <a class="main-contents__item__link contents__link" href="">
+              <a
+                class="main-contents__item__link contents__link"
+                href="./session.html"
+              >
                 <img
                   class="main-contents__img"
                   src="./assets/img/main-contents_img_01.png"
@@ -318,12 +356,15 @@
                   />その原動力に迫るセッション。
                 </p>
                 <div class="btn">
-                  <p class="btn__link" href="">詳しくはこちら</p>
+                  <p class="btn__link">詳しくはこちら</p>
                 </div>
               </a>
             </li>
             <li class="main-contents__item">
-              <a class="main-contents__item__link contents__link" href="">
+              <a
+                class="main-contents__item__link contents__link"
+                href="./session.html#demoday"
+              >
                 <picture>
                   <source
                     srcset="./assets/img/main-contents_img_02.png"
@@ -348,12 +389,15 @@
                   />特別コンテンツ。
                 </p>
                 <div class="btn">
-                  <p class="btn__link" href="">詳しくはこちら</p>
+                  <p class="btn__link">詳しくはこちら</p>
                 </div>
               </a>
             </li>
             <li class="main-contents__item">
-              <a class="main-contents__item__link contents__link" href="">
+              <a
+                class="main-contents__item__link contents__link"
+                href="./area.html"
+              >
                 <picture>
                   <source
                     srcset="./assets/img/main-contents_img_03.png"
@@ -378,7 +422,7 @@
                   />出会いが生まれる場。
                 </p>
                 <div class="btn">
-                  <p class="btn__link" href="">詳しくはこちら</p>
+                  <p class="btn__link">詳しくはこちら</p>
                 </div>
               </a>
             </li>
@@ -399,7 +443,11 @@
             </a>
           </li> -->
             <li class="main-contents__item">
-              <a class="main-contents__accepting__link">
+              <a
+                class="main-contents__accepting__link"
+                target="_blank"
+                href="https://dshinsei.e-kanagawa.lg.jp/140007-u/offer/userLoginDispNon?tempSeq=110993&accessFrom="
+              >
                 <p class="main-contents__accepting__text">
                   協賛・出展・サイドイベントのご相談<span class="size"
                     >受付中</span
@@ -423,7 +471,7 @@
         </div>
       </section>
 
-      <section class="side-events">
+      <!-- <section class="side-events">
         <picture>
           <source
             srcset="./assets/img/side-events_design.png"
@@ -441,10 +489,6 @@
             <h2 class="section-title">SIDE EVENTS</h2>
           </div>
         </div>
-
-        <!-- <p class="soon">
-        Coming soon...
-      </p> -->
 
         <div class="container">
           <ul class="side-events__items">
@@ -489,9 +533,9 @@
             <a class="btn__link" href=""> もっと見る </a>
           </div>
         </div>
-      </section>
+      </section> -->
 
-      <section class="guests">
+      <!-- <section class="guests">
         <img
           class="guests__design"
           src="./assets/img/guests_design.png"
@@ -504,7 +548,6 @@
           </div>
 
           <div class="guests-ticker">
-            <!-- 上段のSwiper -->
             <div class="swiper guests-swiper-top">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -538,7 +581,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- ループ用に同じカードを複数配置 -->
                 <div class="swiper-slide">
                   <div class="guests-item">
                     <img
@@ -588,7 +630,6 @@
               </div>
             </div>
 
-            <!-- 下段のSwiper -->
             <div class="swiper guests-swiper-bottom">
               <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -622,7 +663,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- ループ用に同じカードを複数配置 -->
                 <div class="swiper-slide">
                   <div class="guests-item">
                     <img
@@ -676,11 +716,11 @@
 
           <div class="guests-button">
             <div class="btn btn--black">
-              <a class="btn__link" href="">セッションを見る</a>
+              <a class="btn__link" href="./session.html">セッションを見る</a>
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
 
       <section class="partners">
         <picture>
@@ -897,6 +937,16 @@
                 <li class="partners-item__individual">
                   <img
                     class="partners-item__img"
+                    src="./assets/img/partners-item_img_yoxo.jpg"
+                    alt="横浜市次世代起業人材育成拠点「YOXO BOX」"
+                  />
+                  <p class="partners-item__name">
+                    横浜市<br class="md-show">次世代起業人材育成拠点<br />「YOXO BOX」
+                  </p>
+                </li>
+                <li class="partners-item__individual">
+                  <img
+                    class="partners-item__img"
                     src="./assets/img/partners-item_img_05-8.jpg"
                     alt="株式会社コーエーテクモホールディングス"
                   />
@@ -957,7 +1007,7 @@
           </ul>
 
           <div class="btn btn--black">
-            <a class="btn__link" href=""> もっと見る </a>
+            <a class="btn__link" href="./area.html#exhibitors"> もっと見る </a>
           </div>
         </div>
       </section>
@@ -1115,15 +1165,31 @@
       <div class="footer__inner">
         <ul class="footer-nav__items">
           <li class="footer-nav__item">
-            <a class="footer-nav__link" href=""> プライバシーポリシー </a>
+            <a
+              class="footer-nav__link"
+              href="https://www.pref.kanagawa.jp/docs/h3e/cnt/f162/"
+              target="_blank"
+            >
+              プライバシーポリシー
+            </a>
           </li>
           <li class="footer-nav__item">
-            <a class="footer-nav__link" href="">
+            <a
+              class="footer-nav__link"
+              href="https://dshinsei.e-kanagawa.lg.jp/140007-u/offer/userLoginDispNon?tempSeq=110993&accessFrom="
+              target="_blank"
+            >
               協賛・出展・サイドイベント・取材に関するお問い合わせ
             </a>
           </li>
           <li class="footer-nav__item">
-            <a class="footer-nav__link" href=""> サイトポリシー </a>
+            <a
+              class="footer-nav__link"
+              href="https://www.pref.kanagawa.jp/master/sitepolicy.html"
+              target="_blank"
+            >
+              サイトポリシー
+            </a>
           </li>
         </ul>
         <ul class="management__items">

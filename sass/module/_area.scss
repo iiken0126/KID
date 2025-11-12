@@ -50,7 +50,11 @@
 /* ==============================================================================
  * areaページ
  * =========================================================================== */
-
+.area-page .scroll-down {
+  @include mq("md") {
+    display: none;
+  }
+}
 .logo__wrap {
   @include mq("md") {
     @include fs.sp-size(width, 100);
@@ -85,6 +89,10 @@
   @include mq("md") {
     @include fs.sp-size(padding, 106 24 397 24);
   }
+}
+
+.area-page .lower-mv.fv {
+  height: auto;
 }
 
 .mv-title {
@@ -191,7 +199,7 @@
   }
 }
 
-.partners-items {
+.area-page .partners-items {
   @include mq("md") {
     @include fs.sp-size(padding-top, 0);
   }
@@ -209,12 +217,15 @@
 .partners-item__individual[data-modal-text] {
   cursor: pointer;
 }
+.partners-item__individual[data-modal-text]:hover .partners-item__img {
+  box-shadow: 0 5px 20px 0 #9cb6df;
+}
 .partners-item:nth-child(4) .partners-item__wrap,
 .partners-item:nth-child(5) .partners-item__wrap,
 .partners-item:nth-child(6) .partners-item__wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 48px 16px;
   justify-content: center;
   align-items: stretch;
   max-width: calc(5 * 255px + 4 * 16px);
@@ -245,6 +256,7 @@
 
 .area-page .partners-item__img {
   margin: 0 auto;
+  transition: box-shadow 0.4s ease;
 }
 .area-page .partners-item.amex .partners-item__img {
   margin: unset;
@@ -333,6 +345,7 @@
     // grid-template-columns: 1fr 1.2fr;
     // gap: 0;
     border-radius: 32px;
+    overflow-y: auto;
     @include fs.pc-size(padding, 0 32);
     @include fs.pc-size(border-radius, 32);
     @include fs.pc-size(width, 902);
@@ -340,6 +353,9 @@
 
     @include mq("md") {
       display: block;
+      width: 87.7%;
+      height: auto;
+      max-height: 67vh;
       @include fs.sp-size(padding, 72 24 56 24);
     }
   }
@@ -348,19 +364,16 @@
     position: absolute;
     background-image: url(../img/modal-icon.png);
     background-size: 100%;
-    // @include fs.pc-size(width, 24);
-    // @include fs.pc-size(height, 24);
-    // @include fs.pc-size(top, 32);
-    // @include fs.pc-size(right, 32);
-
-    width: 24px;
-    height: 24px;
-    top: 32px;
-    right: 32px;
+    @include fs.pc-size(width, 24);
+    @include fs.pc-size(height, 24);
+    @include fs.pc-size(top, 32);
+    @include fs.pc-size(right, 32);
 
     @include mq("md") {
-      top: 24px;
-      right: 24px;
+      @include fs.sp-size(width, 24);
+      @include fs.sp-size(height, 24);
+      @include fs.sp-size(top, 24);
+      @include fs.sp-size(right, 24);
     }
   }
 

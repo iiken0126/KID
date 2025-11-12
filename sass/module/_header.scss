@@ -127,19 +127,18 @@ $kid-grad-end: #e94820 !default;
   align-items: center;
   justify-content: space-between;
   background: linear-gradient(90deg, #fbc501 0%, #e94820 100%);
-  box-shadow: fs.fpc(2) fs.fpc(2) fs.fpc(10) 0 #9cb6df;
+  box-shadow: 2px 2px 10px 0 #9cb6df;
   cursor: pointer;
   transition: box-shadow 0.25s ease, transform 0.25s ease, background 0.25s ease;
-  width: 83px;
-  height: 32px;
   border-radius: 8px;
-  gap: 8px;
-  top: 21px;
-  right: 16px;
-  gap: unset;
   box-shadow: 2px 2px 10px 0 #9cb6df;
-  padding: 0 16px;
-  font-size: 12px;
+  @include fs.sp-size(width, 83);
+  @include fs.sp-size(height, 32);
+  @include fs.sp-size(gap, 8);
+  @include fs.sp-size(top, 21);
+  @include fs.sp-size(right, 16);
+  @include fs.sp-size(padding, 0 16);
+  @include fs.sp-size(font-size, 12);
 
   @include mq("md") {
     display: inline-flex;
@@ -151,9 +150,9 @@ $kid-grad-end: #e94820 !default;
   // @include fs.pc-size(width, 12);
   // @include fs.pc-size(height, 4);
   display: inline-block;
-  width: 12px;
-  height: 4px;
-  margin-right: 8px;
+
+  @include fs.sp-size(width, 12);
+  @include fs.sp-size(height, 4);
 }
 
 .hamburger--pill .hamburger__bar {
@@ -280,7 +279,6 @@ $kid-grad-end: #e94820 !default;
   display: block;
   @include fs.pc-size(top, 22);
   @include fs.pc-size(width, 174);
-  @include fs.pc-size(margin-left, 80);
 
   @include mq("md") {
     @include fs.sp-size(top, 16);

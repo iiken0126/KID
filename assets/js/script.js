@@ -219,41 +219,26 @@
 })();
 
 // 追従ロゴ
-// コンソールでデバッグ
 document.addEventListener("DOMContentLoaded", function () {
   const stickyLogo = document.getElementById("stickyLogo");
 
-  // 要素が取得できているか確認
-  console.log("stickyLogo element:", stickyLogo);
-
   // 初期状態を設定
   stickyLogo.classList.add("hidden");
-  console.log("Initial classes:", stickyLogo.className);
 
   function handleScroll() {
     const currentScroll =
       window.pageYOffset || document.documentElement.scrollTop;
     const viewportHeight = window.innerHeight;
 
-    // デバッグ用
-    console.log(
-      "Scroll position:",
-      currentScroll,
-      "Viewport height:",
-      viewportHeight
-    );
-
     if (currentScroll > viewportHeight) {
       if (!stickyLogo.classList.contains("show")) {
         stickyLogo.classList.remove("hidden");
         stickyLogo.classList.add("show");
-        console.log("Adding show class");
       }
     } else {
       if (!stickyLogo.classList.contains("hidden")) {
         stickyLogo.classList.remove("show");
         stickyLogo.classList.add("hidden");
-        console.log("Adding hidden class");
       }
     }
   }
@@ -266,6 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ハンバーガーメニュー
+// ハンバーガーメニュー（scroll-behavior: smooth対応版）
 (() => {
   const btn = document.querySelector(".js-hamburger");
   const drawer = document.querySelector(".js-drawer");
@@ -287,8 +273,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const CLOSE_LABEL = "menu";
 
   let lastFocused = null;
+  let scrollPosition = 0;
 
   const open = () => {
+    // 現在のスクロール位置を保存
+    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
     lastFocused = document.activeElement;
 
     btn.classList.add("is-active");
@@ -304,6 +293,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     html.classList.add("is-drawer-open");
     body.classList.add("is-drawer-open");
+
+    // bodyの位置を固定（スクロール防止のため）
+    body.style.position = "fixed";
+    body.style.top = `-${scrollPosition}px`;
+    body.style.width = "100%";
 
     // 初期フォーカス
     const first = drawer.querySelector(
@@ -329,22 +323,60 @@ document.addEventListener("DOMContentLoaded", function () {
     html.classList.remove("is-drawer-open");
     body.classList.remove("is-drawer-open");
 
-    if (lastFocused) lastFocused.focus();
+    // bodyの固定を解除
+    body.style.position = "";
+    body.style.top = "";
+    body.style.width = "";
+
+    // 一時的にscroll-behaviorを無効化して即座にスクロール位置を復元
+    const originalScrollBehavior = html.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";
+    window.scrollTo(0, scrollPosition);
+
+    // 次のフレームでscroll-behaviorを元に戻す
+    requestAnimationFrame(() => {
+      html.style.scrollBehavior = originalScrollBehavior;
+    });
+
+    // フォーカスを戻す（ハンバーガーボタンに戻す）
+    if (lastFocused && lastFocused === btn) {
+      btn.focus();
+    }
   };
 
   btn.addEventListener("click", () => {
     drawer.classList.contains("is-open") ? close() : open();
   });
+
   backdrop.addEventListener("click", close);
+
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && drawer.classList.contains("is-open")) {
       e.preventDefault();
       close();
     }
   });
+
   drawer.addEventListener("click", (e) => {
     const a = e.target.closest("a[href]");
-    if (a) setTimeout(close, 0);
+    if (a) {
+      // リンクがページ内リンクの場合の処理
+      const href = a.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        e.preventDefault();
+        close();
+        // 少し遅延させてからスクロール
+        setTimeout(() => {
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 300);
+      } else {
+        // 通常のリンクの場合
+        setTimeout(close, 0);
+      }
+    }
   });
 })();
 
@@ -561,31 +593,32 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
-// Ajex
+// Ajexフィルタ機能
 document.addEventListener("DOMContentLoaded", () => {
   const filters = document.getElementById("stageFilters");
   const list = document.getElementById("sessionList");
   if (!filters || !list) return;
 
-  const ENDPOINT = "/partials/session-list"; // ←環境に合わせて変更
-  const cache = new Map(); // stage→HTMLキャッシュ
+  const STAGES = ["innovators", "crossover", "meetup", "demoday"];
+  const cache = new Map();
+  const ENDPOINT = (stage) => `./assets/data/sessions_${stage}.json`;
 
-  // 初期：URLの?stage= を見てプリセット
+  // URLの?stage=を初期適用（なければ最初のボタンを選んでもOK）
   const url = new URL(window.location.href);
   const initialStage = url.searchParams.get("stage");
-  if (initialStage) markActive(initialStage);
-
-  // 初回ロードで?stage=があればAJAX差し替え
-  if (initialStage) fetchAndRender(initialStage, { push: false });
+  if (initialStage && STAGES.includes(initialStage)) {
+    markActive(initialStage);
+    fetchAndRenderJSON(initialStage, { push: false });
+  }
 
   filters.addEventListener("click", (e) => {
     const a = e.target.closest("[data-stage]");
     if (!a) return;
     e.preventDefault();
-
     const stage = a.dataset.stage;
+    if (!STAGES.includes(stage)) return;
     markActive(stage);
-    fetchAndRender(stage, { push: true });
+    fetchAndRenderJSON(stage, { push: true });
   });
 
   function markActive(stage) {
@@ -596,53 +629,107 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  async function fetchAndRender(stage, { push }) {
+  async function fetchAndRenderJSON(stage, { push }) {
     try {
-      // ローディングUI
       list.setAttribute("aria-busy", "true");
       list.style.opacity = "0.5";
 
-      // キャッシュ有なら即適用（同時に裏で更新してもOK）
+      let data;
       if (cache.has(stage)) {
-        list.innerHTML = cache.get(stage);
+        data = cache.get(stage);
+      } else {
+        const res = await fetch(ENDPOINT(stage), {
+          headers: { Accept: "application/json" },
+        });
+        if (!res.ok) throw new Error("Network error");
+        data = await res.json();
+        cache.set(stage, data);
       }
 
-      const params = new URLSearchParams({ stage });
-      const res = await fetch(`${ENDPOINT}?${params}`, {
-        headers: { "X-Requested-With": "XMLHttpRequest" },
-      });
-      if (!res.ok) throw new Error("Network error");
-      const html = await res.text();
+      list.innerHTML =
+        (data.items || []).map(renderItem).join("") || emptyItem();
 
-      cache.set(stage, html);
-      list.innerHTML = html;
-      // スクロール先（任意）
-      document
-        .getElementById("session")
-        .scrollIntoView({ behavior: "smooth", block: "start" });
+      const anchor = document.getElementById("session");
+      if (anchor) anchor.scrollIntoView({ behavior: "smooth", block: "start" });
 
       if (push) {
         const newUrl = new URL(window.location.href);
         newUrl.searchParams.set("stage", stage);
         history.pushState({ stage }, "", newUrl);
       }
-    } catch (err) {
-      console.error(err);
-      list.innerHTML = `<li class="session-timetable__item"><p class="session-timetable__comment">読み込みに失敗しました。時間をおいて再度お試しください。</p></li>`;
+    } catch (e) {
+      console.error(e);
+      list.innerHTML = errorItem();
     } finally {
       list.removeAttribute("aria-busy");
       list.style.opacity = "";
     }
   }
 
-  // 戻る/進む対応
+  // ← ここを“唯一の”renderItemとして採用（multiple対応版）
+  function renderItem(item) {
+    const speakers = item.speakers || [];
+    const speakersHTML = speakers
+      .map(
+        (sp) => `
+      <li class="session-timetable__person__item">
+        <img class="session-timetable__person__img" src="${
+          sp.img || ""
+        }" alt="">
+        <div class="session-timetable__person__item__contents">
+          <p class="session-timetable__person__company">${sp.company || ""}</p>
+          <p class="session-timetable__person__name">${sp.nameJa || ""}</p>
+          <p class="session-timetable__person__name--en">${sp.nameEn || ""}</p>
+        </div>
+      </li>
+    `
+      )
+      .join("");
+
+    const peopleClass =
+      speakers.length > 1
+        ? "session-timetable__person__items multiple"
+        : "session-timetable__person__items";
+
+    return `
+      <li class="session-timetable__item">
+        <div class="session-timetable__item__inner">
+          <div class="session-timetable__heading">
+            <h4 class="session-timetable__title">${item.title || ""}</h4>
+            <div class="stage-item__heading">
+              <img class="stage-item__icon" src="${
+                item.stageIcon || ""
+              }" alt="">
+              <p class="stage-item__name">${item.stageLabel || ""}</p>
+            </div>
+          </div>
+          <ul class="${peopleClass}">
+            ${speakersHTML}
+          </ul>
+        </div>
+      </li>
+    `;
+  }
+
+  const emptyItem = () => `
+    <li class="session-timetable__item">
+      <p class="session-timetable__comment">対象セッションはありません</p>
+    </li>
+  `;
+
+  const errorItem = () => `
+    <li class="session-timetable__item">
+      <p class="session-timetable__comment">読み込みに失敗しました。時間をおいて再度お試しください。</p>
+    </li>
+  `;
+
   window.addEventListener("popstate", (ev) => {
     const stage =
       (ev.state && ev.state.stage) ||
       new URL(window.location.href).searchParams.get("stage");
-    if (stage) {
+    if (stage && STAGES.includes(stage)) {
       markActive(stage);
-      fetchAndRender(stage, { push: false });
+      fetchAndRenderJSON(stage, { push: false });
     }
   });
 });

@@ -1,0 +1,19 @@
+{
+  "items": [
+    {
+      "time": "10:00-10:30",
+      "title": "crossover",
+      "stage": "crossover",
+      "stageLabel": "Crossover Stage",
+      "stageIcon": "./assets/img/crossover-icon.png",
+      "speakers": [
+        {
+          "img": "./assets/img/guest_erikawa.png",
+          "company": "株式会社コーエーテクモホールディングス<br>代表取締役会長　兼　取締役会議長",
+          "nameJa": "襟川 陽一",
+          "nameEn": "Youichi Erikawa"
+        }
+      ]
+    }
+  ]
+}

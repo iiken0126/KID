@@ -1,5 +1,0 @@
-
-AuthUserFile "/home/webgrowup/webgrowup.xsrv.jp/htpasswd/kid/.htpasswd"
-AuthName "Member Site"
-AuthType BASIC
-require valid-user

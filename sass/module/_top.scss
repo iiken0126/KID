@@ -113,9 +113,10 @@
 .fv {
   // min-height: 100vh;
   position: relative;
-  // background-image: url(../assets/img/bg_fv.jpg);
+  // background-image: url(../../assets/img/bg_fv.jpg);
   // background-repeat: no-repeat;
   // background-size: 100%;
+  min-height: 100vh;
   @include fs.pc-size(padding-top, 232);
   @include fs.pc-size(padding-left, 47);
   @include fs.pc-size(padding-bottom, 148);
@@ -130,7 +131,7 @@
 html,
 body {
   height: auto;
-  background: #fff;
+  background: #efeff5;
 }
 
 body {
@@ -143,7 +144,7 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: url(/assets/img/bg_fv.jpg) center top / cover no-repeat;
+  background: url(../../assets/img/bg_fv.jpg) center top / cover no-repeat;
   pointer-events: none;
   will-change: transform;
   transform: translateZ(0);
@@ -216,7 +217,7 @@ body::before {
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 2;
+  z-index: 0;
   @include fs.pc-size(width, 795);
 
   @include mq("md") {
@@ -231,7 +232,7 @@ body::before {
   flex-direction: column;
   align-items: center;
   z-index: 100;
-  top: calc(100dvh - 70px);
+  top: calc(100vh - 70px);
   @include fs.pc-size(left, 32);
 
   @include mq("md") {
@@ -295,7 +296,7 @@ body::before {
   inset: 0 0 0 auto;
   height: 100vh;
   pointer-events: none;
-  z-index: 10;
+  z-index: 1;
   opacity: 0.9;
   @include fs.pc-size(width, 795);
 
@@ -359,6 +360,7 @@ body::before {
 .introduction {
   position: relative;
   z-index: 20;
+  @include fs.sp-size(margin-top, 100);
   @include fs.pc-size(padding-top, 273);
   @include fs.pc-size(padding-bottom, 469);
   @include fs.pc-size(padding-left, 160);
@@ -369,6 +371,7 @@ body::before {
     z-index: 50;
     padding-bottom: unset;
     --intro-blur: 0px;
+    @include fs.sp-size(margin-top, 200);
     @include fs.sp-size(padding-top, 80);
     @include fs.sp-size(padding-left, 24);
   }
@@ -563,7 +566,7 @@ body::before {
 .btn::before {
   position: absolute;
   content: "";
-  background-image: url(/assets/img/btn-icon_blue.svg);
+  background-image: url(../../assets/img/btn-icon_blue.svg);
   background-size: 100%;
   background-repeat: no-repeat;
   right: 0;
@@ -758,7 +761,7 @@ body::before {
   inset: 0;
   background: linear-gradient(90deg, #00a1e7 0%, #009ea1 100%);
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.8s ease;
   z-index: 1;
   pointer-events: none;
 }
@@ -808,7 +811,7 @@ body::before {
 
 .contents__link:hover .btn::before,
 .contents__link:focus-visible .btn::before {
-  background-image: url(/assets/img/btn-icon_white.svg);
+  background-image: url(../../assets/img/btn-icon_white.svg);
   transform: translateY(-50%) translateX(fs.fpc(-13));
 }
 
@@ -857,7 +860,7 @@ body::before {
 .main-contents__accepting__link::before {
   position: absolute;
   content: "";
-  background-image: url(/assets/img/main-contents__accepting_left.png);
+  background-image: url(../../assets/img/main-contents__accepting_left.png);
   background-size: 100%;
   background-repeat: no-repeat;
   left: 0;
@@ -875,7 +878,7 @@ body::before {
 .main-contents__accepting__link::after {
   position: absolute;
   content: "";
-  background-image: url(/assets/img/main-contents__accepting_right.png);
+  background-image: url(../../assets/img/main-contents__accepting_right.png);
   background-size: 100%;
   background-repeat: no-repeat;
   right: 0;
@@ -1154,7 +1157,7 @@ body::before {
 .partners {
   position: relative;
   background-color: #fff;
-  z-index: 10;
+  z-index: 100;
   @include fs.pc-size(padding-top, 120);
   @include fs.pc-size(padding-bottom, 152);
   @include fs.pc-size(border-radius, 32 32 0 0);
@@ -1259,6 +1262,10 @@ body::before {
     @include fs.sp-size(margin-top, 24);
   }
 }
+.partners-item.amex .partners-item__img {
+  border: none;
+  box-shadow: none;
+}
 
 .partners-item__wrap.gold,
 .partners-item__wrap.silver {
@@ -1279,6 +1286,7 @@ body::before {
 .partners-item__individual {
 }
 .partners-item__img {
+  // border: 1px solid #9cb6df;
   @include fs.pc-size(width, 240);
 
   @include mq("md") {
@@ -1383,6 +1391,7 @@ body::before {
   position: relative;
   overflow: visible;
   background: transparent;
+  z-index: 110;
   @include fs.pc-size(padding-top, 152);
   @include fs.pc-size(padding-bottom, 152);
   @include fs.pc-size(border-radius, 32 32 0 0);
@@ -1392,7 +1401,7 @@ body::before {
     @include fs.sp-size(padding-top, 77);
     @include fs.sp-size(padding-bottom, 112);
     @include fs.sp-size(border-radius, 32 32 0 0);
-    @include fs.sp-size(margin-top, 0);
+    @include fs.sp-size(margin-top, -32);
   }
 }
 
@@ -1401,10 +1410,14 @@ body::before {
   position: absolute;
   inset: 0;
   background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(fs.fpc(25));
-  -webkit-backdrop-filter: blur(fs.fpc(25));
+  backdrop-filter: blur(25px);
   z-index: 10;
   pointer-events: none;
+  @include fs.pc-size(border-radius, 32 32 0 0);
+
+  @include mq("md") {
+    @include fs.sp-size(border-radius, 32 32 0 0);
+  }
 }
 
 .outline__design {
@@ -1429,13 +1442,13 @@ body::before {
 
 .outline-contents__inner {
   margin: 0 auto;
-  @include fs.pc-size(max-width, 724);
+  @include fs.pc-size(max-width, 840);
 }
 
 .outline__items__wrap {
   display: flex;
   justify-content: space-between;
-  @include fs.pc-size(gap, 80);
+  @include fs.pc-size(gap, 84);
   @include fs.pc-size(margin-top, 64);
 
   @include mq("md") {
@@ -1487,7 +1500,7 @@ body::before {
 .outline__item__text__wrap {
   font-weight: $bold;
   line-height: 150%;
-  @include fs.pc-size(width, 358);
+  flex: 1;
   @include fs.pc-size(margin-left, 24);
 
   @include mq("md") {
@@ -1756,7 +1769,7 @@ body::before {
 
 .btn.btn--black:hover::before,
 .btn.btn--black:focus-within::before {
-  background-image: url(/assets/img/btn-icon_black.svg);
+  background-image: url(../../assets/img/btn-icon_black.svg);
   transform: translateY(-50%) translateX(fs.fpc(-28));
 }
 
@@ -1771,7 +1784,7 @@ body::before {
 }
 .contents__link:hover .btn.btn--black:hover::before,
 .contents__link:focus-visible .btn.btn--black:focus-within::before {
-  background-image: url(/assets/img/btn-icon_black.svg);
+  background-image: url(../../assets/img/btn-icon_black.svg);
 }
 
 // /main-contents以外のボタン-----------------------------------------------------------------------

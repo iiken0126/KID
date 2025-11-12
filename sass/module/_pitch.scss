@@ -71,30 +71,46 @@
   top: 0;
 }
 
-.pitch-page {
+.pitch-page .hamburger--pill {
+  box-shadow: 2px 2px 10px 0 #000;
 }
 // mv-----------------------------------------------------------------------------------------------
-.mv {
-  position: relative;
+.pitch-page {
   background-color: #090045;
-  overflow: clip;
-  overflow: hidden;
+}
+.mv {
   position: fixed;
+  display: flex;
+  align-items: center;
   inset: 0;
-  height: 100dvh;
-  @include fs.pc-size(padding-top, 241);
+  min-height: 100dvh;
+  z-index: 1;
   @include fs.pc-size(padding-left, 80);
-  @include fs.pc-size(padding-bottom, 241);
 
   @include mq("md") {
-    @include fs.sp-size(padding-top, 87);
+    position: relative;
+    display: flex; // flexを維持
+    flex-direction: column; // 縦方向に変更
+    height: 100dvh; // 100%ではなく100dvhに
+    min-height: 100dvh; // 最小高さも確保
     @include fs.sp-size(padding-left, 24);
+    @include fs.sp-size(padding-right, 24); // 右側のパディングも追加
   }
 }
 
 .mv-contents__wrap {
   position: relative;
   z-index: 100;
+
+  @include mq("md") {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1; // 親要素の高さいっぱいに広がる
+    height: 100%; // 削除または auto に
+    @include fs.sp-size(padding-top, 87);
+    @include fs.sp-size(padding-bottom, 24); // 下部の余白も確保
+  }
 }
 
 .mv__title {
@@ -115,10 +131,12 @@
 
   @include mq("md") {
     @include fs.sp-size(font-size, 40);
+    @include fs.sp-size(margin-top, 10);
   }
 }
 .mv-days {
   @include fs.pc-size(margin-top, 32);
+  line-height: 1;
 
   @include mq("md") {
     @include fs.sp-size(margin-top, 16);
@@ -147,7 +165,7 @@
   @include fs.pc-size(margin-top, 80);
 
   @include mq("md") {
-    @include fs.sp-size(margin-top, 354);
+    @include fs.sp-size(margin-top, 60);
   }
 }
 
@@ -159,6 +177,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  line-height: 1.5;
   @include fs.pc-size(font-size, 16);
   @include fs.pc-size(border-radius, 8);
   @include fs.pc-size(width, 80);
@@ -228,6 +247,7 @@
   color: $black;
   background-color: #fff;
   text-align: center;
+  line-height: 1.5;
   @include fs.pc-size(font-size, 20);
   @include fs.pc-size(width, 68);
   @include fs.pc-size(height, 32);
@@ -246,8 +266,8 @@
 
 .mv-date__wrap.contents_02 .mv-date .weekday,
 .mv-date__wrap.contents_03 .mv-date .weekday {
-  height: calc(28 / 1512 * 100vw);
-  margin-right: calc(8 / 1512 * 100vw);
+  @include fs.pc-size(margin-right, 8);
+  @include fs.pc-size(height, 28);
   @include fs.pc-size(font-size, 16);
   @include fs.pc-size(width, 56);
   @include fs.pc-size(padding-top, 2);
@@ -302,89 +322,132 @@
   box-shadow: unset;
 }
 
+.bg-lottie {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 84.25vw;
+  z-index: 0;
+  max-width: 1200px;
+  @include mq("md") {
+    width: 100%;
+    height: 100%;
+
+    background-color: #090045;
+  }
+}
 .lottie-wrap {
   position: absolute;
-  @include fs.pc-size(width, 1274);
-  @include fs.pc-size(top, -20);
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
   @include fs.pc-size(right, -190);
 
   @include mq("md") {
-    width: 125%;
-    @include fs.sp-size(top, 310);
-    @include fs.sp-size(right, -45);
+    width: 127.12%;
+    left: 50%;
+    right: inherit;
+    transform: translateX(-50%);
+    @include fs.sp-size(top, 300);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
 
+@keyframes float-small {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 .mv-person_01,
 .mv-person_02,
 .mv-person_03,
 .mv-person_04 {
   position: absolute;
   box-shadow: 0 0 fs.fpc(51) 0 #9cb6df;
-  // border-radius: 180px;
   border-radius: 50%;
   box-shadow: 0 0 51px 0 #9cb6df;
   @include fs.pc-size(border-radius, 180);
 
+  // アニメーション設定
+  animation: float 4s ease-in-out infinite;
+
   @include mq("md") {
     box-shadow: 0 0 17.624px 0 #9cb6df;
+    // モバイルでは少し小さめの動き
+    animation: float-small 4s ease-in-out infinite;
   }
 }
 
+// 各要素に異なるタイミングでアニメーションを開始
 .mv-person_01 {
+  animation-delay: 0s;
+  animation-duration: 3.5s;
+  right: 29%;
   @include fs.pc-size(width, 158);
   @include fs.pc-size(top, 133);
-  @include fs.pc-size(right, 179);
 
   @include mq("md") {
+    right: 21.97%;
     @include fs.sp-size(width, 91);
-    @include fs.sp-size(top, 350);
-    @include fs.sp-size(right, 57);
+    @include fs.sp-size(top, 52);
   }
 }
 
 .mv-person_02 {
+  animation-delay: 0.8s;
+  animation-duration: 4s;
+  right: 68%;
   @include fs.pc-size(width, 142);
   @include fs.pc-size(top, 263);
-  @include fs.pc-size(right, 674);
 
   @include mq("md") {
+    right: 65.322%;
     @include fs.sp-size(width, 81);
-    @include fs.sp-size(top, 399);
-    @include fs.sp-size(right, unset);
-    @include fs.sp-size(left, 37);
+    @include fs.sp-size(top, 100);
   }
 }
 
 .mv-person_03 {
+  animation-delay: 1.5s;
+  animation-duration: 3.8s;
+  right: 21.978%;
   @include fs.pc-size(width, 157);
-  @include fs.pc-size(right, 85);
   @include fs.pc-size(bottom, 182);
 
   @include mq("md") {
+    right: 17.137%;
     @include fs.sp-size(width, 85);
-    @include fs.sp-size(right, 33);
     @include fs.sp-size(bottom, unset);
-    @include fs.sp-size(top, 525);
+    @include fs.sp-size(top, 227);
   }
 }
 
 .mv-person_04 {
+  animation-delay: 2.2s;
+  animation-duration: 4.2s;
+  right: 63.58%;
   @include fs.pc-size(width, 180);
-  @include fs.pc-size(right, 615);
   @include fs.pc-size(bottom, 61);
 
   @include mq("md") {
+    right: 63.71%;
     @include fs.sp-size(width, 90);
-    @include fs.sp-size(right, unset);
-    @include fs.sp-size(left, 36);
     @include fs.sp-size(bottom, unset);
-    @include fs.sp-size(top, 547);
+    @include fs.sp-size(top, 249);
   }
-}
-
-.mv-spacer {
-  height: 100dvh;
 }
 // /mv----------------------------------------------------------------------------------------------
 
@@ -394,18 +457,54 @@
   margin-left: auto;
   overflow: visible;
   isolation: isolate;
-  margin-top: 100dvh;
+  @include fs.pc-size(width, 828);
+  // @include fs.pc-size(padding-top, 393);
+  // @include fs.pc-size(padding-bottom, 240);
+
+  // @include mq("md") {
+  //   @include fs.sp-size(padding-top, 240);
+  //   @include fs.sp-size(padding-bottom, 240);
+  // }
+}
+.overlap_wrap-spacer {
+  position: relative;
+  height: 100dvh;
+  @include mq("md") {
+    display: contents;
+  }
+}
+.pitch-page .scroll-down {
+  position: absolute;
+  left: unset;
+  @include fs.pc-size(right, 32);
+
+  @include mq("md") {
+    display: none;
+    @include fs.sp-size(right, 17);
+  }
+}
+.pitch-page .scroll-down__text {
+  position: relative;
+  color: $white;
+}
+.pitch-page .scroll-down__text::before {
+  background-color: $white;
+}
+.overlap__wrap__inner {
+  position: relative;
+  z-index: 1;
   @include fs.pc-size(width, 828);
   @include fs.pc-size(padding-top, 393);
   @include fs.pc-size(padding-bottom, 240);
 
   @include mq("md") {
+    @include fs.sp-size(padding, 0 24);
     @include fs.sp-size(padding-top, 240);
     @include fs.sp-size(padding-bottom, 240);
   }
 }
 
-.overlap__wrap::before {
+.overlap__wrap__inner::before {
   content: "";
   position: absolute;
   inset: fs.fpc(100) 0 0 0;
@@ -415,7 +514,7 @@
     rgba(15, 27, 50, 0.8) 5.29%
   );
   filter: blur(fs.fpc(50));
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
   will-change: filter, transform;
   transform: translateZ(0);
@@ -428,36 +527,6 @@
     );
     filter: blur(50px);
   }
-}
-
-.overlap__wrap__inner {
-  position: relative;
-  z-index: 1;
-
-  @include mq("md") {
-    @include fs.sp-size(padding, 0 24);
-  }
-}
-
-.pitch-page .scroll-down {
-  position: absolute;
-  left: unset;
-  top: calc(-100dvh - 60px);
-  @include fs.pc-size(right, 32);
-
-  @include mq("md") {
-    @include fs.sp-size(top, -300);
-    @include fs.sp-size(right, 17);
-  }
-}
-
-.pitch-page .scroll-down__text {
-  position: relative;
-  color: $white;
-}
-
-.pitch-page .scroll-down__text::before {
-  background-color: $white;
 }
 
 .pitch-heading {
@@ -519,7 +588,8 @@
 }
 
 .award-item {
-  @include fs.pc-size(width, 302);
+  text-align: center;
+  // @include fs.pc-size(width, 302);
 }
 
 .award-item + .award-item {
@@ -530,6 +600,7 @@
 
 .award-item__img {
   margin: 0 auto;
+  filter: drop-shadow(0 0 20px #fff);
   @include fs.pc-size(width, 160);
 
   @include mq("md") {
@@ -710,18 +781,22 @@
     @include fs.sp-size(left, 12);
   }
 }
-
+.theme__link-wrap {
+  text-align: center;
+}
 .theme__link {
   position: relative;
   color: $blue;
-  text-align: center;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
+  transition: color 0.4s ease;
   @include fs.pc-size(margin-top, 48);
+  @include fs.pc-size(padding-right, 24);
 
   @include mq("md") {
     @include fs.sp-size(font-size, 14);
     @include fs.sp-size(margin-top, 40);
+    @include fs.sp-size(padding-right, 16);
   }
 }
 
@@ -731,17 +806,25 @@
   background-image: url(../img/link-icon-blue.svg);
   background-size: 100%;
   background-repeat: no-repeat;
+  right: 0;
+  transition: background-image 0.4s ease;
   @include fs.pc-size(width, 16);
   @include fs.pc-size(height, 16);
   @include fs.pc-size(top, 3);
-  @include fs.pc-size(right, 245);
 
   @include mq("md") {
-    @include fs.sp-size(width, 11);
-    @include fs.sp-size(height, 11);
+    @include fs.sp-size(width, 12);
+    @include fs.sp-size(height, 12);
     @include fs.sp-size(top, 4);
-    @include fs.sp-size(right, 30);
   }
+}
+.theme__link:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.theme__link:hover::before {
+  background-image: url(../img/link-icon-white.svg);
 }
 // /themeセクション
 
@@ -797,7 +880,7 @@
   }
 }
 
-.merrit-item:nth-child(2) .merrit-item__label {
+.merrit-item:nth-child(1) .merrit-item__label {
   @include fs.pc-size(width, 88);
 
   @include mq("md") {
@@ -809,11 +892,11 @@
   font-weight: $bold;
   line-height: 175%;
   color: $white;
+  padding-left: 1em;
+  text-indent: -1em;
   @include fs.pc-size(margin-top, 16);
 
   @include mq("md") {
-    padding-left: 1em;
-    text-indent: -1em;
     @include fs.sp-size(font-size, 16);
     @include fs.sp-size(margin-top, 16);
   }
@@ -877,6 +960,7 @@
   position: relative;
   overflow: visible;
   background: transparent;
+  z-index: 10;
   @include fs.pc-size(padding-top, 120);
   @include fs.pc-size(padding-bottom, 120);
 
@@ -929,8 +1013,6 @@
   @include fs.pc-size(font-size, 18);
 
   @include mq("md") {
-    padding-left: 1.4em;
-    text-indent: -1.2em;
     @include fs.sp-size(font-size, 16);
   }
 }
@@ -994,13 +1076,20 @@
 
 .weekday {
 }
-
+.mv-date small {
+  @include fs.pc-size(font-size, 16);
+  @include fs.pc-size(padding-top, 7);
+  @include mq("md") {
+    @include fs.sp-size(font-size, 12);
+    @include fs.sp-size(padding-top, 3);
+  }
+}
 .entry .pitch-btn {
   display: flex;
   justify-content: center;
 }
 
-.pitch-btn__link {
+.entry .pitch-btn__link {
   @include mq("md") {
     @include fs.sp-size(margin-top, 32);
   }
@@ -1009,4 +1098,5 @@
 
 .copyright.pitch-page {
   color: #ffffff;
+  background-color: transparent;
 }

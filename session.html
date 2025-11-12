@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
     <!-- meta情報 -->
-    <title>KID</title>
+    <title>Session / Timetable KID</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <!-- ogp -->
@@ -71,7 +71,13 @@
             <a class="header__link" href="area.html"> Exhibitors & Event </a>
           </li>
           <li class="header__item">
-            <a class="header__link" href=""> 参加登録 </a>
+            <a
+              class="header__link"
+              target="_blank"
+              href="https://kid2026.peatix.com"
+            >
+              参加登録
+            </a>
           </li>
         </ul>
       </nav>
@@ -128,12 +134,20 @@
 
           <div class="drawer-btn__wrap">
             <div class="drawer-btn application">
-              <a class="drawer-btn__link" href="">
+              <a
+                class="drawer-btn__link"
+                target="_blank"
+                href="https://kid2026.peatix.com"
+              >
                 <span class="btn__label">参加登録</span>
               </a>
             </div>
             <div class="drawer-btn">
-              <a class="drawer-btn__link" href="">
+              <a
+                class="drawer-btn__link"
+                target="_blank"
+                href="https://dshinsei.e-kanagawa.lg.jp/140007-u/offer/userLoginDispNon?tempSeq=110993&accessFrom="
+              >
                 <span class="btn__label"
                   >協賛・出展・サイドイベントのご相談</span
                 >
@@ -333,7 +347,13 @@
                   関東学院大学 横浜・関内キャンパス 2F
                 </p>
                 <div class="map">
-                  <a class="map_link" href=""> Google MAPS </a>
+                  <a
+                    class="map_link"
+                    href="https://maps.app.goo.gl/sx5RydqQGZ8Upi4u6"
+                    target="_blank"
+                  >
+                    Google MAPS
+                  </a>
                 </div>
               </li>
               <li class="stage-item">
@@ -347,7 +367,13 @@
                 </div>
                 <p class="stage-item__place">YOXO BOX</p>
                 <div class="map">
-                  <a class="map_link" href=""> Google MAPS </a>
+                  <a
+                    class="map_link"
+                    href="https://maps.app.goo.gl/H4KMMuRb1ja7QoAQ7"
+                    target="_blank"
+                  >
+                    Google MAPS
+                  </a>
                 </div>
               </li>
               <li class="stage-item">
@@ -363,7 +389,13 @@
                   関東学院大学 横浜・関内キャンパス 6F
                 </p>
                 <div class="map">
-                  <a class="map_link" href=""> Google MAPS </a>
+                  <a
+                    class="map_link"
+                    href="https://maps.app.goo.gl/ypWoeia8ALBwSVxd6"
+                    target="_blank"
+                  >
+                    Google MAPS
+                  </a>
                 </div>
               </li>
               <li class="stage-item">
@@ -379,20 +411,26 @@
                   京セラみなとみらいリサーチセンター
                 </p>
                 <div class="map">
-                  <a class="map_link" href=""> Google MAPS </a>
+                  <a
+                    class="map_link"
+                    href="https://maps.app.goo.gl/TDNhzZZy5jmEQHfq6"
+                    target="_blank"
+                  >
+                    Google MAPS
+                  </a>
                 </div>
               </li>
             </ul>
           </div>
         </div>
 
-        <section id="session" class="session-timetable">
+        <section class="session-timetable">
           <div class="container">
-            <h3 class="lower-title">Session timetable</h3>
+            <h3 id="session" class="lower-title">Session timetable</h3>
             <p class="date">3.24 <span class="size">TUE</span></p>
-            <ul class="session-timetable__items">
+            <ul class="session-timetable__items" id="sessionList">
               <li class="session-timetable__item">
-                <p class="time-label__wrap">10:00-10:30</p>
+                <!-- <p class="time-label__wrap">10:00-10:30</p> -->
                 <div class="session-timetable__item__inner">
                   <div class="session-timetable__heading">
                     <h4 class="session-timetable__title">
@@ -430,7 +468,7 @@
                 </div>
               </li>
               <li class="session-timetable__item">
-                <p class="time-label__wrap">10:00-10:30</p>
+                <!-- <p class="time-label__wrap">10:00-10:30</p> -->
                 <div class="session-timetable__item__inner">
                   <div class="session-timetable__heading">
                     <h4 class="session-timetable__title">
@@ -466,7 +504,7 @@
                 </div>
               </li>
               <li class="session-timetable__item">
-                <p class="time-label__wrap">10:00-10:30</p>
+                <!-- <p class="time-label__wrap">10:00-10:30</p> -->
                 <div class="session-timetable__item__inner">
                   <div class="session-timetable__heading">
                     <h4 class="session-timetable__title">
@@ -504,7 +542,7 @@
                   </ul>
                 </div>
               </li>
-              <li class="session-timetable__item">
+              <!-- <li class="session-timetable__item">
                 <p class="time-label__wrap">10:00-10:30</p>
                 <div class="session-timetable__item__inner">
                   <div class="session-timetable__heading">
@@ -587,16 +625,16 @@
                     </li>
                   </ul>
                 </div>
-              </li>
+              </li> -->
             </ul>
 
             <p class="session-timetable__comment">他コンテンツは順次更新予定</p>
           </div>
         </section>
 
-        <section id="pitch" class="pitch-timetable">
+        <section class="pitch-timetable">
           <div class="container">
-            <h3 class="lower-title">Pitch timetable</h3>
+            <h3 id="pitch" class="lower-title">Pitch timetable</h3>
             <p class="date">3.24 <span class="size">TUE</span></p>
 
             <p class="session-page__comment">Coming soon...</p>
@@ -822,9 +860,9 @@
           </div>
         </section>
 
-        <section id="demoday" class="demoday-timetable">
+        <section class="demoday-timetable">
           <div class="container">
-            <h3 class="lower-title">Demoday timetable</h3>
+            <h3 id="demoday" class="lower-title">Demoday timetable</h3>
 
             <ul class="demoday-timetable__items">
               <li class="demoday-timetable__item">
@@ -850,11 +888,11 @@
                     社会課題をビジネスで解決するスタートアップを公募・採択し、専門家メンタリングやネットワーク構築を通じて、社会価値の実現と事業成長を支援するアクセラレーションプログラムです。令和6年度からは、創業初期の「シード編」と成長段階の「アーリー編」の2つに分けて、課題解決型ベンチャーに最適な支援を提供しています。
                   </p>
 
-                  <div class="btn btn--black">
+                  <!-- <div class="btn btn--black">
                     <a class="btn__link" href="" target="_blank">
                       詳しくはこちら
                     </a>
-                  </div>
+                  </div> -->
                 </div>
               </li>
               <li class="demoday-timetable__item">
@@ -881,11 +919,11 @@
                     PROGRAM」の成果発表を行います。
                   </p>
 
-                  <div class="btn btn--black">
+                  <!-- <div class="btn btn--black">
                     <a class="btn__link" href="" target="_blank">
                       詳しくはこちら
                     </a>
-                  </div>
+                  </div> -->
                 </div>
               </li>
               <li class="demoday-timetable__item">
@@ -911,11 +949,11 @@
                     神奈川県や県内市町村との連携による行政課題の解決とオープンイノベーションを生み出すため、令和7年度に新たにスタートしました。今回、神奈川県として初年度となるベンチャー企業×自治体の共創プロジェクトの軌跡と成果をお披露目します！
                   </p>
 
-                  <div class="btn btn--black">
+                  <!-- <div class="btn btn--black">
                     <a class="btn__link" href="" target="_blank">
                       詳しくはこちら
                     </a>
-                  </div>
+                  </div> -->
                 </div>
               </li>
             </ul>
@@ -1026,9 +1064,9 @@
 
             <p class="session-page__comment">Coming soon...</p>
 
-            <p class="date margin">3.25 <span class="size">WED</span></p>
+            <!-- <p class="date margin">3.25 <span class="size">WED</span></p>
 
-            <p class="session-page__comment">Coming soon...</p>
+            <p class="session-page__comment">Coming soon...</p> -->
           </div>
         </section>
       </div>
@@ -1038,10 +1076,20 @@
       <div class="footer__inner">
         <ul class="footer-nav__items">
           <li class="footer-nav__item">
-            <a class="footer-nav__link" href=""> プライバシーポリシー </a>
+            <a
+              class="footer-nav__link"
+              href="https://www.pref.kanagawa.jp/docs/h3e/cnt/f162/"
+              target="_blank"
+            >
+              プライバシーポリシー
+            </a>
           </li>
           <li class="footer-nav__item">
-            <a class="footer-nav__link" href="">
+            <a
+              class="footer-nav__link"
+              href="https://dshinsei.e-kanagawa.lg.jp/140007-u/offer/userLoginDispNon?tempSeq=110993&accessFrom="
+              target="_blank"
+            >
               協賛・出展・取材等に関するお問い合わせ
             </a>
           </li>
@@ -1051,7 +1099,13 @@
           </a>
         </li> -->
           <li class="footer-nav__item">
-            <a class="footer-nav__link" href=""> サイトポリシー </a>
+            <a
+              class="footer-nav__link"
+              href="https://www.pref.kanagawa.jp/master/sitepolicy.html"
+              target="_blank"
+            >
+              サイトポリシー
+            </a>
           </li>
         </ul>
         <ul class="management__items">

@@ -1,0 +1,49 @@
+{
+  "items": [
+    {
+      "time": "10:00-10:30",
+      "title": "シブサワ・コウ 0から1を創造する力",
+      "stage": "innovators",
+      "stageLabel": "Innovators Stage",
+      "stageIcon": "./assets/img/innovators-icon.png",
+      "speakers": [
+        {
+          "img": "./assets/img/guest_erikawa.png",
+          "company": "株式会社コーエーテクモホールディングス<br>代表取締役会長　兼　取締役会議長",
+          "nameJa": "襟川 陽一",
+          "nameEn": "Youichi Erikawa"
+        }
+      ]
+    },
+    {
+      "time": "10:00-10:30",
+      "title": "AIと量子が拓くサステナブルな未来",
+      "stage": "innovators",
+      "stageLabel": "Innovators Stage",
+      "stageIcon": "./assets/img/innovators-icon.png",
+      "speakers": [
+        {
+          "img": "./assets/img/guests/shimada.png",
+          "company": "株式会社 東芝<br>代表取締役 社長執行役員CEO",
+          "nameJa": "島田 太郎",
+          "nameEn": "Taro Shimada"
+        }
+      ]
+    },
+    {
+      "time": "10:00-10:30",
+      "title": "慶應鶴岡発スタートアップを生み出すマインドセット",
+      "stage": "innovators",
+      "stageLabel": "Innovators Stage",
+      "stageIcon": "./assets/img/innovators-icon.png",
+      "speakers": [
+        {
+          "img": "./assets/img/guests/tomida.png",
+          "company": "一般社団法人鶴岡サイエンスパーク代表理事・<br>慶應義塾大学名誉教授",
+          "nameJa": "冨田 勝",
+          "nameEn": "Masaru Tomita"
+        }
+      ]
+    }
+  ]
+}

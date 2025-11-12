@@ -63,11 +63,18 @@
     visibility 0.6s linear;
   will-change: transform, opacity;
   box-shadow: 5px 5px 20px 0 #9cb6df;
+  // ここに追加
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.7);
+
   @include fs.pc-size(max-width, 1024);
   @include fs.pc-size(bottom, 24);
 
   @include mq("md") {
     width: 100%;
+    border-radius: 0;
     @include fs.sp-size(bottom, 0);
     @include fs.pc-size(max-width, unset);
   }
@@ -89,15 +96,17 @@
 .fixed-stage__wrap-inner {
   display: flex;
   align-items: center;
-  border-radius: 8px 8px 0 0;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  // backdrop-filterを削除
+  background: transparent; // または削除
   @include fs.pc-size(padding, 8 24);
 
   @include mq("md") {
+    border-radius: 0;
     padding: 0;
   }
 }
+
 .fixed-stage-label {
   font-weight: $bold;
   font-family: $second-font;
@@ -106,6 +115,8 @@
 
 .fixed-stage__items {
   display: flex;
+  width: 100%;
+  @include fs.pc-size(gap, 8);
   @include fs.pc-size(margin-left, 24);
 
   @include mq("md") {
@@ -117,16 +128,8 @@
 }
 
 .fixed-stage__item {
+  flex: 1;
   @include mq("md") {
-    flex: 1;
-  }
-}
-
-.fixed-stage__item + .fixed-stage__item {
-  @include fs.pc-size(margin-right, 8);
-
-  @include mq("md") {
-    margin-right: 0;
   }
 }
 
@@ -141,7 +144,7 @@
   will-change: opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
-  @include fs.pc-size(padding, 8 16);
+  @include fs.pc-size(padding, 8 6 8 16);
 
   @include mq("md") {
     text-align: center;
@@ -197,6 +200,27 @@
 }
 .fixed-stage__item__inner:hover::before {
   opacity: 1;
+}
+
+.fixed-stage__item__inner:is(:hover, .is-active, [aria-pressed="true"]) {
+  color: #fff;
+}
+.fixed-stage__item__inner:is(
+    :hover,
+    .is-active,
+    [aria-pressed="true"]
+  )::before {
+  opacity: 1;
+}
+
+.fixed-stage__item__inner:focus-visible {
+  outline: none;
+}
+.fixed-stage__item__inner:focus-visible::before {
+  opacity: 1;
+}
+.fixed-stage__item__inner:focus-visible {
+  color: #fff;
 }
 
 .stage-item__icon {
@@ -290,6 +314,11 @@
   @include mq("md") {
     height: auto;
     @include fs.sp-size(padding-bottom, 80);
+  }
+}
+.session-page .scroll-down {
+  @include mq("md") {
+    display: none;
   }
 }
 .session-page .container {
@@ -413,9 +442,12 @@
   font-weight: $regular;
   font-family: $second-font;
   color: $blue;
+  transition: color 0.4 ease;
+  @include fs.pc-size(padding-right, 23);
   @include fs.pc-size(font-size, 14);
 
   @include mq("md") {
+    @include fs.sp-size(padding-right, 23);
     @include fs.sp-size(font-size, 14);
   }
 }
@@ -426,19 +458,25 @@
   background-image: url(../img/link-icon-blue.svg);
   background-repeat: no-repeat;
   background-size: contain;
+  right: 0;
+  transition: background-image 0.4 ease;
   @include fs.pc-size(width, 15);
   @include fs.pc-size(height, 15);
   @include fs.pc-size(bottom, 2);
-  @include fs.pc-size(right, -23);
 
   @include mq("md") {
     @include fs.sp-size(width, 15);
     @include fs.sp-size(height, 15);
     @include fs.sp-size(bottom, 2);
-    @include fs.sp-size(right, -23);
   }
 }
-
+.session-page .map_link:hover {
+  text-decoration: underline;
+  color: #000;
+}
+.session-page .map_link:hover::before {
+  background-image: url(../img/link-icon-black.svg);
+}
 // session-timetable---------------------------------------------------------------------------------
 .session-timetable {
   margin: 0 auto;
